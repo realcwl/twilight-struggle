@@ -1,0 +1,9 @@
+.venv/
+.hyperframes/
+.thumbnails/
+renders/
+preview.log
+check.log
+proofs/*.log
+.capture-profile/
+*.log

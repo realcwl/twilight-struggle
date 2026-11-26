@@ -1,0 +1,75 @@
+/* 06 Treasury */
+.d06 .face { background: radial-gradient(120% 90% at 50% 40%, #f4ecd6 0%, #ece2c6 60%, #dccfa9 100%); }
+.d06-paper {
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 22% 18%, rgba(255, 255, 255, 0.35), transparent 70%),
+    radial-gradient(50% 40% at 85% 88%, rgba(120, 90, 30, 0.12), transparent 70%);
+  mix-blend-mode: multiply;
+}
+.d06 .scene {
+  --sky-a: #3f6a50;
+  --sky-b: #93b08d;
+  --sky-c: #e7ebd4;
+  --ray: #f5f3e0;
+  --ray-o: 0.3;
+  --glow: #f5f3e0;
+  --sun: #f5f3e0;
+  --sun-ring: #2c5a43;
+  --sun-ring-o: 0.5;
+  --far2: #a9bf9c;
+  --far: #648a6c;
+  --haze: #dfe6cf;
+  --haze-o: 0.5;
+  --mid: #2c5440;
+  --flag-a: #2c5440;
+  --flag-b: #eef0dc;
+  --flag-c: #143524;
+  --fig-d: #0e2a1c;
+  --fig-m: #23523a;
+  --fig-l: #6d9477;
+  --skin: #d2dfc3;
+  --skin-d: #8cae8f;
+  --beard: #0b2417;
+  --beard-l: #3a6b50;
+  --ink: #091c12;
+  --crowd-a: #1e4731;
+  --crowd-b: #0c2417;
+  --crowd-l: #d2dfc3;
+  --accent: #d2dfc3;
+  --dove: #f8f7e8;
+  --pennant: #143524;
+}
+.d06-title { font: 800 30px 'Playfair Display', serif; letter-spacing: 6px; fill: #143a2a; }
+.d06-serial { font: 400 13.500px 'Share Tech Mono', monospace; letter-spacing: 1.5px; fill: #b3261e; }
+.d06-micro { font: 700 9px 'Playfair Display', serif; letter-spacing: 2.6px; fill: #143a2a; }
+.d06-value { font: 900 54px 'Playfair Display', serif; fill: #efe6cd; }
+.d06-value.sm { font-size: 23px; }
+.d06-ribbon { font: 800 17px 'Playfair Display', serif; letter-spacing: 5px; fill: #143a2a; paint-order: stroke; stroke: #efe6cd; stroke-width: 5px; }
+.d06-text {
+  left: 13cqw;
+  right: 13cqw;
+  top: 91.500cqw;
+  height: 34cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.7cqw;
+  text-align: center;
+  color: #12281d;
+}
+.d06-text p { margin: 0; }
+.d06-text .rules { font: 500 4.300cqw/1.26 'Playfair Display', serif; text-wrap: balance; }
+.d06-text .rules b { font-weight: 800; }
+.d06-text .note { font: italic 500 3.200cqw/1.2 'Playfair Display', serif; color: #b3261e; }
+.d06-text .note::before {
+  content: '';
+  display: block;
+  width: 40cqw;
+  height: 0.7cqw;
+  margin: 0 auto 1.6cqw;
+  border-top: 0.25cqw solid #143a2a;
+  border-bottom: 0.12cqw solid #143a2a;
+}

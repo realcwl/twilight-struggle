@@ -1,0 +1,28 @@
+/* 02 Tear-off calendar */
+.yr-02 { width: 17rem; padding-top: 1.1rem; transform: rotate(-1.4deg); transform-origin: 50% 0; filter: drop-shadow(0 0.9rem 1.4rem rgba(0, 0, 0, 0.55)); --ink: #b5352a; }
+.yr-02[data-era='middle'] { --ink: #2c6a4c; }
+.yr-02[data-era='late'] { --ink: #2c4b82; }
+/* the strip the pages are stapled under, and the nail holes */
+.c2-bind { position: absolute; left: 0; right: 0; top: 0; z-index: 3; height: 1.9rem; border-radius: 0.3rem 0.3rem 0 0; background: linear-gradient(180deg, #5c4a3a, #3a2d22); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0.15rem 0.3rem rgba(0, 0, 0, 0.4); display: flex; justify-content: space-between; align-items: center; padding: 0 2.6rem; }
+.c2-bind i { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f2e3b0, #8e7436 70%); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+.c2-page { position: relative; z-index: 2; padding: 1.2rem 1.2rem 1rem; background: linear-gradient(180deg, #f7efd9, #ecdfbf); color: #2a211a; text-align: center; }
+/* the pages still to come, as a block of paper edges under the top one */
+.c2-stack { position: absolute; left: 0.15rem; right: -0.15rem; top: 1.2rem; bottom: calc(var(--left) * -0.34rem); z-index: 1; background: repeating-linear-gradient(180deg, #d9cba7 0 0.26rem, #a89a78 0.26rem 0.34rem); transition: bottom 0.5s; }
+.c2-band { display: flex; align-items: center; justify-content: space-between; margin: 0 -1.2rem; padding: 0.55rem 1.1rem; background: var(--ink); color: #fbf5e0; transition: background 0.4s; }
+.c2-han { font: 900 1.35rem/1 var(--han); letter-spacing: 0.2em; }
+.c2-era { padding: 0.2rem 0.55rem; border: 1px solid rgba(251, 245, 224, 0.7); font: 700 1.05rem/1 var(--han); letter-spacing: 0.16em; }
+.c2-year { margin: 0.75rem 0 0.2rem; font: 900 6.4rem/0.92 'Playfair Display', serif; letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: lining-nums; transition: color 0.4s; }
+.c2-turn { font: 700 1.3rem/1 var(--han); letter-spacing: 0.3em; }
+.c2-turn b { margin: 0 0.1em; font-weight: 900; color: var(--ink); }
+.c2-turn i { margin-left: 0.7rem; font-size: 1rem; letter-spacing: 0.1em; color: rgba(42, 33, 26, 0.55); }
+.c2-week { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 0.85rem; border-top: 2px solid var(--ink); border-bottom: 1px solid rgba(42, 33, 26, 0.35); }
+.c2-week i { position: relative; padding: 0.42rem 0 0.38rem; font: 700 1.35rem/1 'Playfair Display', serif; color: rgba(42, 33, 26, 0.75); }
+.c2-week i + i { border-left: 1px solid rgba(42, 33, 26, 0.18); }
+.c2-week i.done { color: rgba(42, 33, 26, 0.35); }
+.c2-week i.done::after { content: ''; position: absolute; left: 22%; right: 22%; top: 50%; height: 1.5px; background: var(--ink); transform: rotate(-38deg); opacity: 0.8; }
+.c2-week i.now { color: var(--ink); font-weight: 900; }
+.c2-week i.now::after { content: ''; position: absolute; left: 50%; top: 50%; width: 1.9rem; height: 1.9rem; margin: -0.95rem; border: 2px solid var(--ink); border-radius: 50%; transform: rotate(-8deg) scaleY(0.92); }
+.c2-note { margin-top: 0.6rem; font: 700 1.15rem/1 var(--han); letter-spacing: 0.14em; color: rgba(42, 33, 26, 0.8); }
+.c2-note b { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-right: 0.5rem; border-radius: 50%; background: var(--ink); color: #fbf5e0; font-weight: 900; letter-spacing: 0; }
+.c2-torn { position: absolute; left: 0; right: 0; top: 1.1rem; z-index: 4; transform-origin: 20% 0; animation: c2-tear 0.75s cubic-bezier(0.4, 0, 0.8, 0.6) forwards; pointer-events: none; }
+@keyframes c2-tear { 20% { transform: rotate(4deg) translateY(0.4rem); opacity: 1; } 100% { transform: rotate(18deg) translate(3rem, 16rem); opacity: 0; } }

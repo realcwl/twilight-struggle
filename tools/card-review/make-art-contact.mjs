@@ -1,0 +1,7 @@
+// Inspection-only contact sheets; never replaces or modifies card illustrations.
+import sharp from 'sharp';import {readFile,mkdir,writeFile} from 'node:fs/promises';
+const cards=JSON.parse(await readFile('prototypes/card-designs/final/cards.json'));
+const manifest=JSON.parse(await readFile('prototypes/card-designs/final/art-manifest.json'));
+const ids=process.argv.slice(2).map(Number);const list=cards.filter(c=>manifest[c.id]&&(!ids.length||ids.includes(c.id)));
+await mkdir('/tmp/ts-deck-research/visual-audit',{recursive:true});
+for(let start=0;start<list.length;start+=20){const batch=list.slice(start,start+20);const layers=[];for(let i=0;i<batch.length;i++){const c=batch[i];layers.push({input:await sharp('prototypes/card-designs/final/'+c.art).resize(320,210,{fit:'cover'}).toBuffer(),left:i%4*320,top:Math.floor(i/4)*240});const title=c.title.replace(/[&<>]/g,'');layers.push({input:Buffer.from(`<svg width="320" height="30"><rect width="320" height="30" fill="#111"/><text x="8" y="20" font-family="Arial" font-size="13" fill="white">${String(c.id).padStart(3,'0')} ${title.slice(0,36)}</text></svg>`),left:i%4*320,top:Math.floor(i/4)*240+210})}const out=`/tmp/ts-deck-research/visual-audit/sheet-${start/20+1}.jpg`;await sharp({create:{width:1280,height:Math.ceil(batch.length/4)*240,channels:3,background:'#111'}}).composite(layers).jpeg({quality:88}).toFile(out);await writeFile(out.replace('.jpg','.json'),JSON.stringify(batch.map(c=>c.id)));console.log(out)}

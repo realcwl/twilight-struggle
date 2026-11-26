@@ -1,0 +1,26 @@
+/* 04 Lantern: ten lit faces round a drum, the one facing you is now */
+.ep-host[data-ep='04'] { padding: 0.9rem 1.2rem 1.1rem; }
+/* r is the drum's radius for ten faces w wide: w / (2 tan 18deg) */
+.ep-04 { width: 33.6rem; --w: 10.8rem; --h: 6.8rem; --r: calc(var(--w) * 1.5388); }
+.l4-stage { position: relative; height: calc(var(--h) + 2.2rem); perspective: 52rem; overflow: hidden; border-radius: 0.5rem; background: radial-gradient(60% 90% at 50% 50%, #2a1c0e, #0b0806 75%); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(236, 223, 195, 0.14); -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+/* the lamp inside, seen through the gaps and spilling round the front face */
+.l4-glow { position: absolute; left: 50%; top: 50%; width: 15rem; height: 11rem; margin: -5.5rem 0 0 -7.5rem; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 196, 96, 0.5), rgba(255, 160, 60, 0.12) 60%, transparent); }
+.l4-drum { position: absolute; left: 50%; top: 1.1rem; width: 0; height: var(--h); transform-style: preserve-3d; transform: translateZ(calc(var(--r) * -1)) rotateY(calc(var(--i, 0) * -36deg)); transition: transform 1.25s cubic-bezier(0.45, 0, 0.2, 1); }
+.l4-p { position: absolute; left: calc(var(--w) / -2); top: 0; width: var(--w); height: var(--h); transform: rotateY(calc(var(--k) * 36deg)) translateZ(var(--r)); backface-visibility: hidden; -webkit-backface-visibility: hidden; background: #0b0806; box-shadow: inset 0 0 0 0.2rem #24170c; }
+.l4-p .ep-pic { position: absolute; inset: 0.2rem; transition: filter 1.1s; }
+/* brass bands along the top and the bottom of every face: together they are the lamp's two rims */
+.l4-p::before, .l4-p::after { content: ''; position: absolute; left: -1px; right: -1px; height: 0.56rem; background: linear-gradient(180deg, #6b4d1c, #e9c66c 35%, #b98a2a 60%, #4a3413); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5); }
+.l4-p::before { top: -0.56rem; }
+.l4-p::after { bottom: -0.56rem; }
+.l4-p b { position: absolute; left: 0.5rem; top: 0.45rem; font: 600 1rem/1 'Oswald', sans-serif; color: #fff; text-shadow: 0 1px 2px #000, 0 0 4px #000; }
+/* lit from inside: the face towards you is brightest, the ones turning away fall off quickly */
+.l4-p[data-d='0'] .ep-pic { --state: brightness(1.1); box-shadow: 0 0 2.4rem rgba(255, 190, 90, 0.35); }
+.l4-p[data-d='-1'] .ep-pic { --state: brightness(0.6); }
+.l4-p[data-d='-2'] .ep-pic { --state: brightness(0.36); }
+.l4-p[data-d='1'] .ep-pic { --state: brightness(0.3) saturate(0.6); }
+.l4-p[data-d='2'] .ep-pic { --state: brightness(0.16) saturate(0.4); }
+.l4-p[data-d='3'] .ep-pic, .l4-p[data-d='-3'] .ep-pic { --state: brightness(0.1); }
+/* the far end of the game coming round: neither seen yet nor remembered */
+.l4-p.next[data-d='-1'] .ep-pic, .l4-p.next[data-d='-2'] .ep-pic { --state: brightness(0.08); }
+.l4-p.past[data-d='1'] .ep-pic, .l4-p.past[data-d='2'] .ep-pic { --state: brightness(0.3); }
+.l4-p:not([data-d='0']) b { color: rgba(255, 255, 255, 0.45); }

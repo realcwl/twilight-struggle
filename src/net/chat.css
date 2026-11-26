@@ -1,0 +1,35 @@
+/* Floating room conversation. Messages never fade; collapse belongs to the player. */
+.room-chat{position:absolute;z-index:4700;display:flex;flex-direction:column;pointer-events:none;color:#eee9dd;font:13px/1.65 -apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;text-shadow:0 1px 3px #000,0 0 8px #000;isolation:isolate}
+.room-chat *{box-sizing:border-box}
+.room-chat::before{content:'';position:absolute;inset:-6px -10px;z-index:-1;border-radius:6px;background:linear-gradient(90deg,#0b111bc9,#10171b66 75%,transparent);pointer-events:none}
+.room-chat header{display:flex;align-items:center;justify-content:space-between;height:28px;flex:none;border-bottom:1px solid #cfbc861f}
+.room-chat button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;pointer-events:auto;text-shadow:inherit;padding:2px 4px}
+.room-chat button:focus-visible,.room-chat input:focus-visible,.room-chat .rc-log:focus-visible{outline:1px solid #cdb77c;outline-offset:2px}
+.rc-heading{display:flex;align-items:center;gap:7px;color:#cbbd9a!important;font-size:11px!important;letter-spacing:.1em}
+.rc-heading svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.3}
+.rc-fold{font-size:19px!important;line-height:1!important;width:26px;height:26px;color:#d6cdb8!important}
+.rc-fold:hover{background:#d4c08d16}
+.rc-unread{font:600 10px/1.5 sans-serif;letter-spacing:0;background:#c3a873;color:#16191d;border-radius:9px;min-width:17px;padding:0 4px;text-shadow:none}
+.rc-content{display:flex;flex-direction:column;flex:1;min-height:0;padding-top:6px}
+.rc-log{flex:1;min-height:0;overflow:auto;scrollbar-width:none;overscroll-behavior:contain}
+.rc-message{margin:0 0 6px;overflow-wrap:anywhere;line-height:1.65}
+.rc-message b{font-weight:600;margin-right:8px;color:#8ab6ff}
+.rc-ussr b{color:#ff9482}
+.rc-message time{color:#c6c6c17a;font:10px/1 sans-serif;white-space:nowrap}
+.rc-message small,.rc-message button{font-size:10px;display:inline-block;margin-left:6px;color:#e2c18c}
+.rc-message.is-failed{border-left:1px solid #ddaa6c;padding-left:6px}
+.rc-message.is-failed button{text-decoration:underline;text-underline-offset:3px}
+.rc-empty{color:#b7b8b3a0;font-size:12px;margin:6px 0}
+.rc-compose{flex:none;text-align:left;color:#c5c2b1!important;font-size:11px!important;margin-top:6px;padding:5px 4px!important;border-top:1px solid #d3bf8f22!important}
+.rc-compose kbd{float:right;font:10px/1.7 sans-serif;color:#a69e88}
+.rc-form{display:flex;gap:5px;flex:none;border-bottom:1px solid #cbb47a8a;background:#111822d9;margin-top:6px;padding:3px 4px;pointer-events:auto}
+.rc-form input{width:0;min-width:0;flex:1;border:0;background:transparent;color:#f6eedc;font:13px/1.8 -apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif;outline:none;text-shadow:none}
+.rc-form button{color:#d8c18b;font-size:11px;white-space:nowrap}
+.rc-status{margin:3px 0 0;font-size:10px;color:#e6bb8c;line-height:1.35}
+.rc-latest{font-size:10px!important;color:#ddc287!important;text-align:right;padding:0!important}
+.room-chat.is-reading::before{background:linear-gradient(90deg,#0b111bef,#10171be6)}
+.room-chat.is-reading .rc-log{pointer-events:auto;user-select:text;scrollbar-width:thin;scrollbar-color:#8e8065 transparent}
+.room-chat.is-collapsed::before{background:linear-gradient(90deg,#0b111ba9,transparent)}
+.room-chat.is-collapsed header{border-bottom:0}
+.room-chat [hidden]{display:none!important}
+@media(max-width:700px){.room-chat{font-size:12px}.rc-message time{display:none}.rc-heading{font-size:10px!important}.rc-form input{font-size:16px}.rc-compose kbd{display:none}}

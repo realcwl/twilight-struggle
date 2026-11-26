@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>北大西洋公约组织 · 第021号牌</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="cards.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="v2/kit.css" />
+    <link rel="stylesheet" href="v2/01-red-enamel.css" />
+    <link rel="stylesheet" href="nato/nato.css" />
+  <script src="zh.js"></script></head>
+  <body>
+    <header class="n-header">
+      <a class="n-wordmark" href="nato.html">卡牌设计 <span>/ 01</span></a>
+      <nav aria-label="设计档案">
+        <a href="index.html">V1</a><a href="v2.html">V2</a><a href="deck.html">牌组</a><a href="nato.html" aria-current="page">北约</a>
+      </nav>
+    </header>
+    <main>
+      <section class="n-heading" aria-labelledby="page-title">
+        <div>
+          <p class="n-eyebrow">第021号牌 <span>—</span> 冷战早期</p>
+          <h1 id="page-title">北约<span>北大西洋公约组织</span></h1>
+          <p class="n-intro">蓝底、白色罗盘。让主题先于细节被看见。</p>
+        </div>
+        <div class="n-actions">
+          <button type="button" id="turn-all">翻转卡牌 <span>↻</span></button>
+          <button type="button" id="show-art">查看原画 <span>↗</span></button>
+        </div>
+      </section>
+      <section class="n-stage" aria-label="北约牌正面与统一背面">
+        <figure class="n-specimen" id="front-specimen">
+          <div id="front-slot"></div>
+          <figcaption><span class="n-view-label">01 / 正面</span><span>4行动点 · 美国事件</span></figcaption>
+        </figure>
+        <figure class="n-specimen" id="back-specimen">
+          <div id="back-slot"></div>
+          <figcaption><span class="n-view-label">02 / 统一背面</span><span>黑色珐琅 · 金色罗盘</span></figcaption>
+        </figure>
+      </section>
+      <p class="n-hint">移动鼠标查看金属光泽 · 点击卡牌或按 Enter 翻面</p>
+      <footer class="n-footer">
+        <p>简化 V2 · 01 的蓝金框架，以北约旗帜为主视觉。原牌规则完整保留，星号与下划线分别标识事件移除与持续效果。</p>
+        <div><a href="nato/front.png" download="NATO-021-front.png">正面 PNG ↓</a><a href="nato/back.png" download="NATO-card-back.png">背面 PNG ↓</a><a href="nato/art-direction.md">设计记录</a></div>
+      </footer>
+    </main>
+    <dialog id="art-viewer" aria-labelledby="art-title">
+      <button type="button" id="close-art" aria-label="关闭原画">×</button>
+      <figure><img src="nato/nato-flag.png" alt="深蓝色北约旗帜，中央白色罗盘标志完整清晰，布料轻微起伏。" /><figcaption id="art-title">北大西洋联盟 <span>北约旗帜 · 创作插图</span></figcaption></figure>
+    </dialog>
+    <noscript>启用 JavaScript 查看可翻转的卡牌，或下载上方的正面与背面 PNG。</noscript>
+    <script src="art.js"></script>
+    <script src="v2/kit.js"></script>
+    <script src="v2/01-red-enamel.js"></script>
+    <script src="nato/card.js"></script>
+    <script src="nato/app.js"></script>
+  </body>
+</html>

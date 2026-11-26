@@ -1,0 +1,44 @@
+/* 03 · 胡桃木与黄铜 — a walnut tray lined with green baize; the title is a brass plate screwed to the
+   frame, the buttons are brass plaques. */
+[data-ui='03'] .sx {
+  --ink: #f1e3c6; --strong: #fff3d8; --muted: rgba(241, 227, 198, 0.74); --line: rgba(232, 192, 112, 0.42);
+  --accent: #dcb65e; --on-accent: #2a1b0c; --select: #f6d98a;
+  --well: radial-gradient(120% 100% at 50% 0%, #2c6e55, #1a4a38 70%, #143b2d);
+  --r: 9px; --pad: 26px;
+  /* walnut: long grain, a few darker streaks, a warm ground */
+  background: repeating-linear-gradient(91deg, rgba(0, 0, 0, 0.13) 0 2px, transparent 2px 11px), repeating-linear-gradient(89deg, rgba(255, 215, 150, 0.06) 0 1px, transparent 1px 17px), repeating-linear-gradient(90.5deg, transparent 0 60px, rgba(0, 0, 0, 0.1) 60px 78px, transparent 78px 150px), linear-gradient(180deg, #5d3b22 0%, #472b18 55%, #3a2213 100%);
+  /* a bevelled edge, catching light above and falling into shadow below */
+  box-shadow: inset 0 1.5px 0 rgba(255, 225, 170, 0.34), inset 0 -3px 0 rgba(0, 0, 0, 0.45), inset 2px 0 0 rgba(255, 225, 170, 0.08), inset -2px 0 0 rgba(0, 0, 0, 0.25), 0 0 0 1px #1c1009, 0 30px 70px rgba(0, 0, 0, 0.72);
+}
+[data-ui='03'] .sx-kicker { letter-spacing: 0.24em; color: rgba(241, 227, 198, 0.72); text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6); }
+/* the brass plate, a screw at each end */
+[data-ui='03'] .sx-title { display: inline-block; margin-top: 8px; padding: 6px 32px 5px; border-radius: 3px; color: #3a2710; font-size: 22px; letter-spacing: 0.12em; text-shadow: 0 1px 0 rgba(255, 240, 200, 0.55); background: radial-gradient(circle at 13px 50%, #6f4f1c 0 2.4px, #f3dc98 2.6px 4.4px, transparent 4.8px), radial-gradient(circle at calc(100% - 13px) 50%, #6f4f1c 0 2.4px, #f3dc98 2.6px 4.4px, transparent 4.8px), linear-gradient(180deg, #f4dc97 0%, #d2a84f 48%, #b98d38 52%, #caa24b 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(80, 50, 10, 0.6), 0 2px 4px rgba(0, 0, 0, 0.55); }
+[data-ui='03'] .sx-title small { color: rgba(58, 39, 16, 0.75); }
+[data-ui='03'] .sx-sub { margin-top: 12px; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+
+[data-ui='03'] .sx-btn { border-radius: 4px; border-color: rgba(0, 0, 0, 0.6); background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.42)); box-shadow: inset 0 1px 0 rgba(255, 225, 170, 0.18), inset 0 0 0 1px rgba(220, 182, 94, 0.3), 0 2px 0 rgba(0, 0, 0, 0.45); text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6); }
+[data-ui='03'] .sx-btn:hover { border-color: rgba(0, 0, 0, 0.6); box-shadow: inset 0 1px 0 rgba(255, 225, 170, 0.25), inset 0 0 0 1px rgba(220, 182, 94, 0.75), 0 2px 0 rgba(0, 0, 0, 0.45); }
+[data-ui='03'] .sx-btn:active { transform: translateY(2px); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5); }
+[data-ui='03'] .sx-btn.is-primary { border-color: #6f4f1c; background: linear-gradient(180deg, #f4dc97 0%, #d2a84f 48%, #b98d38 52%, #caa24b 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(80, 50, 10, 0.55), 0 2px 0 #4a3210, 0 4px 8px rgba(0, 0, 0, 0.45); text-shadow: 0 1px 0 rgba(255, 240, 200, 0.55); }
+[data-ui='03'] .sx-btn.is-ghost { border-color: transparent; background: none; box-shadow: none; }
+[data-ui='03'] .sx-chip { border-color: rgba(220, 182, 94, 0.55); background: rgba(0, 0, 0, 0.25); color: #f1e3c6; }
+[data-ui='03'] .sx-chip.is-on { color: #2a1b0c; background: linear-gradient(180deg, #f1d68c, #c79d45); border-color: #6f4f1c; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5); }
+[data-ui='03'] .sx-key { border-color: rgba(220, 182, 94, 0.6); background: rgba(0, 0, 0, 0.3); color: #f3dc98; }
+[data-ui='03'] .sx-close { border-color: #6f4f1c; background: linear-gradient(180deg, #f1d68c, #b98d38); color: #3a2710; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 2px 3px rgba(0, 0, 0, 0.5); }
+[data-ui='03'] .sx-close:hover { color: #000; border-color: #3a2710; filter: brightness(1.08); }
+[data-ui='03'] .sx-link { color: #f3dc98; }
+
+/* baize, sunk into the wood */
+[data-ui='03'] .sx-well { border-radius: 5px; box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 225, 170, 0.22); }
+[data-ui='03'] .sx-well::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0.5; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.3' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+[data-ui='03'] .sx-cap { color: #e9f1e4; }
+[data-ui='03'] .sx-face .game-card { box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5), 0 10px 18px rgba(0, 0, 0, 0.45); }
+/* wooden tiles, a brass pin in the chosen one */
+[data-ui='03'] .sx-option { border-radius: 5px; border-color: rgba(0, 0, 0, 0.55); background: linear-gradient(180deg, rgba(255, 220, 160, 0.13), rgba(0, 0, 0, 0.14)); box-shadow: inset 0 1px 0 rgba(255, 225, 170, 0.22), 0 2px 0 rgba(0, 0, 0, 0.4); }
+[data-ui='03'] .sx-option.is-on { border-color: #6f4f1c; background: linear-gradient(180deg, rgba(244, 220, 151, 0.3), rgba(202, 162, 75, 0.14)); box-shadow: inset 0 0 0 1.5px #e8c670, inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 0 rgba(0, 0, 0, 0.4); }
+[data-ui='03'] .sx-option.is-on::after { content: ''; position: absolute; right: 14px; top: 14px; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 36% 30%, #fff3c4, #dcb65e 45%, #8a6424 100%); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6); }
+[data-ui='03'] .sx-opt-note { color: rgba(241, 227, 198, 0.8); }
+/* reading matter goes on a card of cream paper laid in the tray */
+[data-ui='03'] .sx-detail-text .sx-body, [data-ui='03'] .sx-tip .sx-body { margin: 14px var(--pad) 16px; padding: 14px 16px; border-radius: 3px; background: #efe4c9; --ink: #2d2216; --strong: #1b130a; --muted: rgba(45, 34, 22, 0.7); --accent: #8a5a1c; --well: rgba(90, 60, 20, 0.1); color: var(--ink); box-shadow: 0 1px 0 rgba(255, 225, 170, 0.2), 0 3px 8px rgba(0, 0, 0, 0.5); }
+[data-ui='03'] .sx-tip .sx-body { margin: 12px var(--pad) 14px; }
+[data-ui='03'] .sx-toast .sx-kicker { padding: 3px 10px; border-radius: 2px; color: #3a2710; background: linear-gradient(180deg, #f1d68c, #c79d45); text-shadow: none; letter-spacing: 0.14em; }

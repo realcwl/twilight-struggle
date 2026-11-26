@@ -1,0 +1,355 @@
+/* Map module styles: stage, nameplates, info card. Side colours come from the scenario via --side-a / --side-b. */
+.wm-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  background: #14110f;
+  --parchment: #ecdfc3;
+  --ink: #241a12;
+  --gold: #f0bf4a;
+  --battleground: var(--gold);
+  font-family: MapText, 'Songti SC', 'Noto Serif SC', serif;
+}
+.wm-stage.hot { cursor: pointer; }
+.wm-stage.dragging { cursor: grabbing; }
+.wm-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+/* ---------------------------------------------------------------- nodes */
+/* --fit is the scale a token has room for and --tight how far its cells are squeezed (0 roomy, 1 tight);
+   both are set from the zoom by plates.ts. A token in focus takes all the room it wants.
+   A token is four cells in a row: stability, the two influences, the region mark. Their widths add up to
+   91px roomy and 40px tight, the two numbers plates.ts budgets with (ROOMY and TIGHT). */
+.wm-plates { position: absolute; inset: 0; pointer-events: none; overflow: hidden; --fit: 1; --tight: 0; }
+.wm-plate {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, filter 0.25s ease;
+  --s: var(--fit);
+  --k: var(--tight);
+  /* how far the top of the token stands above the node */
+  --top: calc((13px - 3px * var(--k)) * var(--s));
+  /* the token's width and height before it is scaled; what stands around the token is placed with these */
+  --w: calc(91px - 51px * var(--k));
+  --h: calc(24px - 6px * var(--k));
+}
+.wm-plate.expanded { --s: max(var(--fit), 0.95); --k: 0; z-index: 100000 !important; }
+.wm-plate-name,
+.wm-plate-body,
+.wm-flag,
+.wm-battle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.wm-plate-body {
+  display: flex;
+  align-items: stretch;
+  height: var(--h);
+  transform: translate(-50%, -50%) scale(var(--s));
+  border-radius: calc(12px - 3px * var(--k)) calc(6px - 1px * var(--k)) calc(6px - 1px * var(--k)) calc(12px - 3px * var(--k));
+  background: #1e1711;
+  box-shadow: 0 0 0 1.5px rgba(236, 223, 195, 0.75), 0 2px 8px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  pointer-events: auto;
+  cursor: pointer;
+  font-family: MapDisplay, MapText, serif;
+  font-weight: 800;
+  font-size: 14.5px;
+  line-height: var(--h);
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.2s ease, line-height 0.2s ease;
+}
+/* stability: a parchment badge, deliberately unlike the two influence cells */
+.wm-stab {
+  flex: none;
+  width: calc(24px - 12px * var(--k));
+  border-radius: 99px;
+  text-align: center;
+  background: var(--parchment);
+  color: var(--ink);
+  font-size: 0.9em;
+  box-shadow: inset 0 0 0 1.5px rgba(36, 26, 18, 0.5);
+  transition: width 0.2s ease;
+}
+.wm-plate.key .wm-stab {
+  background: #a73436;
+  color: #fff2df;
+  box-shadow: inset 0 0 0 1.5px rgba(255, 242, 223, 0.24);
+}
+/* influence: always written out, a faint zero where a side has none */
+.wm-inf {
+  box-sizing: border-box;
+  min-width: calc(24px - 12.5px * var(--k));
+  /* at its tightest a cell is still wider than the widest digit, so no number pushes the token wider */
+  padding: 0 calc(3px - 2.25px * var(--k));
+  text-align: center;
+  color: rgba(236, 223, 195, 0.42);
+  transition: min-width 0.2s ease, padding 0.2s ease, margin 0.2s ease;
+}
+.wm-inf.a { margin-left: calc(2px - 2px * var(--k)); }
+.wm-inf.b { box-shadow: inset 1px 0 0 rgba(236, 223, 195, calc(0.2 * var(--k))); }
+.wm-inf.on { color: #fff; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45); box-shadow: none; }
+.wm-inf.a.on { background: var(--side-a); }
+.wm-inf.b.on { background: var(--side-b); }
+/* region: the cell at the token's right end, in the region's colour (--region, set per token by
+   plates.ts). Up close it carries the region's mark. As the token tightens the mark fades out before
+   it gets too small to read, and the cell narrows to a sliver of colour. */
+.wm-mark {
+  flex: none;
+  width: calc(17px - 12px * var(--k));
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  font-family: MapText, 'Songti SC', 'Noto Serif SC', serif;
+  font-size: min(12px, 20px * (1 - var(--k)));
+  color: rgb(26 18 11 / clamp(0, 2.5 - 4 * var(--k), 1));
+  background: var(--region);
+  box-shadow: inset 1px 0 0 rgba(20, 14, 9, 0.55);
+  transition: width 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+.wm-mark.wide { font-size: min(9px, 15px * (1 - var(--k))); letter-spacing: -0.02em; }
+.wm-plate.ctrl-a .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-a), 0 0 0 4px rgba(255, 255, 255, 0.85), 0 2px 9px rgba(0, 0, 0, 0.7); }
+.wm-plate.ctrl-b .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-b), 0 0 0 4px rgba(255, 255, 255, 0.85), 0 2px 9px rgba(0, 0, 0, 0.7); }
+/* A thicker gold outer ring identifies battlegrounds; the inner blue/red ring still identifies control. */
+.wm-plate.key .wm-plate-body { box-shadow: 0 0 0 3.5px var(--battleground), 0 2px 8px rgba(0, 0, 0, 0.65); }
+.wm-plate.key.ctrl-a .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-a), 0 0 0 6px var(--battleground), 0 2px 9px rgba(0, 0, 0, 0.7); }
+.wm-plate.key.ctrl-b .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-b), 0 0 0 6px var(--battleground), 0 2px 9px rgba(0, 0, 0, 0.7); }
+/* control, said a second time and louder: a controlled country stands on a plinth of the controlling
+   side's colour (plates.ts puts it first in the token, so the token is drawn over it). It is a little
+   wider than the token and shows below it as a band of colour, which still reads when the token is at
+   its smallest. It fades in and out with control; the colour lets go only once it has faded out. */
+.wm-plinth {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--w) + 20px - 6px * var(--k));
+  height: calc(13px - 3px * var(--k));
+  transform-origin: 50% 0;
+  transform: translate(-50%, calc(var(--h) * 0.5 * var(--s) + 1px)) scale(var(--s));
+  opacity: 0;
+  transition: opacity 0.25s ease, color 0s 0.25s, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.2s ease, height 0.2s ease;
+}
+.wm-plinth svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.wm-plinth path { fill: currentColor; stroke: #fff; stroke-width: 1.5px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.wm-plate.ctrl-a .wm-plinth,
+.wm-plate.ctrl-b .wm-plinth { opacity: 1; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55)); transition-delay: 0s; }
+.wm-plate.ctrl-a .wm-plinth { color: var(--side-a); }
+.wm-plate.ctrl-b .wm-plinth { color: var(--side-b); }
+/* battleground: two crossed rifles on the token's top-left corner (battleMark.ts). Up close the rifles hang
+   off the corner diagonally, clear of the name above the token; as the token tightens they climb onto
+   its top edge beside the flag, so that they neither cover the stability number nor reach far into the
+   neighbour on the left. About as tall as the token itself: 27px up close, 20px at the tightest. */
+.wm-battle {
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+  transform: translate(calc((var(--w) * -0.5 - 3px + 6px * var(--k)) * var(--s)), calc((var(--h) * -0.5 - 3px - 2px * var(--k)) * var(--s))) translate(-50%, -50%)
+    scale(calc(var(--s) * (0.84 - 0.2 * var(--k))));
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.6));
+}
+.wm-battle svg { display: block; width: 100%; height: 100%; overflow: visible; }
+/* only the rifles themselves answer the pointer, not the square they are drawn in */
+.wm-battle path { pointer-events: auto; cursor: pointer; }
+.wm-plate.target .wm-plate-body { animation: wm-target 1.1s ease-in-out infinite; }
+@keyframes wm-target {
+  50% { box-shadow: 0 0 0 3px var(--gold), 0 0 14px 3px rgba(240, 191, 74, 0.8); }
+}
+.wm-power-symbol { display: block; min-width: calc(28px - 6px * var(--k)); text-align: center; }
+.wm-plate.superpower .wm-plate-body { border-radius: 50%; }
+
+/* what stands above the token: the country's name when there is room for names, its flag when there is not.
+   The name is drawn over the battle mark where the two meet. */
+.wm-plate-name {
+  z-index: 2;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) translateY(calc(3px - var(--top))) scale(calc(var(--s) * 0.86));
+  opacity: 0;
+  font-weight: 800;
+  font-size: 14.5px;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  color: #fffaf0;
+  /* a solid dark outline reads on any terrain, where a soft shadow does not */
+  -webkit-text-stroke: 3.5px rgba(22, 15, 9, 0.92);
+  paint-order: stroke fill;
+  text-shadow: 0 1px 4px rgba(22, 15, 9, 0.7);
+}
+.wm-plate.named .wm-plate-name,
+.wm-plate.expanded .wm-plate-name { opacity: 1; transform: translate(-50%, -100%) translateY(calc(-1px * var(--s) - var(--top))) scale(var(--s)); }
+
+/* the flag flies from a short staff planted on the token */
+.wm-flag {
+  width: 18px;
+  height: 12px;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) translateY(calc(-1 * var(--top))) scale(calc(var(--s) * (1.2 - 0.3 * var(--k))));
+  background: #1e1711;
+  box-shadow: 0 0 0 1px rgba(22, 15, 9, 0.9), 0 1px 3px rgba(0, 0, 0, 0.55);
+  pointer-events: auto;
+  cursor: pointer;
+}
+.wm-flag::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: -2px;
+  width: 2px;
+  height: calc(100% + 6px);
+  border-radius: 1px;
+  background: linear-gradient(90deg, #f6d27a, #b98a2c);
+  box-shadow: 0 0 0 0.75px rgba(22, 15, 9, 0.9);
+}
+.wm-flag svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* a node that stands for several states flies two flags, halved along the diagonal */
+.wm-flag svg.upper { clip-path: polygon(0 0, 100% 0, 0 100%); }
+.wm-flag svg.lower { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.wm-plate.named .wm-flag,
+.wm-plate.expanded .wm-flag {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -100%) translateY(calc(-1 * var(--top))) scale(calc(var(--s) * 0.5));
+}
+
+/* While the zoom is changing sizes follow it exactly; the eased changes above are for changes of state. */
+.wm-plates.zooming .wm-plate-body,
+.wm-plates.zooming .wm-plate-name,
+.wm-plates.zooming .wm-flag,
+.wm-plates.zooming .wm-battle,
+.wm-plates.zooming .wm-plinth,
+.wm-plates.zooming .wm-stab,
+.wm-plates.zooming .wm-inf,
+.wm-plates.zooming .wm-mark { transition: opacity 0.25s ease; }
+
+/* focus: nodes outside the hovered country and its neighbours step back */
+.wm-plates.focused .wm-plate { opacity: 0.45; filter: saturate(0.6); }
+.wm-plates.focused .wm-plate.secondary { opacity: 1; filter: none; }
+.wm-plates.focused .wm-plate.primary { opacity: 1; filter: none; }
+
+/* ---------------------------------------------------------------- info card */
+.wm-card {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 276px;
+  padding: 14px 16px 12px;
+  border-radius: 10px;
+  color: var(--parchment);
+  background: linear-gradient(180deg, #281f17, #1b1510);
+  box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.28), 0 14px 40px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: 3000;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.wm-card[hidden] { display: none; }
+.wm-card.right { left: auto; right: calc(18px + var(--inset-right, 0px)); }
+.wm-card.pinned {
+  pointer-events: auto;
+  cursor: default;
+  box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.7), 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+.wm-card-title { font-size: 21px; font-weight: 800; letter-spacing: 0.06em; line-height: 1.15; color: #fff7e4; text-wrap: balance; }
+.wm-card-sub { margin-left: 9px; font-family: MapDisplay, serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(236, 223, 195, 0.6); }
+.wm-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-top: 4px; color: rgba(236, 223, 195, 0.78); }
+/* "battleground", with the mark a battleground's node wears */
+.wm-key { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px 1px 5px; border-radius: 99px; background: rgba(240, 191, 74, 0.14); box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.65); color: #f7d98b; font-size: 11.5px; font-weight: 700; white-space: nowrap; }
+/* the battle mark in a line of text, a little taller than the letters beside it */
+.wm-battle-inline { flex: none; display: inline-block; width: 1.36em; height: 1.2em; vertical-align: -0.24em; }
+.wm-battle-glyph { display: block; width: 100%; height: 100%; overflow: visible; }
+.wm-card-inf { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.wm-inf-box { display: flex; align-items: baseline; justify-content: space-between; padding: 6px 10px; border-radius: 7px; background: rgba(236, 223, 195, 0.07); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.16); }
+.wm-inf-box b { font-family: MapDisplay, serif; font-size: 22px; font-weight: 800; line-height: 1; color: rgba(236, 223, 195, 0.4); font-variant-numeric: tabular-nums; }
+.wm-inf-side { font-size: 12px; color: rgba(236, 223, 195, 0.8); }
+.wm-inf-box.a { box-shadow: inset 3px 0 0 var(--side-a), inset 0 0 0 1px rgba(236, 223, 195, 0.16); }
+.wm-inf-box.b { box-shadow: inset 3px 0 0 var(--side-b), inset 0 0 0 1px rgba(236, 223, 195, 0.16); }
+.wm-inf-box.on b { color: #fff; }
+.wm-chip { display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 50%; background: transparent; box-shadow: inset 0 0 0 1.5px rgba(236, 223, 195, 0.55); }
+.wm-chip.a, .wm-card-ctrl.a .wm-chip { background: var(--side-a); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5); }
+.wm-chip.b, .wm-card-ctrl.b .wm-chip { background: var(--side-b); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5); }
+.wm-card-ctrl { display: flex; align-items: center; gap: 8px; margin-top: 11px; font-weight: 700; font-size: 14px; }
+.wm-card-ctrl.none { color: rgba(236, 223, 195, 0.75); font-weight: 400; }
+.wm-card-flip { margin: 2px 0 0 18px; color: rgba(236, 223, 195, 0.72); font-size: 12.5px; }
+.wm-card-h { margin-top: 12px; padding-top: 9px; border-top: 1px solid rgba(236, 223, 195, 0.16); font-size: 11.5px; letter-spacing: 0.12em; color: rgba(236, 223, 195, 0.6); }
+.wm-card-nb { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 12px; }
+.wm-card-nb li { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.wm-nb-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wm-nb-kind { display: none; margin-left: auto; font-size: 11px; color: rgba(236, 223, 195, 0.55); }
+.wm-card-nb li.sea .wm-nb-kind { display: inline; }
+.wm-card-hint { margin-top: 11px; font-size: 11px; color: rgba(236, 223, 195, 0.45); }
+.wm-region-row { display: flex; align-items: center; gap: 9px; margin-top: 11px; }
+.wm-region-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.wm-region-text b { font-size: 14px; }
+.wm-region-text span { font-size: 12.5px; color: rgba(236, 223, 195, 0.78); }
+.wm-region-status { flex: none; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 700; background: rgba(236, 223, 195, 0.1); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.22); }
+
+/* ---------------------------------------------------------------- regions */
+/* a region's mark on a tile of its colour: the same thing a node carries, for cards and lists */
+.wm-badge {
+  flex: none;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 2px;
+  border-radius: 4px;
+  text-align: center;
+  font: normal 800 12px/17px MapText, 'Songti SC', 'Noto Serif SC', serif;
+  letter-spacing: 0;
+  color: #1a120b;
+  background: var(--region);
+}
+/* the key to the marks, in the map's bottom-left corner; it lies over any node that passes beneath it */
+.wm-legend {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 100001;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 9px 8px 8px;
+  border-radius: 10px;
+  color: var(--parchment);
+  background: linear-gradient(180deg, #281f17, #1b1510);
+  box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.28), 0 14px 40px rgba(0, 0, 0, 0.55);
+  cursor: default;
+}
+.wm-legend-h { margin: 0 7px 4px; font-size: 11.5px; letter-spacing: 0.14em; color: rgba(236, 223, 195, 0.6); }
+.wm-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 3px 9px 3px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff7e4;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wm-legend-row:hover,
+.wm-legend-row.on { background: rgba(236, 223, 195, 0.12); }
+.wm-legend-row:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+/* A scoring subregion is nested under its parent, sharing the parent's colour. */
+.wm-legend-row.nested{padding-left:22px;font-size:.9em;opacity:.9}
+.wm-legend-row.nested .wm-badge{opacity:.65}
+.wm-area-links{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;color:rgba(236,223,195,.7)}
+.wm-area-links button{background:#ffffff08;color:inherit;border:1px solid #ffffff22;border-radius:5px;padding:6px 9px;font:inherit;cursor:pointer}
+.wm-area-links button.on{border-color:#f27ab188;color:#f8a6cc;background:#f27ab112}
+.wm-area-links button:disabled{cursor:default}
+.wm-area-links small{flex-basis:100%;font-size:11px;line-height:1.5}

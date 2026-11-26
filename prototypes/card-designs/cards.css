@@ -1,0 +1,191 @@
+@import url('zh.css');
+/* Shared card mechanics: fonts, the 3D slot (tilt, flip, glare), and the illustration's colour hooks.
+   Every length inside a card is in cqw (1cqw = 1% of the card's width), so a card is 100 x 140 units
+   and scales cleanly to any size. */
+
+@font-face { font-family: 'Cinzel'; src: url('assets/fonts/cinzel.woff2') format('woff2'); font-weight: 400 900; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('assets/fonts/eb-garamond.woff2') format('woff2'); font-weight: 400 800; font-display: block; }
+@font-face { font-family: 'EB Garamond'; src: url('assets/fonts/eb-garamond-italic.woff2') format('woff2'); font-weight: 400 800; font-style: italic; font-display: block; }
+@font-face { font-family: 'Playfair Display'; src: url('assets/fonts/playfair.woff2') format('woff2'); font-weight: 400 900; font-display: block; }
+@font-face { font-family: 'Playfair Display'; src: url('assets/fonts/playfair-italic.woff2') format('woff2'); font-weight: 400 900; font-style: italic; font-display: block; }
+@font-face { font-family: 'Oswald'; src: url('assets/fonts/oswald.woff2') format('woff2'); font-weight: 200 700; font-display: block; }
+@font-face { font-family: 'Russo One'; src: url('assets/fonts/russo-one.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Special Elite'; src: url('assets/fonts/special-elite.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'VT323'; src: url('assets/fonts/vt323.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Share Tech Mono'; src: url('assets/fonts/share-tech-mono.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Limelight'; src: url('assets/fonts/limelight.woff2') format('woff2'); font-display: block; }
+@font-face { font-family: 'Josefin Sans'; src: url('assets/fonts/josefin-sans.woff2') format('woff2'); font-weight: 300 700; font-display: block; }
+@font-face { font-family: 'Stardos Stencil'; src: url('assets/fonts/stardos-stencil-700.woff2') format('woff2'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'Bebas Neue'; src: url('assets/fonts/bebas-neue.woff2') format('woff2'); font-display: block; }
+
+.art-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ------------------------------------------------------------------ the slot */
+
+.slot {
+  --tx: 0; /* pointer position across the card, -1 .. 1 */
+  --ty: 0;
+  --gx: 50%; /* the same position as a percentage, for foil masks */
+  --gy: 50%;
+  --glare: 0;
+  position: relative;
+  width: var(--card-w, 320px);
+  aspect-ratio: 5 / 7;
+  container-type: inline-size;
+  perspective: 1500px;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.slot-shadow {
+  position: absolute;
+  inset: 3% 4% 0;
+  border-radius: 5cqw;
+  background: rgba(0, 0, 0, 0.55);
+  filter: blur(4.5cqw);
+  transform: translate(calc(var(--tx) * -2.5cqw), calc(5cqw + var(--ty) * -2cqw)) scale(0.97);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s;
+  opacity: 0.85;
+}
+.slot.is-live .slot-shadow { transition: transform 0.08s linear; }
+.tilt,
+.flip {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.tilt {
+  transform: rotateX(calc(var(--ty) * -9deg)) rotateY(calc(var(--tx) * 11deg));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.slot.is-live .tilt { transition: transform 0.08s linear; }
+.flip { transition: transform 0.85s cubic-bezier(0.3, 1.25, 0.45, 1); }
+.slot.is-flipped .flip { transform: rotateY(180deg); }
+.slot:focus-visible .flip { outline: 0.8cqw solid #9cc7ff; outline-offset: 1.6cqw; border-radius: 5cqw; }
+
+.face {
+  position: absolute;
+  inset: 0;
+  border-radius: 4.6cqw;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: #222;
+  font-size: 4cqw;
+  line-height: 1.25;
+  isolation: isolate;
+}
+.face.back { transform: rotateY(180deg); }
+.face > svg.frame,
+.face svg.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+.abs { position: absolute; }
+
+/* Glare that follows the pointer. It is an oversized layer with a fixed highlight in its centre, moved
+   with a transform, so tilting a card never repaints the (filter-heavy) artwork beneath it. */
+.fx-glare {
+  position: absolute;
+  inset: -50%;
+  z-index: 50;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.3) 13%, rgba(255, 255, 255, 0) 40%);
+  transform: translate(calc(var(--tx) * 25%), calc(var(--ty) * 25%));
+  mix-blend-mode: overlay;
+  opacity: var(--glare);
+  transition: opacity 0.45s;
+  will-change: transform, opacity;
+}
+.face.back .fx-glare { transform: translate(calc(var(--tx) * -25%), calc(var(--ty) * 25%)); }
+/* a hairline of light on the card's edge */
+.fx-edge {
+  position: absolute;
+  inset: 0;
+  z-index: 51;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 0.25cqw rgba(255, 255, 255, 0.14), inset 0 0.5cqw 0.6cqw rgba(255, 255, 255, 0.16), inset 0 -0.6cqw 0.8cqw rgba(0, 0, 0, 0.35);
+}
+
+/* -------------------------------------------------------------- illustration */
+
+.art { position: absolute; overflow: hidden; }
+.scene {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* default inks: a warm Havana dusk */
+  --sky-a: #27386b;
+  --sky-b: #d9775a;
+  --sky-c: #f6cf8a;
+  --ray: #fff3c4;
+  --ray-o: 0.15;
+  --glow: #ffe6a6;
+  --sun: #fff0bf;
+  --sun-ring: #fff0bf;
+  --sun-ring-o: 0.35;
+  --far2: #e7ad7c;
+  --far: #b96f5d;
+  --haze: #f6c38b;
+  --haze-o: 0.55;
+  --mid: #5a3640;
+  --flag-a: #2f5aa6;
+  --flag-b: #f6efdc;
+  --flag-c: #c8352b;
+  --fig-d: #252d1f;
+  --fig-m: #4a5736;
+  --fig-l: #8a9660;
+  --skin: #dba071;
+  --skin-d: #a36645;
+  --beard: #211815;
+  --beard-l: #6a5345;
+  --ink: #17110f;
+  --crowd-a: #432a36;
+  --crowd-b: #1d1119;
+  --crowd-l: #f5b877;
+  --crowd-l-o: 0.6;
+  --accent: #e8c27c;
+  --dove: #fff9e8;
+  --pennant: var(--flag-c);
+}
+.scene .sc-sky-a { stop-color: var(--sky-a); }
+.scene .sc-sky-b { stop-color: var(--sky-b); }
+.scene .sc-sky-c { stop-color: var(--sky-c); }
+.scene .sc-haze { stop-color: var(--haze); }
+.scene .sc-glow { stop-color: var(--glow); }
+.scene .sc-ray { fill: var(--ray); opacity: var(--ray-o); }
+.scene .sc-sun { fill: var(--sun); }
+.scene .sc-sun-ring { stroke: var(--sun-ring); opacity: var(--sun-ring-o); }
+.scene rect[fill*='haze'] { opacity: var(--haze-o); }
+.scene .sc-far2 { fill: var(--far2); }
+.scene .sc-far { fill: var(--far); }
+.scene .sc-mid { fill: var(--mid); }
+.scene .sc-flag-a { fill: var(--flag-a); }
+.scene .sc-flag-b { fill: var(--flag-b); }
+.scene .sc-flag-c { fill: var(--flag-c); }
+.scene .sc-fig-d { fill: var(--fig-d); }
+.scene .sc-fig-m { fill: var(--fig-m); }
+.scene .sc-fig-l { fill: var(--fig-l); }
+.scene .sc-skin { fill: var(--skin); }
+.scene .sc-skin-d { fill: var(--skin-d); }
+.scene .sc-beard { fill: var(--beard); }
+.scene .sc-beard-l { fill: var(--beard-l); }
+.scene .sc-ink { fill: var(--ink); }
+.scene .sc-crowd-a { fill: var(--crowd-a); }
+.scene .sc-crowd-b { fill: var(--crowd-b); }
+.scene .sc-crowd-a-s { stroke: var(--crowd-a); }
+.scene .sc-crowd-b-s { stroke: var(--crowd-b); }
+.scene .sc-crowd-l-s { stroke: var(--crowd-l); opacity: var(--crowd-l-o); }
+.scene .sc-accent { fill: var(--accent); }
+.scene .sc-dove { fill: var(--dove); }
+.scene .sc-pennant { fill: var(--pennant); }
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt, .flip, .slot-shadow { transition-duration: 0.01s !important; }
+}

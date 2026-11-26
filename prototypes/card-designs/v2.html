@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Card frames V2: the poster, framed</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="cards.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="v2/kit.css" />
+    <link rel="stylesheet" href="v2/01-red-enamel.css" />
+    <link rel="stylesheet" href="v2/02-black-lacquer.css" />
+    <link rel="stylesheet" href="v2/03-foundry.css" />
+    <link rel="stylesheet" href="v2/04-letterpress.css" />
+    <link rel="stylesheet" href="v2/05-banner.css" />
+    <link rel="stylesheet" href="v2/06-red-wedge.css" />
+    <link rel="stylesheet" href="v2/07-bronze.css" />
+    <link rel="stylesheet" href="v2/08-passbook.css" />
+    <link rel="stylesheet" href="v2/09-concrete.css" />
+    <link rel="stylesheet" href="v2/10-porcelain.css" />
+  <script src="zh.js"></script></head>
+  <body>
+    <header class="top">
+      <div>
+        <ul class="versions">
+          <li><a href="index.html">V1</a></li>
+          <li><a href="v2.html" aria-current="page">V2</a></li>
+          <li><a href="deck.html">Deck</a></li>
+          <li><a href="nato.html">NATO</a></li>
+        </ul>
+        <h1>Card frames, round two</h1>
+        <p class="lede">
+          Ten takes on one brief: the poster language of V1's 08, set inside a frame with fixed slots so a card can be
+          read at a glance, and plainer backs with real relief. The front carries the card's side; the back belongs to
+          neither. Move the pointer over a card to tilt it; click to turn it over.
+        </p>
+      </div>
+      <div class="controls">
+        <button type="button" id="wall" class="ghost" aria-pressed="false">Wall view</button>
+        <button type="button" id="flip-all">Turn all over</button>
+      </div>
+    </header>
+    <section class="hand" aria-label="At hand size">
+      <h2>At hand size</h2>
+      <p>The same ten fronts as small as they get in play. Value, side and title should still read.</p>
+      <div id="hand-row"></div>
+    </section>
+    <main id="sheet"></main>
+    <footer class="foot">Self-contained: no build step, no network. Add <code>?only=3</code> to look at one design, <code>&amp;w=460</code> to enlarge it.</footer>
+    <script src="art.js"></script>
+    <script src="card.js"></script>
+    <script src="v2/kit.js"></script>
+    <script src="v2/01-red-enamel.js"></script>
+    <script src="v2/02-black-lacquer.js"></script>
+    <script src="v2/03-foundry.js"></script>
+    <script src="v2/04-letterpress.js"></script>
+    <script src="v2/05-banner.js"></script>
+    <script src="v2/06-red-wedge.js"></script>
+    <script src="v2/07-bronze.js"></script>
+    <script src="v2/08-passbook.js"></script>
+    <script src="v2/09-concrete.js"></script>
+    <script src="v2/10-porcelain.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+/* V2 01 Red Enamel */
+.e01 .face { background: #7d0a12; }
+.e01 .face.back { background: #0b0a09; }
+.e01 .k-type.hot { fill: #b3161a; }
+.e01 .k-foot { fill: #f2d588; }
+.e01 .txt { left: 12.4cqw; right: 12.4cqw; top: 102.4cqw; height: 21.6cqw; --hot: #b3161a; }

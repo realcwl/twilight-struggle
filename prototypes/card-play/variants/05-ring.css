@@ -1,0 +1,202 @@
+/* 05 指令环. Three instruments drawn from one ring: the wheel (choosing), the hub (spending),
+   the dial (dice). Each is laid out in em inside its own box, so the opponent's copy at the top of
+   the screen is the same drawing at a smaller font-size. */
+
+.v-05 .cp-ribbon { display: none !important; }
+.cp-layer.v-05 em, .cp-layer.v-05 i { font-style: normal; }
+
+/* ------------------------------------------------------------------ marks on the map: a dashed ring round the node */
+#game[data-cp='05'] .wm-plate.cp-ok .wm-plate-body { outline: 1.5px solid var(--cp-mark, #f0bf4a); outline-offset: 2px; animation: none; }
+#game[data-cp='05'] .wm-plate.cp-ok::after { content: ''; position: absolute; left: 0; top: 0; width: calc((91px - 51px * var(--k)) * var(--s) + 20px); height: calc((24px - 6px * var(--k)) * var(--s) + 20px); transform: translate(-50%, -50%); border-radius: 99px; border: 2px dashed var(--cp-mark, #f0bf4a); pointer-events: none; animation: r5-mark 1.7s ease-in-out infinite; }
+@keyframes r5-mark { 50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.5; } }
+#game[data-cp='05'] .wm-plate.cp-ok.cp-warn::after { border-color: #ff6a4d; }
+#game[data-cp='05'] .wm-plate.cp-ok.cp-warn .wm-plate-body { outline-color: #ff6a4d; }
+#game[data-cp='05'] .wm-plate.cp-lift::after { border-style: solid; animation: none; }
+/* the cost tag on one line: ×2 */
+#game[data-cp='05'] .cp-badge-cost { display: flex; align-items: center; justify-content: center; }
+
+/* ------------------------------------------------------------------ the caption */
+.cp-layer.v-05 > .r5-say { position: absolute; left: 50%; transform: translateX(-50%); display: flex; align-items: baseline; gap: 1.2rem; max-width: 92rem; padding: 0.75rem 1.9rem; border-radius: 99px; white-space: nowrap; font-size: 1.4rem; color: var(--text); background: rgba(16, 12, 9, 0.93); box-shadow: 0 0 0 1px var(--c, rgba(240, 191, 74, 0.6)), 0 0.8rem 2.4rem rgba(0, 0, 0, 0.6); pointer-events: none; }
+.v-05 .r5-say b { font-size: 1.55rem; font-weight: 900; letter-spacing: 0.08em; color: var(--bright); }
+.v-05 .r5-say em { margin-left: 0.6rem; color: #ff9a84; font-weight: 700; }
+.v-05 .r5-say svg { width: 1.1em; height: 1.1em; margin-right: 0.3em; vertical-align: -0.15em; fill: currentColor; }
+.v-05 .r5-say.a { --c: var(--a); }
+.v-05 .r5-say.b { --c: var(--b); }
+.v-05 .r5-say.bad, .v-05 .r5-say.warn { --c: #ff6a4d; }
+.v-05 .r5-say.good { --c: #6fd3a8; }
+.v-05 .r5-say.at-top { top: 7.4rem; }
+.v-05 .r5-say.at-hub { bottom: 21.6rem; }
+.v-05 .r5-say.at-opp { top: 23.4rem; }
+
+/* ------------------------------------------------------------------ the wheel */
+.cp-layer.v-05 > .r5-stage { position: absolute; left: 50%; bottom: 1.2rem; transform: translateX(-50%); font-size: 1rem; pointer-events: none; animation: r5-open 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.15) both; transform-origin: 50% 52%; }
+@keyframes r5-open { from { opacity: 0; transform: translateX(-50%) scale(0.55) rotate(-8deg); } }
+.cp-layer.v-05 > .r5-stage.is-opp { bottom: auto; top: 5.6rem; font-size: 0.8rem; transform-origin: 50% 28%; }
+.v-05 .r5-wheel { position: relative; width: 56em; height: 54em; --c: var(--a); --cl: var(--a-l); }
+.v-05 .r5-wheel.is-flip { height: 40.4em; --c: var(--b); --cl: var(--b-l); }
+.v-05 .r5-wheel-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.v-05 .r5-rim { fill: none; stroke: rgba(240, 191, 74, 0.55); stroke-width: 1.4; }
+.v-05 .r5-rim.in { stroke-dasharray: 2 6; }
+.v-05 .r5-petal { fill: rgba(31, 25, 19, 0.95); stroke: rgba(240, 191, 74, 0.5); stroke-width: 1.2; cursor: pointer; pointer-events: auto; transition: fill 0.14s, stroke 0.14s; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55)); }
+.v-05 .r5-petal.is-lit { fill: rgba(78, 60, 30, 0.98); stroke: var(--gold); stroke-width: 2.6; filter: drop-shadow(0 0 14px rgba(240, 191, 74, 0.6)); }
+.v-05 .r5-petal.is-off { fill: rgba(24, 20, 16, 0.86); stroke: rgba(236, 223, 195, 0.22); stroke-dasharray: 5 5; cursor: default; }
+.v-05 .r5-petal.is-off.is-lit { fill: rgba(34, 28, 22, 0.92); stroke: rgba(236, 223, 195, 0.5); filter: none; }
+.v-05 .r5-petal.is-theirs, .v-05 .r5-petal.is-theirs.is-lit { fill: rgba(88, 24, 16, 0.96); stroke: var(--b); stroke-dasharray: none; stroke-width: 2; cursor: default; }
+.v-05 .r5-petal.is-risk { stroke: #ff8a70; }
+.v-05 .r5-petal.is-safe { stroke: #6fd3a8; }
+.v-05 .r5-leaf { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 0.3em; width: 10em; text-align: center; pointer-events: none; }
+.v-05 .r5-ic { display: grid; place-items: center; width: 2.6em; height: 2.6em; color: var(--gold); }
+.v-05 .r5-ic svg { width: 100%; height: 100%; fill: currentColor; }
+.v-05 .r5-leaf b { font: 800 1.6em/1.15 var(--han); letter-spacing: 0.06em; color: var(--bright); white-space: nowrap; }
+.v-05 .r5-leaf span { font-size: 1.1em; color: var(--muted); white-space: nowrap; }
+.v-05 .r5-leaf span:empty { display: none; }
+.v-05 .r5-leaf kbd { margin: 0.1em 0 0; }
+.v-05 .r5-leaf.is-off { opacity: 0.42; }
+.v-05 .r5-leaf.is-theirs b, .v-05 .r5-leaf.is-theirs .r5-ic { color: var(--b-l); }
+.v-05 .r5-leaf.is-theirs { opacity: 1; }
+.v-05 .r5-leaf.is-risk span::after { content: ' · 险'; color: #ff9a84; }
+.v-05 .r5-leaf.is-safe span { color: #8fe0c0; }
+.v-05 .r5-card { position: absolute; transform: translate(-50%, -50%); width: 15rem; aspect-ratio: 5 / 7; --card-w: 15rem; }
+.v-05 .r5-stage.is-opp .r5-card { width: 12rem; --card-w: 12rem; }
+.v-05 .r5-card .slot { position: absolute; inset: 0; cursor: default; }
+.v-05 .r5-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0 0 0.25rem rgba(255, 247, 228, 0.85), 0 1.4rem 3.6rem rgba(0, 0, 0, 0.75); }
+.v-05 .r5-stage.is-opp .r5-card .tilt { box-shadow: 0 0 0 0.25rem var(--b), 0 0 4rem rgba(222, 63, 43, 0.5), 0 1.4rem 3.6rem rgba(0, 0, 0, 0.75); }
+/* the opponent's wheel: only the petal they chose is alight */
+.v-05 .r5-wheel.is-flip .r5-petal { cursor: default; pointer-events: none; }
+.v-05 .r5-wheel.is-flip .r5-petal.is-dim { fill: rgba(24, 20, 16, 0.82); stroke: rgba(236, 223, 195, 0.2); }
+.v-05 .r5-wheel.is-flip .r5-leaf.is-dim { opacity: 0.32; }
+.v-05 .r5-wheel.is-flip .r5-petal.is-lit { fill: rgba(150, 36, 22, 0.98); stroke: #ffb4a2; stroke-width: 2.6; filter: drop-shadow(0 0 16px rgba(222, 63, 43, 0.8)); animation: r5-chosen 0.9s ease-in-out 0.35s 2 both; }
+@keyframes r5-chosen { 50% { fill: rgba(210, 60, 40, 1); } }
+.v-05 .r5-wheel.is-flip .r5-leaf.is-lit .r5-ic { color: #fff; }
+.v-05 .r5-oppcap { position: absolute; left: 50%; top: 33.2rem; transform: translateX(-50%); display: flex; align-items: baseline; gap: 1.2rem; padding: 0.7rem 1.8rem; border-radius: 99px; white-space: nowrap; background: rgba(16, 12, 9, 0.94); box-shadow: 0 0 0 1px var(--b), 0 0.8rem 2.4rem rgba(0, 0, 0, 0.6); font-size: 1.5rem; }
+.v-05 .r5-oppcap b { color: var(--b-l); letter-spacing: 0.08em; }
+.v-05 .r5-oppcap span { font-weight: 800; color: var(--bright); }
+
+/* what the lit petal means, on a plate under the wheel */
+.v-05 .r5-plate { position: absolute; left: 50%; top: 39.4rem; transform: translateX(-50%); display: grid; align-content: start; gap: 0.55rem; width: 48rem; min-height: 13.4rem; padding: 1.2rem 1.8rem 1.1rem; pointer-events: auto; font-size: 1.35rem; line-height: 1.4; }
+.v-05 .r5-plate > b { display: flex; align-items: baseline; gap: 0.9rem; font: 900 1.9rem/1.2 var(--han); letter-spacing: 0.08em; color: var(--bright); }
+.v-05 .r5-plate > b small { font: 600 1.25rem/1 var(--han); letter-spacing: 0.1em; color: var(--gold); }
+.v-05 .r5-plate p { margin: 0; color: var(--text); text-wrap: pretty; }
+.v-05 .r5-plate p.foot { font-size: 1.2rem; color: var(--muted); }
+.v-05 .r5-plate p.bad { color: #ff9a84; }
+.v-05 .r5-plate p.good { color: #8fe0c0; }
+.v-05 .r5-plate ul { display: grid; gap: 0.3rem; margin: 0; padding: 0; list-style: none; font-size: 1.45rem; color: var(--bright); }
+.v-05 .r5-plate li::before { content: '· '; color: var(--gold); }
+.v-05 .r5-plate li.warn { color: #ff9a84; }
+.v-05 .r5-plate li.warn::before { content: none; }
+.v-05 .r5-plate li.lethal { font-weight: 900; color: #ff5a40; }
+.v-05 .r5-plate svg { width: 1.1em; height: 1.1em; margin-right: 0.35em; vertical-align: -0.15em; fill: currentColor; }
+.v-05 .r5-stage.is-theirs .r5-plate { box-shadow: 0 0 0 1px rgba(222, 63, 43, 0.7), 0 0 0 0.4rem rgba(16, 12, 9, 0.6), 0 1.2rem 3rem rgba(0, 0, 0, 0.5); }
+
+/* ------------------------------------------------------------------ the hub */
+.cp-layer.v-05 > .r5-hub { position: absolute; left: 50%; bottom: 0.4rem; width: 34em; height: 26em; transform: translateX(-50%); font-size: 1rem; pointer-events: none; transition: opacity 0.25s; animation: r5-hub 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; --c: var(--a); --cl: var(--a-l); }
+.cp-layer.v-05 > .r5-hub.b { --c: var(--b); --cl: var(--b-l); }
+.cp-layer.v-05 > .r5-hub.is-top { bottom: auto; top: 5.4rem; font-size: 0.82rem; }
+.cp-layer.v-05 > .r5-hub.is-under { opacity: 0; }
+@keyframes r5-hub { from { opacity: 0; transform: translateX(-50%) scale(0.6); } }
+.v-05 .r5-hub svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.v-05 .r5-hub-disc { fill: #1d1712; stroke: var(--c); stroke-width: 3; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.65)); }
+.v-05 .r5-hub-ring { fill: rgba(16, 12, 9, 0.55); stroke: rgba(240, 191, 74, 0.5); stroke-width: 1.3; stroke-dasharray: 2 7; }
+.v-05 .r5-bead { fill: var(--gold); stroke: rgba(16, 12, 9, 0.9); stroke-width: 2; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6)); transition: fill 0.2s; }
+.v-05 .r5-bead.used { fill: rgba(16, 12, 9, 0.7); stroke: rgba(236, 223, 195, 0.45); filter: none; }
+.v-05 .r5-arc { fill: rgba(31, 25, 19, 0.96); stroke: rgba(236, 223, 195, 0.4); stroke-width: 1.2; pointer-events: auto; cursor: pointer; transition: fill 0.14s, stroke 0.14s; }
+.v-05 .r5-arc:hover { fill: rgba(70, 54, 30, 0.98); stroke: var(--gold); }
+.v-05 .r5-arc.primary { fill: #c9952c; stroke: #f6cf6a; }
+.v-05 .r5-arc.primary:hover { fill: #e0ad3c; }
+/* positioned in the hub's own em, so the label's larger type sits on an inner element */
+.v-05 .r5-arc-t { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 0.3em; color: var(--bright); white-space: nowrap; pointer-events: none; }
+.v-05 .r5-arc-t b { font: 800 1.25em/1.1 var(--han); letter-spacing: 0.04em; }
+.v-05 .r5-arc-t kbd { margin: 0; }
+.v-05 .r5-arc-t.primary { color: #1c1608; }
+.v-05 .r5-arc-t.primary kbd { background: rgba(28, 22, 8, 0.16); color: #4a380c; box-shadow: none; }
+.v-05 .r5-hub-mid { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 0.45em; }
+.v-05 .r5-hub-mid .r5-ic { width: 3.6em; height: 3.6em; color: var(--cl); }
+.v-05 .r5-hub-mid b { font: 800 1.35em/1 var(--han); letter-spacing: 0.08em; color: var(--bright); white-space: nowrap; }
+.v-05 .r5-hub-card { position: absolute; transform: translate(-50%, -50%) rotate(-7deg); width: 5.4em; aspect-ratio: 5 / 7; }
+
+/* a bead that has just left the ring */
+.cp-layer.v-05 > .r5-loose { position: absolute; width: 1.7rem; height: 1.7rem; margin: -0.85rem 0 0 -0.85rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--bc, #f0bf4a) 55%); box-shadow: 0 0 0 0.15rem rgba(16, 12, 9, 0.9), 0 0 1.4rem var(--bc, #f0bf4a); animation: r5-loose 0.26s cubic-bezier(0.2, 1.6, 0.4, 1) both; pointer-events: none; }
+.v-05 .r5-loose.a { --bc: #5f95ee; }
+.v-05 .r5-loose.b { --bc: #ee6753; }
+.v-05 .r5-loose.bad { --bc: #ff4b30; }
+@keyframes r5-loose { from { transform: scale(0.2); } }
+
+/* what a meter did, left beside it for a while */
+.cp-layer.v-05 > .r5-tag { position: absolute; transform: translateY(-50%); display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 1.1rem 0.4rem 0.8rem; border-radius: 99px; white-space: nowrap; font: 800 1.25rem/1.3 var(--han); letter-spacing: 0.04em; color: #fff; background: var(--tc, #b98a2a); box-shadow: 0 0 0 0.15rem rgba(16, 12, 9, 0.9), 0 0.4rem 1.2rem rgba(0, 0, 0, 0.5); pointer-events: none; animation: r5-tag 0.35s cubic-bezier(0.2, 1.4, 0.4, 1) both; transition: opacity 0.5s; }
+.v-05 .r5-tag.on-left { margin-right: 1.3rem; }
+.v-05 .r5-tag.on-right { margin-left: 1.3rem; }
+.v-05 .r5-tag.is-out { opacity: 0; }
+.v-05 .r5-tag i { width: 0.9rem; height: 0.9rem; border-radius: 50%; background: #fff; opacity: 0.9; }
+.v-05 .r5-tag.a { --tc: var(--a); }
+.v-05 .r5-tag.b { --tc: var(--b); }
+.v-05 .r5-tag.bad { --tc: #d5362d; }
+.v-05 .r5-tag.good { --tc: #3d9a78; }
+@keyframes r5-tag { from { opacity: 0; transform: translateY(-50%) scale(0.5); } }
+
+/* ------------------------------------------------------------------ the dial */
+.cp-layer.v-05 > .r5-dial { position: absolute; left: 50%; bottom: 0.6rem; width: 40em; height: 40em; transform: translateX(-50%); font-size: 1rem; pointer-events: none; animation: r5-dial 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.12) both; transform-origin: 50% 82%; transition: opacity 0.3s, transform 0.35s; --c: var(--a); --cl: var(--a-l); }
+.cp-layer.v-05 > .r5-dial.b { --c: var(--b); --cl: var(--b-l); }
+.cp-layer.v-05 > .r5-dial.is-top { bottom: auto; top: 4.6rem; font-size: 0.78rem; transform-origin: 50% 18%; }
+.cp-layer.v-05 > .r5-dial.is-out { opacity: 0; transform: translateX(-50%) scale(0.35); }
+@keyframes r5-dial { from { opacity: 0; transform: translateX(-50%) scale(0.35) rotate(-40deg); } }
+.v-05 .r5-dial svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.v-05 .r5-dial-rim { fill: rgba(16, 12, 9, 0.95); stroke: rgba(240, 191, 74, 0.65); stroke-width: 1.6; filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.7)); }
+.v-05 .r5-sec { stroke: rgba(16, 12, 9, 0.95); stroke-width: 2.5; transition: fill 0.1s, opacity 0.3s; }
+.v-05 .r5-sec.ok { fill: color-mix(in srgb, var(--c) 66%, #14100c); }
+.v-05 .r5-sec.no { fill: #1e1915; }
+.v-05 .r5-sec.plain { fill: #2a2119; }
+.v-05 .r5-sec.u-a, .v-05 .r5-sec.u-b { filter: brightness(1.75); }
+.v-05 .r5-dial.is-landed .r5-sec:not(.hit) { opacity: 0.4; filter: none; }
+.v-05 .r5-sec.hit { stroke: #fff; stroke-width: 3; filter: brightness(1.35) drop-shadow(0 0 14px var(--cl)); }
+.v-05 .r5-sec.no.hit { fill: #5c1d14; filter: drop-shadow(0 0 14px #ff6a50); }
+.v-05 .r5-sec.plain.hit-a { fill: color-mix(in srgb, var(--a) 72%, #14100c); filter: brightness(1.2) drop-shadow(0 0 12px var(--a-l)); }
+.v-05 .r5-sec.plain.hit-b { fill: color-mix(in srgb, var(--b) 72%, #14100c); filter: brightness(1.2) drop-shadow(0 0 12px var(--b-l)); }
+.v-05 .r5-sec.plain.hit-a.hit-b { fill: #6b4a7a; }
+.v-05 .r5-dial-well { fill: #120e0b; stroke: rgba(240, 191, 74, 0.55); stroke-width: 1.5; }
+.v-05 .r5-face { position: absolute; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 0.15em; width: 9em; text-align: center; transition: opacity 0.3s; }
+.v-05 .r5-face b { font: 800 3.3em/1 var(--num); color: var(--bright); transition: transform 0.25s cubic-bezier(0.2, 1.6, 0.4, 1); }
+.v-05 .r5-face span { min-height: 1.25em; font: 800 1.08em/1.2 var(--han); letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.9); white-space: nowrap; }
+.v-05 .r5-face.no b, .v-05 .r5-face.no span { color: rgba(236, 223, 195, 0.42); }
+.v-05 .r5-face.plain span { display: none; }
+.v-05 .r5-dial.is-landed .r5-face:not(.hit) { opacity: 0.35; }
+.v-05 .r5-face.hit b { transform: scale(1.3); color: #fff; }
+.v-05 .r5-face.no.hit span { color: #ffb4a2; }
+.v-05 .r5-needle { transform-origin: 200px 200px; }
+.v-05 .r5-needle path { fill: var(--gold); stroke: #1c1608; stroke-width: 1.5; stroke-linejoin: round; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7)); }
+.v-05 .r5-needle.a path { fill: var(--a-l); }
+.v-05 .r5-needle.b path { fill: var(--b-l); }
+.v-05 .r5-needle path.line { fill: none; stroke: rgba(255, 255, 255, 0.55); stroke-width: 1.6; }
+.v-05 .r5-dial-hub { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; gap: 1.1em; }
+.v-05 .r5-dial-hub .cp-die { --die: 7.4em; }
+.v-05 .r5-dial.k-realign .r5-dial-hub .cp-die { --die: 5em; }
+.v-05 .r5-dial-l, .v-05 .r5-dial-r { position: absolute; top: 50%; transform: translateY(-50%); display: grid; gap: 0.7em; width: max-content; max-width: 24em; padding: 1.1em 1.5em; border-radius: 1em; background: rgba(16, 12, 9, 0.92); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.45), 0 1em 2.6em rgba(0, 0, 0, 0.55); }
+.v-05 .r5-dial.is-top .r5-dial-l, .v-05 .r5-dial.is-top .r5-dial-r { top: 60%; }
+.v-05 .r5-dial-l { right: calc(100% + 1.4em); justify-items: end; text-align: right; }
+.v-05 .r5-dial-r { left: calc(100% + 1.4em); justify-items: start; min-width: 15em; min-height: 8.4em; align-content: center; opacity: 0; transition: opacity 0.3s; }
+.v-05 .r5-dial.is-read .r5-dial-r { opacity: 1; }
+.v-05 .r5-dial-l .who { padding: 0.2em 0.9em; border-radius: 99px; font: 800 1.15em/1.3 var(--han); letter-spacing: 0.14em; color: #fff; background: var(--c); }
+.v-05 .r5-dial-l > b { font: 900 2em/1.15 var(--han); letter-spacing: 0.08em; color: var(--bright); white-space: nowrap; }
+.v-05 .r5-dial-l p { margin: 0; font-size: 1.35em; color: var(--text); white-space: nowrap; }
+.v-05 .r5-dial-l p b { margin-right: 0.15em; font: 800 1.7em/1 var(--num); color: var(--cl); }
+.v-05 .r5-dial-l p small { margin-left: 0.5em; font-size: 0.85em; color: var(--muted); }
+.v-05 .r5-dial-l .mods { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.2em 0.8em; font-size: 1.1em; color: var(--muted); }
+.v-05 .r5-dial-l .mods i { font-weight: 800; }
+.v-05 .r5-dial-l .mods.a i { color: var(--a-l); }
+.v-05 .r5-dial-l .mods.b i { color: var(--b-l); }
+.v-05 .r5-dial-r .math { display: grid; gap: 0.3em; opacity: 0; transition: opacity 0.3s; }
+.v-05 .r5-dial.is-read .r5-dial-r .math { opacity: 1; }
+.v-05 .r5-dial-r .math div { display: flex; align-items: baseline; gap: 0.5em; font-size: 1.25em; color: var(--text); white-space: nowrap; }
+.v-05 .r5-dial-r .math b { font: 800 1.9em/1 var(--num); color: var(--bright); }
+.v-05 .r5-dial-r .math b.sum { color: var(--gold); }
+.v-05 .r5-dial-r .math b.bar { color: #ffb056; }
+.v-05 .r5-dial-r .math .a i:first-child { color: var(--a-l); font-weight: 800; }
+.v-05 .r5-dial-r .math .b i:first-child { color: var(--b-l); font-weight: 800; }
+.v-05 .r5-dial-r .verdict { justify-self: start; padding: 0.2em 0.8em; border-radius: 0.4em; font: 900 1.9em/1.3 var(--han); letter-spacing: 0.12em; white-space: nowrap; opacity: 0; transform: scale(1.6) rotate(-4deg); }
+.v-05 .r5-dial.is-done .verdict { opacity: 1; transform: rotate(-2deg); transition: transform 0.22s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.1s; }
+.v-05 .r5-dial.good .verdict { color: #10241c; background: #7fe0c0; }
+.v-05 .r5-dial.bad .verdict { color: #fff; background: var(--l1); }
+.v-05 .r5-dial.even .verdict { color: #1c1608; background: #cfc4ad; }
+
+@media (prefers-reduced-motion: reduce) {
+  #game[data-cp='05'] .wm-plate.cp-ok::after { animation: none; }
+}

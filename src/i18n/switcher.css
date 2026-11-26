@@ -1,0 +1,9 @@
+.language-switcher{position:fixed;right:18px;bottom:18px;z-index:7000;font:500 13px/1.3 system-ui,sans-serif}.language-button{display:flex;align-items:center;gap:7px;border:1px solid #b79a56aa;background:#191c1de8;color:#ead6a8;border-radius:22px;padding:8px 12px;box-shadow:0 3px 12px #0005;cursor:pointer}.language-button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.2}.language-menu{position:absolute;bottom:calc(100% + 8px);right:0;min-width:145px;padding:5px;border:1px solid #a88c50;border-radius:12px;background:#161a1ef5;box-shadow:0 12px 32px #0008}.language-menu button{display:block;width:100%;border:0;border-radius:7px;background:none;color:#ece3cf;text-align:left;padding:10px 12px;cursor:pointer;font:inherit}.language-menu button[aria-checked=true]{color:#f0cc74;background:#c09b3d22}.language-menu button:hover{background:#ffffff12}.language-switcher button:focus-visible{outline:2px solid #e9c36d;outline-offset:2px}[hidden].language-menu{display:none}html:not(:lang(zh)){--han:Georgia,'Times New Roman',serif}
+.language-switcher.is-anchored{right:auto;bottom:auto;pointer-events:auto}
+.is-anchored .language-menu{top:calc(100% + 6px);bottom:auto;left:0;right:auto}
+.language-notice:empty{display:none}.language-notice{position:absolute;top:calc(100% + 8px);left:0;width:225px;padding:8px 10px;border:1px solid #a88c50;background:#161a1ef5;border-radius:6px;color:#ead6a8;font-size:12px;pointer-events:none}
+html:not(:lang(zh)) .sheet{--sh-display:Georgia,'Times New Roman',serif;--sh-text:Arial,Helvetica,sans-serif}
+html:not(:lang(zh)) .sheet-title{letter-spacing:0;line-height:1.2}
+html:not(:lang(zh)) .sheet-kicker{letter-spacing:.1em}
+
+.language-menu:not([hidden]) ~ .language-notice{display:none}

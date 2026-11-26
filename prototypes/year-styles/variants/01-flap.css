@@ -1,0 +1,29 @@
+/* 01 Split-flap */
+.yr-01 { display: grid; grid-template-columns: auto auto; gap: 1.2rem 1.5rem; padding: 1.5rem 1.7rem 1.3rem; }
+.yr-01 .fl { position: relative; display: inline-grid; place-items: center; width: 3.6rem; height: 5.3rem; border-radius: 0.4rem; background: linear-gradient(180deg, #302b26, #1f1c18 49%, #151310 51%, #23201b); box-shadow: inset 0 0 0 1px rgba(255, 247, 228, 0.08), inset 0 0.12rem 0 rgba(255, 255, 255, 0.06), 0 0.25rem 0.6rem rgba(0, 0, 0, 0.6); overflow: hidden; perspective: 24rem; }
+/* the hinge, and the two pins it turns on */
+.yr-01 .fl::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: #0a0908; box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05); }
+.yr-01 .fl::before { content: ''; position: absolute; left: -0.12rem; right: -0.12rem; top: 50%; height: 0.7rem; margin-top: -0.35rem; border-left: 0.3rem solid #0a0908; border-right: 0.3rem solid #0a0908; }
+.yr-01 .fl b { font: 600 4.4rem/1 'Oswald', sans-serif; color: #f4ecd8; transform-origin: 50% 50%; }
+.yr-01 .fl.flip b { animation: f1-flip 0.45s cubic-bezier(0.3, 0.7, 0.3, 1); }
+@keyframes f1-flip { 0% { transform: rotateX(86deg); filter: brightness(1.7); } 60% { transform: rotateX(-8deg); } 100% { transform: none; } }
+.yr-01 .fl.han { width: 3.2rem; height: 3.4rem; background: linear-gradient(180deg, color-mix(in srgb, var(--era-d) 70%, #201c18), color-mix(in srgb, var(--era-d) 45%, #151310) 49%, color-mix(in srgb, var(--era-d) 35%, #100e0c) 51%, color-mix(in srgb, var(--era-d) 55%, #1b1815)); }
+.yr-01 .fl.han b { font: 900 2.2rem/1 var(--han); color: #fff7e4; }
+.yr-01 .fl.sm { width: 1.9rem; height: 2.7rem; }
+.yr-01 .fl.sm b { font-size: 2.1rem; }
+.yr-01 .fl.sm::before { display: none; }
+.f1-year { display: flex; gap: 0.36rem; }
+.f1-side { display: grid; align-content: space-between; }
+.f1-era { display: flex; gap: 0.3rem; }
+.f1-turn { display: flex; align-items: center; gap: 0.3rem; }
+.f1-turn i { font: 700 1.05rem/1 var(--han); letter-spacing: 0.12em; color: var(--muted); }
+.f1-turn .of { margin-left: 0.2rem; font: 600 1.15rem/1 var(--num); letter-spacing: 0; }
+.f1-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 1.6rem; padding-top: 1.05rem; border-top: 1px solid var(--line); }
+.f1-rounds { display: flex; align-items: center; gap: 0.32rem; }
+.f1-rounds em { margin-right: 0.5rem; font: 700 1.05rem/1 var(--han); letter-spacing: 0.12em; color: var(--muted); }
+.f1-rounds i { display: grid; place-items: center; width: 1.7rem; height: 1.9rem; border-radius: 0.2rem; background: #17140f; box-shadow: inset 0 0 0 1px rgba(255, 247, 228, 0.08); font: 600 1.15rem/1 'Oswald', sans-serif; color: rgba(244, 236, 216, 0.28); }
+.f1-rounds i.done { color: rgba(244, 236, 216, 0.6); }
+.f1-rounds i.now { background: var(--gold); color: #1c1608; box-shadow: 0 0 0.9rem rgba(240, 191, 74, 0.6); }
+.f1-phase { font: 900 1.3rem/1 var(--han); letter-spacing: 0.08em; white-space: nowrap; }
+.f1-phase.a { color: var(--a-l); }
+.f1-phase.b { color: var(--b-l); }

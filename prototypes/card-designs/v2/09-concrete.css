@@ -1,0 +1,9 @@
+/* V2 09 Concrete */
+.e09 .face { background: #8f8a80; }
+.e09 .k-title { font: 700 56px 'Stardos Stencil', serif; letter-spacing: 4px; }
+.e09 .k-type { font: 700 13px 'Stardos Stencil', serif; letter-spacing: 3px; fill: #1b1815; }
+.e09 .k-type.hot { fill: #8f150f; }
+.e09 .k-foot { font: 700 13.5px 'Stardos Stencil', serif; fill: #14110e; }
+.e09 .k-value { font: 700 76px 'Stardos Stencil', serif; }
+.e09 .txt { left: 11.6cqw; right: 11.6cqw; top: 102.8cqw; height: 21.6cqw; gap: 1.1cqw; }
+.e09 .txt .rules { font-size: 4.4cqw; }

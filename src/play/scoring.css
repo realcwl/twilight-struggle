@@ -1,0 +1,109 @@
+/* How an area is scored, shown (scoring.ts): a slip of ivory paper printed under the score in the HUD,
+   the points that fly to it from the map, and the blow with which the result lands. The slip is paper,
+   like the sheets (src/ui/sheet.css): ink on ivory, the two sides in the sheets' blue and vermilion.
+   Lengths are in rem, like the HUD's. */
+
+/* ------------------------------------------------------------------ the slip */
+.play > .sp-scoring { position: absolute; z-index: 90; width: 30rem; padding: 0.6rem 0 0; overflow: hidden auto; pointer-events: auto; color: #36322c; font: 400 1.59rem/1.3 -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: linear-gradient(180deg, #faf6ec, #f1ecdf); box-shadow: 0 0 0 1px rgba(20, 19, 16, 0.25), 0 1.7rem 4.1rem rgba(0, 0, 0, 0.6); border-radius: 0.25rem; scrollbar-width: thin; --c: #2b5ea8; }
+.sp-scoring .a { --c: #2b5ea8; --cl: #2b5ea8; --cd: #1d4480; }
+.sp-scoring .b { --c: #c7331f; --cl: #c7331f; --cd: #8f2011; }
+.sp-scoring u { text-decoration: none; }
+.sc-list { padding: 0 1.6rem; }
+.sc-line { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; overflow: hidden; white-space: nowrap; }
+.sc-line > * { padding: 0.44rem 0; }
+.sc-line b { font: 700 1.83rem/1.2 'Songti SC', 'Noto Serif SC', serif; font-variant-numeric: tabular-nums; color: #141310; }
+/* which area, and what each standing is worth */
+.sc-line.head { display: grid; justify-content: stretch; gap: 0; padding-bottom: 0.43rem; border-bottom: 1px dashed rgba(20, 19, 16, 0.35); }
+.sc-line.head > * { padding: 0.3rem 0 0; }
+.sc-line.head b { font: 800 2.2rem/1.3 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.12em; }
+.sc-line.head b small { display: block; font: 400 1.2rem/1.4 inherit; letter-spacing: 0.3em; color: rgba(54, 50, 44, 0.66); }
+.sc-line.head span { font-size: 1.37rem; color: rgba(54, 50, 44, 0.72); padding-bottom: 0.43rem; }
+/* a side */
+.sc-block { padding-bottom: 0.25rem; }
+.sc-block + .sc-block { border-top: 1px solid rgba(20, 19, 16, 0.12); }
+.sc-line.side { margin-top: 0.43rem; }
+.sc-line.side span { display: inline-flex; align-items: center; gap: 0.73rem; font-weight: 700; color: var(--c); }
+.sc-sd { flex: none; display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--c); color: #fff; font: 900 1rem/1 'Songti SC', 'Noto Serif SC', serif; }
+.sc-line.side em, .sc-line.side .game-term { font: 800 1.9rem/1 'Songti SC', 'Noto Serif SC', serif !important; letter-spacing: 0.1em; }
+.sc-line.side em { color: #141310; }
+.sc-line.side > b { font-size: 2.07rem; }
+/* where the standing comes from, and the word that opens the rest */
+.sc-line.why { align-items: center; padding-left: 2.8rem; font-size: 1.37rem; color: rgba(54, 50, 44, 0.74); }
+.sc-line.why > * { padding: 0.15rem 0 0.37rem; }
+.sc-line.why b { font: 700 1.52rem/1 'Songti SC', 'Noto Serif SC', serif; color: var(--c); }
+.sc-none { color: rgba(54, 50, 44, 0.5); }
+.play .sc-toggle { flex: none; margin: 0; padding: 0.12rem 0 0.12rem 0.73rem; border: 0; background: none; color: rgba(54, 50, 44, 0.6); font: inherit; font-size: 1.28rem; letter-spacing: 0.1em; cursor: pointer; }
+.sc-toggle::after { content: ' ▾'; font-size: 0.9em; }
+.sc-toggle[aria-expanded='true']::after { content: ' ▴'; }
+.play .sc-toggle:hover, .play .sc-toggle:focus-visible { color: #c7331f; outline: none; }
+.sc-more { margin: 0 0 0.37rem 2.8rem; padding: 0.5rem 0.85rem 0.55rem; overflow: hidden; border-left: 2px solid var(--c); background: color-mix(in srgb, var(--c) 6%, transparent); font-size: 1.34rem; line-height: 1.55; color: rgba(54, 50, 44, 0.85); white-space: normal; }
+.sc-more p { margin: 0; }
+.sc-all { display: flex; flex-wrap: wrap; gap: 0.18rem 0.85rem; margin-top: 0.37rem !important; }
+.sc-all > span { display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap; }
+.sc-all .out { opacity: 0.55; }
+.sc-all small { color: rgba(54, 50, 44, 0.6); }
+/* a country that adds points */
+.sc-line.item { padding-left: 2.8rem; color: rgba(54, 50, 44, 0.86); }
+.sc-line.item span { display: inline-flex; align-items: center; gap: 0.5rem; }
+.sc-rifles { display: inline-block; width: 1.52rem; height: 1.34rem; color: #a8761a; }
+.sc-rifles svg { display: block; width: 100%; height: 100%; }
+.sp-scoring u { padding: 0 0.37rem; border-radius: 0.37rem; background: var(--c); color: #fff; font-size: 1.16rem; cursor: help; }
+.sc-line.item b { color: var(--c); }
+.sc-line.sum { margin-left: 2.8rem; border-top: 1px solid rgba(20, 19, 16, 0.2); color: rgba(54, 50, 44, 0.7); }
+.sc-line.sum b { font-size: 2.38rem; color: var(--c); }
+.sc-line.note { white-space: normal; font-size: 1.28rem; line-height: 1.5; color: rgba(54, 50, 44, 0.7); border-top: 1px solid rgba(20, 19, 16, 0.12); }
+.sc-line.offset { border-top: 1px dashed rgba(20, 19, 16, 0.35); color: rgba(54, 50, 44, 0.8); }
+.sc-line.offset b { letter-spacing: 0.08em; }
+/* the result */
+.sc-foot { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 1.6rem; overflow: hidden; border-top: 2px solid #141310; background: color-mix(in srgb, var(--c) 10%, transparent); white-space: nowrap; }
+.sc-foot.none { --c: #6a5f4c; }
+.sc-foot > * { padding: 0.85rem 0; }
+.sc-foot span { font: 800 2rem/1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.1em; color: #141310; }
+.sc-foot b { font: 800 3.3rem/1 'Songti SC', 'Noto Serif SC', serif; color: var(--c); }
+.sc-foot b.word { font-size: 2.1rem; letter-spacing: 0.1em; }
+.sc-sheen { position: absolute; top: 0; bottom: 0; left: 0; width: 38%; padding: 0 !important; pointer-events: none; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.85), transparent); mix-blend-mode: screen; }
+/* where the score went */
+.sc-vp { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0 1.6rem; overflow: hidden; font-size: 1.4rem; color: rgba(54, 50, 44, 0.8); }
+.sc-vp span { flex: none; white-space: nowrap; }
+.sc-vp b { text-align: right; }
+.sc-vp > * { padding: 0.55rem 0 0.37rem; }
+.sc-vp b { font: 700 1.46rem/1.2 'Songti SC', 'Noto Serif SC', serif; color: #141310; }
+/* the way on */
+.sc-go { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0 1.6rem; overflow: hidden; border-top: 1px solid rgba(20, 19, 16, 0.14); }
+.sc-go > * { margin: 0.73rem 0 0.9rem; }
+.sc-go span { font-size: 1.2rem; line-height: 1.35; color: rgba(54, 50, 44, 0.55); white-space: normal; }
+.play .sc-continue { flex: none; display: inline-flex; align-items: center; gap: 0.73rem; height: 3.5rem; padding: 0 1.34rem 0 1.7rem; border: 0; border-radius: 0.18rem; background: #c7331f; color: #fffaf0; font: 700 1.65rem/1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.3em; cursor: pointer; box-shadow: 0 0.25rem 0.73rem rgba(199, 51, 31, 0.35); }
+.play .sc-continue:hover { background: #ad2816; }
+.play .sc-continue:focus-visible { outline: 2px solid #141310; outline-offset: 2px; }
+.play .sc-continue kbd { margin: 0; padding: 0.18rem 0.5rem; border-radius: 0.25rem; background: rgba(0, 0, 0, 0.22); box-shadow: none; color: #fffaf0; font: 600 1.04rem/1.2 -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif; letter-spacing: 0.05em; vertical-align: 0; }
+/* the game's marked words, at the slip's size */
+.sp-scoring .game-term { padding: 0 0.12em; }
+/* a narrow screen: the slip is docked at the bottom, the map above it */
+@media (max-width: 800px) {
+  .play > .sp-scoring { left: 8px; right: 8px; bottom: 8px; width: auto; max-height: 56vh; font-size: 14px; }
+}
+
+/* ------------------------------------------------------------------ what moves over the map and the HUD */
+.play .sc-at { position: absolute; z-index: 95; transform: translate(-50%, -50%); pointer-events: none; }
+.play .sc-at.a, .play .sc-flash.a, .play .sc-wash.a, .play .sc-hudglow.a { --c: var(--a); --cl: var(--a-l); --cd: color-mix(in srgb, var(--a) 60%, #000); }
+.play .sc-at.b, .play .sc-flash.b, .play .sc-wash.b, .play .sc-hudglow.b { --c: var(--b); --cl: var(--b-l); --cd: color-mix(in srgb, var(--b) 60%, #000); }
+.play .sc-at.white { --cl: #fff7e4; --c: #fff7e4; }
+.play .sc-at.gold { --cl: #ffe9a8; --c: #f0bf4a; }
+.play .sc-at.dull { --cl: #c9b890; --c: #8a7a62; }
+/* points leaving a country */
+.sc-pip { display: grid; place-items: center; min-width: 2.9rem; height: 2.3rem; padding: 0 0.6rem; border-radius: 1.2rem; background: linear-gradient(180deg, var(--cl), var(--c)); color: #fff; font: 800 1.45rem/1 var(--num); text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); box-shadow: 0 0 0 1.5px #fff, 0 0.3rem 0.9rem rgba(0, 0, 0, 0.55), 0 0 1.2rem var(--c); white-space: nowrap; }
+.sc-ring { border: 3px solid var(--cl); border-radius: 50%; }
+.sc-spark { border-radius: 50%; background: var(--cl); box-shadow: 0 0 0.6rem var(--cl); }
+.sc-trail { border-radius: 50%; background: var(--cl); filter: blur(2px); box-shadow: 0 0 1.4rem var(--cl); mix-blend-mode: screen; opacity: 0; }
+.sc-rays { border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--cl) 0deg 6deg, transparent 6deg 18deg); -webkit-mask: radial-gradient(closest-side, #000 12%, rgba(0, 0, 0, 0.5) 45%, transparent 100%); mask: radial-gradient(closest-side, #000 12%, rgba(0, 0, 0, 0.5) 45%, transparent 100%); mix-blend-mode: screen; z-index: 94 !important; }
+.play .sc-flash { position: absolute; inset: 0; z-index: 93; opacity: 0; background: var(--cl); mix-blend-mode: screen; pointer-events: none; }
+.play .sc-wash { position: absolute; inset: 0; z-index: 93; opacity: 0; box-shadow: inset 0 0 24rem 4rem var(--c), inset 0 0 7rem 1rem var(--c); pointer-events: none; }
+/* the result, slammed down: as large as what was gained */
+.sc-net { --m: 1; display: inline-flex; align-items: center; gap: calc(0.9rem * var(--m)); height: calc(7rem * var(--m)); padding: 0 calc(2.4rem * var(--m)) 0 calc(2rem * var(--m)); border-radius: calc(3.5rem * var(--m)); white-space: nowrap; background: linear-gradient(180deg, var(--cl), var(--c) 55%, var(--cd)); color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55); box-shadow: 0 0 0 0.3rem #fff7e4, 0 0 0 0.8rem rgba(16, 12, 9, 0.6), 0 1rem 3rem rgba(0, 0, 0, 0.7), 0 0 4rem var(--c), 0 0 9rem color-mix(in srgb, var(--c) 70%, transparent); z-index: 96 !important; }
+.sc-net small { font: 800 calc(2.3rem * var(--m)) / 1 var(--han); letter-spacing: 0.1em; }
+.sc-net b { font: 800 calc(5rem * var(--m)) / 1 var(--num); text-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.5), 0 0 1.6rem rgba(255, 255, 255, 0.55); }
+.sc-net b.word { font: 900 calc(3.2rem * var(--m)) / 1 var(--han); letter-spacing: 0.14em; }
+/* the HUD's corner, struck */
+.play .sc-hudglow { position: absolute; z-index: 93; border-radius: 1rem; pointer-events: none; box-shadow: 0 0 0 2px var(--cl), 0 0 2.4rem 0.4rem var(--c), inset 0 0 2.6rem color-mix(in srgb, var(--c) 55%, transparent); }
+/* the lead has changed hands */
+.sc-flip { padding: 0.35rem 1.2rem 0.45rem; border-radius: 0.5rem; background: linear-gradient(180deg, #ffe9a8, #f0bf4a 60%, #b98a2a); color: #2a1c08; font: 900 2rem/1 var(--han); letter-spacing: 0.22em; text-indent: 0.22em; white-space: nowrap; box-shadow: 0 0 0 2px #fff7e4, 0 0.5rem 1.6rem rgba(0, 0, 0, 0.6), 0 0 2.4rem rgba(240, 191, 74, 0.8); }

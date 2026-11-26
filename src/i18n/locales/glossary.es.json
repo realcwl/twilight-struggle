@@ -1,0 +1,162 @@
+{
+  "control": {
+    "label": "Control",
+    "summary": "Controlas un país cuando tu Influencia alcanza su Estabilidad y supera la del rival al menos en esa Estabilidad.",
+    "example": "Estabilidad 3: tus 4 frente a sus 2 no dan Control. Al subir a 5, la ventaja llega a 3 y obtienes el Control."
+  },
+  "influence": {
+    "label": "Influencia",
+    "summary": "La Influencia representa la presencia política en un país. Ambos bandos pueden tenerla; tener Influencia no implica Control.",
+    "example": "Añadir 1 de Influencia cuesta normalmente 1 Operación, o 2 en un país controlado por el rival."
+  },
+  "stability": {
+    "label": "Estabilidad",
+    "summary": "Umbral fijo del país para determinar el Control y la dificultad de los golpes.",
+    "example": "Con Estabilidad 3, necesitas una ventaja de Influencia de 3; un golpe resta 2 × 3 a su total."
+  },
+  "battleground": {
+    "label": "País conflictivo",
+    "summary": "País estratégico marcado especialmente. Afecta a la puntuación regional; los golpes allí suelen reducir DEFCON.",
+    "example": "Cada país conflictivo controlado suele añadir 1 PV. La insignia del mapa indica si es conflictivo."
+  },
+  "ordinary": {
+    "label": "País no conflictivo",
+    "summary": "País sin marca de conflicto. Sigue contando para el total regional de países.",
+    "example": "El Dominio exige al menos un país no conflictivo controlado, además de la ventaja en conflictivos."
+  },
+  "coup": {
+    "label": "Golpe de Estado",
+    "summary": "Elige un objetivo válido con Influencia rival. Dado + Operaciones − 2 × Estabilidad da el cambio si es positivo.",
+    "example": "Dado 5 + Operaciones 2 − Estabilidad 2 × 2 = 3. Retira primero 2 de Influencia rival; el 1 restante se convierte en tuyo."
+  },
+  "realignment": {
+    "label": "Realineamiento",
+    "summary": "Cuesta 1 Operación por tirada. Ambos tiran con modificadores; el total mayor retira Influencia rival igual a la diferencia. Nunca añade Influencia propia.",
+    "example": "Modifican la tirada los vecinos controlados, la ventaja de Influencia y la superpotencia propia adyacente. Un 6 frente a 4 retira 2 al perdedor."
+  },
+  "defcon": {
+    "label": "DEFCON",
+    "summary": "En este juego la crisis nuclear va de 5 (paz) a 2 (crítica). Nunca baja de 2, evitando derrotas repentinas por guerra nuclear.",
+    "example": "Con 2 no puedes elegir golpes que causarían guerra nuclear. Siguen disponibles los golpes seguros en países no conflictivos, con las restricciones regionales."
+  },
+  "milops": {
+    "label": "Operaciones Militares",
+    "summary": "Cada turno exige actividad militar. Los golpes y eventos de guerra aportan Operaciones Militares; los realineamientos no.",
+    "example": "Si al final del turno se exigen 3 y completaste 1, el rival gana la diferencia de 2 PV."
+  },
+  "required-milops": {
+    "label": "Operaciones Militares Requeridas",
+    "summary": "Al final del turno, el requisito militar equivale al nivel DEFCON actual.",
+    "example": "Requisito 3, completadas 1: faltan 2. Superarlo no da PV adicionales."
+  },
+  "headline": {
+    "label": "Fase de Titulares",
+    "summary": "Antes de las acciones del turno, ambos eligen una carta en secreto, la revelan a la vez y resuelven ambos eventos.",
+    "example": "Las Operaciones mayores se resuelven primero; EE. UU. gana empates. Puntuación cuenta como 0; La Carta de China no puede ser Titulares."
+  },
+  "action-round": {
+    "label": "Ronda de acción",
+    "summary": "Un bando juega una carta y resuelve todos sus eventos u Operaciones antes de que actúe el otro.",
+    "example": "Normalmente actúa la URSS y después EE. UU.: 6 acciones cada uno en la Guerra inicial y 7 en la media y tardía."
+  },
+  "turn": {
+    "label": "Turno",
+    "summary": "Un turno incluye reparto, Titulares, varias rondas de acción y comprobaciones finales.",
+    "example": "Este turno dura hasta terminar el turno actual; esta ronda de acción solo abarca la acción actual de un bando."
+  },
+  "ops": {
+    "label": "Operaciones",
+    "summary": "Valor superior izquierdo de la carta. Elige un uso: colocar Influencia, realinear, golpe o Carrera Espacial.",
+    "example": "3 Operaciones suelen colocar 3 de Influencia total en países no controlados por el rival. Las Operaciones de eventos siguen el texto de la carta."
+  },
+  "vp": {
+    "label": "Puntos de Victoria",
+    "summary": "Ambos bandos comparten un marcador de PV. Ganar PV lo mueve hacia tu bando.",
+    "example": "Si EE. UU. gana 2, el marcador avanza 2 hacia EE. UU. Alcanzar 20 PV da la victoria inmediata."
+  },
+  "scoring": {
+    "label": "Puntuación",
+    "summary": "Compara países controlados en una región y aplica el valor de Presencia, Dominio o Control de la carta.",
+    "example": "Normalmente se suman puntos por conflictivos y adyacencia a la superpotencia rival. La diferencia mueve los PV."
+  },
+  "scoring-card": {
+    "label": "Carta de puntuación",
+    "summary": "Puntúa directamente su región y no tiene Operaciones. Cuando solo quedan las acciones justas, debes jugar las cartas de puntuación resaltadas.",
+    "example": "Con dos acciones y dos cartas de puntuación restantes, las demás quedan bloqueadas hasta jugarlas."
+  },
+  "non-scoring-card": {
+    "label": "Carta que no sea de puntuación",
+    "summary": "Cualquier carta que no puntúe una región. Los efectos que la piden excluyen las cartas de puntuación.",
+    "example": "Con un evento de 3 Operaciones y Puntuación de Europa, solo el evento es válido."
+  },
+  "presence": {
+    "label": "Presencia",
+    "summary": "Nivel básico de puntuación regional: controla al menos un país de la región.",
+    "example": "Tener Influencia sin controlar ningún país no basta."
+  },
+  "domination": {
+    "label": "Dominio",
+    "summary": "Controla más países totales y más conflictivos que el rival, incluyendo al menos un conflictivo y uno no conflictivo.",
+    "example": "La ventaja en conflictivos no basta; deben cumplirse las tres condiciones."
+  },
+  "region-control": {
+    "label": "Control Regional",
+    "summary": "Controla más países que el rival y todos los países conflictivos de la región.",
+    "example": "Es un nivel de puntuación regional, distinto del Control de un país. El Control de Europa da la victoria inmediata."
+  },
+  "final-scoring": {
+    "label": "Puntuación Final",
+    "summary": "Tras el turno 10, puntúa las seis regiones principales y da 1 PV al poseedor de La Carta de China.",
+    "example": "El Sudeste Asiático no se puntúa por separado. Compara los PV finales; un marcador igualado es empate."
+  },
+  "space": {
+    "label": "Carrera Espacial",
+    "summary": "Usa una carta que cumpla el requisito de Operaciones de la siguiente casilla y saca una tirada válida para avanzar.",
+    "example": "Normalmente hay un intento por turno. Las cartas espaciales nunca activan su evento, aunque sea rival."
+  },
+  "hand": {
+    "label": "Mano",
+    "summary": "Cartas que tienes sin jugar, normalmente ocultas al rival. Se repone hasta 8 en la Guerra inicial y 9 después.",
+    "example": "La Carta de China es independiente y no cuenta para el límite. No puedes conservar puntuaciones entre turnos."
+  },
+  "deck": {
+    "label": "Mazo de robo",
+    "summary": "Las cartas no robadas están boca abajo. Al agotarse, normalmente se barajan los descartes para formar un nuevo mazo.",
+    "example": "Las cartas retiradas no vuelven. Las cartas medias y tardías entran en sus turnos correspondientes."
+  },
+  "draw": {
+    "label": "Robar",
+    "summary": "Toma cartas del mazo de robo y añádelas a tu Mano, según las reglas o un evento.",
+    "example": "Robar no activa el evento de la carta; lo hace jugarla u otro efecto."
+  },
+  "discard-pile": {
+    "label": "Pila de descartes",
+    "summary": "Aquí quedan boca arriba las cartas usadas o descartadas que no se han retirado permanentemente.",
+    "example": "Se barajan al agotarse el mazo. Las cartas con asterisco normalmente solo se retiran tras activarse su evento."
+  },
+  "discard": {
+    "label": "Descartar",
+    "summary": "Mueve una carta indicada de tu Mano a los descartes. Los descartes forzados no activan su evento.",
+    "example": "Descartar es distinto de jugar por Operaciones, que puede activar un evento rival."
+  },
+  "removed": {
+    "label": "Retirar del juego",
+    "summary": "Los eventos con asterisco normalmente se retiran permanentemente al activarse. No vuelven a barajarse.",
+    "example": "Usar tu carta solo por Operaciones no activa el evento. No cumplir los requisitos tampoco retira automáticamente una carta con asterisco."
+  },
+  "draft-tension": {
+    "label": "Tensión",
+    "summary": "Medidor de situación del antiguo prototipo, modificado por sus cartas.",
+    "example": "Este término del prototipo es distinto del DEFCON de la baraja actual."
+  },
+  "draft-prestige": {
+    "label": "Prestigio",
+    "summary": "Recurso de puntuación del antiguo prototipo, que se gana o pierde según sus cartas.",
+    "example": "La baraja actual usa Puntos de Victoria; Prestigio solo permanece en el prototipo independiente."
+  },
+  "draft-tally": {
+    "label": "Recuento",
+    "summary": "Instrucción del antiguo prototipo para calcular el resultado de una región.",
+    "example": "La baraja actual usa Puntuación. Los valores del prototipo siguen sus propias reglas provisionales."
+  }
+}

@@ -1,0 +1,62 @@
+/* 09 · 象牙与朱红 — heavy ivory card, a great deal of air, hairlines in black, small spaced labels,
+   and one colour: vermilion, kept for the main action and for what is chosen.
+   (It had a seal in the corner of its headings; the user had it taken off on 2026-11-16.) */
+[data-ui='09'] .sx {
+  --ink: #36322c; --strong: #141310; --muted: rgba(54, 50, 44, 0.6); --line: rgba(20, 19, 16, 0.16);
+  --accent: #c7331f; --on-accent: #fffaf0; --well: transparent; --select: #c7331f;
+  --r: 2px; --pad: 36px;
+  --side-a: #2b5ea8; --side-b: #c7331f; --side-n: #6d6a62;
+  background: linear-gradient(180deg, #faf6ec, #f3eee1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 1px 0 rgba(255, 255, 255, 0.5), 0 30px 70px rgba(0, 0, 0, 0.6);
+}
+[data-ui='09'] .sx-tip, [data-ui='09'] .sx-toast { --pad: 22px; }
+/* a short heavy bar above the label, then the title with room around it */
+[data-ui='09'] .sx-head::before { content: ''; display: block; width: 30px; height: 3px; margin-bottom: 16px; background: #141310; }
+[data-ui='09'] .sx-kicker { font-size: 11px; letter-spacing: 0.36em; color: rgba(54, 50, 44, 0.7); }
+[data-ui='09'] .sx-title { margin-top: 8px; font-size: 28px; letter-spacing: 0.14em; }
+[data-ui='09'] .sx-tip .sx-title { font-size: 22px; }
+[data-ui='09'] .sx-sub { margin-top: 12px; }
+[data-ui='09'] .sx-body { padding-top: 24px; padding-bottom: 24px; }
+[data-ui='09'] .sx-tip .sx-body { padding-top: 12px; padding-bottom: 14px; }
+
+/* the main action is a block of vermilion; the others are words with a line under them */
+[data-ui='09'] .sx-btn { min-height: 42px; padding: 0 4px; border: 0; border-radius: 0; background: none; color: #141310; font-weight: 500; letter-spacing: 0.2em; box-shadow: inset 0 -1px 0 #141310; }
+[data-ui='09'] .sx-btn:hover { color: #c7331f; box-shadow: inset 0 -2px 0 #c7331f; }
+[data-ui='09'] .sx-btn.is-primary { padding: 0 30px; color: #fffaf0; background: #c7331f; box-shadow: none; }
+[data-ui='09'] .sx-btn.is-primary:hover { color: #fffaf0; background: #ad2816; filter: none; }
+[data-ui='09'] .sx-btn.is-ghost { color: var(--muted); box-shadow: none; }
+[data-ui='09'] .sx-foot { gap: 26px; }
+[data-ui='09'] .sx-chip { height: 30px; padding: 0 2px; margin-right: 14px; border: 0; border-radius: 0; color: rgba(54, 50, 44, 0.6); letter-spacing: 0.12em; }
+[data-ui='09'] .sx-chip:hover { color: #141310; }
+[data-ui='09'] .sx-chip.is-on { background: none; color: #141310; box-shadow: inset 0 -2px 0 #c7331f; }
+[data-ui='09'] .sx-key { border-color: rgba(20, 19, 16, 0.4); border-radius: 2px; color: #36322c; }
+[data-ui='09'] .sx-link { color: #141310; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #c7331f; }
+[data-ui='09'] .sx-close { border: 0; border-radius: 0; color: #141310; right: 26px; top: 26px; }
+[data-ui='09'] .sx-close svg { width: 15px; height: 15px; stroke-width: 1.3; }
+[data-ui='09'] .sx-close:hover { color: #c7331f; }
+[data-ui='09'] .sx-tag { padding: 1px 0; background: none; font-weight: 600; letter-spacing: 0.14em; color: var(--side-n); box-shadow: inset 0 -1.5px 0 currentColor; }
+[data-ui='09'] .sx-tag.a { background: none; color: var(--side-a); }
+[data-ui='09'] .sx-tag.b { background: none; color: var(--side-b); }
+
+/* cards lie straight on the ivory, between two hairlines */
+[data-ui='09'] .sx-well { padding: 26px 0; border-radius: 0; border-top: 1px solid rgba(20, 19, 16, 0.18); border-bottom: 1px solid rgba(20, 19, 16, 0.18); }
+[data-ui='09'] .sx-face .game-card { box-shadow: 0 1px 2px rgba(40, 30, 10, 0.25), 0 14px 26px rgba(40, 30, 10, 0.22); }
+[data-ui='09'] .sx-slot.is-on .sx-face { box-shadow: 0 0 0 2px #faf6ec, 0 0 0 4px #c7331f; }
+[data-ui='09'] .sx-slot.is-on::before { content: ''; position: absolute; z-index: 2; right: -9px; top: -9px; width: 22px; height: 22px; border-radius: 50%; background: #c7331f; box-shadow: 0 0 0 2px #faf6ec; }
+[data-ui='09'] .sx-slot.is-on::after { content: ''; position: absolute; z-index: 3; right: -2px; top: -3px; width: 9px; height: 5px; border-left: 1.8px solid #fffaf0; border-bottom: 1.8px solid #fffaf0; transform: rotate(-45deg); }
+/* a list, not boxes: a hairline between the items, a vermilion bar beside the chosen one */
+[data-ui='09'] .sx-options { gap: 0; }
+[data-ui='09'] .sx-option { padding: 16px 16px 16px 22px; border: 0; border-top: 1px solid rgba(20, 19, 16, 0.16); border-radius: 0; opacity: 0.62; }
+[data-ui='09'] .sx-option:last-child { border-bottom: 1px solid rgba(20, 19, 16, 0.16); }
+[data-ui='09'] .sx-option:hover { opacity: 1; }
+[data-ui='09'] .sx-option.is-on { opacity: 1; box-shadow: inset 3px 0 0 #c7331f; background: linear-gradient(90deg, rgba(199, 51, 31, 0.07), transparent 55%); }
+[data-ui='09'] .sx-steps { letter-spacing: 0.2em; }
+[data-ui='09'] .sx-opt-title { font-size: 19px; letter-spacing: 0.1em; }
+[data-ui='09'] .sx-sec { font-size: 11px; letter-spacing: 0.36em; color: #141310; }
+[data-ui='09'] .sx-sec::after { content: ''; flex: 1; align-self: center; height: 1px; background: rgba(20, 19, 16, 0.18); order: 2; }
+[data-ui='09'] .sx-sec em { order: 3; letter-spacing: 0.08em; }
+[data-ui='09'] .sx-lead { font-size: 17px; line-height: 1.6; }
+[data-ui='09'] .sx-example { padding: 0 0 0 14px; border-radius: 0; background: none; box-shadow: inset 2px 0 0 #c7331f; }
+[data-ui='09'] .sx-toast .sx-kicker { letter-spacing: 0.24em; white-space: nowrap; }
+[data-ui='09'] .sx-toast .sx-btn { padding: 0 20px; }
+[data-ui='09'] .sx-anchor { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); }

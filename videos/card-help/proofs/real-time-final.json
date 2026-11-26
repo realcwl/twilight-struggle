@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "outputDir": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-time-final",
+  "frames": [
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-time-final/frame-00-at-51.1s.png",
+      "time": 51.1
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-time-final/frame-01-at-53.6s.png",
+      "time": 53.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-time-final/frame-02-at-59.6s.png",
+      "time": 59.6
+    }
+  ],
+  "contactSheets": [
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-time-final/contact-sheet.jpg"
+  ],
+  "_meta": {
+    "version": "0.9.51",
+    "updateAvailable": false
+  }
+}

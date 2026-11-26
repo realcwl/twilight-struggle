@@ -1,0 +1,43 @@
+/* 05 Darkroom: this turn's print comes up in the tray as the rounds go by */
+.ep-host[data-ep='05'] { padding: 1.1rem 1.5rem 1.1rem 1.1rem; background: linear-gradient(180deg, rgba(52, 28, 16, 0.96), rgba(22, 13, 9, 0.98)); }
+.ep-05 { display: flex; align-items: stretch; gap: 1.6rem; --p: 1; --safe: #ff8a2a; }
+/* under the safelight every print is one colour */
+.ep-05 .ep-pic { --grade: grayscale(1) contrast(1.15); }
+
+/* an enamel tray seen from above, developer in it */
+.d5-tray { position: relative; flex: none; width: 13.6rem; height: 10.6rem; border-radius: 0.7rem; background: linear-gradient(150deg, #5a2a16, #2a140c 60%, #40200f); box-shadow: inset 0 0 0 0.16rem rgba(255, 190, 130, 0.22), inset 0 0 0 0.55rem #3a1c10, inset 0 0 0 0.62rem rgba(0, 0, 0, 0.6), inset 0 0.9rem 1.6rem rgba(0, 0, 0, 0.55), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6); overflow: hidden; }
+.d5-paper { position: absolute; left: 1.5rem; top: 1.45rem; width: 10.6rem; height: 7.6rem; padding: 0.42rem; background: linear-gradient(160deg, #ffd9a6, #e9b279); box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.5); transform: rotate(-2.2deg); }
+/* the image coming up: faint and flat at first, full at the last round */
+.d5-paper .ep-pic { width: 100%; height: 100%; mix-blend-mode: multiply; opacity: calc(0.26 + 0.74 * var(--p)); filter: grayscale(1) contrast(calc(0.6 + 0.6 * var(--p))) brightness(calc(1.3 - 0.26 * var(--p))); transition: opacity 1.6s ease-out, filter 1.6s ease-out; }
+.d5-paper.fresh .ep-pic { animation: d5-blank 1.6s ease-out; }
+@keyframes d5-blank { from { opacity: 0; } }
+/* the developer: its surface catches the safelight, and moves when the tray is rocked */
+.d5-bath { position: absolute; inset: 0.62rem; border-radius: 0.3rem; background: linear-gradient(112deg, transparent 30%, rgba(255, 170, 90, 0.16) 38%, transparent 47%, transparent 62%, rgba(255, 170, 90, 0.1) 70%, transparent 78%), linear-gradient(180deg, rgba(120, 40, 10, 0.22), rgba(40, 10, 0, 0.32)); background-size: 220% 100%, auto; background-position: 30% 0, 0 0; pointer-events: none; }
+.rock .d5-bath { animation: d5-rock 1.5s ease-in-out; }
+@keyframes d5-rock { 40% { background-position: 75% 0, 0 0; } }
+.d5-tongs { position: absolute; right: 0.5rem; top: -0.7rem; width: 0.5rem; height: 5.4rem; border-radius: 0.3rem; background: linear-gradient(90deg, #6a4a2a, #d9b072 45%, #5a3c1e); box-shadow: 0.4rem 0.3rem 0.5rem rgba(0, 0, 0, 0.5); transform: rotate(24deg); }
+
+.d5-right { display: flex; flex-direction: column; justify-content: space-between; width: 21.4rem; }
+/* the line: the turns that are done, hung up to dry, the latest on the right */
+.d5-line { position: relative; height: 5.2rem; }
+.d5-wire { position: absolute; left: -0.6rem; right: -0.9rem; top: 0; width: calc(100% + 1.5rem); height: 1rem; overflow: visible; fill: none; stroke: rgba(255, 200, 150, 0.55); stroke-width: 1.2; }
+.d5-wire path { vector-effect: non-scaling-stroke; }
+.d5-hung { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: flex-end; gap: 0.5rem; }
+.d5-h { position: relative; flex: none; width: 4.9rem; margin-top: calc(0.2rem + 0.55rem * (1 - var(--sag, 0) * var(--sag, 0))); padding: 0.22rem; background: linear-gradient(160deg, #f6c592, #d99e68); box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.5); transform: rotate(var(--tilt, 0deg)); transform-origin: 50% 0; }
+.d5-h .ep-pic { width: 100%; aspect-ratio: 3 / 2; mix-blend-mode: multiply; }
+/* a wooden peg */
+.d5-h i { position: absolute; left: 50%; top: -0.5rem; z-index: 1; width: 0.42rem; height: 1.15rem; margin-left: -0.21rem; border-radius: 0.1rem; background: linear-gradient(90deg, #7a5632, #e0b57a 50%, #6a4828); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+.d5-h.new { animation: d5-hang 0.9s cubic-bezier(0.2, 0.7, 0.3, 1.2); }
+@keyframes d5-hang { from { transform: translate(-9rem, 5rem) rotate(-14deg); opacity: 0; } }
+.d5-more { align-self: flex-start; margin: 1.5rem 0.2rem 0 0; font: 700 1.05rem/1 var(--han); letter-spacing: 0.06em; color: rgba(255, 200, 150, 0.6); }
+.d5-more::before { content: '前 '; }
+.d5-more::after { content: ' 张'; }
+
+/* the safelight, somewhere above and to the right */
+.d5-lamp { position: absolute; right: -1.5rem; top: -1.1rem; width: 12rem; height: 8rem; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 110, 40, 0.3), transparent); pointer-events: none; }
+.d5-read { display: flex; align-items: center; gap: 1.1rem; }
+.d5-read .ep-year { font-size: 3rem; }
+.d5-read > div { display: grid; gap: 0.55rem; }
+.d5-desk { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.d5-desk .ep-head { font-size: 1.4rem; }
+.ep-05 .ep-era { color: #ffb45e; }

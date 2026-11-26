@@ -1,0 +1,30 @@
+/* Shared by every variant: where the block sits on the stage, and the gallery. A variant's own
+   stylesheet is scoped under .yr-NN. Units as in hud-layouts: 1rem is 10 px on a 1600 x 900 screen. */
+.yr { position: absolute; left: 1.6rem; top: 1.6rem; z-index: 5; pointer-events: auto; font-size: 1rem; color: var(--text); }
+.yr b { font-weight: 800; }
+.yr i, .yr em { font-style: normal; }
+.yr-scene { display: block; overflow: hidden; }
+.yr-scene > svg { display: block; width: 100%; height: 100%; }
+.L04 .corner.tl { display: none; }
+
+/* ------------------------------------------------------------------ all ten at once */
+#gallery { position: fixed; inset: var(--bar) 0 0 0; z-index: 9100; overflow: auto; padding: 2.4rem 3rem 5rem; background: radial-gradient(120% 80% at 50% 0%, #1a2a3f, #0d1522 70%); }
+.g-head { display: grid; grid-template-columns: 19rem repeat(3, 1fr); gap: 2rem; align-items: end; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font: 700 1.3rem/1 var(--han); letter-spacing: 0.14em; color: var(--muted); }
+.g-head b { color: var(--gold); font-size: 1.5rem; }
+.g-head small { margin-left: 0.8rem; font: 600 1.15rem/1 var(--num); letter-spacing: 0.04em; color: var(--muted); }
+.g-row { display: grid; grid-template-columns: 19rem repeat(3, 1fr); gap: 2rem; align-items: center; padding: 2rem 0; border-bottom: 1px solid rgba(236, 223, 195, 0.1); cursor: pointer; }
+.g-row:hover { background: rgba(236, 223, 195, 0.04); }
+.g-name b { display: block; font: 900 2rem/1.1 var(--han); letter-spacing: 0.08em; color: var(--bright); }
+.g-name b span { margin-right: 0.8rem; font: 700 1.3rem/1 ui-monospace, Menlo, monospace; color: var(--gold); }
+.g-name em { display: block; margin-top: 0.7rem; font: 400 1.25rem/1.5 var(--han); color: var(--muted); }
+.g-cell { display: grid; place-items: center start; min-height: 15rem; }
+.g-cell .yr { position: relative; left: auto; top: auto; }
+
+/* this page's extra toolbar bits */
+#toolbar .tb-sep { flex: none; width: 1px; height: 18px; background: #3a3024; }
+#toolbar .tb-now { flex: none; font: 600 12px/1 ui-monospace, Menlo, monospace; color: var(--gold); }
+
+/* one hue per era, for the variants that tint by era. Kept clear of the two sides' blue and red. */
+[data-era='early'] { --era: #d2a857; --era-d: #7d5f24; }
+[data-era='middle'] { --era: #58b8a2; --era-d: #23695b; }
+[data-era='late'] { --era: #b58ae0; --era-d: #5c3f86; }

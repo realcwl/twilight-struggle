@@ -1,0 +1,41 @@
+/* 06 Monitor wall: ten small tubes, the current one patched to the main screen */
+.ep-host[data-ep='06'] { padding: 1.1rem 1.4rem 1.1rem 1.1rem; }
+.ep-06 { display: flex; align-items: stretch; gap: 1.5rem; }
+
+/* a picture tube: curved glass, scan lines, the corners falling off */
+.m6-main { flex: none; padding: 0.6rem; border-radius: 0.9rem; background: linear-gradient(160deg, #3a3129, #171310 60%, #26201a); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.16), inset 0 0.1rem 0 rgba(255, 255, 255, 0.08), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6); }
+.m6-tube { position: relative; width: 14rem; height: 10.5rem; border-radius: 1.3rem / 1.1rem; overflow: hidden; background: #050505; box-shadow: 0 0 0 0.22rem #050403, 0 0 1.6rem rgba(150, 200, 255, 0.16); }
+.m6-tube .ep-pic { position: absolute; inset: 0; }
+.m6-scan { position: absolute; inset: 0; background: repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0 0.1rem, rgba(0, 0, 0, 0.3) 0.1rem 0.2rem), radial-gradient(120% 110% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.6)); pointer-events: none; }
+.m6-glass { position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 24%, transparent 78%, rgba(255, 255, 255, 0.05)); box-shadow: inset 0 0 1.2rem rgba(0, 0, 0, 0.7); pointer-events: none; }
+/* the caption strip a broadcast puts under its picture */
+.m6-tube em { position: absolute; left: 0.9rem; right: 0.9rem; bottom: 0.8rem; display: flex; align-items: baseline; justify-content: space-between; padding: 0.3rem 0.6rem 0.34rem; background: rgba(8, 8, 10, 0.72); font: 700 1.05rem/1 var(--han); letter-spacing: 0.12em; color: #fff; }
+.m6-tube em span { font: 600 1.05rem/1 'Oswald', sans-serif; letter-spacing: 0.06em; color: #ffd76a; }
+.m6-tube.switch .ep-pic { animation: m6-roll 0.5s steps(5); }
+.m6-tube.switch em { animation: m6-cap 0.9s; }
+@keyframes m6-roll { 0% { transform: translateY(-60%); filter: brightness(2.4) contrast(0.4) grayscale(1); } 60% { transform: translateY(18%); filter: brightness(1.6) grayscale(1); } }
+@keyframes m6-cap { 0%, 55% { opacity: 0; } }
+
+.m6-right { display: flex; flex-direction: column; justify-content: space-between; }
+.m6-wall { display: grid; grid-template-columns: repeat(5, 3.7rem); gap: 0.3rem 0.36rem; }
+.m6-s { display: grid; gap: 0.18rem; justify-items: center; }
+.m6-t { position: relative; display: block; width: 3.7rem; height: 2.78rem; border-radius: 0.42rem / 0.36rem; overflow: hidden; background: #050505; box-shadow: 0 0 0 0.16rem #1e1914, 0 0 0 0.2rem rgba(236, 223, 195, 0.14); }
+.m6-t .ep-pic { position: absolute; inset: 0; transition: filter 0.6s; }
+.m6-t::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(180deg, transparent 0 0.08rem, rgba(0, 0, 0, 0.3) 0.08rem 0.16rem); }
+.m6-s.done .ep-pic { --state: brightness(0.5); }
+.m6-s.todo .ep-pic { --state: brightness(0); }
+.m6-s.now .m6-t { box-shadow: 0 0 0 0.16rem #1e1914, 0 0 0 0.28rem var(--gold), 0 0 0.9rem rgba(240, 191, 74, 0.6); }
+.m6-s b { font: 600 0.72rem/1 'Share Tech Mono', ui-monospace, monospace; color: var(--muted); }
+.m6-s.now b { color: var(--gold); }
+.m6-s.todo b { opacity: 0.45; }
+
+.m6-read { display: flex; align-items: center; gap: 1.1rem; }
+.m6-read .ep-year { font-size: 3rem; }
+.m6-read > div { display: grid; gap: 0.55rem; }
+.m6-desk { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.m6-desk .ep-head { font-size: 1.4rem; }
+/* console lamps: square, amber when lit */
+.ep-06 .ep-pips { gap: 0.3rem; }
+.ep-06 .ep-pip { width: 0.9rem; height: 0.9rem; border-radius: 0.16rem; background: #17130f; box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.3), inset 0 -0.2rem 0.2rem rgba(0, 0, 0, 0.5); }
+.ep-06 .ep-pip.done { background: #6b4f1c; box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.5); }
+.ep-06 .ep-pip.now { width: 0.9rem; height: 0.9rem; background: var(--c); box-shadow: 0 0 0 1px var(--bright), 0 0 0.8rem var(--c); }

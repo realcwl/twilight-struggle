@@ -1,0 +1,270 @@
+/* Control marks prototype. Two parts: the ten signs (what would move into the game), and the page
+   chrome for switching between them and laying them side by side (which would not).
+   The variant in force is data-cm on the map's stage, or on a mock scene of the sheet. Every rule that
+   competes with the game's own map.css is written under .wm-plates so that it wins on specificity. */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #14110f; }
+#map { position: fixed; inset: 0; }
+
+/* ================================================================ what the signs are built from
+   A token's body is centred on its node and scaled by --s; before scaling it is --w by --h (map.css).
+   --ax / --bx are the centres of the two influence cells, --cw their width. --ctrl is the colour of
+   whoever controls the country, --cx the centre of that side's cell. */
+.wm-plate {
+  --c-w: 0px;
+  --o-w: 1.5px;
+  --o-c: rgba(236, 223, 195, 0.75);
+  --g-w: 0px;
+  --cw: calc(24px - 12.5px * var(--k));
+  --ax: calc(-7.5px + 5.25px * var(--k));
+  --bx: calc(16.5px - 7.25px * var(--k));
+}
+.wm-plate.ctrl-a { --ctrl: var(--side-a); --cx: var(--ax); }
+.wm-plate.ctrl-b { --ctrl: var(--side-b); --cx: var(--bx); }
+.wm-plate:is(.ctrl-a, .ctrl-b) {
+  --c-w: 2.5px;
+  --o-c: rgba(255, 255, 255, 0.85);
+  --lit: color-mix(in srgb, var(--ctrl), #fff 30%);
+  --deep: color-mix(in srgb, var(--ctrl), #000 28%);
+}
+.wm-plate.key { --o-w: 3.5px; --o-c: var(--battleground, #f0bf4a); --g-w: 2px; }
+/* "只留步枪": a battleground gives up its gold ring and its red stability badge, and keeps the rifles */
+.cm-plain .wm-plate.key { --o-w: 1.5px; --o-c: rgba(236, 223, 195, 0.75); --g-w: 0px; }
+.cm-plain .wm-plate.key:is(.ctrl-a, .ctrl-b) { --o-c: rgba(255, 255, 255, 0.85); }
+.cm-plain .wm-plates .wm-plate.key .wm-stab { background: var(--parchment); color: var(--ink); box-shadow: inset 0 0 0 1.5px rgba(36, 26, 18, 0.5); }
+
+/* The token's rings, rebuilt from the variables above: the control ring (--c-w) next to the token,
+   then the outer ring (cream, white when controlled, gold on a battleground). With no variant on and
+   the battleground left as it is, the game's own rule applies untouched. */
+:is([data-cm]:not([data-cm='00']), .cm-plain) .wm-plates .wm-plate:not(.superpower) .wm-plate-body {
+  box-shadow: 0 0 0 var(--c-w) var(--ctrl, transparent), 0 0 0 calc(var(--c-w) + var(--o-w)) var(--o-c), 0 2px 9px rgba(0, 0, 0, 0.7);
+}
+
+/* main.ts gives every token two elements: .cm-under (painted beneath the token) holding three shapes,
+   and .cm-over (painted on top) holding the controlling side's short name and its influence. */
+.cm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease;
+}
+.wm-plates.zooming .cm { transition: opacity 0.25s ease; }
+.cm svg { display: none; width: 100%; height: 100%; overflow: visible; }
+.cm svg path { fill: var(--ctrl); stroke: #fff; stroke-width: 1.5px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.cm svg path.shade { fill: var(--deep); stroke: none; }
+.cm svg path.shine { fill: var(--lit); stroke: none; }
+.cm-sym, .cm-num { display: none; }
+/* 05 was picked and now lives in the game (.wm-plinth in src/map). "00" shows the game as it is, plinth
+   included; under every other variant the game's own plinth is put away, so that the ten are still
+   compared against the token as it was before the pick. */
+[data-cm]:not([data-cm='00']) .wm-plinth { display: none; }
+
+/* ================================================================ 10 · 只有控制才满色
+   Also a switch of its own (.cm-quiet) that can be laid under any other variant. */
+.cm-quiet .wm-plates .wm-plate .wm-inf.on { background: transparent; text-shadow: none; }
+.cm-quiet .wm-plates .wm-plate .wm-inf.a.on { color: color-mix(in srgb, var(--side-a), #fff 50%); box-shadow: inset 0 -2.5px 0 var(--side-a); }
+.cm-quiet .wm-plates .wm-plate .wm-inf.b.on { color: color-mix(in srgb, var(--side-b), #fff 44%); box-shadow: inset 0 -2.5px 0 var(--side-b); }
+.cm-quiet .wm-plates .wm-plate.ctrl-a .wm-inf.a.on { background: var(--side-a); color: #fff; box-shadow: none; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45); }
+.cm-quiet .wm-plates .wm-plate.ctrl-b .wm-inf.b.on { background: var(--side-b); color: #fff; box-shadow: none; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45); }
+
+/* ================================================================ 01 · 整块染色
+   The whole token turns the controller's colour, ring included: every number is written in white on
+   it, and the stability badge becomes a white ring, so that from far away the token is one block. */
+[data-cm='01'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .wm-plate-body { background: var(--ctrl); }
+[data-cm='01'] .wm-plates .wm-plate.ctrl-a:not(.superpower) .wm-inf.a,
+[data-cm='01'] .wm-plates .wm-plate.ctrl-b:not(.superpower) .wm-inf.b { background: transparent; color: #fff; box-shadow: none; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); }
+/* the other side's cell: a faint number on the same colour while it has nothing there, and a cell of
+   its own colour as soon as it has */
+[data-cm='01'] .wm-plates .wm-plate.ctrl-a:not(.superpower) .wm-inf.b,
+[data-cm='01'] .wm-plates .wm-plate.ctrl-b:not(.superpower) .wm-inf.a { background: transparent; color: rgba(255, 255, 255, 0.62); box-shadow: none; text-shadow: none; }
+[data-cm='01'] .wm-plates .wm-plate.ctrl-a:not(.superpower) .wm-inf.b.on { background: var(--side-b); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(20, 14, 9, 0.8); }
+[data-cm='01'] .wm-plates .wm-plate.ctrl-b:not(.superpower) .wm-inf.a.on { background: var(--side-a); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(20, 14, 9, 0.8); }
+[data-cm='01'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .wm-stab { background: rgba(20, 14, 9, 0.3); color: #fff; box-shadow: inset 0 0 0 1.6px rgba(255, 255, 255, 0.92); }
+
+/* ================================================================ 02 · 加粗色框
+   From the token outwards: the battleground's gold (thin), the control colour (thick), a white
+   hairline, a glow. */
+[data-cm='02'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .wm-plate-body {
+  box-shadow:
+    0 0 0 var(--g-w) var(--battleground, #f0bf4a),
+    0 0 0 calc(var(--g-w) + 5px) var(--ctrl),
+    0 0 0 calc(var(--g-w) + 6.2px) #fff,
+    0 0 13px calc(var(--g-w) + 8px) color-mix(in srgb, var(--ctrl) 78%, transparent),
+    0 2px 9px rgba(0, 0, 0, 0.7);
+}
+
+/* ================================================================ 03 · 阵营徽章 */
+[data-cm='03'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .cm-over {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, var(--lit), var(--ctrl) 58%, var(--deep));
+  box-shadow: 0 0 0 1.6px #fff, 0 0 0 2.8px rgba(20, 14, 9, 0.85), 0 2px 5px rgba(0, 0, 0, 0.6);
+  transform: translate(calc((var(--w) * 0.5 + 3px - 4px * var(--k)) * var(--s)), calc((var(--h) * -0.5 + 1px - 2px * var(--k)) * var(--s))) translate(-50%, -50%)
+    scale(calc(var(--s) * (1 - 0.3 * var(--k))));
+}
+[data-cm='03'] .cm-sym {
+  display: block;
+  font: 900 13.5px/1 'Songti SC', 'Noto Serif SC', 'STSong', serif;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  opacity: clamp(0, 2.7 - 3 * var(--k, 0), 1);
+}
+
+/* ================================================================ 04 · 垂旗 */
+[data-cm='04'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .cm-under {
+  display: block;
+  width: calc(var(--cw) + 1px);
+  height: calc(19px - 5px * var(--k));
+  transform-origin: 50% 0;
+  transform: translate(calc(var(--cx) * var(--s)), calc(var(--h) * 0.5 * var(--s) - 1px)) translate(-50%, 0) scale(var(--s));
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55));
+}
+[data-cm='04'] .cm-banner { display: block; }
+
+/* ================================================================ 05 · 底座 */
+[data-cm='05'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .cm-under {
+  display: block;
+  width: calc(var(--w) + 20px - 6px * var(--k));
+  height: calc(13px - 3px * var(--k));
+  transform-origin: 50% 0;
+  transform: translate(0, calc(var(--h) * 0.5 * var(--s) + 1px)) translate(-50%, 0) scale(var(--s));
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55));
+}
+[data-cm='05'] .cm-plinth { display: block; }
+
+/* ================================================================ 06 · 地面色盘
+   Not on the token: one disc per country in a layer of its own between the map and the tokens, so a
+   disc never covers a neighbour's token. main.ts moves the discs with the tokens. */
+.cm-ground { position: absolute; inset: 0; overflow: hidden; pointer-events: none; display: none; --fit: 1; --tight: 0; }
+[data-cm='06'] .cm-ground { display: block; }
+.cm-pool {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  width: calc((137px - 55px * var(--tight)) * var(--fit));
+  aspect-ratio: 1.16;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--ctrl) 62%, transparent) 0 79%, var(--ctrl) 82% 92%, rgba(255, 255, 255, 0.92) 94% 98%, transparent 100%);
+}
+.cm-pool.a { display: block; --ctrl: var(--side-a); }
+.cm-pool.b { display: block; --ctrl: var(--side-b); }
+
+/* ================================================================ 07 · 同盟连线
+   Drawn by main.ts on the map itself (WebGL), over the standing network. Nothing to style here. */
+
+/* ================================================================ 08 · 胜方数字凸起 */
+[data-cm='08'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .cm-over {
+  display: grid;
+  place-items: center;
+  width: calc(var(--cw) + 5px - 5.5px * var(--k));
+  height: calc(var(--h) + 9px - 2px * var(--k));
+  border-radius: calc(6px - 1.5px * var(--k));
+  background: linear-gradient(var(--lit), var(--ctrl) 48%, var(--deep));
+  /* from far away the raised cell is no wider than the cell it stands for, so it hides neither neighbour */
+  box-shadow: 0 0 0 calc(1.6px - 0.5px * var(--k)) #fff, 0 0 0 calc(2.8px - 1.5px * var(--k)) rgba(20, 14, 9, 0.85), 0 3px 7px rgba(0, 0, 0, 0.6);
+  transform: translate(calc(var(--cx) * var(--s)), calc(1.5px * var(--s))) translate(-50%, -50%) scale(var(--s));
+}
+[data-cm='08'] .cm-num {
+  display: block;
+  font: 800 calc(20px - 5px * var(--k)) / 1 MapDisplay, MapText, serif;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+/* ================================================================ 09 · 盾牌 */
+[data-cm='09'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) { --c-w: 0px; }
+[data-cm='09'] .wm-plates .wm-plate:is(.ctrl-a, .ctrl-b):not(.superpower) .cm-under {
+  display: block;
+  width: calc(var(--w) + 16px - 4px * var(--k));
+  height: calc(var(--h) + 26px - 9px * var(--k));
+  transform-origin: 50% 0;
+  transform: translate(0, calc((var(--h) * -0.5 - 6px + 2px * var(--k)) * var(--s))) translate(-50%, 0) scale(var(--s));
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+}
+[data-cm='09'] .cm-shield { display: block; }
+
+/* ================================================================ page chrome */
+#ui { position: fixed; inset: 0; z-index: 4000; pointer-events: none; font: 13px/1.5 MapText, 'Songti SC', 'Noto Serif SC', serif; color: #ecdfc3; }
+#ui > * { pointer-events: auto; }
+#ui.bare .cp-bar, #ui.bare .cp-side { display: none; }
+#ui button, .cp-sheet button { font: inherit; color: inherit; cursor: pointer; }
+
+.cp-bar { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 24px); box-sizing: border-box; padding: 8px 10px 10px; border-radius: 12px; background: rgba(22, 17, 13, 0.94); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.25), 0 12px 34px rgba(0, 0, 0, 0.55); }
+.cp-tabs { display: flex; gap: 4px; overflow-x: auto; }
+.cp-tabs button { flex: none; display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 62px; padding: 5px 7px 4px; border: 0; border-radius: 8px; background: none; color: rgba(236, 223, 195, 0.78); }
+.cp-tabs button b { font: 800 14px/1.1 MapDisplay, serif; letter-spacing: 0.04em; }
+.cp-tabs button span { font-size: 12px; white-space: nowrap; }
+.cp-tabs button:hover { background: rgba(236, 223, 195, 0.08); color: #fff7e4; }
+.cp-tabs button.on { background: rgba(240, 191, 74, 0.16); color: #fff7e4; box-shadow: inset 0 0 0 1.5px #f0bf4a; }
+.cp-desc { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; max-width: 860px; margin: 8px 4px 0; }
+.cp-desc-name { font-size: 15px; font-weight: 800; color: #fff7e4; letter-spacing: 0.04em; }
+.cp-desc-where { padding: 0 7px; border-radius: 99px; font-size: 11.5px; color: #241a12; background: rgba(236, 223, 195, 0.85); }
+.cp-desc-blurb { flex-basis: 100%; color: rgba(236, 223, 195, 0.92); }
+.cp-desc-risk { flex-basis: 100%; color: rgba(236, 223, 195, 0.58); font-size: 12.5px; }
+
+.cp-side { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cp-row { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; }
+.cp-pill { padding: 3px 12px; border: 0; border-radius: 99px; white-space: nowrap; background: rgba(22, 17, 13, 0.9); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.22); }
+.cp-pill:hover:not(:disabled) { background: rgba(60, 46, 33, 0.95); }
+.cp-pill:disabled { opacity: 0.45; cursor: default; }
+#ui .cp-pill.cp-strong { background: #f0bf4a; color: #241a12; font-weight: 800; box-shadow: none; }
+#ui .cp-pill.cp-strong:hover { background: #ffd56a; }
+.cp-hint { padding: 2px 9px; border-radius: 99px; font-size: 11.5px; color: rgba(236, 223, 195, 0.7); background: rgba(22, 17, 13, 0.7); }
+.cp-error { position: fixed; inset: auto 16px 16px 16px; margin: 0; padding: 12px 14px; border-radius: 8px; background: #3a1512; color: #ffd9d2; font: 13px/1.5 ui-monospace, monospace; white-space: pre-wrap; z-index: 9999; }
+
+/* ================================================================ the sheet: all ten side by side */
+.cp-sheet { position: fixed; inset: 0; z-index: 5000; overflow: auto; box-sizing: border-box; padding: 20px 26px 30px; background: rgba(13, 11, 9, 0.97); font: 13px/1.55 MapText, 'Songti SC', 'Noto Serif SC', serif; color: #ecdfc3; }
+.cp-sheet[hidden] { display: none; }
+.cp-sheet-head { display: flex; align-items: flex-start; gap: 22px; margin-bottom: 16px; }
+.cp-sheet-title { flex: 1; min-width: 0; }
+.cp-sheet-title h1 { margin: 0 0 4px; font: 900 24px/1.2 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.1em; color: #fff7e4; }
+.cp-sheet-title p { margin: 0; max-width: 760px; color: rgba(236, 223, 195, 0.66); }
+.cp-x { flex: none; width: 36px; height: 36px; border: 1px solid rgba(236, 223, 195, 0.3); border-radius: 50%; background: none; font: 400 22px/1 -apple-system, 'Helvetica Neue', sans-serif !important; }
+.cp-x:hover { border-color: #f0bf4a; color: #f0bf4a; }
+.cp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1180px) { .cp-grid { grid-template-columns: minmax(0, 1fr); } }
+.cp-card { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; border: 0; border-radius: 12px; text-align: left; background: linear-gradient(180deg, #2c2219, #1b1510); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.2); }
+.cp-card:hover { box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.7); }
+.cp-card.on { box-shadow: 0 0 0 2px #f0bf4a; }
+.cp-card.now { background: linear-gradient(180deg, #23201d, #171412); }
+.cp-card-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.cp-card-name b { font: 800 16px/1 MapDisplay, serif; color: #f0bf4a; }
+.cp-card-name span { font: 900 18px/1.1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.06em; color: #fff7e4; }
+.cp-card-name em { font-style: normal; font-size: 11px; padding: 0 6px; border-radius: 99px; color: #241a12; background: rgba(236, 223, 195, 0.8); }
+.cp-card-name strong { font-size: 11px; padding: 0 6px; border-radius: 99px; color: #241a12; background: #f0bf4a; }
+.cp-card p { margin: 0; color: rgba(236, 223, 195, 0.9); }
+.cp-card p.risk { color: rgba(236, 223, 195, 0.55); font-size: 12.5px; }
+
+/* A mock scene: five tokens copied from the map, joined by a link, on ground that is land on the left
+   and sea on the right. The tokens are drawn by the game's own stylesheet plus the rules above. */
+.cp-scenes { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; margin-top: 2px; }
+.cp-scene {
+  position: relative;
+  height: 96px;
+  border-radius: 9px;
+  overflow: hidden;
+  background: linear-gradient(100deg, #5b6645 0%, #6a6443 34%, #3e5a52 47%, #1c4258 58%, #142f44 100%);
+  box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.14);
+  --parchment: #ecdfc3;
+  --ink: #241a12;
+  --gold: #f0bf4a;
+  --battleground: var(--gold);
+  font-family: MapText, 'Songti SC', 'Noto Serif SC', serif;
+}
+.cp-scene.far { height: 62px; width: 62%; }
+.cp-scene .wm-plates { overflow: visible; }
+.cp-scene .cm-ground { overflow: visible; }
+.cp-slot { position: absolute; top: 56%; width: 0; height: 0; }
+.cp-scene .cm-pool { top: calc(56% + 2px); transform: translate(-50%, -50%); }
+.cp-wire { position: absolute; top: 56%; height: 3.4px; margin-top: -1.7px; border-radius: 2px; background: #fff0c8; box-shadow: 0 0 0 1.5px rgba(29, 20, 13, 0.9); }
+.cp-wire.bloc { display: none; height: 4.6px; margin-top: -2.3px; box-shadow: 0 0 0 1.7px rgba(255, 255, 255, 0.95); }
+[data-cm='07'] .cp-wire.bloc { display: block; }
+.cp-scene-note { position: absolute; left: 8px; top: 5px; font-size: 11px; color: rgba(255, 247, 228, 0.72); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); }
+.cp-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 14px; font-size: 12.5px; color: rgba(236, 223, 195, 0.72); }
+.cp-legend b { color: #fff7e4; font-weight: 800; }

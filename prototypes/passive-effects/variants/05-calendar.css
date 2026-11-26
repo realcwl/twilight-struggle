@@ -1,0 +1,50 @@
+/* 05 有效期: bars on a ruler of the turn's action rounds, under the time corner. --col is one
+   round; a row is seven of them and then a tail for what lasts beyond the ruler. */
+.v05 { --col: 2.25rem; --tail: 8.4rem; position: absolute; left: 1.6rem; top: calc(var(--under-left, 14rem) + 1.2rem); padding: 1.1rem 1.3rem 1.2rem; }
+.v05.empty .v05-rows::before { content: '当前没有生效的事件'; display: block; padding: 0.5rem 0 0.2rem; font-size: 1.15rem; color: var(--muted); }
+.v05-ruler { display: grid; gap: 0.7rem; }
+.v05-ruler .hud-lb { font-size: 1.1rem; }
+.v05-ticks { display: flex; align-items: center; height: 1.7rem; border-bottom: 1px solid var(--line); }
+.v05-ticks i { width: var(--col); text-align: center; font: 700 1.1rem/1 var(--num); color: var(--muted); }
+.v05-ticks i.done { color: rgba(236, 223, 195, 0.3); }
+.v05-ticks i.now { color: var(--gold); font-size: 1.35rem; font-weight: 800; }
+.v05-ticks em { width: var(--tail); padding-left: 0.9rem; font: 400 1rem/1 var(--han); letter-spacing: 0.14em; color: var(--muted); }
+/* "now": a gold hairline at the start of the current round, down through every row */
+.v05-now { position: absolute; left: calc(1.3rem + (var(--now, 1) - 1) * var(--col)); top: 3.3rem; bottom: 1rem; width: 0; border-left: 1px solid var(--gold); filter: drop-shadow(0 0 2px rgba(240, 191, 74, 0.9)); transition: left 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); pointer-events: none; }
+.v05-rows { display: grid; gap: 0.38rem; padding-top: 0.6rem; }
+
+.v05-row { position: relative; width: calc(7 * var(--col) + var(--tail)); height: 2.1rem; --past: max(0, calc(var(--now, 1) - 1 - var(--from))); }
+/* the track: seven faint cells, so a bar can be read against the rounds */
+.v05-row::before { content: ''; position: absolute; left: 0; top: 0.3rem; bottom: 0.3rem; width: calc(7 * var(--col)); border-radius: 0.3rem; background: repeating-linear-gradient(90deg, rgba(236, 223, 195, 0.07) 0 calc(var(--col) - 1px), transparent calc(var(--col) - 1px) var(--col)); }
+.v05-bar { position: absolute; left: calc(var(--from) * var(--col)); top: 0.15rem; bottom: 0.15rem; width: calc((var(--to) - var(--from)) * var(--col)); border-radius: 0.35rem; background: linear-gradient(180deg, var(--cl), var(--c) 40%, color-mix(in srgb, var(--c) 62%, #000)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28), 0 0.15rem 0.5rem rgba(0, 0, 0, 0.5); transform-origin: 0 50%; transition: width 0.5s; }
+/* what has gone by is dimmed: the part of the bar left of "now" */
+.v05-bar::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--past) * var(--col)); max-width: 100%; border-radius: 0.35rem 0 0 0.35rem; background: rgba(16, 12, 9, 0.66); }
+/* already in force when the turn began: no left end */
+.v05-row.early .v05-bar { border-top-left-radius: 0; border-bottom-left-radius: 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 1.1rem); mask-image: linear-gradient(90deg, transparent, #000 1.1rem); }
+/* only a card or an event ends it: the bar runs off the ruler */
+.v05-row.open .v05-bar { width: calc((7 - var(--from)) * var(--col) + 1.5rem); border-top-right-radius: 0; border-bottom-right-radius: 0; clip-path: polygon(0 0, calc(100% - 0.9rem) 0, 100% 50%, calc(100% - 0.9rem) 100%, 0 100%); }
+.v05-name { position: absolute; left: calc(max(var(--from), var(--now, 1) - 1) * var(--col) + 0.55rem); top: 50%; transform: translateY(-50%); font: 900 1.12rem/1 var(--han); letter-spacing: 0.04em; color: var(--ink); white-space: nowrap; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35); pointer-events: none; }
+.v05-row.is-n .v05-name { text-shadow: none; }
+.v05-end { position: absolute; right: 0; top: 50%; display: inline-flex; align-items: center; gap: 0.35rem; transform: translateY(-50%); font: 400 1.05rem/1 var(--han); color: var(--text); white-space: nowrap; }
+.v05-end em { font-style: normal; }
+.v05-mark { display: inline-grid; place-items: center; font-size: 1.25rem; color: var(--gold); }
+.v05-mark .pe-n { font-size: 1.35rem; color: var(--bright); }
+.v05-mark.tick { animation: v05-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v05-tick { 0% { transform: scale(2.2); } }
+/* a round it did something in */
+.v05-fired i { position: absolute; left: calc((var(--at) - 0.5) * var(--col)); top: 100%; width: 0.6rem; height: 0.6rem; margin: -0.42rem 0 0 -0.3rem; transform: rotate(45deg); background: var(--gold); box-shadow: 0 0 0 1.5px #17120e; }
+
+.v05-row:hover .v05-bar { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 0 0 1px var(--bright), 0 0 1.2rem rgba(240, 191, 74, 0.5); }
+.v05-row.pe-new .v05-bar { animation: v05-grow 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both, v05-glint 2.2s ease-out; }
+.v05-row.pe-new .v05-name, .v05-row.pe-new .v05-end { animation: v05-fade 0.9s ease-out both; }
+@keyframes v05-grow { 0% { transform: scaleX(0); } }
+@keyframes v05-fade { 0%, 50% { opacity: 0; } }
+@keyframes v05-glint { 0%, 40% { box-shadow: 0 0 0 0.16rem var(--gold), 0 0 1.8rem rgba(240, 191, 74, 0.85); } }
+.v05-row.pe-fire .v05-bar { animation: v05-fire 1.4s ease-out; }
+@keyframes v05-fire { 0%, 55% { box-shadow: 0 0 0 0.16rem var(--gold), 0 0 1.8rem rgba(240, 191, 74, 0.85); filter: brightness(1.25); } }
+.v05-row.pe-ending .v05-bar { filter: saturate(0.2) brightness(0.75); transition: filter 0.3s; }
+.v05-row .pe-stamp { left: calc((var(--now, 1) - 0.5) * var(--col)); }
+.v05-row .pe-stamp b { font-size: 1.15rem; }
+
+/* the country card sits under the time corner; here it goes under the calendar */
+#game[data-pe='05'] .hud-brief:not(.right) { top: calc(var(--under-left, 14rem) + var(--v05-h, 18rem) + 2.4rem); }

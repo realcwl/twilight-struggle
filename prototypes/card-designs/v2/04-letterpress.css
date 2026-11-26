@@ -1,0 +1,8 @@
+/* V2 04 Letterpress */
+.e04 .face { background: #6f4120; }
+.e04-letter { font: 400 40px 'Russo One', sans-serif; fill: #15110e; }
+.e04-letter.hot { fill: #c8281e; }
+.e04 .k-value { font-size: 62px; }
+.e04 .k-foot { fill: #15110e; }
+.e04 .txt { left: 13.6cqw; right: 9.6cqw; top: 88.4cqw; height: 30cqw; }
+.e04 .txt .rules { font-size: 4.8cqw; }

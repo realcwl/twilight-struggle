@@ -1,0 +1,32 @@
+/* 02 Table: the map is a window in a frame */
+#game[data-layout='02'] { --map-t: 7rem; --map-b: 15.5rem; --map-l: 9.5rem; --map-r: 12.5rem; --info-x: 11.1rem; --info-y: 8.6rem; --info-rx: 14.1rem; }
+.L02 .rail { position: absolute; border-radius: 0; box-shadow: none; background: repeating-linear-gradient(91deg, rgba(255, 255, 255, 0.022) 0 2px, transparent 2px 9px), radial-gradient(140% 220% at 50% 0%, #382b1f, #1a1410 75%); }
+.L02 .rail.top { inset: 0 0 auto 0; height: 7rem; }
+.L02 .rail.bottom { inset: auto 0 0 0; height: 15.5rem; }
+.L02 .rail.left { left: 0; top: 7rem; bottom: 15.5rem; width: 9.5rem; }
+.L02 .rail.right { right: 0; top: 7rem; bottom: 15.5rem; width: 12.5rem; }
+.L02 .rim { position: absolute; inset: 7rem 12.5rem 15.5rem 9.5rem; border-radius: 0.5rem; box-shadow: 0 0 0 0.22rem #c8962e, 0 0 0 0.62rem #14100c, 0 0 0 0.72rem rgba(243, 210, 122, 0.5), inset 0 0 4.5rem rgba(0, 0, 0, 0.6); }
+.L02 .plate { position: absolute; left: 1.8rem; display: flex; align-items: center; gap: 2.2rem; }
+.L02 .plate .stats { display: grid; gap: 0.7rem; }
+.L02 .plate.opp { top: 1.2rem; }
+.L02 .plate.opp .w-side { font-size: 0.9rem; }
+.L02 .plate.opp .stats { grid-auto-flow: column; gap: 2rem; }
+.L02 .plate.me { bottom: 2.2rem; flex-direction: column; align-items: flex-start; gap: 1.4rem; }
+.L02 .plate.me .w-side { font-size: 1.25rem; }
+.L02 .opp-hand { position: absolute; left: calc(50% - 1.5rem); top: -2.4rem; transform: translateX(-50%); flex-direction: row; align-items: flex-end; gap: 1.6rem; font-size: 1.7rem; }
+.L02 .opp-hand .op-cap { font-size: 1rem; padding-bottom: 0.6rem; }
+.L02 .clock { position: absolute; right: 1.8rem; top: 0.9rem; display: grid; justify-items: end; gap: 0.5rem; }
+.L02 .score { position: absolute; left: 2.5rem; top: 8.8rem; bottom: 17.2rem; font-size: 1.15rem; }
+.L02 .col { position: absolute; right: 0; top: 7rem; bottom: 0; width: 12.5rem; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 1.8rem 0 1.5rem; }
+.L02 .col .w-played { --card-w: 9em; }
+.L02 .col .pair { display: flex; gap: 0.9rem; }
+.L02 .col .pair .w-pile { --card-w: 4.9em; }
+.L02 .col .pair .pile-cap { flex-direction: column; align-items: center; gap: 0.3em; }
+.L02 .col .pair .lb { font-size: 1em; letter-spacing: 0.06em; }
+.L02 .col .k-deck { --card-w: 8em; }
+.L02 .turn { position: absolute; right: 14.4rem; bottom: 2.6rem; display: grid; justify-items: center; gap: 1.2rem; padding: 0; background: none; box-shadow: none; }
+.L02 .turn .w-phase { background: rgba(18, 14, 11, 0.6); box-shadow: 0 0 0 1px var(--c); }
+.L02 .end { padding: 1.1rem 2.8rem; border: 0; border-radius: 3rem; background: linear-gradient(180deg, #f8e19a, #c8962e 55%, #8a5f12); box-shadow: 0 0 0 0.2rem #14100c, 0 0 0 0.32rem rgba(243, 210, 122, 0.6), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6); font: 900 1.8rem/1 var(--han); letter-spacing: 0.22em; color: #2a1c05; cursor: pointer; }
+.L02 .end:hover { filter: brightness(1.1); }
+.L02 .end:active { transform: translateY(1px); }
+.L02 [data-hand] { left: calc(50% - 4rem); bottom: 0; }

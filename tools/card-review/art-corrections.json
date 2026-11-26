@@ -1,0 +1,17 @@
+{
+  "retries": [
+    {
+      "id": 18,
+      "path": "/Users/weilunchen/.codex/generated_images/01a1d7bc-c7b1-7991-b0ff-d35f5b8fc6c9/exec-1412a812-275a-44a2-9f7b-91cdc62bbe1a.png"
+    },
+    {
+      "id": 49,
+      "path": "/Users/weilunchen/.codex/generated_images/01a1d7bc-c7b1-7991-b0ff-d35f5b8fc6c9/exec-3cba21ad-be90-4db9-ac15-8689d1313a44.png"
+    }
+  ],
+  "correction": {
+    "id": 81,
+    "path": "/Users/weilunchen/.codex/generated_images/01a1d7bc-c7b1-7991-b0ff-d35f5b8fc6c9/exec-0d3e94d7-832d-40d5-9687-eb2cb7745419.png",
+    "prompt": "Use case: precise-object-edit. Edit the provided South America Scoring illustration. Remove ALL three ancient-costumed people in the left foreground, including their headdresses, staff, jewelry, cloth and drawing surface. Fill that area naturally with the existing rocky grassy ridge and low plants. Keep the exact Machu Picchu architecture, stone terraces, Andean mountains, clouds, camera angle, lighting, painterly photographic realism, landscape 3:2 aspect ratio and colors unchanged. The result must be a completely uninhabited landscape as seen during the 20th century: no people, no flags, no added text or symbols. This is a precise cleanup, not a redesign."
+  }
+}

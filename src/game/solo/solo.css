@@ -1,0 +1,58 @@
+/* The match's own dialogs: a choice, cards shown, a notice, the result, the menu.
+   Their look is the shared sheet (src/ui/sheet.css); only layout is here. */
+.solo-dialog {
+  width: min(calc(600 * var(--su)), 92vw);
+  max-height: 90dvh;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--sh-pad);
+  /* the buttons that end a dialog are its own children and sit at its lower right */
+  text-align: right;
+}
+.solo-dialog > :not(button) { text-align: left; }
+.solo-dialog > .sheet-btn { margin: calc(26 * var(--su)) 0 0 calc(26 * var(--su)); }
+.solo-dialog > .sheet-head { margin-bottom: calc(24 * var(--su)); }
+
+/* ---- a choice in words */
+.solo-options { margin: 0; }
+
+/* ---- a choice among cards, or cards shown: the sheet is as wide as its cards need */
+.solo-dialog.has-cards { width: fit-content; min-width: min(calc(520 * var(--su)), 92vw); max-width: min(calc(1080 * var(--su)), 94vw); }
+/* the heading takes the width the cards give it and does not widen the sheet itself */
+.solo-dialog.has-cards > .sheet-head { width: 0; min-width: 100%; }
+.solo-options.sheet-tray,
+.solo-reveal { --card-w: calc(196 * var(--su)); display: flex; flex-wrap: wrap; justify-content: center; gap: calc(26 * var(--su)) calc(24 * var(--su)); }
+.solo-options.sheet-tray[data-many],
+.solo-reveal[data-many] { --card-w: calc(164 * var(--su)); gap: calc(22 * var(--su)) calc(18 * var(--su)); }
+.solo-card-option { width: var(--card-w); }
+.solo-card-option .slot,
+.solo-reveal .slot { width: var(--card-w); pointer-events: none; flex: none; }
+/* what else can be answered beside taking a card */
+.solo-extra { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: calc(26 * var(--su)); margin-top: calc(22 * var(--su)); }
+
+/* ---- a notice: one sentence and a way on */
+.solo-notice { width: min(calc(460 * var(--su)), 92vw); }
+
+/* ---- the result */
+.solo-result { width: min(calc(560 * var(--su)), 92vw); }
+.solo-result[data-winner='0'] { --sh-bar: var(--sh-a); }
+.solo-result[data-winner='1'] { --sh-bar: var(--sh-b); }
+.solo-result > .sheet-head { margin-bottom: calc(8 * var(--su)); }
+.solo-result .sheet-title { font-size: calc(40 * var(--su)); letter-spacing: 0.2em; }
+.solo-detail { margin: 0; color: var(--sh-muted); }
+.solo-score { display: block; margin: calc(26 * var(--su)) 0 0; padding: calc(20 * var(--su)) 0; border-top: 1px solid var(--sh-line); border-bottom: 1px solid var(--sh-line); font: 800 calc(34 * var(--su)) / 1.2 var(--sh-display); letter-spacing: 0.1em; color: var(--sh-strong); font-variant-numeric: tabular-nums; }
+.solo-result[data-winner='0'] .solo-score { color: var(--sh-a); }
+.solo-result[data-winner='1'] .solo-score { color: var(--sh-b); }
+.solo-result details { margin: calc(18 * var(--su)) 0 0; }
+.solo-result summary { width: fit-content; font-size: calc(12.5 * var(--su)); letter-spacing: 0.16em; color: var(--sh-muted); cursor: pointer; }
+.solo-result summary:hover { color: var(--sh-strong); }
+.solo-result ol { max-height: calc(200 * var(--su)); margin: calc(10 * var(--su)) 0 0; padding: 0 0 0 calc(30 * var(--su)); overflow: auto; font-size: calc(13 * var(--su)); line-height: 1.7; color: var(--sh-ink); }
+
+/* ---- the menu: a short list */
+.solo-menu { width: min(calc(460 * var(--su)), 92vw); }
+
+@media (max-width: 600px) {
+  .solo-dialog { --sh-pad: calc(22 * var(--su)); }
+  .solo-options.sheet-tray,
+  .solo-reveal { --card-w: calc(132 * var(--su)); gap: calc(18 * var(--su)) calc(12 * var(--su)); }
+}

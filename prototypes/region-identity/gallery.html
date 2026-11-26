@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>大区识别 · 图册</title>
+    <style>
+      :root { --parchment: #ecdfc3; --gold: #f0bf4a; }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #14110f; color: var(--parchment); font: 15px/1.6 'Songti SC', 'Noto Serif SC', Georgia, serif; }
+      main { max-width: 1720px; margin: 0 auto; padding: 40px 28px 80px; }
+      h1 { margin: 0; font-size: 30px; letter-spacing: 0.06em; color: #fff7e4; }
+      .lede { max-width: 62em; margin: 10px 0 0; color: rgba(236, 223, 195, 0.82); }
+      .lede b { color: #fff7e4; }
+      code { padding: 1px 6px; border-radius: 4px; background: rgba(236, 223, 195, 0.1); font: 13px ui-monospace, Menlo, monospace; }
+      a { color: var(--gold); }
+      .palette { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .palette li { display: flex; align-items: center; gap: 7px; }
+      .palette i { width: 16px; height: 16px; border-radius: 4px; }
+      section { margin-top: 44px; padding-top: 22px; border-top: 1px solid rgba(236, 223, 195, 0.16); }
+      section.rec { border-top-color: var(--gold); }
+      header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+      h2 { margin: 0; font-size: 22px; letter-spacing: 0.05em; color: #fff7e4; }
+      h2 b { margin-right: 8px; color: var(--gold); font-family: Georgia, serif; }
+      .where { padding: 0 9px; border-radius: 99px; font-size: 12.5px; color: #241a12; background: rgba(236, 223, 195, 0.85); }
+      .live { margin-left: auto; font-size: 14px; }
+      .blurb { max-width: 60em; margin: 6px 0 0; }
+      .risk { max-width: 60em; margin: 2px 0 0; color: rgba(236, 223, 195, 0.6); font-size: 14px; }
+      .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+      figure { margin: 0; }
+      figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 8px; background: #0c0a08; box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.18); }
+      figcaption { margin-top: 5px; font-size: 12.5px; letter-spacing: 0.08em; color: rgba(236, 223, 195, 0.55); }
+      @media (max-width: 900px) { .pair { grid-template-columns: 1fr; } .live { margin-left: 0; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>大区识别 · 十种方案</h1>
+      <p class="lede">
+        问题：地图上看不出一个国家属于哪个大区。下面每个方案两张图，左边是<b>最远视角</b>（整个世界），右边是<b>近看</b>（欧洲、中东、非洲交界处）。
+        图是从真实地图上截的，局势用的是沙盒的演示局势。点图看原尺寸。<br />
+        想亲手缩放、悬停、把几个方案叠在一起看：先 <code>npm run dev</code>，再点每节右上角的“在地图上打开”。
+      </p>
+      <ul class="palette" id="palette"></ul>
+      <div id="list"></div>
+    </main>
+    <script>
+      const REGIONS = [
+        ['欧洲', '#ab8fff'], ['中东', '#2fc6b4'], ['非洲', '#b4d23c'], ['亚洲', '#f27ab1'], ['中美洲', '#dc9058'], ['南美洲', '#4fc272'],
+      ];
+      // Same wording as variants.ts.
+      const VARIANTS = [
+        ['rec', '推荐组合：03 稳定度徽章 + 09 连线着色', '节点 + 连线', '两处都在主信息层上（节点和连线），都不增加新元素、不改变铭牌大小。远看靠同色的网认出大区，近看每个铭牌自己带着颜色。理由见 README。', '', '03,09'],
+        ['00', '现状', '', '对照组：现在的地图，没有任何大区标识。', '', ''],
+        ['01', '铭牌底色', '节点', '铭牌整块换成大区色，影响力格嵌在里面。色块面积最大，拉到最远也认得出。', '铭牌不再是统一的深色，蓝、红两格要和底色抢对比度。', '01'],
+        ['02', '彩色底座', '节点', '铭牌下面露出一道大区色的底边，像筹码的厚度。铭牌本身一个像素都不改。', '色块只有一条边，拉远后变细；铭牌整体高了几个像素。', '02'],
+        ['03', '稳定度徽章', '节点', '左端的稳定度圆章换成大区色。不增加任何新元素，铭牌尺寸不变。', '战场国原来靠金色圆章区分，现在只剩金色外圈和章内的金环。', '03'],
+        ['04', '大区字签', '节点', '铭牌右端加一格：近看是“欧、亚、非”这样一个字，拉远后收成一条色边。颜色之外多一个字，色弱也能读。', '铭牌宽了一点，最远视角下相邻铭牌更挤。', '04'],
+        ['05', '名签旗框', '节点', '近看时国名印在大区色的名签上；拉远后国名变成旗帜，旗帜加一圈大区色边框。', '名签比现在的描边文字更占地方；旗框面积小，远看偏弱。', '05'],
+        ['06', '领土染色', '地面', '整块领土薄薄罩一层大区色，像政区图。一眼能看出大区的形状和范围。', '和控制方的蓝、红染色抢同一块面积；地貌的自然色被盖住一部分。', '06'],
+        ['07', '大区描边', '地面', '只沿大区的外缘和海岸描一圈色带，区内保持自然地貌，像旧地图册的分区描色。', '内陆小国离大区边缘远，自己身上没有颜色；和控制方的内描边挨在一起。', '07'],
+        ['08', '大区纹理', '地面', '每个大区一种线纹（横线、圆点、斜线、竖线、方格、波纹），颜色之外多一重编码。', '拉远后线纹细过像素，只剩一层淡色；和“有影响力但无人控制”的斜纹容易混。', '08'],
+        ['09', '连线着色', '连线', '区内连线改用大区色，跨区连线仍是红色虚线。大区就是一团同色的网。', '线只有两三个像素宽，颜色不如色块好认；孤立看一个节点时要顺着线找。', '09'],
+        ['10', '大区底板', '地面', '沿节点和连线铺一块半透明的色板，把同一大区的节点圈在一起，不管国界怎么走。', '色板跟着连线走，会盖到海面和别国领土上，和真实地理不完全重合。', '10'],
+      ];
+      const live = (v) => (location.protocol === 'file:' ? 'http://localhost:5173/prototypes/region-identity/' : './') + (v ? `?v=${v}` : '');
+      const el = (tag, cls, text) => {
+        const n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        return n;
+      };
+      for (const [name, color] of REGIONS) {
+        const li = el('li');
+        const sw = el('i');
+        sw.style.background = color;
+        li.append(sw, name);
+        document.getElementById('palette').append(li);
+      }
+      for (const [id, name, where, blurb, risk, v] of VARIANTS) {
+        const s = el('section', id === 'rec' ? 'rec' : '');
+        const head = el('header');
+        const h = el('h2');
+        if (id !== 'rec') h.append(el('b', '', id));
+        h.append(name);
+        head.append(h);
+        if (where) head.append(el('span', 'where', `画在${where}上`));
+        const a = el('a', 'live', '在地图上打开 →');
+        a.href = live(v);
+        head.append(a);
+        s.append(head, el('p', 'blurb', blurb));
+        if (risk) s.append(el('p', 'risk', `代价：${risk}`));
+        const pair = el('div', 'pair');
+        for (const [tag, cap] of [['far', '最远视角'], ['near', '近看 · 欧洲、中东、非洲交界']]) {
+          const fig = el('figure');
+          const link = el('a');
+          link.href = `shots/${id}-${tag}.webp`;
+          link.target = '_blank';
+          const img = el('img');
+          img.src = link.href;
+          img.loading = 'lazy';
+          img.alt = `${name}，${cap}`;
+          link.append(img);
+          fig.append(link, el('figcaption', '', cap));
+          pair.append(fig);
+        }
+        s.append(pair);
+        document.getElementById('list').append(s);
+      }
+    </script>
+  </body>
+</html>

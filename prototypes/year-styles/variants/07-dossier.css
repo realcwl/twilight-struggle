@@ -1,0 +1,26 @@
+/* 07 Dossier */
+.yr-07 { width: 24rem; padding-top: 2.9rem; transform: rotate(-1deg); transform-origin: 0 0; filter: drop-shadow(0 0.9rem 1.4rem rgba(0, 0, 0, 0.55)); --manila: #d8b97c; --type: #20242c; --tab: 0; }
+.yr-07[data-era='middle'] { --tab: 1; }
+.yr-07[data-era='late'] { --tab: 2; }
+/* a third-cut tab: left, centre or right, by era */
+.d7-tab { position: absolute; top: 0; left: calc(0.9rem + var(--tab) * 7.5rem); width: 7.6rem; height: 3.2rem; border-radius: 0.5rem 0.5rem 0 0; background: linear-gradient(180deg, #e2c68c, var(--manila)); display: grid; place-items: center; transition: left 0.6s cubic-bezier(0.3, 0.8, 0.3, 1); }
+.d7-tab b { padding: 0.14rem 0.6rem 0; background: #f4eedc; box-shadow: 0 0 0 1px rgba(32, 36, 44, 0.3); font: 400 2.25rem/1 'Special Elite', 'Courier New', monospace; letter-spacing: 0.06em; color: var(--type); }
+.d7-folder { padding: 0.9rem 0.9rem 1rem; border-radius: 0 0.4rem 0.4rem 0.4rem; background: linear-gradient(170deg, #dfc186, #c9a865); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -0.3rem 0 rgba(0, 0, 0, 0.08); }
+/* the index card: ruled, typed, clipped on */
+.d7-card { position: relative; padding: 1rem 1.1rem 0.5rem 1.4rem; background: repeating-linear-gradient(180deg, transparent 0 2.14rem, rgba(70, 120, 170, 0.32) 2.14rem 2.2rem) 0 0.75rem, #f4eedc; box-shadow: 0 0.15rem 0.3rem rgba(0, 0, 0, 0.3); color: var(--type); }
+.yr-07.fresh .d7-card { animation: d7-in 0.45s ease-out; }
+@keyframes d7-in { from { transform: translateY(-1.6rem); opacity: 0; } }
+.d7-card p { display: flex; align-items: baseline; gap: 1rem; margin: 0; height: 2.2rem; font: 400 1.3rem/2.2rem 'STFangsong', 'FangSong', 'Songti SC', serif; white-space: nowrap; }
+.d7-card p span { flex: none; width: 3.9rem; font-size: 1.15rem; color: rgba(32, 36, 44, 0.72); text-align: justify; text-align-last: justify; }
+.d7-card p b { font: 400 1.35rem/2.2rem 'Special Elite', 'STFangsong', 'FangSong', monospace; letter-spacing: 0.04em; }
+.d7-card p b i { font-size: 1.05rem; color: rgba(32, 36, 44, 0.55); }
+.d7-boxes { display: inline-flex; gap: 0.3rem; align-self: center; }
+.d7-boxes i { position: relative; width: 1.05rem; height: 1.05rem; border: 1.5px solid var(--type); }
+.d7-boxes i.done::before, .d7-boxes i.done::after { content: ''; position: absolute; left: -12%; right: -12%; top: 50%; height: 1.5px; margin-top: -0.75px; background: var(--type); transform: rotate(45deg); }
+.d7-boxes i.done::after { transform: rotate(-45deg); }
+.d7-boxes i.now { background: var(--type); box-shadow: 0 0 0 0.16rem #f4eedc, 0 0 0 0.26rem #b3261e; }
+.d7-now.a { color: #1d4f9c; }
+.d7-now.b { color: #b3261e; }
+.d7-clip { position: absolute; left: auto; right: 2.2rem; top: -0.9rem; width: 0.95rem; height: 2.9rem; border: 0.16rem solid #9aa0a6; border-radius: 0.5rem; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+.d7-clip::after { content: ''; position: absolute; left: 0.14rem; right: 0.14rem; top: 0.5rem; bottom: -0.16rem; border: 0.14rem solid #b8bdc2; border-bottom: 0; border-radius: 0.4rem 0.4rem 0 0; }
+.d7-stamp { position: absolute; right: 0.7rem; bottom: 0.55rem; padding: 0.26rem 0.6rem 0.3rem; border: 0.2rem solid #b3261e; border-radius: 0.3rem; outline: 1px solid #b3261e; outline-offset: 0.12rem; font: 900 1.45rem/1 var(--han); letter-spacing: 0.24em; text-indent: 0.24em; color: #b3261e; opacity: 0.8; transform: rotate(9deg); mix-blend-mode: multiply; }

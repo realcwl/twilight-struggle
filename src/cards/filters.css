@@ -1,0 +1,5 @@
+/* Search and filters over a card list. They sit on a sheet (src/ui/sheet.css), which draws the fields; layout only. */
+.cl-filters{display:flex;gap:calc(24*var(--su));align-items:center;margin-bottom:calc(24*var(--su))}
+.cl-filters input{flex:1;min-width:120px}
+.cl-filters select{flex:none}
+@media(max-width:620px){.cl-filters{flex-wrap:wrap;gap:calc(10*var(--su)) calc(16*var(--su))}.cl-filters input{flex-basis:100%}.cl-filters select{flex:1}.cl-filters .cl-count{flex:none}}

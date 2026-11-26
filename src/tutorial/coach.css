@@ -1,0 +1,124 @@
+/* Self-contained tutorial chrome. Pixel sizing deliberately ignores the game's scalable rem. */
+/* Guided narration owns the reading pause; a parked pointer must not hold card settlement. */
+.tutorial-mode .hud-resolution,
+.tutorial-mode .hud-resolution * { pointer-events: none; }
+
+.tutorial-coach {
+  --tc-ink: #fff4dc;
+  --tc-text: #dfd3bd;
+  --tc-muted: #ab9e87;
+  --tc-gold: #e7c47a;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  z-index: 2147483001;
+  pointer-events: none;
+  color: var(--tc-text);
+  font: 14px/1.7 -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.tutorial-coach::backdrop { background: transparent; pointer-events: none; }
+.tutorial-coach[hidden], .tutorial-coach [hidden] { display: none !important; }
+.tutorial-coach *, .tutorial-coach *::before, .tutorial-coach *::after { box-sizing: border-box; }
+.tutorial-coach .tc-shade { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tutorial-coach .tc-rings rect { fill: var(--tc-gold); fill-opacity: 0; stroke: var(--tc-gold); stroke-width: 1.5; filter: drop-shadow(0 0 7px #e7c47a90); animation: tc-target-pulse 2.2s ease-in-out infinite; }
+.tutorial-coach .tc-panel {
+  position: absolute;
+  left: 22px;
+  top: 22px;
+  width: min(360px, calc(100vw - 20px));
+  max-height: calc(100dvh - 44px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #8e7752 transparent;
+  padding: 17px 20px 18px;
+  border: 1px solid #b8995d99;
+  border-radius: 13px;
+  background: radial-gradient(ellipse at 100% 0, #4b3c2852, transparent 65%), linear-gradient(155deg, #30271ff7, #161511fa);
+  box-shadow: inset 0 1px #fff2, 0 0 0 4px #100d0966, 0 14px 45px #0008;
+  pointer-events: auto;
+  color-scheme: dark;
+  animation: tc-arrive .2s ease-out both;
+}
+.tutorial-coach .tc-panel:focus { outline: none; }
+.tutorial-coach .tc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 17px; line-height: 1.2; }
+.tutorial-coach .tc-label { color: var(--tc-gold); font-size: 10px; font-weight: 650; letter-spacing: .19em; }
+.tutorial-coach .tc-progress { color: var(--tc-muted); font: 11px/1.2 ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.tutorial-coach .tc-controls { display: flex; margin-left: auto; gap: 4px; }
+.tutorial-coach button { font: inherit; cursor: pointer; touch-action: manipulation; }
+.tutorial-coach .tc-control { display: grid; place-items: center; width: 32px; height: 32px; margin: -7px 0; padding: 0; border: 1px solid transparent; border-radius: 50%; background: transparent; color: var(--tc-muted); font: 21px/1 sans-serif; }
+.tutorial-coach .tc-control:hover { color: var(--tc-ink); border-color: #e7c47a55; background: #e7c47a0d; }
+.tutorial-coach .tc-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 13px; }
+.tutorial-coach .tc-emblem { flex: none; display: grid; place-items: center; width: 42px; height: 46px; border: 1px solid #cfac665e; border-radius: 9px 9px 18px 18px; background: linear-gradient(160deg, #4c3c27, #19160f); color: var(--tc-gold); font: 26px/1 Georgia, 'Songti SC', serif; box-shadow: inset 0 0 0 3px #19160f, 0 3px 8px #0004; }
+.tutorial-coach .tc-chapter { color: var(--tc-muted); font-size: 10px; letter-spacing: .09em; margin-bottom: 3px; }
+.tutorial-coach h2 { margin: 0; color: var(--tc-ink); font: 650 21px/1.35 'Songti SC', 'Noto Serif SC', 'STSong', serif; letter-spacing: .04em; text-wrap: balance; }
+.tutorial-coach .tc-body { overflow-wrap: anywhere; }
+.tutorial-coach .tc-body p { margin: 0 0 10px; white-space: pre-line; }
+.tutorial-coach .tc-body p:last-child { margin-bottom: 0; }
+.tutorial-coach .tc-media { margin: 15px 0 0; overflow: hidden; border: 1px solid #e7c47a33; border-radius: 7px; background: #0d1317; }
+.tutorial-coach video { display: block; width: 100%; aspect-ratio: 16/9; max-height: 190px; object-fit: contain; }
+.tutorial-coach figcaption { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 4px 10px; border-top: 1px solid #e7c47a1a; color: var(--tc-muted); font-size: 10px; }
+.tutorial-coach .tc-playback { padding: 5px 2px; border: 0; background: none; color: var(--tc-gold); font-size: 11px; }
+.tutorial-coach .tc-media[data-error] video { height: 70px; aspect-ratio: auto; }
+.tutorial-coach .tc-status { display: flex; align-items: baseline; gap: 7px; margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #ddc49329; color: var(--tc-gold); font-size: 11px; }
+.tutorial-coach .tc-status::before { content: '◇'; font-size: 13px; }
+.tutorial-coach .tc-actions { display: grid; gap: 8px; margin-top: 15px; }
+.tutorial-coach .tc-actions:empty { display: none; }
+.tutorial-coach .tc-choice { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; min-height: 42px; padding: 9px 13px; border: 1px solid #c1a56a55; border-radius: 6px; background: #dfbd7810; color: var(--tc-text); text-align: left; font-size: 13px; }
+.tutorial-coach .tc-choice:hover { background: #dfbd7824; border-color: #e7c47aaa; }
+.tutorial-coach .tc-primary { color: #211a0f; background: linear-gradient(110deg, #d3b271, #e4cb92); border-color: #f5dc9f99; font-weight: 650; box-shadow: inset 0 1px #fff5, 0 3px 10px #0003; }
+.tutorial-coach .tc-primary:hover { background: linear-gradient(110deg, #e4c588, #eed8a8); }
+.tutorial-coach .tc-choice-icon { flex: none; font-size: 18px; line-height: 1; }
+.tutorial-coach button:focus-visible { outline: 2px solid #fff1ca; outline-offset: 3px; }
+.tutorial-coach .tc-marker { position: absolute; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid #ffe8b8; border-radius: 50%; background: linear-gradient(145deg, #e7cc91, #b58d48); color: #291c09; box-shadow: 0 2px 8px #0009, 0 0 0 3px #30271faa; font: 700 19px/1 Georgia, 'Songti SC', serif; pointer-events: none; }
+.tutorial-coach .tc-marker::after { content: ''; position: absolute; inset: -5px; border: 1px solid #f3d28b; border-radius: inherit; box-shadow: 0 0 9px #e7c47a55; pointer-events: none; animation: tc-marker-pulse 2.2s ease-out infinite; }
+.tutorial-coach .tc-comet { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.tutorial-coach .tc-comet * { pointer-events: none; }
+.tutorial-coach .tc-comet-tail path { fill: none; stroke-linecap: round; }
+.tutorial-coach .tc-comet-haze { stroke-width: 9; filter: blur(4px); }
+.tutorial-coach .tc-comet-thread { stroke-width: 2; }
+.tutorial-coach .tc-comet-head { filter: drop-shadow(0 0 5px #ffd68a); }
+.tutorial-coach .tc-comet-arrival { filter: drop-shadow(0 0 4px #e9bd73); }
+/* Animate the guide's light, never the live control's geometry or its text. */
+@keyframes tc-target-pulse {
+  0%, 100% { stroke-opacity: .65; stroke-width: 1.5; fill-opacity: 0; }
+  50% { stroke-opacity: 1; stroke-width: 2.5; fill-opacity: .055; }
+}
+@keyframes tc-marker-pulse {
+  0% { opacity: .75; transform: scale(.85); }
+  75%, 100% { opacity: 0; transform: scale(1.45); }
+}
+@keyframes tc-arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@media (max-width: 600px) {
+  .tutorial-coach .tc-panel { width: min(330px, calc(100vw - 20px)); max-height: calc(100dvh - 20px); padding: 14px 16px; }
+  .tutorial-coach .tc-top { margin-bottom: 13px; }
+  .tutorial-coach .tc-body { font-size: 13px; }
+  .tutorial-coach h2 { font-size: 20px; }
+  .tutorial-coach .tc-emblem { width: 36px; height: 40px; font-size: 23px; }
+  .tutorial-coach video { max-height: 140px; }
+}
+@media (max-height: 550px) { .tutorial-coach video { max-height: 100px; } }
+@media (prefers-reduced-motion: reduce) {
+  .tutorial-coach .tc-comet { display: none !important; }
+  .tutorial-coach .tc-panel, .tutorial-coach .tc-rings rect { animation: none; }
+  .tutorial-coach .tc-marker::after { display: none; animation: none; }
+}
+@media (forced-colors: active) {
+  .tutorial-coach .tc-comet { display: none; }
+  .tutorial-coach .tc-panel, .tutorial-coach button, .tutorial-coach .tc-marker { border: 1px solid CanvasText; }
+  .tutorial-coach .tc-rings rect { stroke: Highlight; fill: none; filter: none; animation: none; }
+  .tutorial-coach .tc-marker::after { display: none; }
+}
+
+.tutorial-coach .tc-card { margin: 14px auto 0; width: 180px; }
+.tutorial-coach .tc-card > .slot { width: 100%; }
+@media (max-height: 740px) { .tutorial-coach .tc-card { width: 140px; } }

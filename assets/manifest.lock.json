@@ -1,0 +1,38 @@
+{
+  "ne_lakes_50m": {
+    "sha256": "d350b75978b26fe839b797c2c529b2fb8f47fb3983c03f4964e36d5df9378a52",
+    "bytes": 876018
+  },
+  "ne_admin1_10m": {
+    "sha256": "22d0e3ad85eb3e27f17cabf8ba2d50e554fbc27a87796ff891d958185da62fb5",
+    "bytes": 40726851
+  },
+  "ne2_landcover": {
+    "sha256": "3506ed32f53020eb8822a8c694dc80df7327e21c9a4df0df8f4630756ed4c919",
+    "bytes": 72509963
+  },
+  "etopo2022_60s": {
+    "sha256": "9d27d4b8ea8e76977e2988bca667d7c8fa68b927355feffcddd6b4875a7fd08e",
+    "bytes": 465969062
+  },
+  "font_noto_serif_sc": {
+    "sha256": "050080d9255a86808f2945bffac582b31ef32bc36411ce29563b4961670c66f9",
+    "bytes": 25125512
+  },
+  "font_noto_serif_sc_license": {
+    "sha256": "5e0da210fb04058a8c0087985d2d456b931c2579811a49655721d3cf0c36b6d6",
+    "bytes": 4350
+  },
+  "font_cinzel": {
+    "sha256": "f4d83d34d1f6c741193e4acf4b3dff9531e5a67b6aa65228d00a7db72a4e0f34",
+    "bytes": 125468
+  },
+  "font_cinzel_license": {
+    "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+    "bytes": 4383
+  },
+  "ne_map_units_50m": {
+    "sha256": "b8d421aca6e9e08e8cdf09cc26af111cc3e0deba4fe915611d58ade71e8a4db0",
+    "bytes": 3179420
+  }
+}

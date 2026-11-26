@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>The deck: 81 event cards</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="cards.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="v2/kit.css" />
+    <link rel="stylesheet" href="v2/01-red-enamel.css" />
+    <link rel="stylesheet" href="deck/art.css" />
+    <link rel="stylesheet" href="deck/deck.css" />
+  <script src="zh.js"></script></head>
+  <body>
+    <header class="top">
+      <div>
+        <ul class="versions">
+          <li><a href="index.html">V1</a></li>
+          <li><a href="v2.html">V2</a></li>
+          <li><a href="deck.html" aria-current="page">Deck</a></li>
+          <li><a href="nato.html">NATO</a></li>
+        </ul>
+        <h1>The deck</h1>
+        <p class="lede">
+          Eighty-one event cards in the Red Enamel frame, from Potsdam to Madrid. Each is a real event of the Cold War
+          with its own title, effect and illustration, written for this game. Click a card to enlarge it.
+        </p>
+      </div>
+    </header>
+    <section class="legend" aria-label="Reading a card">
+      <div>
+        <h2>Four kinds, four colours</h2>
+        <div class="kinds" id="kinds"></div>
+      </div>
+      <div class="slots">
+        <h2>Reading a card</h2>
+        <dl>
+          <dt>Top left</dt><dd>The card's value, 1 to 4, for when it is spent rather than played as an event. A tally has a compass rose instead.</dd>
+          <dt>Top right</dt><dd>The era: one, two or three lit pips for the early, middle and late years.</dd>
+          <dt>Under the title</dt><dd>Whose event it is, and the era in words.</dd>
+          <dt>Rules</dt><dd>Bold words are the ones to scan for: where, how much, and what moves.</dd>
+          <dt>Last line</dt><dd>Whether the card leaves the deck once played or comes round again.</dd>
+        </dl>
+        <p>
+          The texts use five terms: influence (a side's markers in a country), control (enough influence to hold it),
+          Tension (one shared track; both sides lose if it tops out), prestige (the score) and tally (score a region now).
+          There is no rules engine yet, so the numbers are a first draft.
+        </p>
+      </div>
+    </section>
+    <div class="deck-bar">
+      <div>
+        <div class="chips" role="group" aria-label="Era">
+          <button type="button" data-key="era" data-value="all">All years</button>
+          <button type="button" data-key="era" data-value="early">Early</button>
+          <button type="button" data-key="era" data-value="middle">Middle</button>
+          <button type="button" data-key="era" data-value="late">Late</button>
+        </div>
+        <div class="chips" role="group" aria-label="Kind">
+          <button type="button" data-key="side" data-value="all">All kinds</button>
+          <button type="button" data-key="side" data-value="us"><i class="us"></i>US</button>
+          <button type="button" data-key="side" data-value="ussr"><i class="ussr"></i>Soviet</button>
+          <button type="button" data-key="side" data-value="neutral"><i class="neutral"></i>Neutral</button>
+          <button type="button" data-key="side" data-value="tally"><i class="tally"></i>Tally</button>
+        </div>
+        <span id="count" aria-live="polite"></span>
+      </div>
+    </div>
+    <main id="deck"></main>
+    <section class="deck-back" aria-label="The card back">
+      <div id="back-slot"></div>
+      <div>
+        <h2>One back for the whole deck</h2>
+        <p>Black enamel and a gold compass rose: it takes no side, so a face-down card gives nothing away. Click it to turn it over.</p>
+      </div>
+    </section>
+    <footer class="foot">
+      Self-contained: no build step, no network. <code>?era=late&amp;side=us</code> filters, <code>?open=25</code> opens a card,
+      <code>?art=1</code> shows the illustrations alone.
+    </footer>
+    <dialog id="viewer" aria-label="Card">
+      <div class="viewer-in">
+        <button type="button" id="v-prev" aria-label="Previous card">‹</button>
+        <div class="stage" id="v-stage"></div>
+        <button type="button" id="v-next" aria-label="Next card">›</button>
+        <p id="v-cap"></p>
+        <button type="button" id="v-close" aria-label="Close">×</button>
+      </div>
+    </dialog>
+    <script src="art.js"></script>
+    <script src="v2/kit.js"></script>
+    <script src="v2/01-red-enamel.js"></script>
+    <script src="deck/art.js"></script>
+    <script src="deck/parts-places.js"></script>
+    <script src="deck/parts-machines.js"></script>
+    <script src="deck/parts-people.js"></script>
+    <script src="deck/cards.js"></script><script src="deck/zh-data.js"></script>
+    <script src="deck/frame.js"></script>
+    <script src="deck/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+/* 06 Versus: mine on the left, theirs on the right, the score between */
+#game[data-layout='06'] { --info-x: 1.6rem; --info-y: 17.4rem; }
+.L06 .head { position: absolute; inset: 1.4rem 1.6rem auto; display: flex; align-items: center; }
+.L06 .plate { flex: none; display: flex; align-items: center; gap: 1.6rem; padding: 1rem 1.4rem; }
+.L06 .plate.me { border-radius: 1rem 4rem 4rem 1rem; padding-right: 0.7rem; }
+.L06 .plate.opp { border-radius: 4rem 1rem 1rem 4rem; padding-left: 0.7rem; }
+.L06 .plate .stats { display: grid; gap: 0.8rem; }
+.L06 .plate.me .w-side { flex-direction: row-reverse; text-align: right; }
+.L06 .plate .crest { width: 4.6em; height: 4.6em; }
+.L06 .head .w-vp { flex: 1; margin: 0 -0.4rem; font-size: 1.25rem; }
+.L06 .head .vp-end { display: none; }
+.L06 .head .vp-track { border-radius: 0; height: 1.6em; }
+.L06 .world { position: absolute; left: 50%; top: 9rem; display: flex; align-items: center; gap: 2.2rem; padding: 0.8rem 1.8rem; border-radius: 2rem; transform: translateX(-50%); }
+.L06 .world > * + * { padding-left: 2.2rem; border-left: 1px solid var(--line); }
+.L06 .opp-hand { position: absolute; right: 2.4rem; top: 10.6rem; font-size: 1.15rem; }
+.L06 .prompt { position: absolute; left: 50%; bottom: 14.6rem; transform: translateX(-50%); }
+.L06 .draw { position: absolute; left: 2.4rem; bottom: 1.8rem; --card-w: 9em; }
+.L06 .out { position: absolute; right: 2.4rem; bottom: 1.8rem; display: flex; align-items: flex-end; gap: 1.8rem; }
+.L06 .out .w-played { --card-w: 10em; }
+.L06 .out .stack { display: grid; justify-items: center; gap: 1.2rem; }
+.L06 .out .stack .f-chip { padding: 0.5rem 1.1rem; border-radius: 2rem; }
+.L06 .out .stack .f-chip .num { font-size: 1.4em; }
+.L06 .out .k-discard { --card-w: 9em; }
+.L06 [data-hand] { left: 50%; bottom: 0; }

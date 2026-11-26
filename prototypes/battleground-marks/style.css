@@ -1,0 +1,164 @@
+/* Battle marks prototype. Two parts: the marks on a token (what would move into the game), and the
+   page chrome for switching between them and laying them side by side (which would not). */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #14110f; }
+#map { position: fixed; inset: 0; }
+
+/* ================================================================ the marks on a token
+   main.ts gives every battleground token two empty elements, .bm-under (painted beneath the token)
+   and .bm-over (painted on top of it), and puts the chosen mark's picture in one of them. Where the
+   picture sits is its data-place. A token's body is centred on its node and scaled by --s; its size
+   before scaling is --bw by --bh, which follow the widths and height map.css gives the cells. */
+.wm-plate {
+  --bw: calc(91px - 51px * var(--k));
+  --bh: calc(24px - 6px * var(--k));
+  --stab: calc(24px - 12px * var(--k));
+}
+.bm {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease;
+}
+.bm:empty { display: none; }
+.bm svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.wm-plates.zooming .bm { transition: opacity 0.25s ease; }
+
+/* corner: pinned to the token's top-left corner. Up close it hangs off the corner diagonally, clear
+   of the name above the token; as the token tightens it climbs onto the top edge beside the flag, so
+   that it neither covers the stability number nor reaches into the neighbour on the left. About as
+   tall as the token itself: 27px up close, 20px at the tightest. The name is drawn over it. */
+.bm[data-place='corner'] {
+  width: 32px;
+  height: 32px;
+  z-index: 1;
+  transform: translate(calc((var(--bw) * -0.5 - 3px + 6px * var(--k)) * var(--s)), calc((var(--bh) * -0.5 - 3px - 2px * var(--k)) * var(--s))) translate(-50%, -50%)
+    scale(calc(var(--s) * (0.84 - 0.2 * var(--k)) * var(--bm-size, 1)));
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.6));
+}
+.bm-on .wm-plate-name { z-index: 2; }
+/* halo: behind the token, centred on the stability badge, so only what reaches past the token shows */
+.bm[data-place='halo'] {
+  width: 48px;
+  height: 48px;
+  transform: translate(calc((var(--bw) * -0.5 + var(--stab) * 0.5) * var(--s)), 0px) translate(-50%, -50%) scale(calc(var(--s) * (1.12 - 0.22 * var(--k)) * var(--bm-size, 1)));
+}
+/* foot: across the middle of the token's bottom edge */
+.bm[data-place='foot'] {
+  width: 40px;
+  height: 20px;
+  z-index: 1;
+  transform: translate(0px, calc((var(--bh) * 0.5 + 5px) * var(--s))) translate(-50%, -50%) scale(calc(var(--s) * (0.9 - 0.2 * var(--k)) * var(--bm-size, 1)));
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.6));
+}
+
+/* The game has since taken mark 02 and given up the gold a battleground used to wear (a gold ring and
+   a gold stability badge; see src/map/battleMark.ts and map.css). This page still compares all ten
+   against that old look, so it hides the game's own mark and puts the gold back where it was: when no
+   mark is chosen (00), and when the page asks to keep both (.bm-gold). */
+.wm-plate .wm-battle { display: none; }
+:is(.wm-stage, .bp-mock):not(.bm-on) .wm-plate.key .wm-stab,
+.bm-gold .wm-plate.key .wm-stab { background: var(--gold, #f0bf4a); }
+:is(.wm-stage, .bp-mock):not(.bm-on) .wm-plate.key .wm-plate-body,
+.bm-gold .wm-plate.key .wm-plate-body { box-shadow: 0 0 0 2px var(--gold, #f0bf4a), 0 2px 8px rgba(0, 0, 0, 0.65); }
+:is(.wm-stage, .bp-mock):not(.bm-on) .wm-plate.key.ctrl-a .wm-plate-body,
+.bm-gold .wm-plate.key.ctrl-a .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-a), 0 0 0 4.5px var(--gold, #f0bf4a), 0 2px 9px rgba(0, 0, 0, 0.7); }
+:is(.wm-stage, .bp-mock):not(.bm-on) .wm-plate.key.ctrl-b .wm-plate-body,
+.bm-gold .wm-plate.key.ctrl-b .wm-plate-body { box-shadow: 0 0 0 2.5px var(--side-b), 0 0 0 4.5px var(--gold, #f0bf4a), 0 2px 9px rgba(0, 0, 0, 0.7); }
+
+/* the two marks that move: a flame that sways and a fuse that sparks. --bm-d staggers the tokens. */
+.bm-flick { transform-box: fill-box; transform-origin: 50% 100%; animation: bm-flick 1.7s ease-in-out infinite alternate; animation-delay: calc(var(--bm-d, 0) * -1.7s); }
+@keyframes bm-flick {
+  0% { transform: scale(1, 1) skewX(0deg); }
+  35% { transform: scale(0.95, 1.07) skewX(-3.5deg); }
+  70% { transform: scale(1.05, 0.94) skewX(3deg); }
+  100% { transform: scale(0.98, 1.04) skewX(-1.5deg); }
+}
+.bm-spark { transform-box: fill-box; transform-origin: 50% 50%; animation: bm-spark 0.84s steps(1) infinite; animation-delay: calc(var(--bm-d, 0) * -0.84s); }
+@keyframes bm-spark {
+  0% { transform: scale(1) rotate(0deg); }
+  33% { transform: scale(0.6) rotate(22deg); }
+  66% { transform: scale(1.15) rotate(45deg); }
+}
+/* the seal's character, which gives out before it gets too small to read */
+.bm-glyph { font-family: 'Songti SC', 'Noto Serif SC', 'STSong', serif; opacity: clamp(0, 2.7 - 3 * var(--k, 0), 1); }
+@media (prefers-reduced-motion: reduce) {
+  .bm-flick, .bm-spark { animation: none; }
+}
+
+/* ================================================================ page chrome */
+#ui { position: fixed; inset: 0; z-index: 4000; pointer-events: none; font: 13px/1.5 MapText, 'Songti SC', 'Noto Serif SC', serif; color: #ecdfc3; }
+#ui > * { pointer-events: auto; }
+#ui.bare .bp-bar, #ui.bare .bp-side { display: none; }
+#ui button, .bp-sheet button { font: inherit; color: inherit; cursor: pointer; }
+
+.bp-bar { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 24px); box-sizing: border-box; padding: 8px 10px 10px; border-radius: 12px; background: rgba(22, 17, 13, 0.94); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.25), 0 12px 34px rgba(0, 0, 0, 0.55); }
+.bp-tabs { display: flex; gap: 4px; overflow-x: auto; }
+.bp-tabs button { flex: none; display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 66px; padding: 5px 7px 4px; border: 0; border-radius: 8px; background: none; color: rgba(236, 223, 195, 0.78); }
+.bp-tab-pic { width: 24px; height: 24px; display: grid; place-items: center; }
+.bp-tab-pic svg { width: 100%; height: 100%; overflow: visible; }
+.bp-tabs button b { font: 800 13px/1.1 MapDisplay, serif; letter-spacing: 0.04em; }
+.bp-tabs button span { font-size: 12px; white-space: nowrap; }
+.bp-tabs button:hover { background: rgba(236, 223, 195, 0.08); color: #fff7e4; }
+.bp-tabs button.on { background: rgba(240, 191, 74, 0.16); color: #fff7e4; box-shadow: inset 0 0 0 1.5px #f0bf4a; }
+.bp-desc { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; max-width: 800px; margin: 8px 4px 0; }
+.bp-desc-name { font-size: 15px; font-weight: 800; color: #fff7e4; letter-spacing: 0.04em; }
+.bp-desc-where { padding: 0 7px; border-radius: 99px; font-size: 11.5px; color: #241a12; background: rgba(236, 223, 195, 0.85); }
+.bp-desc-blurb { flex-basis: 100%; color: rgba(236, 223, 195, 0.92); }
+.bp-desc-risk { flex-basis: 100%; color: rgba(236, 223, 195, 0.58); font-size: 12.5px; }
+
+.bp-side { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bp-row { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; }
+.bp-pill { padding: 3px 12px; border: 0; border-radius: 99px; white-space: nowrap; background: rgba(22, 17, 13, 0.9); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.22); }
+.bp-pill:hover:not(:disabled) { background: rgba(60, 46, 33, 0.95); }
+.bp-pill:disabled { opacity: 0.45; cursor: default; }
+#ui .bp-pill.bp-strong { background: #f0bf4a; color: #241a12; font-weight: 800; box-shadow: none; }
+#ui .bp-pill.bp-strong:hover { background: #ffd56a; }
+.bp-hint { padding: 2px 9px; border-radius: 99px; font-size: 11.5px; color: rgba(236, 223, 195, 0.7); background: rgba(22, 17, 13, 0.7); }
+.bp-error { position: fixed; inset: auto 16px 16px 16px; margin: 0; padding: 12px 14px; border-radius: 8px; background: #3a1512; color: #ffd9d2; font: 13px/1.5 ui-monospace, monospace; white-space: pre-wrap; z-index: 9999; }
+
+/* ================================================================ the sheet: all ten side by side */
+.bp-sheet { position: fixed; inset: 0; z-index: 5000; overflow: auto; box-sizing: border-box; padding: 22px 26px 30px; background: rgba(13, 11, 9, 0.97); font: 13px/1.55 MapText, 'Songti SC', 'Noto Serif SC', serif; color: #ecdfc3; }
+.bp-sheet[hidden] { display: none; }
+.bp-sheet-head { display: flex; align-items: center; gap: 26px; margin-bottom: 18px; }
+.bp-sheet-title { flex: 1; min-width: 0; }
+.bp-sheet-title h1 { margin: 0 0 4px; font: 900 24px/1.2 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.1em; color: #fff7e4; }
+.bp-sheet-title p { margin: 0; max-width: 620px; color: rgba(236, 223, 195, 0.66); }
+.bp-now { flex: none; width: 330px; padding: 8px 10px 10px; border-radius: 10px; background: rgba(236, 223, 195, 0.05); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.16); }
+.bp-now > b { display: block; margin-bottom: 6px; font-size: 12.5px; letter-spacing: 0.06em; color: rgba(236, 223, 195, 0.8); }
+.bp-x { flex: none; width: 36px; height: 36px; border: 1px solid rgba(236, 223, 195, 0.3); border-radius: 50%; background: none; font: 400 22px/1 -apple-system, 'Helvetica Neue', sans-serif !important; }
+.bp-x:hover { border-color: #f0bf4a; color: #f0bf4a; }
+.bp-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1500px) { .bp-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 1180px) { .bp-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .bp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bp-sheet-head { flex-wrap: wrap; } .bp-now { width: 100%; } }
+.bp-card { display: flex; flex-direction: column; gap: 10px; padding: 12px 12px 12px; border: 0; border-radius: 12px; text-align: left; background: linear-gradient(180deg, #2c2219, #1b1510); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.2); }
+.bp-card:hover { box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.7); }
+.bp-card.on { box-shadow: 0 0 0 2px #f0bf4a; }
+.bp-card-top { display: flex; gap: 12px; align-items: flex-start; min-height: 150px; }
+/* the picture, large, on the ground it will be seen against: land at the top left, sea at the bottom right */
+.bp-art { flex: none; width: 78px; height: 78px; display: grid; place-items: center; border-radius: 10px; background: linear-gradient(135deg, #55633f 0%, #6b6240 48%, #24506a 52%, #173a52 100%); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.18); }
+.bp-art svg { width: 56px; height: 56px; overflow: visible; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55)); }
+.bp-art.halo svg { width: 66px; height: 66px; }
+.bp-art.foot svg { width: 66px; height: 33px; }
+.bp-card-text { min-width: 0; }
+.bp-card-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 7px; margin-bottom: 4px; }
+.bp-card-name b { font: 800 15px/1 MapDisplay, serif; color: #f0bf4a; }
+.bp-card-name span { font: 900 17px/1.1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.06em; color: #fff7e4; }
+.bp-card-name em { font-style: normal; font-size: 11px; padding: 0 6px; border-radius: 99px; color: #241a12; background: rgba(236, 223, 195, 0.8); }
+.bp-card-name strong { font-size: 11px; padding: 0 6px; border-radius: 99px; color: #241a12; background: #f0bf4a; }
+.bp-card-name strong.picked { color: #fff7e4; background: #2f7d4f; }
+.bp-card-text p { margin: 0; font-size: 12.5px; line-height: 1.5; color: rgba(236, 223, 195, 0.9); }
+.bp-card-text p.risk { margin-top: 4px; font-size: 12px; color: rgba(236, 223, 195, 0.55); }
+.bp-trio { display: grid; grid-template-columns: 1.3fr 1fr 0.9fr; gap: 5px; margin-top: auto; }
+/* one copy of a real token, on a patch of ground */
+.bp-mock { position: relative; height: 84px; border-radius: 8px; overflow: hidden; --parchment: #ecdfc3; --ink: #241a12; --gold: #f0bf4a; font-family: MapText, 'Songti SC', 'Noto Serif SC', serif; background: linear-gradient(160deg, #4f5c3b, #5f5a3c 55%, #3c4a39); }
+.bp-mock:nth-child(2) { background: linear-gradient(200deg, #6a6142, #57553a 50%, #1f4a63 51%, #183d55); }
+.bp-mock:nth-child(3) { background: linear-gradient(160deg, #1f4a63, #173a52); }
+.bp-mock .wm-plates { position: absolute; inset: 0; overflow: visible; }
+.bp-mock .wm-plate { left: 50%; top: 52%; }
+/* the close one is the widest, and its mark hangs off its left end */
+.bp-mock:first-child .wm-plate { left: 57%; }
+.bp-mock .wm-plate-body, .bp-mock .wm-flag { pointer-events: none; }
+.bp-mock-note { position: absolute; left: 0; right: 0; bottom: 3px; text-align: center; font-size: 10.5px; letter-spacing: 0.02em; color: rgba(255, 247, 228, 0.78); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8); white-space: nowrap; }

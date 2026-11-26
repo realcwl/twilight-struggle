@@ -1,0 +1,137 @@
+/* Shared by the ten displays: the page's own toolbar and notes, and the pieces every display uses
+   (a card in flight, a word beside something, a stamp, the detail panel, a figure rising off a
+   country). A variant's own stylesheet is scoped to .v-NN (its layer inside the HUD) or to
+   #game[data-pe='NN'] (the whole stage).
+
+   Everything inside the HUD is in rem: 1rem is 10 px on a 1600 x 900 screen (see src/hud/hud.css),
+   and it uses the HUD's own material: dark lacquer, parchment engraving, a gold hairline for "now",
+   the two sides' enamels. A neutral card is ivory, as its card is. */
+
+:root { --bar: 44px; --ui: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif; }
+html:not(.clean) #game { top: var(--bar); }
+
+/* ------------------------------------------------------------------ toolbar and notes */
+#toolbar { position: fixed; inset: 0 0 auto 0; height: var(--bar); z-index: 9800; display: flex; align-items: center; gap: 12px; padding: 0 12px; overflow: hidden; background: #0a0908; border-bottom: 1px solid #2c241b; font: 500 12.5px/1 var(--ui); color: #b9ad94; user-select: none; -webkit-user-select: none; white-space: nowrap; }
+html.clean #toolbar { display: none; }
+#toolbar .tb-title { flex: none; font-weight: 700; letter-spacing: 0.04em; color: #f0bf4a; }
+#toolbar button { height: 28px; padding: 0 9px; border: 1px solid #2c241b; border-radius: 6px; background: #14110e; font: inherit; color: inherit; cursor: pointer; }
+#toolbar button:hover { border-color: #6b5527; color: #fff7e4; }
+#toolbar button[aria-pressed='true'] { border-color: #f0bf4a; background: #2a2012; color: #fff7e4; }
+#toolbar kbd { margin-left: 7px; padding: 1px 5px; border-radius: 4px; background: rgba(236, 223, 195, 0.1); font: 600 10.5px/1.4 ui-monospace, Menlo, monospace; color: #8f846e; }
+.tb-tabs { flex: none; display: flex; gap: 3px; }
+.tb-tabs button { display: inline-flex; align-items: center; gap: 6px; padding: 0 7px; }
+.tb-tabs button b { font: 700 12px/1 ui-monospace, Menlo, monospace; color: #8f846e; }
+.tb-tabs button span { display: none; }
+.tb-tabs button[aria-pressed='true'] b { color: #f0bf4a; }
+.tb-tabs button[aria-pressed='true'] span { display: inline; }
+.tb-idea { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #8f846e; }
+.tb-steps { flex: none; display: flex; gap: 3px; }
+#toolbar .tb-steps button { width: 24px; padding: 0; border-radius: 50%; font: 700 11px/1 ui-monospace, Menlo, monospace; color: #8f846e; }
+#toolbar .tb-steps button.done { border-color: #6b5527; background: #2a2012; color: #f0bf4a; }
+#toolbar .tb-steps button.now { border-color: #f0bf4a; background: #f0bf4a; color: #17120e; }
+.tb-acts { flex: none; display: flex; gap: 5px; }
+#toolbar .tb-next { max-width: 330px; border-color: #6b5527; background: #2a2012; color: #fff7e4; display: inline-flex; align-items: center; }
+#toolbar .tb-next span { overflow: hidden; text-overflow: ellipsis; }
+
+#notes { position: fixed; top: calc(var(--bar) + 10px); right: 10px; z-index: 9700; width: 372px; max-height: calc(100vh - var(--bar) - 20px); overflow: auto; padding: 16px 18px 14px; border-radius: 10px; background: rgba(14, 12, 10, 0.96); box-shadow: 0 0 0 1px #4b3d27, 0 18px 50px rgba(0, 0, 0, 0.7); font: 400 13px/1.55 var(--ui); color: #cfc4ac; user-select: text; -webkit-user-select: text; }
+html.clean #notes { top: 10px; max-height: calc(100vh - 20px); }
+#notes h2 { margin: 0 0 2px; font: 700 17px/1.3 var(--ui); color: #fff7e4; }
+#notes h2 small { margin-left: 8px; font: 500 12px/1 var(--ui); color: #f0bf4a; }
+#notes p { margin: 6px 0 10px; text-wrap: pretty; }
+#notes h3 { margin: 12px 0 5px; font: 700 11px/1 var(--ui); letter-spacing: 0.12em; color: #8f846e; }
+#notes dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; }
+#notes dt { color: #8f846e; }
+#notes dd { margin: 0; }
+#notes ul { margin: 0; padding-left: 16px; }
+#notes li { margin: 2px 0; }
+#notes li.pro::marker { color: #5fae93; }
+#notes li.con::marker { color: #e58236; }
+
+/* ------------------------------------------------------------------ colours of a card's side */
+.hud .is-n { --c: #cdbf95; --cl: #f6ecc9; }
+.hud .is-a, .hud .is-b, .hud .is-n { --ink: #fff; }
+.hud .is-n { --ink: #2a2218; }
+
+/* ------------------------------------------------------------------ the variant's layer */
+.pe-v { position: absolute; inset: 0; z-index: 25; pointer-events: none; font: 400 1.25rem/1.25 var(--han); color: var(--text); }
+.pe-v > * { pointer-events: auto; }
+.pe-fx { position: fixed; inset: 0; z-index: 70; pointer-events: none; }
+[data-fx] { cursor: default; }
+
+/* glyphs: drawn in line, like the HUD's */
+.pe-gl { display: block; width: 1em; height: 1em; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.pe-gl .f { fill: currentColor; stroke: none; }
+.pe-n { font: 800 1em/1 var(--num); }
+/* the side a card belongs to, as the HUD's small enamel disc */
+.pe-chip { flex: none; display: inline-grid; place-items: center; width: 1.7em; height: 1.7em; border-radius: 50%; background: var(--c); color: var(--ink); font: 900 0.86em/1 var(--han); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4); }
+
+/* a card on its way */
+.pe-flying { position: fixed !important; left: 0; top: 0; margin: 0; pointer-events: none; transform-origin: 0 0; animation: none !important; }
+.pe-flying .tilt { border-radius: 4.6cqw; box-shadow: 0 1cqw 4cqw rgba(0, 0, 0, 0.6); }
+
+/* a word beside something */
+.pe-callout { position: fixed; left: 0; top: 0; z-index: 5; display: inline-flex; align-items: baseline; gap: 0.7em; max-width: 46rem; padding: 0.75rem 1.3rem 0.8rem; border-radius: 0.7rem; background: linear-gradient(180deg, rgba(46, 37, 28, 0.98), rgba(22, 17, 13, 0.98)); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.7), 0 0.8rem 2.4rem rgba(0, 0, 0, 0.6); font: 400 1.35rem/1.3 var(--han); color: var(--text); white-space: nowrap; opacity: 0; }
+.pe-callout b { font-weight: 900; letter-spacing: 0.08em; color: var(--gold); }
+.pe-callout.is-a b { color: var(--a-l); }
+.pe-callout.is-b b { color: var(--b-l); }
+.pe-callout.ending b { color: #ffb3a4; }
+.pe-callout.plain { box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.35), 0 0.8rem 2.4rem rgba(0, 0, 0, 0.6); }
+.pe-callout.on { animation: pe-callout var(--life, 1.9s) cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes pe-callout {
+  0% { opacity: 0; transform: translateY(0.6rem); }
+  10%, 86% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-0.4rem); }
+}
+
+/* a stamp: pressed on, slightly off square */
+.pe-stamp { position: absolute; left: 50%; top: 50%; z-index: 9; display: grid; place-items: center; pointer-events: none; transform: translate(-50%, -50%) rotate(-9deg); animation: pe-stamp 0.32s cubic-bezier(0.3, 1.5, 0.5, 1) both; }
+.pe-stamp b { padding: 0.12em 0.42em 0.16em; border: 0.14em solid currentColor; border-radius: 0.2em; font: 900 1.5rem/1 var(--han); letter-spacing: 0.16em; text-indent: 0.16em; white-space: nowrap; color: #ff6a4d; background: rgba(22, 14, 10, 0.86); box-shadow: 0 0 0 0.1em rgba(22, 14, 10, 0.86), 0 0.3em 0.8em rgba(0, 0, 0, 0.5); }
+.pe-stamp.expire b { color: #e9cf86; }
+.pe-stamp.cond b { color: #ffb056; }
+@keyframes pe-stamp { 0% { opacity: 0; transform: translate(-50%, -50%) rotate(-9deg) scale(2.3); } 100% { opacity: 1; transform: translate(-50%, -50%) rotate(-9deg) scale(1); } }
+
+/* a pile that has just taken a card */
+.hp.pe-took .hp-card { animation: pe-took 0.7s ease-out; }
+@keyframes pe-took { 0% { box-shadow: 0 0 0 0.25rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.8); } }
+
+/* what an effect touches, while its detail is up */
+.hud .pe-glow { border-radius: 0.8rem; box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.2rem rgba(240, 191, 74, 0.55); transition: box-shadow 0.2s; }
+.hud.pe-hand-glow .hd-card .tilt { box-shadow: 0 0 0 0.6cqw var(--gold), 0 0 6cqw rgba(240, 191, 74, 0.6); }
+
+/* ------------------------------------------------------------------ on the map */
+.pe-pop, .pe-ring { position: absolute; left: 0; top: 0; pointer-events: none; font-style: normal; }
+.pe-pop { z-index: 5; padding: 1px 9px; border-radius: 99px; white-space: nowrap; font: 800 17px/1.3 MapDisplay, 'Cinzel', 'Songti SC', serif; color: #fff; background: var(--pc, #3a2f24); box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85), 0 3px 10px rgba(0, 0, 0, 0.6); animation: pe-pop 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.pe-pop.a { --pc: #2e6ad6; }
+.pe-pop.b { --pc: #de3f2b; font-family: 'Songti SC', serif; font-size: 14px; }
+@keyframes pe-pop {
+  0% { opacity: 0; transform: translate(-50%, -50%) translateY(calc(-14px * var(--s, 1))) scale(0.5); }
+  18% { opacity: 1; transform: translate(-50%, -50%) translateY(calc(-34px * var(--s, 1))) scale(1.18); }
+  30% { transform: translate(-50%, -50%) translateY(calc(-36px * var(--s, 1))) scale(1); }
+  80% { opacity: 1; transform: translate(-50%, -50%) translateY(calc(-44px * var(--s, 1))) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translateY(calc(-56px * var(--s, 1))) scale(1); }
+}
+.pe-ring { width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; border: 3px solid var(--rc, #f0bf4a); animation: pe-ring 1.1s ease-out both; }
+.pe-ring.a { --rc: #8ab6ff; }
+.pe-ring.b { --rc: #ff9482; }
+@keyframes pe-ring { 0% { opacity: 1; transform: scale(0.4); } 100% { opacity: 0; transform: scale(calc(3.4 * var(--s, 1))); } }
+
+/* ------------------------------------------------------------------ the detail panel */
+.pe-detail { position: fixed; left: 0; top: 0; z-index: 45; display: flex; align-items: stretch; gap: 1.8rem; padding: 1.5rem 2rem 1.5rem 1.5rem; border-radius: 1.1rem; background: linear-gradient(180deg, rgba(46, 37, 28, 0.98), rgba(22, 17, 13, 0.985)); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.6), 0 0 0 0.4rem rgba(16, 12, 9, 0.55), 0 1.6rem 4.4rem rgba(0, 0, 0, 0.7); pointer-events: none; font: 400 1.3rem/1.35 var(--han); color: var(--text); }
+.pe-detail.on { animation: pe-detail 0.16s ease-out both; }
+@keyframes pe-detail { 0% { opacity: 0; transform: scale(0.97); } }
+.pe-d-card { flex: none; --card-w: 20rem; width: var(--card-w); }
+.pe-d-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0.8cqw 3cqw rgba(0, 0, 0, 0.6); }
+.pe-d-facts { display: flex; flex-direction: column; width: 23rem; padding-top: 0.3rem; }
+.pe-d-who { display: flex; align-items: center; gap: 0.7rem; font-size: 1.15rem; letter-spacing: 0.08em; color: var(--muted); }
+.pe-d-facts h3 { margin: 0.9rem 0 0; font: 900 2.2rem/1.1 var(--han); letter-spacing: 0.06em; color: var(--bright); }
+.pe-d-line { margin: 0.9rem 0 0; padding-bottom: 1.2rem; border-bottom: 1px solid var(--line); font-size: 1.4rem; line-height: 1.5; text-wrap: pretty; }
+.pe-d-facts dl { display: grid; grid-template-columns: max-content 1fr; align-items: start; gap: 0.85rem 1.2rem; margin: 1.2rem 0 0; }
+.pe-d-facts dt { font-size: 1.1rem; line-height: 1.6; letter-spacing: 0.14em; color: var(--muted); }
+.pe-d-facts dd { display: flex; align-items: center; gap: 0.6rem; margin: 0; line-height: 1.35; color: var(--bright); }
+.pe-mark { flex: none; display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; font-size: 1.4rem; color: var(--gold); }
+/* words of the rules, set apart as on the cards; on lacquer they are the light teal */
+.hud .game-term:not(.slot *) { color: #8de0cc !important; background: rgba(141, 224, 204, 0.09); font-weight: 700 !important; }
+
+/* ------------------------------------------------------------------ states every display may use */
+/* an effect whose card is still on its way here */
+.pe-pending { visibility: hidden; }

@@ -1,0 +1,197 @@
+{
+  "duration": 6,
+  "size": [
+    960,
+    540
+  ],
+  "fps": 24,
+  "sound": false,
+  "shots": [
+    {
+      "id": "control",
+      "start": 0,
+      "posterTime": 5.65,
+      "aliases": [
+        "控制",
+        "稳定度"
+      ]
+    },
+    {
+      "id": "influence",
+      "start": 6,
+      "posterTime": 5.65,
+      "aliases": [
+        "影响力"
+      ]
+    },
+    {
+      "id": "battleground",
+      "start": 12,
+      "posterTime": 5.65,
+      "aliases": [
+        "战场国家",
+        "非战场国家"
+      ]
+    },
+    {
+      "id": "coup",
+      "start": 18,
+      "posterTime": 5.65,
+      "aliases": [
+        "政变"
+      ]
+    },
+    {
+      "id": "realignment",
+      "start": 24,
+      "posterTime": 5.65,
+      "aliases": [
+        "调整阵营"
+      ]
+    },
+    {
+      "id": "defcon",
+      "start": 30,
+      "posterTime": 5.65,
+      "aliases": [
+        "核战危机等级"
+      ]
+    },
+    {
+      "id": "milops",
+      "start": 36,
+      "posterTime": 5.65,
+      "aliases": [
+        "军事行动点",
+        "所需军事行动点"
+      ]
+    },
+    {
+      "id": "headline",
+      "start": 42,
+      "posterTime": 5.65,
+      "aliases": [
+        "头条阶段"
+      ]
+    },
+    {
+      "id": "action-round",
+      "start": 48,
+      "posterTime": 5.65,
+      "aliases": [
+        "行动轮"
+      ]
+    },
+    {
+      "id": "turn",
+      "start": 54,
+      "posterTime": 5.65,
+      "aliases": [
+        "回合"
+      ]
+    },
+    {
+      "id": "operations",
+      "start": 60,
+      "posterTime": 5.65,
+      "aliases": [
+        "行动点"
+      ]
+    },
+    {
+      "id": "vp",
+      "start": 66,
+      "posterTime": 5.65,
+      "aliases": [
+        "胜利点"
+      ]
+    },
+    {
+      "id": "scoring",
+      "start": 72,
+      "posterTime": 5.65,
+      "aliases": [
+        "计分",
+        "计分牌",
+        "结算"
+      ]
+    },
+    {
+      "id": "hand",
+      "start": 78,
+      "posterTime": 5.65,
+      "aliases": [
+        "非计分牌",
+        "手牌"
+      ]
+    },
+    {
+      "id": "region-status",
+      "start": 84,
+      "posterTime": 5.65,
+      "aliases": [
+        "存在",
+        "支配"
+      ]
+    },
+    {
+      "id": "region-control",
+      "start": 90,
+      "posterTime": 5.65,
+      "aliases": [
+        "区域控制"
+      ]
+    },
+    {
+      "id": "final-scoring",
+      "start": 96,
+      "posterTime": 5.65,
+      "aliases": [
+        "最终计分"
+      ]
+    },
+    {
+      "id": "space",
+      "start": 102,
+      "posterTime": 5.65,
+      "aliases": [
+        "太空竞赛"
+      ]
+    },
+    {
+      "id": "draw",
+      "start": 108,
+      "posterTime": 5.65,
+      "aliases": [
+        "牌堆",
+        "抽牌"
+      ]
+    },
+    {
+      "id": "discard",
+      "start": 114,
+      "posterTime": 5.65,
+      "aliases": [
+        "弃牌堆",
+        "弃牌"
+      ]
+    },
+    {
+      "id": "removed",
+      "start": 120,
+      "posterTime": 5.65,
+      "aliases": [
+        "移出游戏"
+      ]
+    },
+    {
+      "id": "draft-meter",
+      "start": 126,
+      "posterTime": 5.65,
+      "aliases": [
+        "紧张度",
+        "声望"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "control": [
+    {
+      "at": 0,
+      "en": "4 − 2 = 2: below France’s stability of 3",
+      "es": "4 − 2 = 2: no alcanza la Estabilidad 3 de Francia"
+    },
+    {
+      "at": 2.8,
+      "en": "5 − 2 = 3: the US now controls France",
+      "es": "5 − 2 = 3: EE. UU. controla Francia"
+    }
+  ],
+  "influence": [
+    {
+      "at": 0,
+      "en": "Enemy Control: 1 Influence costs 2 Ops",
+      "es": "Control rival: 1 de Influencia cuesta 2 Operaciones"
+    },
+    {
+      "at": 2.85,
+      "en": "US Influence +1; Soviet Influence stays at 2",
+      "es": "EE. UU. suma 1; la Influencia soviética sigue en 2"
+    }
+  ],
+  "battleground": [
+    {
+      "at": 0,
+      "en": "The gold stability badge marks a battleground",
+      "es": "La insignia dorada identifica un país conflictivo"
+    },
+    {
+      "at": 3,
+      "en": "Ordinary countries also count toward regional totals",
+      "es": "Los países no conflictivos también cuentan en la región"
+    }
+  ],
+  "coup": [
+    {
+      "at": 0,
+      "en": "Die 5 + Ops 2 − (2 × Stability 2) = 3",
+      "es": "Dado 5 + Operaciones 2 − (2 × Estabilidad 2) = 3"
+    },
+    {
+      "at": 2.45,
+      "en": "First remove 2 Soviet Influence",
+      "es": "Primero retira 2 de Influencia soviética"
+    },
+    {
+      "at": 3.95,
+      "en": "The remaining 1 becomes US Influence",
+      "es": "El punto restante se convierte en Influencia de EE. UU."
+    }
+  ],
+  "realignment": [
+    {
+      "at": 0,
+      "en": "Modified rolls 6 vs 4: remove 2 Soviet Influence",
+      "es": "Tiradas modificadas 6 contra 4: retira 2 soviéticas"
+    },
+    {
+      "at": 3.8,
+      "en": "US stays at 0: realignment adds no Influence",
+      "es": "EE. UU. sigue en 0: realinear no añade Influencia"
+    }
+  ],
+  "headline": [
+    {
+      "at": 0,
+      "en": "Choose secretly; reveal both headlines together",
+      "es": "Elegid en secreto; revelad ambos Titulares a la vez"
+    },
+    {
+      "at": 2,
+      "en": "3 Ops resolves before 2; the US wins ties",
+      "es": "3 Operaciones antes que 2; EE. UU. gana los empates"
+    }
+  ],
+  "action-round": [
+    {
+      "at": 0,
+      "en": "Fidel removes US Influence from Cuba",
+      "es": "Fidel retira la Influencia de EE. UU. en Cuba"
+    },
+    {
+      "at": 2.65,
+      "en": "Cuba comes under Soviet Control; event resolved",
+      "es": "Cuba queda bajo Control soviético; evento resuelto"
+    },
+    {
+      "at": 4.15,
+      "en": "Now the US takes its action",
+      "es": "Ahora actúa Estados Unidos"
+    }
+  ],
+  "defcon": [
+    {
+      "at": 0,
+      "en": "Battleground coups normally lower DEFCON by 1",
+      "es": "Los golpes en países conflictivos reducen DEFCON en 1"
+    },
+    {
+      "at": 2.7,
+      "en": "This game blocks coups that would trigger nuclear war",
+      "es": "Este juego impide golpes que provocarían guerra nuclear"
+    }
+  ],
+  "milops": [
+    {
+      "at": 0,
+      "en": "Turn-end requirement: 3; completed: 1",
+      "es": "Requisito al final del turno: 3; completadas: 1"
+    },
+    {
+      "at": 2.7,
+      "en": "The shortfall of 2 gives the opponent 2 VP",
+      "es": "El déficit de 2 otorga 2 PV al rival"
+    }
+  ],
+  "turn": [
+    {
+      "at": 0,
+      "en": "Each turn contains several action rounds",
+      "es": "Cada turno incluye varias rondas de acción"
+    },
+    {
+      "at": 2.7,
+      "en": "After cleanup, the next turn begins",
+      "es": "Tras el cierre, comienza el siguiente turno"
+    }
+  ],
+  "operations": [
+    {
+      "at": 0,
+      "en": "Choose one use for your Ops",
+      "es": "Elige un uso para tus Operaciones"
+    },
+    {
+      "at": 2.7,
+      "en": "Example: spend 1 Op to add 1 Influence",
+      "es": "Ejemplo: gasta 1 Operación y añade 1 de Influencia"
+    }
+  ],
+  "vp": [
+    {
+      "at": 0,
+      "en": "Both sides share one Victory Point track",
+      "es": "Ambos bandos comparten un marcador de PV"
+    },
+    {
+      "at": 2.7,
+      "en": "US +2: the marker moves toward the US",
+      "es": "EE. UU. +2: el marcador se mueve hacia EE. UU."
+    }
+  ],
+  "scoring": [
+    {
+      "at": 0,
+      "en": "Each side adds its base score and bonuses",
+      "es": "Cada bando suma su puntuación base y bonificaciones"
+    },
+    {
+      "at": 3,
+      "en": "Example: US 9 − USSR 4 = 5 VP for the US",
+      "es": "Ejemplo: EE. UU. 9 − URSS 4 = 5 PV para EE. UU."
+    }
+  ],
+  "hand": [
+    {
+      "at": 0,
+      "en": "Your hand is normally hidden from the opponent",
+      "es": "Tu mano normalmente está oculta al rival"
+    },
+    {
+      "at": 2.7,
+      "en": "A non-scoring-card choice excludes scoring cards",
+      "es": "«Carta no de puntuación» excluye las de puntuación"
+    }
+  ],
+  "region-status": [
+    {
+      "at": 0,
+      "en": "Presence: control at least one country in the region",
+      "es": "Presencia: controla al menos un país de la región"
+    },
+    {
+      "at": 2.5,
+      "en": "Domination: lead in countries and battlegrounds; hold an ordinary country",
+      "es": "Dominio: más países y conflictivos, y al menos uno no conflictivo"
+    }
+  ],
+  "region-control": [
+    {
+      "at": 0,
+      "en": "Control every battleground in the region",
+      "es": "Controla todos los países conflictivos de la región"
+    },
+    {
+      "at": 3.1,
+      "en": "Also lead in total countries; Europe Control wins immediately",
+      "es": "También debes liderar en países; controlar Europa da la victoria"
+    }
+  ],
+  "final-scoring": [
+    {
+      "at": 0,
+      "en": "After turn 10, score all six main regions",
+      "es": "Después del turno 10, puntúa las seis regiones principales"
+    },
+    {
+      "at": 4.65,
+      "en": "The China Card holder gains one extra VP",
+      "es": "El poseedor de la Carta de China gana 1 PV adicional"
+    }
+  ],
+  "space": [
+    {
+      "at": 0,
+      "en": "Use an eligible card for space; its event does not trigger",
+      "es": "Usa una carta válida en el espacio; su evento no se activa"
+    },
+    {
+      "at": 3,
+      "en": "Advance only if the die meets this space’s requirement",
+      "es": "Avanza solo si el dado cumple el requisito de la casilla"
+    }
+  ],
+  "draw": [
+    {
+      "at": 0,
+      "en": "Take a card from the draw pile into your hand",
+      "es": "Roba una carta del mazo y añádela a tu mano"
+    },
+    {
+      "at": 3.2,
+      "en": "Drawing a card does not trigger its event",
+      "es": "Robar una carta no activa su evento"
+    }
+  ],
+  "discard": [
+    {
+      "at": 0,
+      "en": "Move the specified card to the discard pile",
+      "es": "Mueve la carta indicada a la pila de descartes"
+    },
+    {
+      "at": 3,
+      "en": "Forced discards trigger no event; discards can be reshuffled",
+      "es": "Un descarte forzado no activa eventos; puede volver al mazo"
+    }
+  ],
+  "removed": [
+    {
+      "at": 0,
+      "en": "After a starred event actually triggers…",
+      "es": "Después de que se active un evento con asterisco…"
+    },
+    {
+      "at": 3,
+      "en": "…it normally leaves the game and is never reshuffled",
+      "es": "…normalmente se retira del juego y no vuelve al mazo"
+    }
+  ],
+  "draft-meter": [
+    {
+      "at": 0,
+      "en": "Tension and Prestige belong to the old concept cards",
+      "es": "Tensión y Prestigio pertenecen a las cartas de concepto"
+    },
+    {
+      "at": 2.85,
+      "en": "Adjust them only as instructed on that concept card",
+      "es": "Ajústalos según las instrucciones de esa carta de concepto"
+    }
+  ]
+}

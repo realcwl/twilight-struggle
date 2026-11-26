@@ -1,0 +1,55 @@
+/* 03 War Room */
+.d03 .face { background: #5a321b; }
+.d03 .scene {
+  --sky-a: #33251a;
+  --sky-b: #a66c36;
+  --sky-c: #f1d190;
+  --ray: #fff1c9;
+  --ray-o: 0.12;
+  --glow: #ffe3a0;
+  --sun: #fbeab6;
+  --far2: #dcae72;
+  --far: #9c6a40;
+  --haze: #ebc387;
+  --mid: #3e2a1c;
+  --flag-a: #3d5c7c;
+  --flag-b: #efe3c6;
+  --flag-c: #a8412f;
+  --fig-d: #262a1a;
+  --fig-m: #4c5230;
+  --fig-l: #8a8a54;
+  --crowd-a: #2f2016;
+  --crowd-b: #170f0a;
+  --crowd-l: #eab56c;
+  --dove: #fff3d6;
+}
+.d03-engrave { font: 800 12.500px 'Cinzel', serif; letter-spacing: 2.2px; fill: #3d2906; paint-order: stroke; stroke: rgba(255, 244, 196, 0.6); stroke-width: 0.7px; }
+.d03-title { font: 700 31px 'Cinzel', serif; letter-spacing: 5px; fill: #37240a; paint-order: stroke; stroke: rgba(255, 246, 204, 0.65); stroke-width: 1.2px; }
+.d03-gilt { font: 700 12px 'Cinzel', serif; letter-spacing: 2.6px; fill: #e9cb7c; }
+.d03-value { font: 900 54px 'Playfair Display', serif; fill: #2a1b0b; }
+.d03-compass { font: 700 13px 'Cinzel', serif; fill: #3b2a14; }
+.d03-text {
+  left: 13.500cqw;
+  right: 13.500cqw;
+  top: 92.500cqw;
+  height: 34cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6cqw;
+  text-align: center;
+  color: #efdfae;
+  text-shadow: 0 0.25cqw 0.2cqw rgba(0, 0, 0, 0.65);
+}
+.d03-text p { margin: 0; }
+.d03-text .rules { font: 500 4.800cqw/1.2 'EB Garamond', serif; text-wrap: balance; }
+.d03-text .rules b { font-weight: 700; color: #ffd978; }
+.d03-text .note { font: italic 500 3.500cqw/1.2 'EB Garamond', serif; color: #cdb878; }
+.d03-text .note::before {
+  content: '';
+  display: block;
+  width: 30cqw;
+  height: 0.3cqw;
+  margin: 0 auto 1.4cqw;
+  background: linear-gradient(90deg, transparent, #e7c873 25%, #e7c873 75%, transparent);
+}

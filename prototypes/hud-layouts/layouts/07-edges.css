@@ -1,0 +1,21 @@
+/* 07 Edge rulers: each side of the screen is one scale */
+#game[data-layout='07'] { --info-x: 7.4rem; --info-y: 6.4rem; --info-rx: 11rem; }
+.L07 .who { position: absolute; left: 1.4rem; top: 1rem; }
+.L07 .top { position: absolute; left: 32rem; right: 32rem; top: 1.1rem; height: 2.8rem; filter: drop-shadow(0 0.4rem 0.8rem rgba(0, 0, 0, 0.5)); }
+.L07 .top .tl-era { text-shadow: 0 1px 3px #000, 0 0 0.8em #000; color: rgba(236, 223, 195, 0.85); }
+.L07 .opp { position: absolute; right: 1.4rem; top: 1rem; padding: 0.7rem 1.3rem; border-radius: 2rem; }
+.L07 .left { position: absolute; left: 1.8rem; top: 7rem; bottom: 10.6rem; font-size: 1.1rem; }
+.L07 .left .vp-n { text-shadow: 0 1px 3px #000, 0 0 0.8em #000; color: rgba(236, 223, 195, 0.9); }
+.L07 .right { position: absolute; right: 1.8rem; top: 50%; display: grid; justify-items: center; gap: 1.1rem; transform: translateY(-58%); }
+.L07 .right .cap { text-shadow: 0 1px 3px #000, 0 0 0.8em #000; color: rgba(236, 223, 195, 0.9); }
+.L07 .right .cap.sub { justify-self: end; }
+.L07 .gauge { position: relative; }
+.L07 .gauge .w-crisis { font-size: 1.5rem; }
+.L07 .gauge .f-marks { position: absolute; inset: 0; }
+/* a cell is 3.78rem tall and 0.45rem from the next: level n sits 5 - n cells down */
+.L07 .gauge .mo-mk { position: absolute; right: calc(100% + 0.7rem); top: calc((5 - var(--n)) * 4.23rem + 1.04rem); transition: top 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.L07 .gauge .mo-mk.b { right: calc(100% + 2.9rem); }
+.L07 .bl { position: absolute; left: 1.8rem; bottom: 1.2rem; padding: 0 1.2rem; border-radius: 1rem; background: rgba(18, 14, 11, 0.72); }
+.L07 .table { position: absolute; right: 1.8rem; bottom: 7rem; --card-w: 8.4em; }
+.L07 .br { position: absolute; right: 1.4rem; bottom: 1.2rem; display: flex; gap: 1.6rem; padding: 0.8rem 1.4rem; border-radius: 2rem; }
+.L07 [data-hand] { left: 50%; bottom: 0; }

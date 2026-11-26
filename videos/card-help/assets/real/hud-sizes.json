@@ -1,0 +1,110 @@
+{
+  "time-soviet": {
+    "x": 20,
+    "y": 20,
+    "height": 124,
+    "width": 304.328125
+  },
+  "time-us": {
+    "x": 20,
+    "y": 20,
+    "height": 124,
+    "width": 304.34375
+  },
+  "time-round2": {
+    "x": 20,
+    "y": 20,
+    "height": 124,
+    "width": 304.328125
+  },
+  "time-turn2": {
+    "x": 20,
+    "y": 20,
+    "height": 124,
+    "width": 304.328125
+  },
+  "time-turn10": {
+    "x": 20,
+    "y": 20,
+    "height": 124,
+    "width": 303.390625
+  },
+  "score-0": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "score-us2": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "score-us5": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "score-soviet2": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "space-0": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "space-1": {
+    "x": 20,
+    "y": 20,
+    "height": 144.5,
+    "width": 420
+  },
+  "crisis-3": {
+    "x": 20,
+    "y": 20,
+    "height": 194.359375,
+    "width": 276
+  },
+  "crisis-2": {
+    "x": 20,
+    "y": 20,
+    "height": 194.359375,
+    "width": 276
+  },
+  "crisis-1": {
+    "x": 20,
+    "y": 20,
+    "height": 194.359375,
+    "width": 276
+  },
+  "piles": {
+    "x": 20,
+    "y": 20,
+    "height": 166.09375,
+    "width": 351
+  },
+  "piles-drawn": {
+    "x": 20,
+    "y": 20,
+    "height": 166.09375,
+    "width": 351
+  },
+  "piles-discarded": {
+    "x": 20,
+    "y": 20,
+    "height": 166.09375,
+    "width": 351
+  },
+  "piles-empty-removed": {
+    "x": 20,
+    "y": 20,
+    "height": 166.09375,
+    "width": 351
+  }
+}

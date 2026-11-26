@@ -1,0 +1,64 @@
+{
+  "catalog": {
+    "count": 110,
+    "base": 103,
+    "optional": 7,
+    "eraCounts": {
+      "early": 39,
+      "mid": 48,
+      "late": 23
+    },
+    "officialMetadataCompared": true,
+    "secondaryMetadataCompared": true,
+    "discrepancyResolution": "See catalog-audit.json"
+  },
+  "layout": {
+    "testedCardWidths": [
+      500,
+      170
+    ],
+    "checks": 220,
+    "overflows": [],
+    "mobileViewport": 390,
+    "horizontalOverflow": false
+  },
+  "review": {
+    "serverRestartPersistence": true,
+    "imagePaste": true,
+    "imageFilePicker": true,
+    "imageOnlyComment": true,
+    "reloadRetainsImagesAndAnchors": true,
+    "resolveAndReopen": true,
+    "imageLightbox": true,
+    "frontBackToggle": true,
+    "rapidCloseAndReopenRaceFixed": true,
+    "imageDragAndDrop": true,
+    "removeDraftImage": true,
+    "editRetainsImageAndAnchor": true,
+    "consoleErrors": []
+  },
+  "art": {
+    "revision": 2,
+    "complete": true,
+    "count": 110,
+    "uniqueImages": 110,
+    "visualReviewCount": 110,
+    "minimumWidth": 1200,
+    "totalMegabytes": 17.88,
+    "issues": []
+  },
+  "checkedAt": "2026-11-14",
+  "browser": {
+    "loadedIllustrations": 110,
+    "brokenImages": [],
+    "consoleErrors": [],
+    "pendingArt": 0,
+    "chinaCardLabel": "SPECIAL CARD",
+    "url": "http://localhost:4311/"
+  },
+  "tests": {
+    "command": "npm run cards:check",
+    "passed": 3,
+    "failed": 0
+  }
+}

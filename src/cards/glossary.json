@@ -1,0 +1,290 @@
+[
+  {
+    "id": "control",
+    "label": "控制",
+    "group": "influence",
+    "video": "control",
+    "summary": "在一个国家，我方影响力至少等于稳定度，且比对方多出至少该国稳定度，才算控制。",
+    "example": "稳定度 3：我方 4、对方 2，尚未控制；我方增加到 5 后，差值达到 3，取得控制。",
+    "rule": "2.1.7"
+  },
+  {
+    "id": "influence",
+    "label": "影响力",
+    "group": "influence",
+    "video": "influence",
+    "summary": "影响力是双方在国家内的政治投入。拥有影响力不等于控制；两方可以同时拥有影响力。",
+    "example": "放置影响力时，向非敌方控制国家增加 1 点通常消耗 1 行动点；敌方控制时通常需 2 点。",
+    "rule": "6.1"
+  },
+  {
+    "id": "stability",
+    "label": "稳定度",
+    "group": "influence",
+    "video": "control",
+    "summary": "国家上标出的固定门槛，用来判断控制，也影响政变的难度。",
+    "example": "稳定度为 3 时，控制要求影响力差至少为 3；政变公式则扣除 2 × 3。",
+    "rule": "2.1.7、6.3.2"
+  },
+  {
+    "id": "battleground",
+    "label": "战场国家",
+    "group": "influence",
+    "video": "battleground",
+    "summary": "地图上特别标记的关键国家。区域计分会额外计算战场国家；在那里发动政变通常还会降低核战危机等级。",
+    "example": "控制一个战场国家通常多得 1 胜利点。是否为战场国家由地图标记决定。",
+    "rule": "10.1.1、6.3.4"
+  },
+  {
+    "id": "ordinary",
+    "label": "非战场国家",
+    "group": "influence",
+    "video": "battleground",
+    "summary": "没有战场标记的普通国家，仍计入区域内控制国家的总数。",
+    "example": "取得区域支配时，除了战场优势，还必须至少控制一个非战场国家。",
+    "rule": "10.1.1"
+  },
+  {
+    "id": "coup",
+    "label": "政变",
+    "group": "conflict",
+    "video": "coup",
+    "summary": "向有敌方影响力的合法目标发动政变。掷骰 + 行动点 − 2 × 稳定度，正数就是影响变化量。",
+    "example": "例：骰子 5 + 行动点 2 − 稳定度 2 × 2 = 3。先移除敌方 2 点，余下 1 点变成我方影响力。",
+    "rule": "6.3"
+  },
+  {
+    "id": "realignment",
+    "label": "调整阵营",
+    "group": "conflict",
+    "video": "realignment",
+    "summary": "每次消耗 1 行动点，双方掷骰并加修正。较高的一方按差值移除对方影响力；不会增加自己的影响力。",
+    "example": "相邻受控国家、目标国影响力优势和相邻本国超级大国可提供修正。修正后 6 对 4，移除落后方 2 点。",
+    "rule": "6.2"
+  },
+  {
+    "id": "defcon",
+    "label": "核战危机等级",
+    "group": "conflict",
+    "video": "defcon",
+    "summary": "本游戏的核危机从 5（缓和）降至 2（一触即发），最低保持在 2 级，不会因触发核战突然判负。",
+    "example": "2 级时会导致核战的政变目标不能选择；安全的非战场国政变仍可进行。地区限制仍然生效。",
+    "rule": "本游戏简化规则"
+  },
+  {
+    "id": "milops",
+    "label": "军事行动点",
+    "group": "conflict",
+    "video": "milops",
+    "summary": "每回合必须完成一定量的军事行动。政变和战争事件可提供军事行动点；调整阵营不会。",
+    "example": "回合结束时，若要求 3 点而只完成 1 点，对手获得差额 2 胜利点。",
+    "rule": "8.2"
+  },
+  {
+    "id": "required-milops",
+    "label": "所需军事行动点",
+    "group": "conflict",
+    "video": "milops",
+    "summary": "回合结束时，军事行动要求等于当时的核战危机等级。",
+    "example": "要求 3，完成 1，差额为 2；超额完成不会额外加分。",
+    "rule": "8.2"
+  },
+  {
+    "id": "headline",
+    "label": "头条阶段",
+    "group": "timing",
+    "video": "headline",
+    "summary": "每回合正式行动前，双方秘密选一张牌，再同时揭示，执行各自的事件。",
+    "example": "行动点较高的牌先结算；相同则美国先。计分牌按 0 点比较，中国牌不能用作头条。",
+    "rule": "4.5 C"
+  },
+  {
+    "id": "action-round",
+    "label": "行动轮",
+    "group": "timing",
+    "video": "action-round",
+    "summary": "轮到一方打出一张牌，并完整处理这张牌产生的事件或行动，然后另一方行动。",
+    "example": "通常每组由苏联先、美国后；早期每回合双方各 6 次，中晚期各 7 次。",
+    "rule": "4.5 D"
+  },
+  {
+    "id": "turn",
+    "label": "回合",
+    "group": "timing",
+    "video": "turn",
+    "summary": "回合是比行动轮更大的时间单位，包括补牌、头条阶段、多次行动和回合末检查。",
+    "example": "“本回合”通常持续到当前回合结束；“本行动轮”只覆盖当前一方这次行动。",
+    "rule": "4.5"
+  },
+  {
+    "id": "ops",
+    "label": "行动点",
+    "group": "cards",
+    "video": "operations",
+    "summary": "牌左上角的数值。用于行动时，要选择一种用途：放置影响力、调整阵营、政变或太空竞赛。",
+    "example": "3 行动点通常可在非敌方控制国家放置共 3 点影响力。事件给出的行动按牌文执行。",
+    "rule": "6.0"
+  },
+  {
+    "id": "vp",
+    "label": "胜利点",
+    "group": "scoring",
+    "video": "vp",
+    "summary": "双方共用一条胜利点轨道。获得胜利点会使标记朝自己一侧移动。",
+    "example": "美国获得 2 点，标记向美国方向移动 2 格；任一方先达到 20 VP，立即获胜。",
+    "rule": "10.2、10.3"
+  },
+  {
+    "id": "scoring",
+    "label": "计分",
+    "group": "scoring",
+    "video": "scoring",
+    "summary": "在计分时比较区域内双方控制的国家，再按存在、支配或控制的条件和牌面分值计算得分。",
+    "example": "通常还加上战场国家与毗邻敌方超级大国的国家分数；双方所得的差额进入胜利点轨。",
+    "rule": "10.1"
+  },
+  {
+    "id": "scoring-card",
+    "label": "计分牌",
+    "group": "scoring",
+    "video": "scoring",
+    "summary": "计分牌直接结算指定区域，没有行动点。剩余行动刚好够用时，只能打出高亮的计分牌。",
+    "example": "剩两次行动且有两张计分牌时，其他牌暂时锁定，必须先打出计分牌。",
+    "rule": "本游戏简化规则"
+  },
+  {
+    "id": "non-scoring-card",
+    "label": "非计分牌",
+    "group": "cards",
+    "video": "hand",
+    "summary": "不属于区域计分牌的其他牌。卡牌效果要求选“非计分牌”时，须排除计分牌。",
+    "example": "例：手中一张 3 行动点事件牌和一张欧洲计分牌，只能选择前者。",
+    "rule": "5.0"
+  },
+  {
+    "id": "presence",
+    "label": "存在",
+    "group": "scoring",
+    "video": "region-status",
+    "summary": "区域计分的基本门槛：至少控制该区域内一个国家。",
+    "example": "只是放了影响力但没有控制任何国家，不满足存在。",
+    "rule": "10.1.1"
+  },
+  {
+    "id": "domination",
+    "label": "支配",
+    "group": "scoring",
+    "video": "region-status",
+    "summary": "区域内控制的国家总数和战场国家数都超过对方，并至少控制一个战场与一个非战场国家。",
+    "example": "只领先战场数量还不够；国家总数、战场数和普通国家条件都要同时满足。",
+    "rule": "10.1.1"
+  },
+  {
+    "id": "region-control",
+    "label": "区域控制",
+    "group": "scoring",
+    "video": "region-control",
+    "summary": "区域内控制的国家总数超过对方，而且控制该区域全部战场国家。",
+    "example": "与单个国家的“控制”不同，这是区域计分状态。欧洲达成区域控制会直接获胜。",
+    "rule": "10.1.1、10.2.1"
+  },
+  {
+    "id": "final-scoring",
+    "label": "最终计分",
+    "group": "scoring",
+    "video": "final-scoring",
+    "summary": "第 10 回合结束后，对六个主要区域进行最终计分，并结算中国牌持有者的 1 胜利点。",
+    "example": "东南亚不单独重复计分；最后比较胜利点，平分为和局。",
+    "rule": "10.3.2"
+  },
+  {
+    "id": "space",
+    "label": "太空竞赛",
+    "group": "cards",
+    "video": "space",
+    "summary": "用满足当前格要求的行动点牌尝试推进太空轨道。按该格的骰点门槛判断是否前进。",
+    "example": "通常每回合只能尝试一次。投入太空竞赛的牌不会触发其事件，包括敌方事件。",
+    "rule": "6.4"
+  },
+  {
+    "id": "hand",
+    "label": "手牌",
+    "group": "cards",
+    "video": "hand",
+    "summary": "自己持有、尚未打出的牌，通常对对手隐藏。早期补至 8 张，中晚期补至 9 张。",
+    "example": "中国牌单独管理，不计入这个手牌数量；计分牌不能作为保留牌跨回合持有。",
+    "rule": "3.1、4.5 B/D"
+  },
+  {
+    "id": "deck",
+    "label": "牌堆",
+    "group": "cards",
+    "video": "draw",
+    "summary": "尚未抽取的牌背面朝上放在抽牌堆。抽空后，通常将弃牌堆洗回形成新牌堆。",
+    "example": "移出游戏的牌不参与洗回；中期和晚期新牌按回合节点加入。",
+    "rule": "4.3、4.4"
+  },
+  {
+    "id": "draw",
+    "label": "抽牌",
+    "group": "cards",
+    "video": "draw",
+    "summary": "从抽牌堆取牌并加入手牌；抽取的数量和时机由规则或事件决定。",
+    "example": "抽牌不会自动触发牌上的事件；等到打出或其他效果要求时再处理。",
+    "rule": "4.5 B、5.0"
+  },
+  {
+    "id": "discard-pile",
+    "label": "弃牌堆",
+    "group": "cards",
+    "video": "discard",
+    "summary": "已使用或被弃掉、但没有永久移除的牌，正面朝上放在这里。",
+    "example": "抽牌堆用尽时可洗回；只有事件实际触发后带星号的牌，才通常进入移除区。",
+    "rule": "2.2.6、4.3、5.2"
+  },
+  {
+    "id": "discard",
+    "label": "弃牌",
+    "group": "cards",
+    "video": "discard",
+    "summary": "把指定手牌放入弃牌堆。由事件强制弃掉的牌，不触发被弃牌自身的事件。",
+    "example": "“弃牌”与“作为行动点打出”不同：后者可能触发敌方事件。",
+    "rule": "5.2、5.4"
+  },
+  {
+    "id": "removed",
+    "label": "移出游戏",
+    "group": "cards",
+    "video": "removed",
+    "summary": "事件标题带星号的牌，事件实际触发后通常永久移除；不再洗回抽牌堆。",
+    "example": "仅将己方事件牌用于行动点，不等于触发事件。若事件条件未满足，也不因星号自动移除。",
+    "rule": "2.2.4、5.2"
+  },
+  {
+    "id": "draft-tension",
+    "label": "紧张度",
+    "group": "conflict",
+    "video": "draft-meter",
+    "summary": "旧版概念牌中的局势指标，按该概念牌文字升降。",
+    "example": "这是概念牌原型的自定义术语，不等同于正式牌组的核战危机等级。",
+    "rule": "概念牌草案"
+  },
+  {
+    "id": "draft-prestige",
+    "label": "声望",
+    "group": "scoring",
+    "video": "draft-meter",
+    "summary": "旧版概念牌中的得分指标，按牌面要求获得或失去。",
+    "example": "正式牌组使用“胜利点”；声望仅保留在独立概念牌原型中。",
+    "rule": "概念牌草案"
+  },
+  {
+    "id": "draft-tally",
+    "label": "结算",
+    "group": "scoring",
+    "video": "scoring",
+    "summary": "旧版概念牌要求在此时计算指定区域的结果。",
+    "example": "正式牌组使用“计分”。概念牌中的具体数值仍以其牌面和草案规则为准。",
+    "rule": "概念牌草案"
+  }
+]

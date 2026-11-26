@@ -1,0 +1,77 @@
+/* 08 Agitprop */
+.d08 .face { background: #efe4c6; }
+.d08 .scene {
+  --sky-a: #c8281e;
+  --sky-b: #d9573f;
+  --sky-c: #efdcb2;
+  --ray: #efe4c6;
+  --ray-o: 0.3;
+  --glow: #efe4c6;
+  --sun: #f3e9cc;
+  --sun-ring: #15110e;
+  --sun-ring-o: 0.7;
+  --far2: #e4b79b;
+  --far: #b94a36;
+  --haze: #efdcb2;
+  --haze-o: 0.35;
+  --mid: #2a1915;
+  --flag-a: #15110e;
+  --flag-b: #f3e9cc;
+  --flag-c: #c8281e;
+  --fig-d: #0e0b09;
+  --fig-m: #2b2520;
+  --fig-l: #6e655a;
+  --skin: #ecdcb8;
+  --skin-d: #b99b79;
+  --beard: #0a0807;
+  --beard-l: #3b332c;
+  --ink: #0a0807;
+  --crowd-a: #15110e;
+  --crowd-b: #0a0807;
+  --crowd-l: #f3e9cc;
+  --crowd-l-o: 0.5;
+  --accent: #f3e9cc;
+  --dove: #f7efd8;
+  --pennant: #c8281e;
+}
+.d08-title { font: 400 54px 'Russo One', sans-serif; letter-spacing: 3px; fill: #efe4c6; }
+.d08-era { font: 700 13.500px 'Oswald', sans-serif; letter-spacing: 4px; fill: #efe4c6; }
+.d08-no { font: 400 19px 'Russo One', sans-serif; letter-spacing: 2px; fill: #efe4c6; }
+.d08-cyr { font: 600 12px 'Oswald', sans-serif; letter-spacing: 4px; fill: #15110e; }
+.d08-cyr.light { font-size: 15px; fill: #efe4c6; }
+.d08-value { font: 400 68px 'Russo One', sans-serif; fill: #efe4c6; }
+.d08-band { font: 400 27px 'Russo One', sans-serif; letter-spacing: 5px; fill: #efe4c6; }
+.d08-text {
+  left: 12.500cqw;
+  right: 16cqw;
+  top: 101cqw;
+  height: 26cqw;
+  display: flex;
+  align-items: center;
+  color: #15110e;
+}
+.d08-text p { margin: 0; }
+.d08-text .rules { font: 400 4.600cqw/1.24 'Oswald', sans-serif; text-wrap: pretty; }
+.d08-text .rules b { font-weight: 700; color: #c8281e; }
+.d08-note {
+  left: 0;
+  right: 0;
+  top: 129.500cqw;
+  height: 9cqw;
+  display: grid;
+  place-items: center;
+  font: 600 2.900cqw/1 'Oswald', sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #efe4c6;
+}
+/* ink sitting on rough stock */
+.d08-print {
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.22) 0.16cqw, transparent 0.2cqw);
+  background-size: 0.9cqw 0.9cqw;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}

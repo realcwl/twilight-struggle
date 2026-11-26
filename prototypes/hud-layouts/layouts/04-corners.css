@@ -1,0 +1,41 @@
+/* 04 Four corners */
+#game[data-layout='04'] { --info-x: 1.6rem; --info-y: 15.6rem; --info-rx: 1.6rem; --info-ry: 19rem; }
+.L04 .corner { position: absolute; display: flex; align-items: center; gap: 2rem; padding: 1.5rem 1.8rem; }
+.L04 .tl { left: 1.6rem; top: 1.6rem; }
+.L04 .tr { right: 1.6rem; top: 1.6rem; align-items: flex-start; gap: 2.2rem; }
+.L04 .bl { left: 1.6rem; bottom: 1.6rem; align-items: flex-end; gap: 1.5rem; }
+.L04 .br { right: 1.6rem; bottom: 1.6rem; flex-direction: column; align-items: stretch; gap: 1.1rem; width: 27.6rem; }
+.L04 .stack { display: grid; gap: 1.3rem; }
+
+/* time */
+.L04 .tl .w-phase { flex-direction: column; align-items: flex-start; gap: 0.5em; padding: 0; background: none; box-shadow: none; }
+.L04 .tl .ph-dot { display: none; }
+.L04 .tl .w-phase b { font-size: 1.7em; color: var(--cl); }
+
+/* score */
+.L04 .tr .f-big { align-self: center; min-width: 8.4rem; }
+.L04 .tr .f-big .num { font-size: 4.6em; }
+/* the drawn meters carry their own pictures, so no label here gets an icon */
+.L04 .tr .f-big .lb .ic { display: none; }
+.L04 .tr .stack { gap: 0.9rem; }
+.L04 .tr .f-rule { padding: 0 0.2rem; }
+.L04 .tr .f-orbit { padding-top: 0.9rem; border-top: 1px solid var(--line); }
+
+/* cards */
+.L04 .bl .w-played { --card-w: 8.4em; }
+.L04 .bl .w-pile { --card-w: 6.2em; }
+
+/* threat */
+.L04 .br .rule { height: 1px; background: var(--line); }
+.L04 .br .f-gauge { justify-content: space-between; }
+
+/* when it is one step from the end the edge of the screen reddens, slowly; at the end it stays */
+.L04 .dread { position: absolute; inset: 0; pointer-events: none; opacity: 0; box-shadow: inset 0 0 16rem 2rem rgba(213, 54, 45, 0.55); transition: opacity 1.2s; }
+.L04[data-crisis='2'] .dread { opacity: 0.6; animation: dread 3.2s ease-in-out infinite; }
+.L04[data-crisis='1'] .dread { opacity: 1; animation: dread 1.4s ease-in-out infinite; }
+@keyframes dread { 50% { opacity: 0.22; } }
+@media (prefers-reduced-motion: reduce) { .L04 .dread { animation: none !important; } }
+
+.L04 .opp-hand { position: absolute; left: 50%; top: -3.4rem; transform: translateX(-50%); font-size: 1.6rem; }
+.L04 .opp-hand .op-cap { font-size: 1rem; padding: 0.3rem 1.1rem; border-radius: 1rem; background: rgba(18, 14, 11, 0.78); }
+.L04 [data-hand] { left: 50%; bottom: 0; }

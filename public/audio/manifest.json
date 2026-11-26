@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "file": "audio/sfx/card-1.mp3",
+      "seconds": 0.919,
+      "peakDb": -6.4,
+      "bytes": 19897
+    },
+    {
+      "file": "audio/sfx/influence-1.mp3",
+      "seconds": 0.669,
+      "peakDb": -6.0,
+      "bytes": 14672
+    },
+    {
+      "file": "audio/sfx/dice-1.mp3",
+      "seconds": 0.314,
+      "peakDb": -6.9,
+      "bytes": 7880
+    },
+    {
+      "file": "audio/sfx/card-2.mp3",
+      "seconds": 0.687,
+      "peakDb": -6.4,
+      "bytes": 15195
+    },
+    {
+      "file": "audio/sfx/influence-2.mp3",
+      "seconds": 0.669,
+      "peakDb": -6.0,
+      "bytes": 14672
+    },
+    {
+      "file": "audio/sfx/dice-2.mp3",
+      "seconds": 0.447,
+      "peakDb": -6.9,
+      "bytes": 10493
+    },
+    {
+      "file": "audio/sfx/card-3.mp3",
+      "seconds": 1.209,
+      "peakDb": -6.4,
+      "bytes": 25644
+    },
+    {
+      "file": "audio/sfx/influence-3.mp3",
+      "seconds": 0.669,
+      "peakDb": -6.0,
+      "bytes": 14672
+    },
+    {
+      "file": "audio/sfx/dice-3.mp3",
+      "seconds": 0.318,
+      "peakDb": -6.9,
+      "bytes": 7880
+    },
+    {
+      "file": "audio/sfx/reveal.mp3",
+      "seconds": 1.137,
+      "peakDb": -7.1,
+      "bytes": 24076
+    },
+    {
+      "file": "audio/sfx/return.mp3",
+      "seconds": 0.863,
+      "peakDb": -9.9,
+      "bytes": 18852
+    },
+    {
+      "file": "audio/sfx/remove.mp3",
+      "seconds": 0.881,
+      "peakDb": -8.0,
+      "bytes": 18852
+    },
+    {
+      "file": "audio/sfx/control.mp3",
+      "seconds": 2.932,
+      "peakDb": -5.2,
+      "bytes": 60125
+    },
+    {
+      "file": "audio/sfx/coup.mp3",
+      "seconds": 2.068,
+      "peakDb": -2.4,
+      "bytes": 42884
+    },
+    {
+      "file": "audio/sfx/coup-fail.mp3",
+      "seconds": 1.318,
+      "peakDb": -6.0,
+      "bytes": 27733
+    },
+    {
+      "file": "audio/sfx/realign.mp3",
+      "seconds": 0.431,
+      "peakDb": -8.0,
+      "bytes": 9970
+    },
+    {
+      "file": "audio/sfx/vp.mp3",
+      "seconds": 2.652,
+      "peakDb": -8.4,
+      "bytes": 54378
+    },
+    {
+      "file": "audio/sfx/turn.mp3",
+      "seconds": 1.195,
+      "peakDb": -9.9,
+      "bytes": 25121
+    },
+    {
+      "file": "audio/sfx/passive.mp3",
+      "seconds": 2.577,
+      "peakDb": -8.9,
+      "bytes": 52811
+    },
+    {
+      "file": "audio/sfx/crisis.mp3",
+      "seconds": 2.068,
+      "peakDb": -4.2,
+      "bytes": 42884
+    },
+    {
+      "file": "audio/sfx/space.mp3",
+      "seconds": 3.918,
+      "peakDb": -6.4,
+      "bytes": 79456
+    },
+    {
+      "file": "audio/sfx/victory.mp3",
+      "seconds": 4.928,
+      "peakDb": -6.0,
+      "bytes": 99831
+    },
+    {
+      "file": "audio/sfx/defeat.mp3",
+      "seconds": 4.858,
+      "peakDb": -6.0,
+      "bytes": 98264
+    },
+    {
+      "file": "audio/sfx/draw.mp3",
+      "seconds": 4.858,
+      "peakDb": -6.0,
+      "bytes": 98264
+    },
+    {
+      "file": "audio/music/us-signal-to-noise.m4a",
+      "seconds": 353.5,
+      "bytes": 7170929
+    },
+    {
+      "file": "audio/music/ussr-katabasis.m4a",
+      "seconds": 589.8,
+      "bytes": 11951528
+    }
+  ]
+}

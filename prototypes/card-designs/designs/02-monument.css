@@ -1,0 +1,48 @@
+/* 02 Monument */
+.d02 .face { background: #1c3b33; }
+.d02 .scene {
+  --sky-a: #12304e;
+  --sky-b: #3d7c92;
+  --sky-c: #f3dba6;
+  --ray: #fff7d8;
+  --ray-o: 0.13;
+  --glow: #ffeab4;
+  --far2: #cfcaa6;
+  --far: #7e9c93;
+  --haze: #ecdcb0;
+  --mid: #22414a;
+  --crowd-a: #1c3340;
+  --crowd-b: #0c1b23;
+  --crowd-l: #f2cc8c;
+}
+.d02-carve { font: 700 15px 'Cinzel', serif; letter-spacing: 5.5px; fill: #d2ac6c; }
+.d02-carve.sm { font-size: 12.500px; letter-spacing: 3.5px; }
+.d02-title { font: 800 32px 'Cinzel', serif; letter-spacing: 4.5px; fill: #f6d7a4; paint-order: stroke; stroke: #2c1504; stroke-width: 2.6px; stroke-linejoin: round; }
+.d02-value { font: 900 50px 'Cinzel', serif; fill: #f3cf98; paint-order: stroke; stroke: #1f1003; stroke-width: 2.6px; }
+.d02-text {
+  left: 12.500cqw;
+  right: 12.500cqw;
+  top: 91.500cqw;
+  height: 35.500cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.7cqw;
+  text-align: center;
+  color: #2f2a20;
+  text-shadow: 0 0.22cqw 0 rgba(255, 255, 255, 0.55);
+}
+.d02-text p { margin: 0; }
+.d02-text .rules { font: 600 4.800cqw/1.2 'EB Garamond', serif; text-wrap: balance; }
+.d02-text .rules b { font-weight: 800; color: #6a3410; }
+.d02-text .note { font: 700 2.900cqw/1.2 'Cinzel', serif; letter-spacing: 0.12em; text-transform: uppercase; color: #2c5a4d; text-wrap: balance; }
+.d02-text .note::before {
+  content: '';
+  display: block;
+  width: 34cqw;
+  height: 0.3cqw;
+  margin: 0 auto 1.6cqw;
+  background: #2f2a20;
+  opacity: 0.45;
+  box-shadow: 0 0.25cqw 0 rgba(255, 255, 255, 0.7);
+}

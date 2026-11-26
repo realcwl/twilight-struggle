@@ -1,0 +1,28 @@
+/* 07 对坐: two rows of nameplates, the player's over their hand, the opponent's under theirs. */
+.v07 { position: absolute; left: 50%; display: grid; justify-items: center; gap: 0.55rem; transform: translateX(-50%); pointer-events: none; }
+.v07-mine { bottom: 14.4rem; }
+.v07-theirs { top: 6.7rem; }
+.v07-theirs .v07-cap { order: 2; }
+.v07.empty { display: none; }
+.v07-cap { font: 700 1rem/1 var(--han); letter-spacing: 0.2em; color: rgba(236, 223, 195, 0.78); text-shadow: 0 1px 3px #000, 0 0 0.8em #000; white-space: nowrap; }
+.v07-row { display: flex; gap: 0.7rem; }
+
+/* a nameplate: lacquer in a brass edge, lit from above */
+.v07-plate { position: relative; display: flex; align-items: center; gap: 0.7rem; height: 3.1rem; padding: 0 1.1rem 0 0.7rem; border-radius: 0.4rem; background: linear-gradient(180deg, #3d3226 0, #241c15 46%, #15110d 100%); box-shadow: 0 0 0 1px #c8962e, 0 0 0 0.22rem rgba(16, 12, 9, 0.75), inset 0 1px 0 rgba(255, 247, 228, 0.22), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6); white-space: nowrap; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.2s; }
+.v07-plate .pe-chip { font-size: 1.2rem; }
+.v07-plate b { font: 900 1.4rem/1 var(--han); letter-spacing: 0.08em; color: var(--bright); }
+.v07-mark { display: inline-grid; place-items: center; padding-left: 0.7rem; border-left: 1px solid var(--line); font-size: 1.3rem; color: var(--gold); }
+.v07-mark .pe-n { font-size: 1.45rem; color: var(--bright); }
+.v07-mark.tick { animation: v07-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v07-tick { 0% { transform: scale(2.2); } }
+.v07-mine .v07-plate:hover { transform: translateY(-0.4rem); }
+.v07-theirs .v07-plate:hover { transform: translateY(0.4rem); }
+.v07-plate:hover { box-shadow: 0 0 0 1px var(--bright), 0 0 0 0.22rem rgba(16, 12, 9, 0.75), 0 0 1.6rem rgba(240, 191, 74, 0.5), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6); }
+/* set down on the table: it drops the last little way and settles */
+.v07-plate.pe-new { animation: v07-set 0.5s cubic-bezier(0.3, 0.6, 0.3, 1) both, v07-glint 2.2s ease-out; }
+@keyframes v07-set { 0% { opacity: 0; transform: translateY(-1.6rem); } 60% { opacity: 1; transform: translateY(0.18rem); } 80% { transform: translateY(-0.1rem); } 100% { transform: none; } }
+@keyframes v07-glint { 0%, 40% { box-shadow: 0 0 0 0.18rem var(--gold), 0 0 2.2rem rgba(240, 191, 74, 0.85); } }
+.v07-plate.pe-fire { animation: v07-fire 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); box-shadow: 0 0 0 0.18rem var(--gold), 0 0 2.2rem rgba(240, 191, 74, 0.85); }
+@keyframes v07-fire { 12% { transform: translateY(-1.1rem); } 28% { transform: translateY(0); } 38% { transform: translateY(-0.4rem); } 50%, 100% { transform: none; } }
+.v07-plate.pe-ending { filter: saturate(0.25) brightness(0.8); transition: filter 0.3s; }
+.v07-plate .pe-stamp b { font-size: 1.25rem; }

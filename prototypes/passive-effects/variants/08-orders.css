@@ -1,0 +1,40 @@
+/* 08 常设指令: paper slips down the right edge, over the threat corner. Paper, not lacquer: the
+   cream of a card's rules plate, a little aged, so it sits with the cards and not with the meters. */
+.v08 { position: absolute; right: 0; bottom: calc(100% + 1.5rem); display: grid; justify-items: end; gap: 0.7rem; width: 18.4rem; pointer-events: none; }
+.v08-clip { display: flex; align-items: baseline; gap: 0.7rem; text-shadow: 0 1px 3px #000, 0 0 0.8em #000; }
+.v08-clip .hud-lb { color: rgba(236, 223, 195, 0.82); }
+.v08-clip .hud-num { font-size: 1.5rem; color: var(--gold); }
+.v08.empty .hud-num { color: var(--muted); }
+.v08-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.5rem; width: 100%; }
+
+.v08-slip { position: relative; padding: 0.7rem 0.9rem 0.75rem 1.5rem; border-radius: 0.2rem; background: linear-gradient(180deg, #f3e8cb, #e2d2a8); box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.55), inset 0 0 1.4rem rgba(140, 105, 40, 0.16); color: #2a2218; pointer-events: auto; transition: transform 0.2s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.2s; }
+.v08-slip:nth-child(odd) { rotate: -0.45deg; }
+.v08-slip:nth-child(even) { rotate: 0.4deg; }
+/* the side's colour down the left edge, as a ruled margin */
+.v08-slip::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0.6rem; border-radius: 0.2rem 0 0 0.2rem; background: linear-gradient(180deg, var(--cl), var(--c)); }
+.v08-slip.is-n::before { background: linear-gradient(180deg, #a59669, #7d6f48); }
+.v08-top { display: flex; align-items: center; gap: 0.55rem; white-space: nowrap; }
+.v08-side { flex: none; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--c); color: var(--ink); font: 900 0.95rem/1 var(--han); }
+.v08-slip.is-n .v08-side { background: #7d6f48; color: #fff; }
+.v08-top b { font: 900 1.35rem/1 var(--han); letter-spacing: 0.04em; }
+.v08-until { display: inline-flex; align-items: center; gap: 0.25rem; margin-left: auto; font: 700 1rem/1 var(--han); color: #6a4f17; }
+.v08-until em { font-style: normal; }
+.v08-mark { display: inline-grid; place-items: center; font-size: 1.15rem; color: #8a6412; }
+.v08-mark .pe-n { font-size: 1.3rem; color: #2a2218; }
+.v08-mark.tick { animation: v08-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v08-tick { 0% { transform: scale(2.3); color: #b3261e; } }
+.v08-slip p { margin: 0.45rem 0 0; font: 400 1.15rem/1.4 var(--han); text-wrap: pretty; }
+/* on paper the rules' words are the cards' dark teal */
+.hud .v08-slip .game-term { color: #08635f !important; background: rgba(8, 99, 95, 0.08); }
+
+.v08-slip:hover { transform: translateX(-0.8rem); box-shadow: 0 0 0 1px var(--gold), 0 0 1.6rem rgba(240, 191, 74, 0.45), 0 0.35rem 1rem rgba(0, 0, 0, 0.55); z-index: 2; }
+.v08-slip.pe-new { animation: v08-in 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.1) both, v08-glint 2.3s ease-out; }
+@keyframes v08-in { 0% { transform: translateX(115%); } }
+@keyframes v08-glint { 0%, 40% { box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.85); } }
+.v08-slip.pe-fire { animation: v08-fire 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.85); z-index: 2; }
+@keyframes v08-fire { 12% { transform: translateX(-1.8rem); } 30% { transform: translateX(-0.2rem); } 42% { transform: translateX(-0.9rem); } 56%, 100% { transform: none; } }
+.v08-slip.pe-ending p, .v08-slip.pe-ending .v08-top { opacity: 0.45; transition: opacity 0.3s; }
+/* ink on paper: no backing plate */
+.v08-slip .pe-stamp b { font-size: 1.5rem; color: #b3261e; background: none; box-shadow: none; border-width: 0.16em; mix-blend-mode: multiply; }
+.v08-slip .pe-stamp.expire b { color: #7a5a10; }
+.v08-slip .pe-stamp.cond b { color: #a8480f; }

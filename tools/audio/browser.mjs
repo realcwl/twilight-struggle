@@ -1,0 +1,94 @@
+// Disposable private Chrome only. Default autoplay policy is deliberately left enabled.
+import assert from 'node:assert/strict';
+import {writeFile,mkdir} from 'node:fs/promises';
+const port=process.env.AUDIO_CDP_PORT??'9350', origin=process.env.AUDIO_ORIGIN??'http://127.0.0.1:5173';
+const delay=ms=>new Promise(r=>setTimeout(r,ms));
+const pages=await(await fetch(`http://127.0.0.1:${port}/json/list`)).json();
+const target=pages.find(p=>p.type==='page');
+const ws=new WebSocket(target.webSocketDebuggerUrl);await new Promise(r=>ws.addEventListener('open',r,{once:true}));
+let id=0;const pending=new Map(),errors=[];
+ws.onmessage=e=>{const d=JSON.parse(e.data);if(d.id){const p=pending.get(d.id);pending.delete(d.id);d.error?p.reject(new Error(JSON.stringify(d.error))):p.resolve(d.result);}else if(d.method==='Runtime.exceptionThrown')errors.push(d.params.exceptionDetails);};
+const cdp=(method,params={})=>new Promise((resolve,reject)=>{pending.set(++id,{resolve,reject});ws.send(JSON.stringify({id,method,params}));});
+const ev=async expression=>{const r=await cdp('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description??r.exceptionDetails.text);return r.result.value;};
+const until=async(expression,ms=30000)=>{const end=Date.now()+ms;while(Date.now()<end){try{if(await ev(expression))return;}catch(e){if(!/context|undefined|navigat|Cannot read/.test(e.message))throw e;}await delay(100);}throw Error('Timed out: '+expression+' '+JSON.stringify(await ev('window.game?.audio?.inspect()')));};
+const click=async selector=>{const r=await ev(`(()=>{const r=document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();return{x:r.x+r.width/2,y:r.y+r.height/2}})()`);for(const type of ['mouseMoved','mousePressed','mouseReleased'])await cdp('Input.dispatchMouseEvent',{type,...r,button:'left',clickCount:1});};
+const shot=async name=>{await mkdir('/tmp/coldwar-audio-check',{recursive:true});const s=await cdp('Page.captureScreenshot',{format:'png'});await writeFile('/tmp/coldwar-audio-check/'+name+'.png',Buffer.from(s.data,'base64'));};
+try{
+  await cdp('Runtime.enable');await cdp('Page.enable');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1600,height:1000,deviceScaleFactor:1,mobile:false});
+  await cdp('Page.navigate',{url:origin+'/game.html?pace=0.05'});
+  await until('!!window.game?.audio');
+  // This test profile owns its storage; reset to a predictable opening.
+  await ev("localStorage.clear();window.__oldAudioPage=true");await cdp('Page.reload',{ignoreCache:true});
+  await until('!window.__oldAudioPage && !!window.game?.audio && !!document.querySelector(".solo-dialog[open]")');
+  assert.equal(await ev('game.audio.inspect().context'),'uninitialized');
+  assert.equal(await ev('game.audio.inspect().buffers'),0);
+  await click('.solo-dialog button');
+  await until('game.audio.inspect().buffers===24 && game.audio.inspect().streams.some(s=>!s.paused && s.time>0)');
+  assert.equal(await ev('game.audio.inspect().faction'),0);
+  assert.equal(await ev('game.audio.inspect().effectErrors'),0);
+  console.log('PASS: gesture unlock, 24 decoded effects, US score streaming');
+  await ev("window.__cues=[];const play=game.audio.play.bind(game.audio);game.audio.play=(cue,opts)=>{__cues.push({cue,t:performance.now()});play(cue,opts)}");
+  await until('!!document.querySelector(".wm-plate.pl-ok")');
+  await ev("game.map.flyTo('europe',{fit:true})");await delay(1100);
+  await click('.wm-plate[data-id="frg"]');await until('__cues.some(c=>c.cue==="influence")');
+  assert.equal(await ev('game.play.snapshot.inf.frg[0]'),1);
+  console.log('PASS: real map placement triggers sound without changing rules');
+  await click('.sound-toggle');await until('document.querySelector(".sound-panel").matches(":popover-open")');
+  await shot('settings-desktop');
+  await click('[data-sound="coup"]');await until('__cues.some(c=>c.cue==="coup")');
+  await ev("game.audio.configure({music:.31,effects:.64})");
+  await click('.sound-mute input');
+  assert.equal(await ev('game.audio.inspect().status'),'muted');
+  assert.ok(await ev('game.audio.inspect().streams.every(s=>s.paused)'));
+  const n=await ev('game.audio.inspect().played');await click('[data-sound="card"]');await delay(100);
+  assert.equal(await ev('game.audio.inspect().played'),n);
+  await ev('window.__oldAudioPage=true');await cdp('Page.reload',{ignoreCache:true});
+  await until('!window.__oldAudioPage && !!game?.audio');
+  assert.deepEqual(await ev('game.audio.preferences'),{muted:true,music:.31,effects:.64});
+  await until('!!document.querySelector(".solo-dialog[open]")');await click('.solo-dialog button');
+  await until('!!document.querySelector(".wm-plate.pl-ok")');
+  await delay(800);await click('.sound-toggle');await until('document.querySelector(".sound-panel").matches(":popover-open")');await delay(150);await click('.sound-mute input');
+  await until('game.audio.inspect().buffers===24 && game.audio.inspect().context==="running"');
+  console.log('PASS: mute suppresses effects, volumes persist, unmute resumes');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await delay(200);
+  const box=await ev('(()=>{const r=document.querySelector(".sound-panel").getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom}})()');
+  assert.ok(box.left>=0&&box.right<=390&&box.top>=0&&box.bottom<=844,JSON.stringify(box));
+  await shot('settings-mobile');
+  await click('.sound-close');
+  await cdp('Emulation.setDeviceMetricsOverride',{width:1600,height:1000,deviceScaleFactor:1,mobile:false});
+  await ev('game.audio.setFaction(1)');
+  await until('game.audio.inspect().streams.some(s=>s.faction===1&&!s.paused&&s.time>0)');
+  await delay(6300);assert.equal(await ev('game.audio.inspect().streams.length'),1);
+  assert.equal(await ev('game.audio.inspect().streams[0].faction'),1);
+  // Jump to the final seconds of the actual stream and verify the overlap cleans up.
+  await ev('game.audio.current.media.currentTime=game.audio.current.media.duration-3');
+  await until('game.audio.inspect().streams.length===2');await delay(6500);
+  assert.equal(await ev('game.audio.inspect().streams.length'),1);
+  assert.ok(await ev('game.audio.inspect().streams[0].time<20'));
+  console.log('PASS: faction crossfade, streamed loop, old streams disposed');
+  // Full coup staging uses physical die contacts and a separate result impact.
+  await ev("window.__cues=[];const play=game.audio.play.bind(game.audio);game.audio.play=(cue,opts)=>{__cues.push({cue,t:performance.now()});play(cue,opts)}");
+  await ev(`window.__audioRoll=game.presenter().roll({kind:'coup',by:0,card:'008',id:'irn',chance:.5,need:3,dice:[{side:0,value:5,mods:[],total:8}],bar:{label:'稳定度',n:4},ok:true,text:'政变成功'});true`);
+  await until('!!document.querySelector(".sp-dice.is-in")');
+  await click('.sound-toggle');await until('document.querySelector(".sound-panel").matches(":popover-open")');
+  await click('.sound-close');
+  await ev('window.__audioRoll');
+  const cues=await ev('__cues');assert.ok(cues.filter(c=>c.cue==='dice').length>=3,JSON.stringify(cues));
+  assert.ok(cues.find(c=>c.cue==='coup').t>cues.filter(c=>c.cue==='dice').at(-1).t);
+  console.log('PASS: dice-contact sounds precede coup-result sound');
+  // Exercise true document visibility with a second target, not a synthetic visibility event.
+  const other=await cdp('Target.createTarget',{url:'about:blank'});
+  await cdp('Target.activateTarget',{targetId:other.targetId});
+  await until('document.hidden');await delay(150);
+  assert.ok(await ev('game.audio.inspect().streams.every(s=>s.paused)'));
+  const silence=await ev('game.audio.inspect().played');await ev("game.audio.play('coup')");assert.equal(await ev('game.audio.inspect().played'),silence);
+  await cdp('Target.activateTarget',{targetId:target.id});await until('!document.hidden && game.audio.inspect().streams.some(s=>!s.paused)');
+  await cdp('Target.closeTarget',{targetId:other.targetId});
+  console.log('PASS: background pauses music and drops effects; foreground resumes');
+  // Network failure is isolated from gameplay and cannot leave unhandled rejections.
+  await ev(`(async()=>{const {GameAudio}=await import('/src/audio/GameAudio.ts');window.__failedAudio=new GameAudio();const fetchOriginal=window.fetch;window.fetch=()=>Promise.reject(new Error('test offline'));await __failedAudio.unlock();await __failedAudio.preload();window.fetch=fetchOriginal;})()`);
+  assert.equal(await ev('__failedAudio.inspect().effectErrors'),24);await ev('__failedAudio.dispose()');
+  await ev('game.audio.dispose()');assert.equal(await ev('game.audio.inspect().streams.length'),0);
+  assert.deepEqual(errors,[]);console.log('PASS: audio outage is harmless; disposal releases streams and context; no runtime exceptions');
+}finally{ws.close();}

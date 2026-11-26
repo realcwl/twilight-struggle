@@ -1,0 +1,64 @@
+/* 05 Embassy */
+.d05 .face {
+  background:
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0 0.5cqw, transparent 0.5cqw 1cqw),
+    radial-gradient(110% 80% at 50% 28%, #1a3168 0%, #0f1f47 45%, #070e24 100%);
+}
+.d05 .scene {
+  --sky-a: #0b1838;
+  --sky-b: #1d4a70;
+  --sky-c: #ecc777;
+  --ray: #f6dc8e;
+  --ray-o: 0.14;
+  --glow: #f6dc8e;
+  --sun: #f8e6b0;
+  --sun-ring: #f6dc8e;
+  --sun-ring-o: 0.55;
+  --far2: #5b8fa6;
+  --far: #2c5878;
+  --haze: #ecc777;
+  --haze-o: 0.4;
+  --mid: #0e2647;
+  --flag-a: #24509a;
+  --flag-b: #f6ecd0;
+  --flag-c: #c4472f;
+  --fig-d: #172319;
+  --fig-m: #37543f;
+  --fig-l: #7f9e77;
+  --crowd-a: #0f2247;
+  --crowd-b: #07122c;
+  --crowd-l: #e9c46e;
+  --accent: #e9c46e;
+  --dove: #f9efd2;
+  --pennant: #e9c46e;
+}
+.d05-title { font: 400 41px 'Limelight', serif; letter-spacing: 4px; }
+.d05-banner { font: 400 21px 'Limelight', serif; letter-spacing: 5px; }
+.d05-label { font: 600 12.500px 'Josefin Sans', sans-serif; letter-spacing: 3.4px; fill: #e3c16a; }
+.d05-label.thin { font-weight: 300; letter-spacing: 2.6px; fill: #cdb980; }
+.d05-value { font: 400 50px 'Limelight', serif; }
+.d05-text {
+  left: 13cqw;
+  right: 13cqw;
+  top: 95cqw;
+  height: 32cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2cqw;
+  text-align: center;
+  color: #f1e8cf;
+}
+.d05-text p { margin: 0; }
+.d05-text .rules { font: 400 4.300cqw/1.32 'Josefin Sans', sans-serif; text-wrap: balance; }
+.d05-text .rules b { font-weight: 700; color: #f2cf73; }
+.d05-text .note { font: 600 2.600cqw/1.3 'Josefin Sans', sans-serif; letter-spacing: 0.2em; text-transform: uppercase; color: #d9b65a; text-wrap: balance; }
+.d05-text .note::before {
+  content: '';
+  display: block;
+  width: 9cqw;
+  height: 0.3cqw;
+  margin: 0 auto 1.8cqw;
+  background: #d9b65a;
+  box-shadow: -12cqw 0 0 -0.05cqw rgba(217, 182, 90, 0.5), 12cqw 0 0 -0.05cqw rgba(217, 182, 90, 0.5);
+}

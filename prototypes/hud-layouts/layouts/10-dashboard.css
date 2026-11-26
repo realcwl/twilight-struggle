@@ -1,0 +1,12 @@
+/* 10 Dashboard: dials bottom left, the hand held in the bottom right corner */
+.L10 .dash { position: absolute; left: 1.6rem; bottom: 1.6rem; display: flex; align-items: flex-end; gap: 2.2rem; padding: 2rem 2.6rem 1.6rem; border-radius: 9rem 9rem 1.2rem 1.2rem; }
+.L10 .gauge { display: grid; justify-items: center; gap: 1.1rem; }
+.L10 .gauge.mid .f-medal { font-size: 1.35rem; }
+.L10 .gauge .f-dial { font-size: 1.05rem; }
+.L10 .gauge .f-chip { padding-top: 0.9rem; border-top: 1px solid var(--line); }
+.L10 .prompt { position: absolute; left: 62rem; bottom: 17.4rem; }
+.L10 .piles { position: absolute; left: 62rem; bottom: 1.8rem; display: flex; align-items: flex-end; gap: 1.6rem; }
+.L10 .piles .w-played { --card-w: 8.4em; }
+.L10 .piles .w-pile { --card-w: 6.4em; }
+.L10 .piles .w-opp { align-self: center; margin-left: 0.6rem; padding: 0.7rem 1.3rem; border-radius: 2rem; }
+.L10 [data-hand] { left: calc(100% + 1rem); bottom: 6.4rem; }

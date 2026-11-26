@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>冷战 · 好友对战</title>
+  </head>
+  <body>
+    <div id="lobby">
+      <picture class="lobby-art" aria-hidden="true">
+        <source media="(max-width: 600px)" srcset="/lobby/confrontation-mobile.webp" />
+        <img src="/lobby/confrontation.webp" alt="" fetchpriority="high" width="1672" height="941" />
+      </picture>
+      <div class="lobby-shade" aria-hidden="true"></div>
+      <header class="lobby-topline">
+        <span class="lobby-brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14"/><path d="M16 3 20 12 29 16 20 20 16 29 12 20 3 16 12 12Z"/><circle cx="16" cy="16" r="3"/></svg>COLD WAR</span>
+        <span class="lobby-edition">双人策略对战 <i></i> 1945 — 1989</span>
+      </header>
+      <div class="lobby-faction lobby-west" aria-hidden="true"><span>UNITED STATES</span><b>美利坚合众国</b><i></i></div>
+      <div class="lobby-faction lobby-east" aria-hidden="true"><span>SOVIET UNION</span><b>苏维埃社会主义共和国联盟</b><i></i></div>
+      <main class="lobby-main">
+        <div class="lobby-title">
+          <div class="room-kicker"><i></i> 两个阵营 · 一个世界 <i></i></div>
+          <h1>冷<span>战</span></h1>
+          <div class="lobby-wordmark" aria-hidden="true">COLD WAR</div>
+          <p class="room-intro">世界，分为两端。</p>
+        </div>
+        <a id="tutorial-start" class="lobby-tutorial" href="./game.html?tutorial=1" aria-labelledby="tutorial-title" aria-describedby="tutorial-description">
+          <span class="tutorial-emblem" aria-hidden="true"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24"/><circle cx="28" cy="28" r="19"/><path d="m28 10 5 13 13 5-13 5-5 13-5-13-13-5 13-5Z"/><circle cx="28" cy="28" r="3"/></svg></span>
+          <span class="tutorial-copy"><small>从这里开始</small><strong id="tutorial-title">新手教程</strong><span id="tutorial-description">引导实战几轮，随后自由挑战电脑。</span></span>
+          <span class="tutorial-arrow" aria-hidden="true">→</span>
+        </a>
+        <section class="room-card" aria-label="好友对战">
+          <div class="room-card-heading"><span>好友对战</span><small>邀请一位朋友，改写历史。</small></div>
+          <form id="create-room">
+            <fieldset>
+              <legend>选择你的阵营</legend>
+              <label>
+                <input type="radio" name="side" value="0" aria-label="美国" checked />
+                <span class="room-faction room-us">
+                  <svg class="faction-emblem" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 8 5 12 13 1-10 9 3 13-11-7-11 7 3-13-10-9 13-1Z"/><path d="m9 19-7-5 4 14 14 9-3-9ZM55 19l7-5-4 14-14 9 3-9ZM10 35l4 10 15 9-5-12ZM54 35l-4 10-15 9 5-12Z"/><path d="M21 55h22" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                  <span class="faction-name">美国<small>UNITED STATES</small></span>
+                  <span class="faction-check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+              <label>
+                <input type="radio" name="side" value="1" aria-label="苏联" />
+                <span class="room-faction room-su">
+                  <svg class="faction-emblem" viewBox="0 0 64 64" aria-hidden="true"><path d="m32 5 6 16 17 1-13 11 4 17-14-9-14 9 4-17L9 22l17-1Z"/><path d="M14 53Q1 42 6 27M50 53Q63 42 58 27M19 57h26" fill="none" stroke="currentColor" stroke-width="3"/><path d="m8 42-6-3 3 9 10 6ZM56 42l6-3-3 9-10 6Z"/></svg>
+                  <span class="faction-name">苏联<small>SOVIET UNION</small></span>
+                  <span class="faction-check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+            </fieldset>
+            <button class="room-primary">创建私人房间 <span aria-hidden="true">→</span></button>
+            <p class="room-hint">创建后，将房间密码分享给朋友</p>
+          </form>
+          <div class="room-divider">已有房间密码</div>
+          <form id="join-room">
+            <label class="room-sr-only" for="room-code">房间密码</label>
+            <div class="room-join">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>
+              <input id="room-code" name="code" placeholder="8 位房间密码" maxlength="8" autocomplete="off" autocapitalize="characters" spellcheck="false" required />
+              <button>加入 <span aria-hidden="true">↗</span></button>
+            </div>
+          </form>
+          <p id="lobby-error" role="alert"></p>
+          <button id="resume-room" hidden>继续上次的房间 <span aria-hidden="true">→</span></button>
+          <footer><span>无需注册 · 自动保存</span><a href="/game.html">单机练习 <span aria-hidden="true">↗</span></a></footer>
+        </section>
+      </main>
+      <footer class="lobby-bottom"><span>谋略 · 外交 · 博弈</span><span>每一次抉择，都在改变世界。</span></footer>
+    </div>
+    <div id="game" hidden><main id="map"></main></div>
+    <div id="room-bar" hidden>
+      <button id="copy-code" title="复制房间密码"></button
+      ><span id="room-status" role="status"></span
+      ><button id="room-menu" aria-label="房间菜单">•••</button>
+    </div>
+    <div id="room-notice" hidden role="status"></div>
+    <div id="loading" hidden>
+      <div class="loading-box">
+        <div class="loading-bar"><i></i></div>
+        <div class="loading-text">正在展开地图…</div>
+      </div>
+    </div>
+    <script type="module" src="/src/net/client.ts"></script>
+  </body>
+</html>

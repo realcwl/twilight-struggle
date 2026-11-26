@@ -1,0 +1,1887 @@
+{
+  "scope": "Classic Deluxe 110 (103 base + 7 optional)",
+  "checkedAt": "2026-11-14",
+  "primary": "GMT official Deluxe VASSAL 3.04a",
+  "secondary": "Twilight Strategy full card list",
+  "count": 110,
+  "differences": [
+    "16 persistent: official module True, secondary list False",
+    "17 persistent: official module True, secondary list False",
+    "43 persistent: official module False, secondary list True",
+    "77 title: \"Ask Not What Your Country Can Do For You...\" / “Ask Not What Your Country…”*"
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Asia Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/14/regions-asia/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "title": "Europe Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/12/regions-europe/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Middle East Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/02/13/regions-middle-east/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Duck and Cover",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/12/duck-and-cover/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "title": "Five Year Plan",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/12/five-year-plan/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "The China Card",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/31/the-china-card/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Socialist Governments",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/13/socialist-governments/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Fidel",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/14/fidel/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "Vietnam Revolts",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/16/vietnam-revolts/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Blockade",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/19/blockade/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "title": "Korean War",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2011/12/25/korean-war/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "title": "Romanian Abdication",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/01/02/romanian-abdication/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "title": "Arab-Israeli War",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/01/16/arab-israeli-war/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "title": "COMECON",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/01/24/comecon/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "title": "Nasser",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/02/06/nasser/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "title": "Warsaw Pact Formed",
+      "metadataCrossCheck": "primary source takes precedence; see resolution",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/02/20/warsaw-pact-formed/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "title": "De Gaulle Leads France",
+      "metadataCrossCheck": "primary source takes precedence; see resolution",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/02/24/de-gaulle-leads-france/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "title": "Captured Nazi Scientist",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/02/27/captured-nazi-scientist/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "title": "Truman Doctrine",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/02/truman-doctrine/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "title": "Olympic Games",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/12/olympic-games/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "title": "NATO",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/12/nato/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "title": "Independent Reds",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/13/independent-reds/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "title": "Marshall Plan",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/16/marshall-plan/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "title": "Indo-Pakistani War",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/19/indo-pakistani-war/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "title": "Containment",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/20/containment/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "title": "CIA Created",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/26/cia-created/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "title": "US/Japan Mutual Defense Pact",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/27/usjapan-mutual-defense-pact/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "title": "Suez Crisis",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/03/29/suez-crisis/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "title": "East European Unrest",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/04/02/east-european-unrest/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "title": "Decolonization",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/04/05/decolonization/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "title": "Red Scare/Purge",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/04/23/red-scarepurge/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "title": "UN Intervention",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/05/07/un-intervention/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "title": "De-Stalinization",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/05/29/de-stalinization/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "title": "Nuclear Test Ban",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/06/11/nuclear-test-ban/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "title": "Formosan Resolution",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/07/02/formosan-resolution/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 103,
+      "title": "Defectors",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/07/09/defectors/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "title": "Brush War",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/04/brush-war/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "title": "Central America Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/04/regions-central-america/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "title": "Southeast Asia Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/04/regions-southeast-asia/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "title": "Arms Race",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/05/arms-race/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "title": "Cuban Missile Crisis",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/06/cuban-missile-crisis/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "title": "Nuclear Subs",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/10/nuclear-subs/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "title": "Quagmire",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/12/quagmire/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "title": "SALT Negotiations",
+      "metadataCrossCheck": "primary source takes precedence; see resolution",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/17/salt-negotiations/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 44,
+      "title": "Bear Trap",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/19/bear-trap/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "title": "Summit",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/24/summit/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 46,
+      "title": "How I Learned to Stop Worrying",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/09/26/how-i-learned-to-stop-worrying/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "title": "Junta",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/01/junta/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 48,
+      "title": "Kitchen Debates",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/03/kitchen-debates/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 49,
+      "title": "Missile Envy",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/08/missile-envy/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 50,
+      "title": "\"We Will Bury You\"",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/10/we-will-bury-you/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 51,
+      "title": "Brezhnev Doctrine",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/12/brezhnev-doctrine/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "title": "Portuguese Empire Crumbles",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/15/portuguese-empire-crumbles/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "title": "South African Unrest",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/16/south-african-unrest/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 54,
+      "title": "Allende",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/17/allende/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 55,
+      "title": "Willy Brandt",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/18/willy-brandt/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 56,
+      "title": "Muslim Revolution",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/19/muslim-revolution/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 57,
+      "title": "ABM Treaty",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/23/abm-treaty/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 58,
+      "title": "Cultural Revolution",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/24/cultural-revolution/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 59,
+      "title": "Flower Power",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/25/flower-power/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 60,
+      "title": "U2 Incident",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/26/u-2-incident/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 61,
+      "title": "OPEC",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/29/opec/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 62,
+      "title": "\"Lone Gunman\"",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/10/30/lone-gunman/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 63,
+      "title": "Colonial Rear Guards",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/01/colonial-rear-guards/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 64,
+      "title": "Panama Canal Returned",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/02/panama-canal-returned/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 65,
+      "title": "Camp David Accords",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/05/camp-david-accords/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 66,
+      "title": "Puppet Governments",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/06/puppet-governments/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 67,
+      "title": "Grain Sales to Soviets",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/07/grain-sales-to-soviets/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 68,
+      "title": "John Paul II Elected Pope",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/08/john-paul-ii-elected-pope/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 69,
+      "title": "Latin American Death Squads",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/09/latin-american-death-squads/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 70,
+      "title": "OAS Founded",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/12/oas-founded/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 71,
+      "title": "Nixon Plays the China Card",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/13/nixon-plays-the-china-card/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 72,
+      "title": "Sadat Expels Soviets",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/14/sadat-expels-soviets/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 73,
+      "title": "Shuttle Diplomacy",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/15/shuttle-diplomacy/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 74,
+      "title": "The Voice of America",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/16/the-voice-of-america/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 75,
+      "title": "Liberation Theology",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/19/liberation-theology/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 76,
+      "title": "Ussuri River Skirmish",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/20/ussuri-river-skirmish/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 77,
+      "title": "\"Ask Not What Your Country Can Do For You...\"",
+      "metadataCrossCheck": "primary source takes precedence; see resolution",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/21/ask-not-what-your-country-can-do-for-you/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 78,
+      "title": "Alliance For Progress",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/23/alliance-for-progress/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 79,
+      "title": "Africa Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/04/11/regions-africa/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 80,
+      "title": "\"One Small Step...\"",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/26/one-small-step/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 81,
+      "title": "South America Scoring",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/08/15/regions-south-america/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 82,
+      "title": "Iranian Hostage Crisis",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/30/iranian-hostage-crisis/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 83,
+      "title": "The Iron Lady",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/03/the-iron-lady/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 84,
+      "title": "Reagan Bombs Libya",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/04/reagan-bombs-libya/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 85,
+      "title": "Star Wars",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/05/star-wars/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 86,
+      "title": "North Sea Oil",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/06/north-sea-oil/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 87,
+      "title": "The Reformer",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/07/the-reformer/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 88,
+      "title": "Marine Barracks Bombing",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/10/marine-barracks-bombing/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 89,
+      "title": "Soviets Shoot Down KAL-007",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/11/soviets-shoot-down-kal-007/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 90,
+      "title": "Glasnost",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/12/glasnost/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 91,
+      "title": "Ortega Elected in Nicaragua",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/13/ortega-elected-in-nicaragua/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 92,
+      "title": "Terrorism",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/14/terrorism/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 93,
+      "title": "Iran-Contra Scandal",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/17/iran-contra-scandal/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 94,
+      "title": "Chernobyl",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/18/chernobyl/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 95,
+      "title": "Latin American Debt Crisis",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/19/latin-american-debt-crisis/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 96,
+      "title": "Tear Down This Wall",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/20/tear-down-this-wall/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 97,
+      "title": "\"An Evil Empire\"",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/12/21/an-evil-empire/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 98,
+      "title": "Aldrich Ames Remix",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/03/aldrich-ames-remix/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 99,
+      "title": "Pershing II Deployed",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/04/pershing-ii-deployed/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 100,
+      "title": "Wargames",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/07/wargames/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 101,
+      "title": "Solidarity",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/08/solidarity/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 102,
+      "title": "Iran-Iraq War",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/09/iran-iraq-war/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 104,
+      "title": "The Cambridge Five",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/07/11/the-cambridge-five/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 105,
+      "title": "Special Relationship",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/07/18/special-relationship/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 106,
+      "title": "NORAD",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/07/25/norad/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 107,
+      "title": "Che",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/27/che/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 108,
+      "title": "Our Man in Tehran",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2012/11/28/our-man-in-tehran/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 109,
+      "title": "Yuri and Samantha",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/10/yuri-and-samantha/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    },
+    {
+      "id": 110,
+      "title": "AWACS Sale to Saudis",
+      "metadataCrossCheck": "match",
+      "rulesReviewed": true,
+      "source": "https://twilightstrategy.com/2013/01/14/awacs-sale-to-saudis/",
+      "artReview": {
+        "revision": 2,
+        "reviewed": true,
+        "checks": [
+          "recognizable subject",
+          "composition at thumbnail size",
+          "no repeating flag motif",
+          "consistent frame compatibility"
+        ]
+      }
+    }
+  ],
+  "resolution": "Use the primary GMT module for all four secondary-source discrepancies: persistent flags on 16 and 17 are true, 43 false; 77 keeps the full printed title. No gameplay values changed.",
+  "artReviewCount": 110
+}

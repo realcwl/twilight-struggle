@@ -1,0 +1,268 @@
+{
+  "version": 2,
+  "width": 960,
+  "height": 540,
+  "fps": 24,
+  "silent": true,
+  "codec": "h264",
+  "pixelFormat": "yuv420p",
+  "count": 22,
+  "totalVideoBytes": 15730409,
+  "totalPosterBytes": 1618560,
+  "videos": [
+    {
+      "id": "control",
+      "file": "/cards/help/control.mp4",
+      "poster": "/cards/help/control.webp",
+      "duration": 6.0,
+      "bytes": 406301,
+      "posterBytes": 51046,
+      "aliases": [
+        "控制",
+        "稳定度"
+      ]
+    },
+    {
+      "id": "influence",
+      "file": "/cards/help/influence.mp4",
+      "poster": "/cards/help/influence.webp",
+      "duration": 6.0,
+      "bytes": 406874,
+      "posterBytes": 58506,
+      "aliases": [
+        "影响力"
+      ]
+    },
+    {
+      "id": "battleground",
+      "file": "/cards/help/battleground.mp4",
+      "poster": "/cards/help/battleground.webp",
+      "duration": 6.0,
+      "bytes": 428779,
+      "posterBytes": 46558,
+      "aliases": [
+        "战场国家",
+        "非战场国家"
+      ]
+    },
+    {
+      "id": "coup",
+      "file": "/cards/help/coup.mp4",
+      "poster": "/cards/help/coup.webp",
+      "duration": 6.0,
+      "bytes": 400119,
+      "posterBytes": 49210,
+      "aliases": [
+        "政变"
+      ]
+    },
+    {
+      "id": "realignment",
+      "file": "/cards/help/realignment.mp4",
+      "poster": "/cards/help/realignment.webp",
+      "duration": 6.0,
+      "bytes": 350608,
+      "posterBytes": 44990,
+      "aliases": [
+        "调整阵营"
+      ]
+    },
+    {
+      "id": "defcon",
+      "file": "/cards/help/defcon.mp4",
+      "poster": "/cards/help/defcon.webp",
+      "duration": 6.0,
+      "bytes": 773557,
+      "posterBytes": 78204,
+      "aliases": [
+        "核战危机等级"
+      ]
+    },
+    {
+      "id": "milops",
+      "file": "/cards/help/milops.mp4",
+      "poster": "/cards/help/milops.webp",
+      "duration": 6.0,
+      "bytes": 866611,
+      "posterBytes": 82106,
+      "aliases": [
+        "军事行动点",
+        "所需军事行动点"
+      ]
+    },
+    {
+      "id": "headline",
+      "file": "/cards/help/headline.mp4",
+      "poster": "/cards/help/headline.webp",
+      "duration": 6.0,
+      "bytes": 1136320,
+      "posterBytes": 99414,
+      "aliases": [
+        "头条阶段"
+      ]
+    },
+    {
+      "id": "action-round",
+      "file": "/cards/help/action-round.mp4",
+      "poster": "/cards/help/action-round.webp",
+      "duration": 6.0,
+      "bytes": 411780,
+      "posterBytes": 58804,
+      "aliases": [
+        "行动轮"
+      ]
+    },
+    {
+      "id": "turn",
+      "file": "/cards/help/turn.mp4",
+      "poster": "/cards/help/turn.webp",
+      "duration": 6.0,
+      "bytes": 718474,
+      "posterBytes": 71654,
+      "aliases": [
+        "回合"
+      ]
+    },
+    {
+      "id": "operations",
+      "file": "/cards/help/operations.mp4",
+      "poster": "/cards/help/operations.webp",
+      "duration": 6.0,
+      "bytes": 455477,
+      "posterBytes": 64286,
+      "aliases": [
+        "行动点"
+      ]
+    },
+    {
+      "id": "vp",
+      "file": "/cards/help/vp.mp4",
+      "poster": "/cards/help/vp.webp",
+      "duration": 6.0,
+      "bytes": 681259,
+      "posterBytes": 74328,
+      "aliases": [
+        "胜利点"
+      ]
+    },
+    {
+      "id": "scoring",
+      "file": "/cards/help/scoring.mp4",
+      "poster": "/cards/help/scoring.webp",
+      "duration": 6.0,
+      "bytes": 855222,
+      "posterBytes": 80416,
+      "aliases": [
+        "计分",
+        "计分牌",
+        "结算"
+      ]
+    },
+    {
+      "id": "hand",
+      "file": "/cards/help/hand.mp4",
+      "poster": "/cards/help/hand.webp",
+      "duration": 6.0,
+      "bytes": 926332,
+      "posterBytes": 104872,
+      "aliases": [
+        "非计分牌",
+        "手牌"
+      ]
+    },
+    {
+      "id": "region-status",
+      "file": "/cards/help/region-status.mp4",
+      "poster": "/cards/help/region-status.webp",
+      "duration": 6.0,
+      "bytes": 923690,
+      "posterBytes": 100702,
+      "aliases": [
+        "存在",
+        "支配"
+      ]
+    },
+    {
+      "id": "region-control",
+      "file": "/cards/help/region-control.mp4",
+      "poster": "/cards/help/region-control.webp",
+      "duration": 6.0,
+      "bytes": 939452,
+      "posterBytes": 101722,
+      "aliases": [
+        "区域控制"
+      ]
+    },
+    {
+      "id": "final-scoring",
+      "file": "/cards/help/final-scoring.mp4",
+      "poster": "/cards/help/final-scoring.webp",
+      "duration": 6.0,
+      "bytes": 1775829,
+      "posterBytes": 93162,
+      "aliases": [
+        "最终计分"
+      ]
+    },
+    {
+      "id": "space",
+      "file": "/cards/help/space.mp4",
+      "poster": "/cards/help/space.webp",
+      "duration": 6.0,
+      "bytes": 873813,
+      "posterBytes": 84762,
+      "aliases": [
+        "太空竞赛"
+      ]
+    },
+    {
+      "id": "draw",
+      "file": "/cards/help/draw.mp4",
+      "poster": "/cards/help/draw.webp",
+      "duration": 6.0,
+      "bytes": 471812,
+      "posterBytes": 62258,
+      "aliases": [
+        "牌堆",
+        "抽牌"
+      ]
+    },
+    {
+      "id": "discard",
+      "file": "/cards/help/discard.mp4",
+      "poster": "/cards/help/discard.webp",
+      "duration": 6.0,
+      "bytes": 482560,
+      "posterBytes": 60366,
+      "aliases": [
+        "弃牌堆",
+        "弃牌"
+      ]
+    },
+    {
+      "id": "removed",
+      "file": "/cards/help/removed.mp4",
+      "poster": "/cards/help/removed.webp",
+      "duration": 6.0,
+      "bytes": 488771,
+      "posterBytes": 58950,
+      "aliases": [
+        "移出游戏"
+      ]
+    },
+    {
+      "id": "draft-meter",
+      "file": "/cards/help/draft-meter.mp4",
+      "poster": "/cards/help/draft-meter.webp",
+      "duration": 6.0,
+      "bytes": 956769,
+      "posterBytes": 92244,
+      "aliases": [
+        "紧张度",
+        "声望"
+      ]
+    }
+  ],
+  "showcase": "/cards/help/showcase.jpg",
+  "showcaseBytes": 519364
+}

@@ -1,0 +1,20 @@
+/* V2 05 Banner */
+.e05 .face { background: #a51b17; }
+.e05 .face.back { background: #cbbf9f; }
+.e05 .k-title { font-size: 41px; letter-spacing: 3.5px; }
+.e05 .k-type { fill: #f4dc92; }
+.e05 .k-foot { fill: #f4dc92; font-size: 10.5px; letter-spacing: 2.6px; }
+.e05 .k-no { fill: #f4dc92; }
+.e05 .k-value { fill: #1a1410; }
+.e05 .txt { left: 12.4cqw; right: 12.4cqw; top: 99.6cqw; height: 22.8cqw; }
+/* the weave: two sets of fine threads over the whole cloth */
+.e05-weave {
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0 0.18cqw, transparent 0.18cqw 0.5cqw),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 0.18cqw, transparent 0.18cqw 0.5cqw);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}

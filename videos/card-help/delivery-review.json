@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "coverage": {
+    "glossaryEntries": 32,
+    "uniqueVideos": 22
+  },
+  "format": "6.000s; 960x540; 24fps; 144 frames; H.264/yuv420p; silent; faststart",
+  "videoBytes": 15730409,
+  "posterBytes": 1618560,
+  "showcaseBytes": 519364,
+  "manifestBytes": 5920,
+  "deliveryBytes": 17874253,
+  "largestVideoBytes": 1775829,
+  "checkPassed": true,
+  "proofs": [
+    "proofs/delivery-contact-1.jpg",
+    "proofs/delivery-contact-2.jpg",
+    "proofs/delivery-contact-3.jpg",
+    "proofs/delivery-mechanisms.jpg"
+  ]
+}

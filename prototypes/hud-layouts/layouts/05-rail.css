@@ -1,0 +1,28 @@
+/* 05 Left rail */
+#game[data-layout='05'] { --info-x: 21.8rem; --info-y: 1.6rem; }
+.L05 .rail { position: absolute; inset: 0 auto 0 0; width: 20rem; display: flex; flex-direction: column; border-radius: 0; background: linear-gradient(90deg, rgba(34, 27, 20, 0.97), rgba(22, 17, 13, 0.95)); box-shadow: 1px 0 0 rgba(240, 191, 74, 0.55), 1rem 0 2.4rem rgba(0, 0, 0, 0.45); }
+.L05 .rail section { flex: auto; display: grid; align-content: center; justify-items: start; gap: 0.9rem; padding: 0.9rem 1.7rem; }
+.L05 .rail section + section { border-top: 1px solid var(--line); }
+.L05 .s-time { justify-items: center !important; }
+.L05 .s-time .f-medal { font-size: 1.05rem; }
+.L05 .s-time .f-rounds { font-size: 0.95rem; }
+.L05 .s-time .w-phase { padding: 0; background: none; box-shadow: none; }
+.L05 .s-time .w-phase span { display: none; }
+.L05 .s-time .w-phase b { color: var(--cl); }
+.L05 .rail .f-bar { width: 100%; font-size: 1rem; }
+.L05 .rail .w-vp.f-chip .num { font-size: 2em; }
+.L05 .rail .w-crisis { display: grid; grid-template-columns: auto 1fr; gap: 0.8rem 1rem; align-items: center; }
+.L05 .rail .w-crisis .cr-cells { grid-column: 1 / -1; grid-row: 2; }
+.L05 .rail .w-crisis .cr-name { justify-self: end; }
+.L05 .rail .w-crisis .cr-cell { width: 2.35em; height: 2.1em; }
+.L05 .rail .f-rows { width: 100%; font-size: 1.05rem; }
+.L05 .rail .f-track { flex-direction: column; align-items: flex-start; gap: 0; font-size: 0.89rem; }
+.L05 .rail .f-track .lb { font-size: 1.3em; }
+.L05 .rail .f-track .sp-track { margin: 2em 0; }
+.L05 .s-piles { grid-auto-flow: column; justify-content: space-between; justify-items: center !important; width: 100%; }
+.L05 .s-piles .w-pile { --card-w: 4.7em; gap: 0.5em; }
+.L05 .s-piles .pile-cap { flex-direction: column; align-items: center; gap: 0.25em; }
+.L05 .s-piles .lb { font-size: 0.95em; letter-spacing: 0.04em; }
+.L05 .s-piles .pile-cap .num { font-size: 1.25em; }
+.L05 .table { position: absolute; left: 22rem; bottom: 1.8rem; --card-w: 10em; }
+.L05 [data-hand] { left: calc(50% + 12rem); bottom: 0; }

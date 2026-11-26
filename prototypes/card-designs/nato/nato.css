@@ -1,0 +1,116 @@
+/* A quieter version of the selected frame: flag first, fine brass edge, ivory rules. */
+.nato { --paper: #f5ebd3; --hot: #214b7c; }
+.nato.e01 .face.front { background: #102d54; }
+.nato .n-title { font-size: 50px; letter-spacing: 4px; }
+.nato .k-type { font-size: 12.5px; letter-spacing: 2.5px; }
+.nato .n-era { fill: #faf7ee; font-size: 14px; letter-spacing: 2px; }
+.nato .n-side { fill: #c1cede; font-size: 10px; letter-spacing: 2px; }
+.nato.e01 .k-type.hot { fill: #214b7c; }
+.nato.e01 .txt {
+  left: 8.6cqw; right: 8.6cqw; top: 88.4cqw; height: 43.6cqw;
+  justify-content: flex-start; gap: 2.3cqw; --hot: #214b7c;
+}
+.nato .txt .n-prerequisite {
+  padding: 0 0 2.3cqw; border-bottom: 0.2cqw solid #214b7c35;
+  font: 400 3.4cqw/1.3 'Oswald', sans-serif; color: #34516b;
+}
+.nato .txt .n-prerequisite em { font-style: normal; font-weight: 600; }
+.nato .n-effects { display: grid; gap: 2cqw; }
+.nato .txt .rules { font-size: 3.7cqw; line-height: 1.32; text-wrap: pretty; }
+.nato .txt .rules b { font-weight: 600; }
+.nato .txt .rules em { font-style: normal; font-weight: 500; }
+.nato .txt .note {
+  margin-top: auto; font-size: 2.35cqw; line-height: 1.3; letter-spacing: 0.09em;
+  color: #655a43;
+}
+.nato .v2-gloss { opacity: .6; }
+.nato .front .fx-edge { box-shadow: inset 0 0 0 .2cqw #d8e5f22b; }
+.nato .front .fx-glare { mix-blend-mode: soft-light; }
+.nato .fx-glare { max-height: none; }
+
+/* Quiet viewing table. The card carries the colour, detail and material. */
+html { background: #101215; }
+body {
+  min-height: 100dvh; font-family: 'EB Garamond', 'PingFang SC', serif;
+  background: radial-gradient(ellipse at 40% 30%, #25303c40, transparent 58%), #101215;
+}
+.n-header {
+  max-width: 1320px; margin: auto; padding: 28px 44px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  border-bottom: 1px solid #d9b56a25;
+}
+.n-header a { color: #a4a7ab; text-decoration: none; }
+.n-header a:hover, .n-header a[aria-current] { color: #ead5a4; }
+.n-wordmark { font: 500 12px 'Oswald', sans-serif; letter-spacing: .22em; }
+.n-wordmark span { color: #8d7851; padding-left: 10px; }
+.n-header nav { display: flex; gap: 24px; font: 500 11px 'Oswald', sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.n-heading {
+  max-width: 1110px; margin: auto; padding: 32px 44px 28px;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;
+}
+.n-eyebrow { margin: 0 0 10px; font: 500 10px 'Oswald', sans-serif; letter-spacing: .22em; color: #c1a36d; }
+.n-eyebrow span { margin: 0 8px; color: #685b42; }
+.n-heading h1 { display: flex; align-items: baseline; gap: 18px; margin: 0; font: 500 40px/1.15 'Cinzel', serif; letter-spacing: .03em; color: #f0e6d3; }
+.n-heading h1 span { font: 400 13px 'PingFang SC', sans-serif; letter-spacing: .12em; color: #b1aaa0; }
+.n-intro { margin: 12px 0 0; font: 400 12px/1.8 'PingFang SC', sans-serif; color: #868c94; }
+.n-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.n-actions button {
+  padding: 10px 13px; background: #ffffff04; color: #c6beaf; border: 1px solid #4a4436;
+  border-radius: 3px; cursor: pointer; font: 400 11px 'PingFang SC', sans-serif;
+}
+.n-actions button span { margin-left: 16px; color: #d9b56a; }
+.n-actions button:hover { background: #d9b56a12; border-color: #a78a51; }
+a:focus-visible, button:focus-visible { outline: 2px solid #9cc7ff; outline-offset: 5px; }
+.n-stage {
+  --card-w: min(410px, calc((100dvh - 325px) * 5 / 7));
+  display: flex; align-items: flex-start; justify-content: center; gap: clamp(44px, 7vw, 112px);
+  padding: 16px 28px 8px;
+}
+.n-specimen { margin: 0; min-width: 0; }
+.n-specimen figcaption {
+  display: flex; justify-content: space-between; gap: 18px; position: relative;
+  margin-top: 32px; padding-top: 14px; border-top: 1px solid #d9b56a25;
+  font: 400 9px 'Oswald', 'PingFang SC', sans-serif; letter-spacing: .13em; color: #8c9199;
+}
+.n-specimen figcaption span:first-child { color: #bfa779; }
+.n-hint { margin: 22px 20px 0; text-align: center; font: 400 10px 'PingFang SC', sans-serif; letter-spacing: .06em; color: #626972; }
+.n-footer {
+  max-width: 1110px; padding: 30px 44px 24px; margin: auto; display: flex; flex-wrap: wrap;
+  gap: 12px 24px; align-items: baseline; justify-content: space-between;
+  color: #666d76; font: 400 10px/1.8 'PingFang SC', sans-serif;
+}
+.n-footer p { margin: 0; max-width: 65ch; }
+.n-footer div { display: flex; gap: 18px; }
+.n-footer a { color: #a39475; text-decoration: none; }
+.n-footer a:hover { text-decoration: underline; }
+#art-viewer { max-width: min(880px, 94vw); max-height: 94dvh; padding: 24px; border: 1px solid #5a4b31; background: #16191d; color: #ead5a4; border-radius: 4px; }
+#art-viewer::backdrop { background: #07090dec; }
+#art-viewer figure { margin: 0; }
+#art-viewer img { display: block; max-width: 100%; max-height: 78dvh; margin: auto; object-fit: contain; }
+#art-viewer figcaption { padding-top: 16px; font: 500 11px 'Oswald', sans-serif; letter-spacing: .18em; }
+#art-viewer figcaption span { margin-left: 16px; font: 400 10px 'PingFang SC', sans-serif; color: #989898; letter-spacing: .04em; }
+#close-art { position: absolute; top: 7px; right: 7px; width: 34px; height: 34px; border: 1px solid #8c7851; border-radius: 50%; background: #121519ed; color: #f5e6c6; font-size: 22px; cursor: pointer; }
+@media (max-height: 760px) and (min-width: 761px) { .n-stage { --card-w: 340px; } }
+@media (max-width: 760px) {
+  .n-header { padding: 22px 22px 18px; }
+  .n-header nav { gap: 16px; }
+  .n-heading { padding: 28px 24px 24px; flex-wrap: wrap; }
+  .n-heading h1 { font-size: 34px; }
+  .n-heading h1 span { font-size: 11px; }
+  .n-intro { font-size: 11px; }
+  .n-stage { --card-w: min(410px, calc(100vw - 48px)); flex-direction: column; align-items: center; gap: 42px; padding: 12px 24px; }
+  .n-specimen figcaption { margin-top: 28px; }
+  .n-hint { font-size: 9px; }
+  .n-footer { padding: 28px 24px; }
+}
+/* Deterministic, full-resolution PNG export. No tilt, glare, focus or page furniture. */
+html[data-export] { background: transparent; }
+html[data-export] body { min-height: 0; width: 500px; height: 700px; background: transparent; }
+html[data-export] .n-header, html[data-export] .n-heading, html[data-export] .n-footer,
+html[data-export] .n-hint, html[data-export] figcaption, html[data-export] #art-viewer { display: none; }
+html[data-export] .n-stage { --card-w: 500px; display: block; padding: 0; }
+html[data-export] .n-specimen { display: none; }
+html[data-export='front'] #front-specimen, html[data-export='back'] #back-specimen { display: block; }
+html[data-export] .slot-shadow, html[data-export] .fx-glare { display: none; }
+html[data-export] .tilt, html[data-export] .flip { transition: none; }
+html[data-export] .slot { cursor: default; }

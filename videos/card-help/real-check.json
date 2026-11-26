@@ -1,0 +1,536 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 3 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/compositions/action-round.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/compositions/headline.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 23
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 132,
+    "samples": [
+      1.5,
+      4.5,
+      7.5,
+      10.5,
+      13.5,
+      16.5,
+      19.5,
+      22.5,
+      25.5,
+      28.5,
+      31.5,
+      34.5,
+      37.5,
+      40.5,
+      43.5,
+      46.5,
+      49.5,
+      52.5,
+      55.5,
+      58.5,
+      61.5,
+      64.5,
+      67.5,
+      70.5,
+      73.5,
+      76.5,
+      79.5,
+      82.5,
+      85.5,
+      88.5,
+      91.5,
+      94.5,
+      97.5,
+      100.5,
+      103.5,
+      106.5,
+      109.5,
+      112.5,
+      115.5,
+      118.5,
+      121.5,
+      124.5,
+      127.5,
+      130.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.5,
+      31.5,
+      64.5,
+      97.5,
+      130.5
+    ],
+    "checked": 11,
+    "passed": 11
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 132 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"先移除苏联 2 点影响力\" (7 words) is on screen 1.42 s (±0.01 s), under its 1.95 s floor: hold it about 0.5 s + 0.3 s a word (2.60 s here) before it leaves or changes; see references/motion.md.",
+        "text": "先移除苏联 2 点影响力",
+        "selector": "#coup-remove",
+        "dataAttributes": {},
+        "sourceFile": "compositions/coup.html",
+        "bbox": {
+          "x": 323.47,
+          "y": 487,
+          "width": 313.04999999999995,
+          "height": 45
+        },
+        "time": 20.508,
+        "words": 7,
+        "seconds": 1.419,
+        "floorSeconds": 1.95,
+        "measured": [
+          {
+            "time": 20.053,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 20.274,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 20.494,
+            "opacity": 0.2,
+            "heightPx": 45
+          },
+          {
+            "time": 20.715,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 20.935,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 21.155,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 21.376,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 21.596,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 21.816,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 22.037,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 22.257,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 22.477,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"古巴转为苏联控制，事件完成\" (7 words) is on screen 1.42 s (±0.01 s), under its 1.95 s floor: hold it about 0.5 s + 0.3 s a word (2.60 s here) before it leaves or changes; see references/motion.md.",
+        "text": "古巴转为苏联控制，事件完成",
+        "selector": "#action-round-cap2",
+        "dataAttributes": {},
+        "sourceFile": "compositions/action-round.html",
+        "bbox": {
+          "x": 278.5,
+          "y": 487,
+          "width": 403,
+          "height": 45
+        },
+        "time": 50.712,
+        "words": 7,
+        "seconds": 1.419,
+        "floorSeconds": 1.95,
+        "measured": [
+          {
+            "time": 50.244,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 50.464,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 50.684,
+            "opacity": 0.38,
+            "heightPx": 45
+          },
+          {
+            "time": 50.905,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 51.125,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 51.346,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 51.566,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 51.786,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 52.007,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 52.227,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 52.447,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 52.668,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"中国牌持有者额外获得 1 胜利点\" (9 words) is on screen 1.28 s (±0.01 s), under its 2.40 s floor: hold it about 0.5 s + 0.3 s a word (3.20 s here) before it leaves or changes; see references/motion.md.",
+        "text": "中国牌持有者额外获得 1 胜利点",
+        "selector": "#final-scoring-two",
+        "dataAttributes": {},
+        "sourceFile": "compositions/final-scoring.html",
+        "bbox": {
+          "x": 263.55,
+          "y": 487,
+          "width": 432.89000000000004,
+          "height": 45
+        },
+        "time": 100.722,
+        "words": 9,
+        "seconds": 1.281,
+        "floorSeconds": 2.4,
+        "measured": [
+          {
+            "time": 100.267,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 100.487,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 100.708,
+            "opacity": 0.38,
+            "heightPx": 45
+          },
+          {
+            "time": 100.928,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 101.149,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 101.369,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 101.589,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 101.81,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 102.03,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 102.25,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 102.471,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"强制弃牌不触发事件；弃牌可再洗回\" (12 words) is on screen 2.96 s (±0.01 s), under its 3.07 s floor: hold it about 0.5 s + 0.3 s a word (4.10 s here) before it leaves or changes; see references/motion.md.",
+        "text": "强制弃牌不触发事件；弃牌可再洗回",
+        "selector": "#discard-two",
+        "dataAttributes": {},
+        "sourceFile": "compositions/discard.html",
+        "bbox": {
+          "x": 232,
+          "y": 487,
+          "width": 496,
+          "height": 45
+        },
+        "time": 117.042,
+        "words": 12,
+        "seconds": 2.961,
+        "floorSeconds": 3.075,
+        "measured": [
+          {
+            "time": 116.574,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 116.795,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 117.015,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 117.235,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 117.456,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 117.676,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 117.896,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 119.219,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 119.439,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 119.659,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 119.88,
+            "opacity": 1,
+            "heightPx": 45
+          },
+          {
+            "time": 120.1,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 120.321,
+            "opacity": null,
+            "heightPx": null
+          },
+          {
+            "time": 120.541,
+            "opacity": null,
+            "heightPx": null
+          }
+        ]
+      }
+    ],
+    "enabled": true,
+    "step": 0.21999999999999975,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "f44ac10f-8888-4dba-8a47-2cc0fd260f51",
+    "revision": null,
+    "report": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/.hyperframes/artifacts/checks/f44ac10f-8888-4dba-8a47-2cc0fd260f51.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.9.51",
+    "updateAvailable": false
+  }
+}

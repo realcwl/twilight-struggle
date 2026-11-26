@@ -1,0 +1,26 @@
+/* The play screen's page: the map edge to edge, the HUD over it. */
+
+/* The HUD's unit: 1rem is a 160th of the window, 10 px at 1600 x 900 (see src/hud/hud.css).
+   The map is drawn in px and takes no notice. */
+html { font-size: clamp(6.5px, min(100vw / 160, 100vh / 90), 18px); }
+/* The sheets laid over the table (src/ui/sheet.css) grow with the HUD on a large window but are
+   never drawn smaller than their px sizes: they are for reading. */
+:root { --sheet-unit: clamp(1px, 0.1rem, 1.6px); }
+html, body { height: 100%; margin: 0; overflow: hidden; background: #0d0b09; color: #ecdfc3; }
+body { font-family: MapText, 'Songti SC', 'Noto Serif SC', Georgia, serif; -webkit-font-smoothing: antialiased; }
+
+#game { position: fixed; inset: 0; overflow: hidden; }
+/* z-index 0 keeps the map's own layers (its nodes stack high) underneath the HUD */
+#map { position: absolute; inset: 0; z-index: 0; }
+/* This page shows the HUD's short country card (src/hud/brief.ts). The map's own, with the list of
+   neighbours, is the sandbox's. */
+#map .wm-card { display: none !important; }
+
+#loading { position: fixed; inset: 0; z-index: 10000; display: grid; place-items: center; background: #0d0b09; transition: opacity 0.6s ease; }
+#loading.done { opacity: 0; pointer-events: none; }
+.loading-box { width: min(320px, 80vw); text-align: center; }
+.loading-bar { height: 3px; margin: 0 0 12px; border-radius: 3px; background: rgba(236, 223, 195, 0.15); overflow: hidden; }
+.loading-bar i { display: block; width: 0; height: 100%; background: #f0bf4a; transition: width 0.25s ease; }
+.loading-text { font-size: 13px; color: rgba(236, 223, 195, 0.62); }
+#loading.error .loading-bar { display: none; }
+#loading.error .loading-text { color: #ff9c8a; }

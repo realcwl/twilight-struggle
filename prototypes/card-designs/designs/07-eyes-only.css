@@ -1,0 +1,87 @@
+/* 07 Eyes Only */
+.d07 .face { background: #d6b46c; }
+.d07 .scene {
+  --sky-a: #5f5f5c;
+  --sky-b: #a3a29b;
+  --sky-c: #e2e0d6;
+  --ray: #ffffff;
+  --ray-o: 0.1;
+  --glow: #efede3;
+  --sun: #f1efe6;
+  --sun-ring: #f1efe6;
+  --far2: #b6b5ac;
+  --far: #86857f;
+  --haze: #d5d3c9;
+  --mid: #383836;
+  --flag-a: #50504b;
+  --flag-b: #e9e7de;
+  --flag-c: #2b2b29;
+  --fig-d: #1a1a19;
+  --fig-m: #444441;
+  --fig-l: #888883;
+  --skin: #cbc9c0;
+  --skin-d: #8c8a83;
+  --beard: #111110;
+  --beard-l: #4a4a47;
+  --ink: #0b0b0a;
+  --crowd-a: #292928;
+  --crowd-b: #111111;
+  --crowd-l: #d1cfc6;
+  --crowd-l-o: 0.45;
+  --accent: #d1cfc6;
+  --dove: #f5f3eb;
+  --pennant: #2b2b29;
+}
+.d07-typed { font: 400 13.500px 'Special Elite', monospace; letter-spacing: 0.6px; fill: #1d1a16; }
+.d07-typed.sm { font-size: 9.500px; letter-spacing: 1px; }
+.d07-caption { font: 400 9.500px 'Special Elite', monospace; fill: #3a362f; }
+.d07-ring { font: 700 9.500px 'Oswald', sans-serif; letter-spacing: 2.3px; fill: #b3261e; }
+.d07-value { font: 700 50px 'Oswald', sans-serif; fill: #b3261e; }
+.d07-stamp { font: 700 34px 'Oswald', sans-serif; letter-spacing: 5px; fill: #b3261e; }
+.d07-stamp.lg { font-size: 40px; letter-spacing: 7px; }
+.d07-cover { font: 700 36px 'Oswald', sans-serif; letter-spacing: 9px; fill: #e3c686; }
+.d07-seal { font: 600 11px 'Oswald', sans-serif; letter-spacing: 3.3px; fill: #17130e; }
+.d07-form text { font: 400 13px 'Special Elite', monospace; fill: #1d1a16; }
+.d07-stamps { z-index: 3; mix-blend-mode: multiply; }
+.d07-sheet {
+  left: 8cqw;
+  right: 8cqw;
+  top: 76cqw;
+  height: 56cqw;
+  padding: 3.4cqw 6cqw 3cqw 10cqw;
+  z-index: 2;
+  transform: rotate(0.9deg);
+  color: #1d1a16;
+  background:
+    linear-gradient(90deg, transparent 7.4cqw, rgba(179, 38, 30, 0.35) 7.4cqw, rgba(179, 38, 30, 0.35) 7.6cqw, transparent 7.6cqw),
+    linear-gradient(180deg, #faf6ea, #f1ebd9);
+  box-shadow: 0 0.6cqw 1.6cqw rgba(60, 40, 10, 0.45), 0 0 0 0.12cqw rgba(60, 40, 10, 0.12);
+  font-family: 'Special Elite', monospace;
+}
+.d07-sheet p,
+.d07-sheet h3 { margin: 0; }
+.d07-sheet .hole {
+  position: absolute;
+  left: 2.6cqw;
+  top: 12cqw;
+  width: 3cqw;
+  height: 3cqw;
+  border-radius: 50%;
+  background: #b9975a;
+  box-shadow: inset 0 0.4cqw 0.5cqw rgba(0, 0, 0, 0.5);
+}
+.d07-sheet .hole.b { top: auto; bottom: 12cqw; }
+.d07-sheet .head { font-size: 2.500cqw; letter-spacing: 0.3em; color: #6b655a; }
+.d07-sheet h3 {
+  font: 400 7.400cqw/1.15 'Special Elite', monospace;
+  letter-spacing: 0.12em;
+  text-decoration: underline;
+  text-decoration-thickness: 0.35cqw;
+  text-underline-offset: 0.9cqw;
+  margin-bottom: 2.6cqw;
+}
+.d07-sheet .rules { font-size: 3.900cqw; line-height: 1.34; }
+.d07-sheet .rules b { font-weight: 400; background: linear-gradient(transparent 62%, rgba(240, 200, 60, 0.6) 62%); }
+.d07-sheet .src { margin-top: 1.8cqw; font-size: 2.700cqw; letter-spacing: 0.08em; color: #4a453c; }
+.d07-sheet .src i { display: inline-block; width: 17cqw; height: 2.500cqw; background: #14110d; vertical-align: -0.4cqw; }
+.d07-sheet .note { margin-top: 1.8cqw; font-size: 2.900cqw; line-height: 1.25; letter-spacing: 0.06em; text-transform: uppercase; color: #b3261e; }

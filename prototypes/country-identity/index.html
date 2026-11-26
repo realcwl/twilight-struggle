@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Country identity: ten directions</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>Country identity</h1>
+        <p class="lede">
+          Ten ways to give a country its own character on the map, each mocked up on the same six countries so they can be
+          compared like for like. Nodes and links stay the main read in every one; this layer is flavour.
+        </p>
+      </div>
+      <div class="controls">
+        <label><input type="checkbox" id="force" name="force" /> Show every tile in its in-focus state</label>
+        <span class="hint">or hover a tile</span>
+      </div>
+    </header>
+    <main id="sheet"></main>
+    <footer class="foot">Self-contained: no build step, no network. System fonts are used for native scripts.</footer>
+    <script src="app.js"></script>
+  </body>
+</html>

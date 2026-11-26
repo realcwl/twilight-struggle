@@ -1,0 +1,1898 @@
+{
+  "title": "Twilight Struggle printed map connectivity",
+  "source": {
+    "primary": "User-provided map image, copyright GMT Games LLC 2024",
+    "matchingPublisherImage": "https://gmtwebsiteassets.s3.us-west-2.amazonaws.com/Twilight+Struggle+20th+Anniversary+HOF+Edition/TS20_Game+Board_1E_Web.jpg",
+    "publisherImageDimensions": [
+      10198,
+      6601
+    ],
+    "publisherImageSha256": "009c53aaaec34fd655ea9f32a338f1349a9c723cbc3d816ac734a94cc27261a4",
+    "accessedOn": "2026-11-13"
+  },
+  "semantics": {
+    "directed": false,
+    "neighborsAreDirectOnly": true,
+    "edgeKinds": {
+      "regional": "Solid brown line within a scoring region",
+      "inter-regional": "Dashed red line between scoring regions",
+      "superpower": "Black line to USA or USSR"
+    },
+    "scope": "Standard map adjacency. Chinese Civil War is recorded separately as an optional variant space. Southeast Asia belongs to Asia. Canada and Turkey belong to Europe; Libya and Egypt belong to Middle East. Printed groups such as Port./Spain are single nodes."
+  },
+  "counts": {
+    "countries": 84,
+    "superpowers": 2,
+    "standardNodes": 86,
+    "regionalConnections": 104,
+    "interRegionalConnections": 8,
+    "superpowerConnections": 9,
+    "standardConnections": 121,
+    "optionalVariantConnections": 1,
+    "allPrintedConnectionsIncludingVariant": 122
+  },
+  "nodes": [
+    {
+      "id": "canada",
+      "name": "Canada",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "uk",
+        "usa"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "uk",
+      "name": "UK",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "canada",
+        "norway",
+        "benelux",
+        "france"
+      ],
+      "stability": 5,
+      "battleground": false
+    },
+    {
+      "id": "norway",
+      "name": "Norway",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "uk",
+        "sweden"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "sweden",
+      "name": "Sweden",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "norway",
+        "finland",
+        "denmark"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "finland",
+      "name": "Finland",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "sweden",
+        "ussr"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "denmark",
+      "name": "Denmark",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "sweden",
+        "west_germany"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "benelux",
+      "name": "Benelux",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "uk",
+        "west_germany"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "west_germany",
+      "name": "W. Germany",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "denmark",
+        "benelux",
+        "east_germany",
+        "france",
+        "austria"
+      ],
+      "stability": 4,
+      "battleground": true
+    },
+    {
+      "id": "east_germany",
+      "name": "E. Germany",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "west_germany",
+        "poland",
+        "czechoslovakia",
+        "austria"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "poland",
+      "name": "Poland",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "east_germany",
+        "czechoslovakia",
+        "ussr"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "czechoslovakia",
+      "name": "Czech.",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "east_germany",
+        "poland",
+        "hungary"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "uk",
+        "west_germany",
+        "portugal_spain",
+        "italy",
+        "algeria"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "austria",
+      "name": "Austria",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "west_germany",
+        "east_germany",
+        "hungary",
+        "italy"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "italy",
+      "name": "Italy",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "france",
+        "austria",
+        "portugal_spain",
+        "yugoslavia",
+        "greece"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "portugal_spain",
+      "name": "Port./Spain",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "france",
+        "italy",
+        "morocco"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "hungary",
+      "name": "Hungary",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "czechoslovakia",
+        "austria",
+        "romania",
+        "yugoslavia"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "yugoslavia",
+      "name": "Yugoslavia",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "hungary",
+        "romania",
+        "italy",
+        "greece"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "romania",
+      "name": "Romania",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "hungary",
+        "yugoslavia",
+        "turkey",
+        "ussr"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "greece",
+        "turkey"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "romania",
+        "bulgaria",
+        "greece",
+        "syria"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "greece",
+      "name": "Greece",
+      "kind": "country",
+      "region": "Europe",
+      "neighbors": [
+        "italy",
+        "yugoslavia",
+        "bulgaria",
+        "turkey"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "libya",
+      "name": "Libya",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "tunisia",
+        "egypt"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "libya",
+        "israel",
+        "sudan"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "egypt",
+        "lebanon",
+        "syria",
+        "jordan"
+      ],
+      "stability": 4,
+      "battleground": true
+    },
+    {
+      "id": "lebanon",
+      "name": "Lebanon",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "israel",
+        "syria",
+        "jordan"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "syria",
+      "name": "Syria",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "turkey",
+        "lebanon",
+        "israel"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "iraq",
+      "name": "Iraq",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "iran",
+        "jordan",
+        "saudi_arabia",
+        "gulf_states"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "iran",
+      "name": "Iran",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "iraq",
+        "afghanistan",
+        "pakistan"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "lebanon",
+        "israel",
+        "iraq",
+        "saudi_arabia"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "saudi_arabia",
+      "name": "Saudi Arabia",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "jordan",
+        "iraq",
+        "gulf_states"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "gulf_states",
+      "name": "Gulf States",
+      "kind": "country",
+      "region": "Middle East",
+      "neighbors": [
+        "iraq",
+        "saudi_arabia"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "afghanistan",
+      "name": "Afghanistan",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "ussr",
+        "iran",
+        "pakistan"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "pakistan",
+      "name": "Pakistan",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "iran",
+        "afghanistan",
+        "india"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "pakistan",
+        "burma"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "burma",
+      "name": "Burma",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "india",
+        "laos_cambodia"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "laos_cambodia",
+      "name": "Laos/Cambodia",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "burma",
+        "thailand",
+        "vietnam"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "laos_cambodia",
+        "vietnam",
+        "malaysia"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "vietnam",
+      "name": "Vietnam",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "laos_cambodia",
+        "thailand"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "malaysia",
+      "name": "Malaysia",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "thailand",
+        "indonesia",
+        "australia"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "indonesia",
+      "name": "Indonesia",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "malaysia",
+        "philippines"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "philippines",
+      "name": "Philippines",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "indonesia",
+        "japan"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "taiwan",
+      "name": "Taiwan",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "south_korea",
+        "japan"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "south_korea",
+        "taiwan",
+        "philippines",
+        "usa"
+      ],
+      "stability": 4,
+      "battleground": true
+    },
+    {
+      "id": "south_korea",
+      "name": "South Korea",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "north_korea",
+        "japan",
+        "taiwan"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "north_korea",
+      "name": "North Korea",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "ussr",
+        "south_korea"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "australia",
+      "name": "Australia",
+      "kind": "country",
+      "region": "Asia",
+      "neighbors": [
+        "malaysia"
+      ],
+      "stability": 4,
+      "battleground": false
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "portugal_spain",
+        "algeria",
+        "west_african_states"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "algeria",
+      "name": "Algeria",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "france",
+        "morocco",
+        "tunisia",
+        "saharan_states"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "tunisia",
+      "name": "Tunisia",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "algeria",
+        "libya"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "saharan_states",
+      "name": "Saharan States",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "algeria",
+        "nigeria"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "west_african_states",
+      "name": "West African States",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "morocco",
+        "ivory_coast"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "ivory_coast",
+      "name": "Ivory Coast",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "west_african_states",
+        "nigeria"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "nigeria",
+      "name": "Nigeria",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "saharan_states",
+        "ivory_coast",
+        "cameroon"
+      ],
+      "stability": 1,
+      "battleground": true
+    },
+    {
+      "id": "cameroon",
+      "name": "Cameroon",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "nigeria",
+        "zaire"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "zaire",
+      "name": "Zaire",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "cameroon",
+        "angola",
+        "zimbabwe"
+      ],
+      "stability": 1,
+      "battleground": true
+    },
+    {
+      "id": "angola",
+      "name": "Angola",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "zaire",
+        "botswana",
+        "south_africa"
+      ],
+      "stability": 1,
+      "battleground": true
+    },
+    {
+      "id": "south_africa",
+      "name": "South Africa",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "angola",
+        "botswana"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "botswana",
+      "name": "Botswana",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "angola",
+        "zimbabwe",
+        "south_africa"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "zimbabwe",
+      "name": "Zimbabwe",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "zaire",
+        "botswana",
+        "southeast_african_states"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "southeast_african_states",
+      "name": "SE African States",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "zimbabwe",
+        "kenya"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "kenya",
+      "name": "Kenya",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "southeast_african_states",
+        "somalia"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "somalia",
+      "name": "Somalia",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "kenya",
+        "ethiopia"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "ethiopia",
+      "name": "Ethiopia",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "somalia",
+        "sudan"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "sudan",
+      "name": "Sudan",
+      "kind": "country",
+      "region": "Africa",
+      "neighbors": [
+        "ethiopia",
+        "egypt"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "mexico",
+      "name": "Mexico",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "usa",
+        "guatemala"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "guatemala",
+      "name": "Guatemala",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "mexico",
+        "el_salvador",
+        "honduras"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "el_salvador",
+      "name": "El Salvador",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "guatemala",
+        "honduras"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "honduras",
+      "name": "Honduras",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "guatemala",
+        "el_salvador",
+        "nicaragua",
+        "costa_rica"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "nicaragua",
+      "name": "Nicaragua",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "honduras",
+        "costa_rica",
+        "cuba"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "costa_rica",
+      "name": "Costa Rica",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "honduras",
+        "nicaragua",
+        "panama"
+      ],
+      "stability": 3,
+      "battleground": false
+    },
+    {
+      "id": "panama",
+      "name": "Panama",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "costa_rica",
+        "colombia"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "cuba",
+      "name": "Cuba",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "usa",
+        "nicaragua",
+        "haiti"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "haiti",
+      "name": "Haiti",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "cuba",
+        "dominican_republic"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "dominican_republic",
+      "name": "Dominican R.",
+      "kind": "country",
+      "region": "Central America",
+      "neighbors": [
+        "haiti"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "panama",
+        "venezuela",
+        "ecuador"
+      ],
+      "stability": 1,
+      "battleground": false
+    },
+    {
+      "id": "venezuela",
+      "name": "Venezuela",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "colombia",
+        "brazil"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "colombia",
+        "peru"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "peru",
+      "name": "Peru",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "ecuador",
+        "bolivia",
+        "chile"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "bolivia",
+      "name": "Bolivia",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "peru",
+        "paraguay"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "paraguay",
+      "name": "Paraguay",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "bolivia",
+        "argentina",
+        "uruguay"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "chile",
+      "name": "Chile",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "peru",
+        "argentina"
+      ],
+      "stability": 3,
+      "battleground": true
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "chile",
+        "paraguay",
+        "uruguay"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "paraguay",
+        "argentina",
+        "brazil"
+      ],
+      "stability": 2,
+      "battleground": false
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "kind": "country",
+      "region": "South America",
+      "neighbors": [
+        "venezuela",
+        "uruguay"
+      ],
+      "stability": 2,
+      "battleground": true
+    },
+    {
+      "id": "usa",
+      "name": "USA",
+      "kind": "superpower",
+      "region": null,
+      "neighbors": [
+        "canada",
+        "mexico",
+        "cuba",
+        "japan"
+      ]
+    },
+    {
+      "id": "ussr",
+      "name": "USSR",
+      "kind": "superpower",
+      "region": null,
+      "neighbors": [
+        "finland",
+        "poland",
+        "romania",
+        "afghanistan",
+        "north_korea"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "E001",
+      "a": "canada",
+      "b": "uk",
+      "kind": "regional"
+    },
+    {
+      "id": "E002",
+      "a": "uk",
+      "b": "norway",
+      "kind": "regional"
+    },
+    {
+      "id": "E003",
+      "a": "uk",
+      "b": "benelux",
+      "kind": "regional"
+    },
+    {
+      "id": "E004",
+      "a": "uk",
+      "b": "france",
+      "kind": "regional"
+    },
+    {
+      "id": "E005",
+      "a": "norway",
+      "b": "sweden",
+      "kind": "regional"
+    },
+    {
+      "id": "E006",
+      "a": "sweden",
+      "b": "finland",
+      "kind": "regional"
+    },
+    {
+      "id": "E007",
+      "a": "sweden",
+      "b": "denmark",
+      "kind": "regional"
+    },
+    {
+      "id": "E008",
+      "a": "denmark",
+      "b": "west_germany",
+      "kind": "regional"
+    },
+    {
+      "id": "E009",
+      "a": "benelux",
+      "b": "west_germany",
+      "kind": "regional"
+    },
+    {
+      "id": "E010",
+      "a": "west_germany",
+      "b": "east_germany",
+      "kind": "regional"
+    },
+    {
+      "id": "E011",
+      "a": "west_germany",
+      "b": "france",
+      "kind": "regional"
+    },
+    {
+      "id": "E012",
+      "a": "west_germany",
+      "b": "austria",
+      "kind": "regional"
+    },
+    {
+      "id": "E013",
+      "a": "east_germany",
+      "b": "poland",
+      "kind": "regional"
+    },
+    {
+      "id": "E014",
+      "a": "east_germany",
+      "b": "czechoslovakia",
+      "kind": "regional"
+    },
+    {
+      "id": "E015",
+      "a": "east_germany",
+      "b": "austria",
+      "kind": "regional"
+    },
+    {
+      "id": "E016",
+      "a": "poland",
+      "b": "czechoslovakia",
+      "kind": "regional"
+    },
+    {
+      "id": "E017",
+      "a": "czechoslovakia",
+      "b": "hungary",
+      "kind": "regional"
+    },
+    {
+      "id": "E018",
+      "a": "france",
+      "b": "portugal_spain",
+      "kind": "regional"
+    },
+    {
+      "id": "E019",
+      "a": "france",
+      "b": "italy",
+      "kind": "regional"
+    },
+    {
+      "id": "E020",
+      "a": "austria",
+      "b": "hungary",
+      "kind": "regional"
+    },
+    {
+      "id": "E021",
+      "a": "austria",
+      "b": "italy",
+      "kind": "regional"
+    },
+    {
+      "id": "E022",
+      "a": "portugal_spain",
+      "b": "italy",
+      "kind": "regional"
+    },
+    {
+      "id": "E023",
+      "a": "italy",
+      "b": "yugoslavia",
+      "kind": "regional"
+    },
+    {
+      "id": "E024",
+      "a": "italy",
+      "b": "greece",
+      "kind": "regional"
+    },
+    {
+      "id": "E025",
+      "a": "hungary",
+      "b": "romania",
+      "kind": "regional"
+    },
+    {
+      "id": "E026",
+      "a": "hungary",
+      "b": "yugoslavia",
+      "kind": "regional"
+    },
+    {
+      "id": "E027",
+      "a": "yugoslavia",
+      "b": "romania",
+      "kind": "regional"
+    },
+    {
+      "id": "E028",
+      "a": "yugoslavia",
+      "b": "greece",
+      "kind": "regional"
+    },
+    {
+      "id": "E029",
+      "a": "romania",
+      "b": "turkey",
+      "kind": "regional"
+    },
+    {
+      "id": "E030",
+      "a": "bulgaria",
+      "b": "turkey",
+      "kind": "regional"
+    },
+    {
+      "id": "E031",
+      "a": "bulgaria",
+      "b": "greece",
+      "kind": "regional"
+    },
+    {
+      "id": "E032",
+      "a": "turkey",
+      "b": "greece",
+      "kind": "regional"
+    },
+    {
+      "id": "E033",
+      "a": "libya",
+      "b": "egypt",
+      "kind": "regional"
+    },
+    {
+      "id": "E034",
+      "a": "egypt",
+      "b": "israel",
+      "kind": "regional"
+    },
+    {
+      "id": "E035",
+      "a": "israel",
+      "b": "lebanon",
+      "kind": "regional"
+    },
+    {
+      "id": "E036",
+      "a": "israel",
+      "b": "syria",
+      "kind": "regional"
+    },
+    {
+      "id": "E037",
+      "a": "israel",
+      "b": "jordan",
+      "kind": "regional"
+    },
+    {
+      "id": "E038",
+      "a": "lebanon",
+      "b": "syria",
+      "kind": "regional"
+    },
+    {
+      "id": "E039",
+      "a": "lebanon",
+      "b": "jordan",
+      "kind": "regional"
+    },
+    {
+      "id": "E040",
+      "a": "iran",
+      "b": "iraq",
+      "kind": "regional"
+    },
+    {
+      "id": "E041",
+      "a": "iraq",
+      "b": "jordan",
+      "kind": "regional"
+    },
+    {
+      "id": "E042",
+      "a": "iraq",
+      "b": "saudi_arabia",
+      "kind": "regional"
+    },
+    {
+      "id": "E043",
+      "a": "iraq",
+      "b": "gulf_states",
+      "kind": "regional"
+    },
+    {
+      "id": "E044",
+      "a": "jordan",
+      "b": "saudi_arabia",
+      "kind": "regional"
+    },
+    {
+      "id": "E045",
+      "a": "saudi_arabia",
+      "b": "gulf_states",
+      "kind": "regional"
+    },
+    {
+      "id": "E046",
+      "a": "afghanistan",
+      "b": "pakistan",
+      "kind": "regional"
+    },
+    {
+      "id": "E047",
+      "a": "pakistan",
+      "b": "india",
+      "kind": "regional"
+    },
+    {
+      "id": "E048",
+      "a": "india",
+      "b": "burma",
+      "kind": "regional"
+    },
+    {
+      "id": "E049",
+      "a": "burma",
+      "b": "laos_cambodia",
+      "kind": "regional"
+    },
+    {
+      "id": "E050",
+      "a": "laos_cambodia",
+      "b": "thailand",
+      "kind": "regional"
+    },
+    {
+      "id": "E051",
+      "a": "laos_cambodia",
+      "b": "vietnam",
+      "kind": "regional"
+    },
+    {
+      "id": "E052",
+      "a": "thailand",
+      "b": "vietnam",
+      "kind": "regional"
+    },
+    {
+      "id": "E053",
+      "a": "thailand",
+      "b": "malaysia",
+      "kind": "regional"
+    },
+    {
+      "id": "E054",
+      "a": "malaysia",
+      "b": "indonesia",
+      "kind": "regional"
+    },
+    {
+      "id": "E055",
+      "a": "malaysia",
+      "b": "australia",
+      "kind": "regional"
+    },
+    {
+      "id": "E056",
+      "a": "indonesia",
+      "b": "philippines",
+      "kind": "regional"
+    },
+    {
+      "id": "E057",
+      "a": "philippines",
+      "b": "japan",
+      "kind": "regional"
+    },
+    {
+      "id": "E058",
+      "a": "japan",
+      "b": "taiwan",
+      "kind": "regional"
+    },
+    {
+      "id": "E059",
+      "a": "japan",
+      "b": "south_korea",
+      "kind": "regional"
+    },
+    {
+      "id": "E060",
+      "a": "taiwan",
+      "b": "south_korea",
+      "kind": "regional"
+    },
+    {
+      "id": "E061",
+      "a": "south_korea",
+      "b": "north_korea",
+      "kind": "regional"
+    },
+    {
+      "id": "E062",
+      "a": "morocco",
+      "b": "algeria",
+      "kind": "regional"
+    },
+    {
+      "id": "E063",
+      "a": "morocco",
+      "b": "west_african_states",
+      "kind": "regional"
+    },
+    {
+      "id": "E064",
+      "a": "algeria",
+      "b": "tunisia",
+      "kind": "regional"
+    },
+    {
+      "id": "E065",
+      "a": "algeria",
+      "b": "saharan_states",
+      "kind": "regional"
+    },
+    {
+      "id": "E066",
+      "a": "saharan_states",
+      "b": "nigeria",
+      "kind": "regional"
+    },
+    {
+      "id": "E067",
+      "a": "west_african_states",
+      "b": "ivory_coast",
+      "kind": "regional"
+    },
+    {
+      "id": "E068",
+      "a": "ivory_coast",
+      "b": "nigeria",
+      "kind": "regional"
+    },
+    {
+      "id": "E069",
+      "a": "nigeria",
+      "b": "cameroon",
+      "kind": "regional"
+    },
+    {
+      "id": "E070",
+      "a": "cameroon",
+      "b": "zaire",
+      "kind": "regional"
+    },
+    {
+      "id": "E071",
+      "a": "zaire",
+      "b": "angola",
+      "kind": "regional"
+    },
+    {
+      "id": "E072",
+      "a": "zaire",
+      "b": "zimbabwe",
+      "kind": "regional"
+    },
+    {
+      "id": "E073",
+      "a": "angola",
+      "b": "botswana",
+      "kind": "regional"
+    },
+    {
+      "id": "E074",
+      "a": "angola",
+      "b": "south_africa",
+      "kind": "regional"
+    },
+    {
+      "id": "E075",
+      "a": "botswana",
+      "b": "south_africa",
+      "kind": "regional"
+    },
+    {
+      "id": "E076",
+      "a": "botswana",
+      "b": "zimbabwe",
+      "kind": "regional"
+    },
+    {
+      "id": "E077",
+      "a": "zimbabwe",
+      "b": "southeast_african_states",
+      "kind": "regional"
+    },
+    {
+      "id": "E078",
+      "a": "southeast_african_states",
+      "b": "kenya",
+      "kind": "regional"
+    },
+    {
+      "id": "E079",
+      "a": "kenya",
+      "b": "somalia",
+      "kind": "regional"
+    },
+    {
+      "id": "E080",
+      "a": "somalia",
+      "b": "ethiopia",
+      "kind": "regional"
+    },
+    {
+      "id": "E081",
+      "a": "ethiopia",
+      "b": "sudan",
+      "kind": "regional"
+    },
+    {
+      "id": "E082",
+      "a": "mexico",
+      "b": "guatemala",
+      "kind": "regional"
+    },
+    {
+      "id": "E083",
+      "a": "guatemala",
+      "b": "el_salvador",
+      "kind": "regional"
+    },
+    {
+      "id": "E084",
+      "a": "guatemala",
+      "b": "honduras",
+      "kind": "regional"
+    },
+    {
+      "id": "E085",
+      "a": "el_salvador",
+      "b": "honduras",
+      "kind": "regional"
+    },
+    {
+      "id": "E086",
+      "a": "honduras",
+      "b": "nicaragua",
+      "kind": "regional"
+    },
+    {
+      "id": "E087",
+      "a": "honduras",
+      "b": "costa_rica",
+      "kind": "regional"
+    },
+    {
+      "id": "E088",
+      "a": "nicaragua",
+      "b": "costa_rica",
+      "kind": "regional"
+    },
+    {
+      "id": "E089",
+      "a": "nicaragua",
+      "b": "cuba",
+      "kind": "regional"
+    },
+    {
+      "id": "E090",
+      "a": "costa_rica",
+      "b": "panama",
+      "kind": "regional"
+    },
+    {
+      "id": "E091",
+      "a": "cuba",
+      "b": "haiti",
+      "kind": "regional"
+    },
+    {
+      "id": "E092",
+      "a": "haiti",
+      "b": "dominican_republic",
+      "kind": "regional"
+    },
+    {
+      "id": "E093",
+      "a": "colombia",
+      "b": "venezuela",
+      "kind": "regional"
+    },
+    {
+      "id": "E094",
+      "a": "colombia",
+      "b": "ecuador",
+      "kind": "regional"
+    },
+    {
+      "id": "E095",
+      "a": "ecuador",
+      "b": "peru",
+      "kind": "regional"
+    },
+    {
+      "id": "E096",
+      "a": "peru",
+      "b": "bolivia",
+      "kind": "regional"
+    },
+    {
+      "id": "E097",
+      "a": "peru",
+      "b": "chile",
+      "kind": "regional"
+    },
+    {
+      "id": "E098",
+      "a": "bolivia",
+      "b": "paraguay",
+      "kind": "regional"
+    },
+    {
+      "id": "E099",
+      "a": "chile",
+      "b": "argentina",
+      "kind": "regional"
+    },
+    {
+      "id": "E100",
+      "a": "paraguay",
+      "b": "argentina",
+      "kind": "regional"
+    },
+    {
+      "id": "E101",
+      "a": "paraguay",
+      "b": "uruguay",
+      "kind": "regional"
+    },
+    {
+      "id": "E102",
+      "a": "argentina",
+      "b": "uruguay",
+      "kind": "regional"
+    },
+    {
+      "id": "E103",
+      "a": "uruguay",
+      "b": "brazil",
+      "kind": "regional"
+    },
+    {
+      "id": "E104",
+      "a": "brazil",
+      "b": "venezuela",
+      "kind": "regional"
+    },
+    {
+      "id": "E105",
+      "a": "portugal_spain",
+      "b": "morocco",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E106",
+      "a": "france",
+      "b": "algeria",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E107",
+      "a": "turkey",
+      "b": "syria",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E108",
+      "a": "tunisia",
+      "b": "libya",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E109",
+      "a": "egypt",
+      "b": "sudan",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E110",
+      "a": "iran",
+      "b": "afghanistan",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E111",
+      "a": "iran",
+      "b": "pakistan",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E112",
+      "a": "panama",
+      "b": "colombia",
+      "kind": "inter-regional"
+    },
+    {
+      "id": "E113",
+      "a": "usa",
+      "b": "canada",
+      "kind": "superpower"
+    },
+    {
+      "id": "E114",
+      "a": "usa",
+      "b": "mexico",
+      "kind": "superpower"
+    },
+    {
+      "id": "E115",
+      "a": "usa",
+      "b": "cuba",
+      "kind": "superpower"
+    },
+    {
+      "id": "E116",
+      "a": "usa",
+      "b": "japan",
+      "kind": "superpower"
+    },
+    {
+      "id": "E117",
+      "a": "ussr",
+      "b": "finland",
+      "kind": "superpower"
+    },
+    {
+      "id": "E118",
+      "a": "ussr",
+      "b": "poland",
+      "kind": "superpower"
+    },
+    {
+      "id": "E119",
+      "a": "ussr",
+      "b": "romania",
+      "kind": "superpower"
+    },
+    {
+      "id": "E120",
+      "a": "ussr",
+      "b": "afghanistan",
+      "kind": "superpower"
+    },
+    {
+      "id": "E121",
+      "a": "ussr",
+      "b": "north_korea",
+      "kind": "superpower"
+    }
+  ],
+  "optionalVariant": {
+    "nodes": [
+      {
+        "id": "chinese_civil_war",
+        "name": "Chinese Civil War",
+        "kind": "variant-space",
+        "region": "Asia",
+        "affectsScoring": false,
+        "neighbors": [
+          "ussr"
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "id": "V001",
+        "a": "ussr",
+        "b": "chinese_civil_war",
+        "kind": "superpower"
+      }
+    ],
+    "note": "Printed optional USSR-only space. Rule 12.1 places it in Asia, outside Southeast Asia, with no scoring-card effect. It connects only to USSR and is not a standard country. The standard USSR neighbor list deliberately excludes this variant space."
+  },
+  "audit": {
+    "method": [
+      "Visual country-by-country inspection of supplied map and matching full-resolution publisher image",
+      "Second visual pass enumerating each printed connection once",
+      "Exact comparison of independently entered neighbor and edge lists",
+      "Checks for reciprocal neighbors, valid endpoints, duplicates, self-loops, region classifications, counts, and connectedness"
+    ],
+    "countryRowsReviewed": 84,
+    "superpowerRowsReviewed": 2,
+    "standardConnectionsReviewed": 121,
+    "variantConnectionsReviewed": 1,
+    "unresolvedConnections": []
+  }
+}

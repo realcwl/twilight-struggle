@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Deck art parts</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../cards.css" />
+    <link rel="stylesheet" href="art.css" />
+    <style>
+      body { margin: 0; padding: 20px; background: #16181d; color: #cfc6ae; font: 13px/1.3 system-ui, sans-serif; }
+      #grid { display: flex; flex-wrap: wrap; gap: 14px; }
+      figure { margin: 0; width: var(--size, 200px); }
+      figure > div { width: var(--size, 200px); height: var(--size, 200px); border-radius: 50%; overflow: hidden; background: #000; }
+      body.square figure > div { border-radius: 6px; }
+      figcaption { padding: 5px 2px 0; text-align: center; }
+      figcaption small { opacity: 0.55; }
+    </style>
+  </head>
+  <body>
+    <div id="grid"></div>
+    <script src="../art.js"></script>
+    <script src="art.js"></script>
+    <script src="parts-places.js"></script>
+    <script src="parts-machines.js"></script>
+    <script src="parts-people.js"></script>
+    <script>
+      // ?side=ussr|us|neutral|tally  ?src=places|machines|people  ?kind=far|part|fore  ?only=a,b  ?size=200  ?square=1
+      // ?scale=1 (for parts)   ?spec=<one scene line> shows just that scene
+      const q = new URLSearchParams(location.search);
+      const side = q.get('side') || 'ussr';
+      const only = q.get('only') ? q.get('only').split(',') : null;
+      if (q.get('size')) document.documentElement.style.setProperty('--size', q.get('size') + 'px');
+      if (q.get('square')) document.body.classList.add('square');
+      const scale = q.get('scale') || '1';
+      const tiles = [];
+      if (q.get('spec')) q.getAll('spec').forEach((s, i) => tiles.push(['scene ' + (i + 1), 'spec', s]));
+      else
+        for (const kind of ['far', 'part', 'fore']) {
+          if (q.get('kind') && q.get('kind') !== kind) continue;
+          for (const [name, fn] of Object.entries(DeckArt.R[kind])) {
+            if (only && !only.includes(name)) continue;
+            if (q.get('src') && fn.src !== 'parts-' + q.get('src')) continue;
+            const spec =
+              kind === 'far' ? `sky:plain sun:330,120,46 far:${name}`
+              : kind === 'fore' ? `sky:plain sun:220,170,90 fore:${name}`
+              : `sky:plain sun:none horizon:330 ${name}@220,392*${scale}`;
+            tiles.push([name, kind, spec]);
+          }
+        }
+      document.getElementById('grid').innerHTML = tiles
+        .map(([name, kind, spec]) => `<figure><div class="side-${side}">${DeckArt.scene(spec)}</div><figcaption>${name} <small>${kind}</small></figcaption></figure>`)
+        .join('');
+      if (DeckArt.missing.size) document.body.insertAdjacentHTML('afterbegin', '<p style="color:#f66">missing: ' + [...DeckArt.missing].join(', ') + '</p>');
+    </script>
+  </body>
+</html>

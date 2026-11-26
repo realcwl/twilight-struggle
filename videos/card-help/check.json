@@ -1,0 +1,178 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 23
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 110,
+    "samples": [
+      1.25,
+      3.75,
+      6.25,
+      8.75,
+      11.25,
+      13.75,
+      16.25,
+      18.75,
+      21.25,
+      23.75,
+      26.25,
+      28.75,
+      31.25,
+      33.75,
+      36.25,
+      38.75,
+      41.25,
+      43.75,
+      46.25,
+      48.75,
+      51.25,
+      53.75,
+      56.25,
+      58.75,
+      61.25,
+      63.75,
+      66.25,
+      68.75,
+      71.25,
+      73.75,
+      76.25,
+      78.75,
+      81.25,
+      83.75,
+      86.25,
+      88.75,
+      91.25,
+      93.75,
+      96.25,
+      98.75,
+      101.25,
+      103.75,
+      106.25,
+      108.75
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.25,
+      26.25,
+      53.75,
+      81.25,
+      108.75
+    ],
+    "checked": 39,
+    "passed": 39
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 110 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.1839999999999975,
+    "samples": 599
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "audio_none",
+        "severity": "info",
+        "message": "The film has no sound: no clip in it plays audio.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ]
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "b8f43902-84d0-4c39-910f-4f67d5c3fef6",
+    "revision": null,
+    "report": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/.hyperframes/artifacts/checks/b8f43902-84d0-4c39-910f-4f67d5c3fef6.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.9.50",
+    "latestVersion": "0.9.50",
+    "updateAvailable": false,
+    "checkedAt": "2026-11-15T02:18:26.710Z",
+    "skillsOutdated": 0,
+    "skillsMissing": 0
+  }
+}

@@ -1,0 +1,1093 @@
+{
+  "1": {
+    "id": 1,
+    "title": "Puntuación de Asia",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 3 · Dominio 7 · Control 9.",
+      "Añade 1 PV por cada país conflictivo controlado y por cada país controlado adyacente a la superpotencia rival."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "2": {
+    "id": 2,
+    "title": "Puntuación de Europa",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 3 · Dominio 7 · Control gana la partida.",
+      "Añade 1 PV por cada país conflictivo controlado y por cada país controlado adyacente a la superpotencia rival."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "3": {
+    "id": 3,
+    "title": "Puntuación de Oriente Medio",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 3 · Dominio 5 · Control 7.",
+      "Añade 1 PV por cada país conflictivo controlado."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "4": {
+    "id": 4,
+    "title": "Agáchate y Cúbrete",
+    "effects": [
+      "Reduce DEFCON en 1.",
+      "EE. UU. gana PV iguales a 5 menos el nuevo nivel DEFCON."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "5": {
+    "id": 5,
+    "title": "Plan Quinquenal",
+    "effects": [
+      "La URSS descarta una carta al azar.",
+      "Si es un evento estadounidense, ejecútalo. Si no, descártala sin ejecutar su evento."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "6": {
+    "id": 6,
+    "title": "La Carta de China",
+    "effects": [
+      "4 Operaciones; +1 si todas se gastan en Asia.",
+      "Tras usarla, entrégala al rival boca abajo. Estará disponible al comenzar el próximo turno.",
+      "Su poseedor al final del turno 10 gana 1 PV. Si la juega EE. UU., cancela Resolución de Formosa."
+    ],
+    "note": "CARTA ESPECIAL · EMPIEZA EN PODER DE LA URSS.",
+    "prerequisite": ""
+  },
+  "7": {
+    "id": 7,
+    "title": "Gobiernos Socialistas",
+    "effects": [
+      "Retira 3 de Influencia estadounidense de Europa Occidental, como máximo 2 por país.",
+      "Este evento no puede ocurrir después de La Dama de Hierro."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "8": {
+    "id": 8,
+    "title": "Fidel",
+    "effects": [
+      "Retira toda la Influencia estadounidense de Cuba.",
+      "Añade suficiente Influencia soviética en Cuba para que la URSS obtenga el Control."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "9": {
+    "id": 9,
+    "title": "Revuelta en Vietnam",
+    "effects": [
+      "Añade 2 de Influencia soviética en Vietnam.",
+      "Durante el resto del turno, la URSS gana +1 Operaciones si las gasta todas en el Sudeste Asiático."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "10": {
+    "id": 10,
+    "title": "Bloqueo",
+    "effects": [
+      "EE. UU. debe descartar una carta de al menos 3 Operaciones o retirar toda su Influencia de Alemania Occidental."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "11": {
+    "id": 11,
+    "title": "Guerra de Corea",
+    "effects": [
+      "Ataca Corea del Sur. Tira un dado y resta 1 por cada país adyacente controlado por EE. UU. Un resultado de 4–6 gana.",
+      "Si gana, la URSS obtiene 2 PV y sustituye toda la Influencia estadounidense en Corea del Sur por soviética.",
+      "La URSS obtiene 2 Operaciones Militares en cualquier caso."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "12": {
+    "id": 12,
+    "title": "Abdicación en Rumanía",
+    "effects": [
+      "Retira toda la Influencia estadounidense de Rumanía.",
+      "Añade suficiente Influencia soviética en Rumanía para que la URSS obtenga el Control."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "13": {
+    "id": 13,
+    "title": "Guerra Árabe-Israelí",
+    "effects": [
+      "Ataca Israel. Tira un dado; resta 1 por Control estadounidense de Israel y por cada país adyacente controlado por EE. UU. Un resultado de 4–6 gana.",
+      "Si gana, la URSS obtiene 2 PV y sustituye toda la Influencia estadounidense de Israel por soviética.",
+      "La URSS obtiene 2 Operaciones Militares en cualquier caso. Los Acuerdos de Camp David bloquean este evento."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "14": {
+    "id": 14,
+    "title": "COMECON",
+    "effects": [
+      "Añade 1 de Influencia soviética en cada uno de 4 países de Europa Oriental no controlados por EE. UU."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "15": {
+    "id": 15,
+    "title": "Nasser",
+    "effects": [
+      "Añade 2 de Influencia soviética en Egipto.",
+      "Retira la mitad de la Influencia estadounidense en Egipto, redondeando hacia arriba la cantidad retirada."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "16": {
+    "id": 16,
+    "title": "Pacto de Varsovia",
+    "effects": [
+      "Elige: retirar toda la Influencia estadounidense de 4 países de Europa Oriental, o añadir 5 de Influencia soviética en Europa Oriental, como máximo 2 por país.",
+      "Habilita OTAN."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "17": {
+    "id": 17,
+    "title": "De Gaulle Gobierna Francia",
+    "effects": [
+      "Retira 2 de Influencia estadounidense de Francia y añade allí 1 soviético.",
+      "OTAN deja de proteger a Francia."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "18": {
+    "id": 18,
+    "title": "Científico Nazi Capturado",
+    "effects": [
+      "Avanza tu marcador de Carrera Espacial 1 casilla."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "19": {
+    "id": 19,
+    "title": "Doctrina Truman",
+    "effects": [
+      "Elige un país europeo que ninguno de los bandos controle.",
+      "Retira toda la Influencia soviética de ese país."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "20": {
+    "id": 20,
+    "title": "Juegos Olímpicos",
+    "effects": [
+      "Tu rival elige participar o boicotear.",
+      "Participar: ambos tiran un dado; tú sumas 2. El resultado mayor gana 2 PV. Repetid los empates.",
+      "Boicot: reduce DEFCON en 1 y realiza 4 Operaciones. Con DEFCON 2 es obligatorio participar."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "21": {
+    "id": 21,
+    "title": "OTAN",
+    "effects": [
+      "La URSS no puede intentar Golpes de Estado ni Realineamientos en países europeos controlados por EE. UU.",
+      "Guerra Local no puede atacar países europeos controlados por EE. UU."
+    ],
+    "prerequisite": "Juega después de Plan Marshall o Pacto de Varsovia.",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "22": {
+    "id": 22,
+    "title": "Rojos Independientes",
+    "effects": [
+      "En Yugoslavia, Rumanía, Bulgaria, Hungría o Checoslovaquia, añade suficiente Influencia estadounidense para igualar la soviética."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "23": {
+    "id": 23,
+    "title": "Plan Marshall",
+    "effects": [
+      "Añade 1 de Influencia estadounidense en cada uno de 7 países de Europa Occidental no controlados por la URSS.",
+      "Habilita OTAN."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "24": {
+    "id": 24,
+    "title": "Guerra Indo-Pakistaní",
+    "effects": [
+      "Ataca India o Pakistán. Tira un dado y resta 1 por cada país adyacente al objetivo controlado por el rival. Un resultado de 4–6 gana.",
+      "La victoria te da 2 PV y sustituye toda la Influencia rival del objetivo por la tuya.",
+      "Obtén 2 Operaciones Militares en cualquier caso."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "25": {
+    "id": 25,
+    "title": "Contención",
+    "effects": [
+      "Durante el resto del turno, las cartas estadounidenses usadas por Operaciones ganan +1 Operaciones, hasta un máximo de 4."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "26": {
+    "id": 26,
+    "title": "Creación de la CIA",
+    "effects": [
+      "La URSS revela su Mano a EE. UU.",
+      "Después, EE. UU. realiza 1 Operación."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "27": {
+    "id": 27,
+    "title": "Pacto de Defensa EE. UU.–Japón",
+    "effects": [
+      "Añade suficiente Influencia estadounidense en Japón para que EE. UU. obtenga el Control.",
+      "La URSS no puede intentar Golpes de Estado ni Realineamientos en Japón."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "28": {
+    "id": 28,
+    "title": "Crisis de Suez",
+    "effects": [
+      "Retira 4 de Influencia estadounidense de Francia, Reino Unido y/o Israel, como máximo 2 de cada país."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "29": {
+    "id": 29,
+    "title": "Disturbios en Europa Oriental",
+    "effects": [
+      "Retira Influencia soviética de 3 países de Europa Oriental.",
+      "Retira 1 por país en la Guerra inicial o media, o 2 en la Guerra tardía."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "30": {
+    "id": 30,
+    "title": "Descolonización",
+    "effects": [
+      "Añade 1 de Influencia soviética en cada uno de 4 países de África y/o el Sudeste Asiático."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "31": {
+    "id": 31,
+    "title": "Miedo Rojo / Purga",
+    "effects": [
+      "Durante el resto del turno, las cartas del rival usadas por Operaciones pierden 1 Operación, hasta un mínimo de 1."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "32": {
+    "id": 32,
+    "title": "Intervención de la ONU",
+    "effects": [
+      "Juega esta carta junto a otra cuyo evento pertenezca al rival.",
+      "Usa sus Operaciones sin activar el evento y después descártala.",
+      "No puede usarse en la Fase de Titulares."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "33": {
+    "id": 33,
+    "title": "Desestalinización",
+    "effects": [
+      "Reubica hasta 4 de Influencia soviética ya presente en el tablero.",
+      "Los destinos no pueden estar controlados por EE. UU.; añade como máximo 2 a un país."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "34": {
+    "id": 34,
+    "title": "Prohibición de Pruebas Nucleares",
+    "effects": [
+      "Gana PV iguales al nivel DEFCON actual menos 2.",
+      "Después mejora DEFCON en 2."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "35": {
+    "id": 35,
+    "title": "Resolución de Formosa",
+    "effects": [
+      "Mientras EE. UU. controle Taiwán, trátalo como país conflictivo en Puntuación de Asia y la Puntuación Final.",
+      "Cancela este efecto cuando EE. UU. juegue La Carta de China."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "36": {
+    "id": 36,
+    "title": "Guerra Local",
+    "effects": [
+      "Ataca un país de Estabilidad 1 o 2. Tira un dado y resta 1 por cada país adyacente controlado por el rival. Un resultado de 3–6 gana.",
+      "La victoria te da 1 PV y sustituye toda la Influencia rival allí por la tuya.",
+      "Obtén 3 Operaciones Militares en cualquier caso. Se aplica la protección de OTAN."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "37": {
+    "id": 37,
+    "title": "Puntuación de América Central",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 1 · Dominio 3 · Control 5.",
+      "Añade 1 PV por cada país conflictivo controlado y país controlado adyacente a la superpotencia rival."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "38": {
+    "id": 38,
+    "title": "Puntuación del Sudeste Asiático",
+    "effects": [
+      "Ambos bandos puntúan por los países que controlan:",
+      "1 PV cada uno: Birmania, Laos/Camboya, Vietnam, Malasia, Indonesia y Filipinas.",
+      "2 PV: Tailandia."
+    ],
+    "note": "DEBE JUGARSE ESTE TURNO. RETÍRALA DESPUÉS DE PUNTUAR.",
+    "prerequisite": ""
+  },
+  "39": {
+    "id": 39,
+    "title": "Carrera Armamentística",
+    "effects": [
+      "Si tienes más Operaciones Militares que el rival, gana 1 PV.",
+      "Gana 3 PV en su lugar si también cumples el requisito actual de Operaciones Militares."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "40": {
+    "id": 40,
+    "title": "Crisis de los Misiles de Cuba",
+    "effects": [
+      "Fija DEFCON en 2. Durante el resto del turno, el rival debe cancelar esta restricción antes de intentar un Golpe de Estado.",
+      "Puede cancelarla en cualquier momento: la URSS retira 2 de Influencia de Cuba; EE. UU. retira 2 de Alemania Occidental o Turquía."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "41": {
+    "id": 41,
+    "title": "Submarinos Nucleares",
+    "effects": [
+      "Durante el resto del turno, los Golpes de Estado estadounidenses en países conflictivos no reducen DEFCON.",
+      "Crisis de los Misiles de Cuba sigue aplicándose."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "42": {
+    "id": 42,
+    "title": "Cenagal",
+    "effects": [
+      "Cancela NORAD. En cada ronda de acción estadounidense posterior, EE. UU. debe descartar una carta de 2+ Operaciones y tirar un dado. Un 1–4 termina este efecto.",
+      "Sin cartas válidas, EE. UU. solo puede jugar cartas de puntuación hasta el próximo turno."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "43": {
+    "id": 43,
+    "title": "Negociaciones SALT",
+    "effects": [
+      "Mejora DEFCON en 2. Ambos bandos sufren −1 en tiradas de Golpe de Estado durante el resto del turno.",
+      "Puedes tomar una carta que no sea de puntuación de la pila de descartes y añadirla a tu Mano; muéstrasela al rival."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "44": {
+    "id": 44,
+    "title": "Trampa para Osos",
+    "effects": [
+      "En cada ronda de acción soviética posterior, la URSS debe descartar una carta de 2+ Operaciones y tirar un dado. Un 1–4 termina este efecto.",
+      "Sin cartas válidas, la URSS solo puede jugar cartas de puntuación hasta el próximo turno."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "45": {
+    "id": 45,
+    "title": "Cumbre",
+    "effects": [
+      "Ambos tiran un dado y añaden 1 por cada región donde tengan Dominio o Control.",
+      "El total mayor gana 2 PV y puede modificar DEFCON en 1 en cualquier dirección. Un empate no tiene efecto."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "46": {
+    "id": 46,
+    "title": "Cómo Aprendí a Dejar de Preocuparme",
+    "effects": [
+      "Fija DEFCON en cualquier nivel de 2 a 5.",
+      "Obtén 5 Operaciones Militares."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "47": {
+    "id": 47,
+    "title": "Junta Militar",
+    "effects": [
+      "Añade 2 de tu Influencia en un país de América Central o del Sur.",
+      "Después puedes intentar un Golpe de Estado o Realineamientos gratuitos en cualquiera de esas regiones con las Operaciones de esta carta. No dan Operaciones Militares."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "48": {
+    "id": 48,
+    "title": "Debate de Cocina",
+    "effects": [
+      "Si EE. UU. controla más países conflictivos que la URSS, gana 2 PV."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "49": {
+    "id": 49,
+    "title": "Envidia de Misiles",
+    "effects": [
+      "Toma la carta de mayor valor de Operaciones del rival; él elige si hay empate.",
+      "Ejecuta su evento si es tuyo o neutral. Si es rival, usa sus Operaciones sin activar el evento.",
+      "Entrégale Envidia de Misiles; debe usarla por Operaciones en su próxima ronda de acción."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "50": {
+    "id": 50,
+    "title": "Os Enterraremos",
+    "effects": [
+      "Reduce DEFCON en 1.",
+      "Salvo que EE. UU. juegue Intervención de la ONU como evento en su próxima ronda de acción, la URSS gana 3 PV antes de cualquier ganancia estadounidense de PV."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "51": {
+    "id": 51,
+    "title": "Doctrina Brézhnev",
+    "effects": [
+      "Durante el resto del turno, las cartas soviéticas usadas por Operaciones ganan +1 Operaciones, hasta un máximo de 4."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "52": {
+    "id": 52,
+    "title": "Caída del Imperio Portugués",
+    "effects": [
+      "Añade 2 de Influencia soviética en Angola y 2 en Estados de África Sudoriental."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "53": {
+    "id": 53,
+    "title": "Disturbios en Sudáfrica",
+    "effects": [
+      "Elige: añadir 2 de Influencia soviética en Sudáfrica, o añadir 1 en Sudáfrica y 2 en total entre sus países adyacentes."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "54": {
+    "id": 54,
+    "title": "Allende",
+    "effects": [
+      "Añade 2 de Influencia soviética en Chile."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "55": {
+    "id": 55,
+    "title": "Willy Brandt",
+    "effects": [
+      "La URSS gana 1 PV y añade 1 de Influencia en Alemania Occidental.",
+      "OTAN deja de proteger a Alemania Occidental.",
+      "Derribe Ese Muro cancela e impide este evento."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "56": {
+    "id": 56,
+    "title": "Revolución Musulmana",
+    "effects": [
+      "Retira toda la Influencia estadounidense de 2 de estos países: Sudán, Irán, Irak, Egipto, Libia, Arabia Saudí, Siria o Jordania.",
+      "Venta de AWACS a Arabia Saudí bloquea este evento."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "57": {
+    "id": 57,
+    "title": "Tratado ABM",
+    "effects": [
+      "Mejora DEFCON en 1.",
+      "Después realiza 4 Operaciones."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "58": {
+    "id": 58,
+    "title": "Revolución Cultural",
+    "effects": [
+      "Si EE. UU. tiene La Carta de China, la URSS la toma boca arriba, lista para usar.",
+      "Si ya la tiene la URSS, gana 1 PV."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "59": {
+    "id": 59,
+    "title": "El Poder de las Flores",
+    "effects": [
+      "La URSS gana 2 PV cuando EE. UU. juega una carta de Guerra como evento o por Operaciones. Usarla en la Carrera Espacial queda exento.",
+      "Guerras: Árabe-Israelí, de Corea, Local, Indo-Pakistaní e Irán-Irak.",
+      "El Imperio del Mal cancela e impide este evento."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "60": {
+    "id": 60,
+    "title": "Incidente del U-2",
+    "effects": [
+      "La URSS gana 1 PV.",
+      "Si después cualquier bando juega Intervención de la ONU como evento este turno, la URSS gana 1 PV adicional."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "61": {
+    "id": 61,
+    "title": "OPEP",
+    "effects": [
+      "La URSS gana 1 PV por cada uno de estos países que controle: Egipto, Irán, Libia, Arabia Saudí, Irak, Estados del Golfo y Venezuela.",
+      "No puede ocurrir mientras Petróleo del Mar del Norte esté activo."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "62": {
+    "id": 62,
+    "title": "Pistolero Solitario",
+    "effects": [
+      "EE. UU. revela su Mano a la URSS.",
+      "Después, la URSS realiza 1 Operación."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "63": {
+    "id": 63,
+    "title": "Retaguardias Coloniales",
+    "effects": [
+      "Añade 1 de Influencia estadounidense en cada uno de 4 países de África y/o el Sudeste Asiático."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "64": {
+    "id": 64,
+    "title": "Devolución del Canal de Panamá",
+    "effects": [
+      "Añade 1 de Influencia estadounidense en Panamá, Costa Rica y Venezuela."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "65": {
+    "id": 65,
+    "title": "Acuerdos de Camp David",
+    "effects": [
+      "EE. UU. gana 1 PV.",
+      "Añade 1 de Influencia estadounidense en Israel, Jordania y Egipto.",
+      "Impide el evento Guerra Árabe-Israelí."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "66": {
+    "id": 66,
+    "title": "Gobiernos Títeres",
+    "effects": [
+      "Añade 1 de Influencia estadounidense en cada uno de 3 países que no tengan Influencia de ningún bando."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "67": {
+    "id": 67,
+    "title": "Venta de Grano a los Soviéticos",
+    "effects": [
+      "Toma una carta al azar de la Mano soviética. EE. UU. puede jugarla o devolverla.",
+      "Si la devuelve, o la URSS no tiene cartas, realiza Operaciones con esta carta en su lugar."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "68": {
+    "id": 68,
+    "title": "Juan Pablo II Elegido Papa",
+    "effects": [
+      "Retira 2 de Influencia soviética de Polonia y añade allí 1 estadounidense.",
+      "Habilita Solidaridad."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "69": {
+    "id": 69,
+    "title": "Escuadrones de la Muerte",
+    "effects": [
+      "Durante el resto del turno, tus tiradas de Golpe de Estado en América Central y del Sur ganan +1.",
+      "Las del rival en esas regiones sufren −1."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "70": {
+    "id": 70,
+    "title": "Fundación de la OEA",
+    "effects": [
+      "Añade 2 de Influencia estadounidense, repartidos como quieras entre países de América Central y/o del Sur."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "71": {
+    "id": 71,
+    "title": "Nixon Juega la Carta de China",
+    "effects": [
+      "Si EE. UU. tiene La Carta de China, gana 2 PV.",
+      "Si no, EE. UU. la toma boca abajo; aún no está disponible para jugar."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "72": {
+    "id": 72,
+    "title": "Sadat Expulsa a los Soviéticos",
+    "effects": [
+      "Retira toda la Influencia soviética de Egipto.",
+      "Añade 1 de Influencia estadounidense en Egipto."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "73": {
+    "id": 73,
+    "title": "Diplomacia Itinerante",
+    "effects": [
+      "Mantén esta carta en juego hasta la próxima puntuación de Asia u Oriente Medio.",
+      "Solo para esa puntuación, resta 1 al número soviético de países conflictivos y al total de países. Después descarta esta carta.",
+      "No se aplica a la Puntuación Final."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "74": {
+    "id": 74,
+    "title": "La Voz de América",
+    "effects": [
+      "Retira 4 de Influencia soviética de países fuera de Europa, como máximo 2 de un país."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "75": {
+    "id": 75,
+    "title": "Teología de la Liberación",
+    "effects": [
+      "Añade 3 de Influencia soviética en América Central, como máximo 2 por país."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "76": {
+    "id": 76,
+    "title": "Escaramuza del Río Ussuri",
+    "effects": [
+      "Si la URSS tiene La Carta de China, EE. UU. la toma boca arriba, lista para usar.",
+      "Si ya la tiene EE. UU., añade 4 de Influencia estadounidense en Asia, como máximo 2 por país."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "77": {
+    "id": 77,
+    "title": "No Preguntes Qué Puede Hacer Tu País…",
+    "effects": [
+      "EE. UU. puede descartar cualquier número de cartas, incluidas las de puntuación, y robar el mismo número.",
+      "Elige todos los descartes antes de robar las sustitutas."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "78": {
+    "id": 78,
+    "title": "Alianza para el Progreso",
+    "effects": [
+      "EE. UU. gana 1 PV por cada país conflictivo que controle en América Central y del Sur."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "79": {
+    "id": 79,
+    "title": "Puntuación de África",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 1 · Dominio 4 · Control 6.",
+      "Añade 1 PV por cada país conflictivo controlado."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "80": {
+    "id": 80,
+    "title": "Un Pequeño Paso…",
+    "effects": [
+      "Si vas por detrás en la Carrera Espacial, avanza tu marcador 2 casillas.",
+      "Recibe solo los PV de la segunda casilla."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "81": {
+    "id": 81,
+    "title": "Puntuación de América del Sur",
+    "effects": [
+      "Ambos bandos puntúan: Presencia 2 · Dominio 5 · Control 6.",
+      "Añade 1 PV por cada país conflictivo controlado."
+    ],
+    "prerequisite": "",
+    "note": "DEBE JUGARSE ESTE TURNO."
+  },
+  "82": {
+    "id": 82,
+    "title": "Crisis de los Rehenes de Irán",
+    "effects": [
+      "Retira toda la Influencia estadounidense de Irán y añade allí 2 soviéticos.",
+      "Duplica las cartas que EE. UU. descarta por Terrorismo."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "83": {
+    "id": 83,
+    "title": "La Dama de Hierro",
+    "effects": [
+      "EE. UU. gana 1 PV. Añade 1 de Influencia soviética en Argentina y retira toda la soviética del Reino Unido.",
+      "Impide Gobiernos Socialistas."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "84": {
+    "id": 84,
+    "title": "Reagan Bombardea Libia",
+    "effects": [
+      "EE. UU. gana 1 PV por cada 2 de Influencia soviética en Libia, redondeando hacia abajo."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "85": {
+    "id": 85,
+    "title": "Guerra de las Galaxias",
+    "effects": [
+      "Si EE. UU. va por delante en la Carrera Espacial, elige una carta que no sea de puntuación de la pila de descartes.",
+      "Ejecuta inmediatamente su evento."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "86": {
+    "id": 86,
+    "title": "Petróleo del Mar del Norte",
+    "effects": [
+      "Impide OPEP.",
+      "EE. UU. puede realizar una octava ronda de acción este turno."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "87": {
+    "id": 87,
+    "title": "El Reformador",
+    "effects": [
+      "Añade 4 de Influencia soviética en Europa, como máximo 2 por país. Añade 6 en su lugar si la URSS lidera en PV.",
+      "La URSS ya no puede intentar Golpes de Estado en Europa.",
+      "Mejora Glasnost."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "88": {
+    "id": 88,
+    "title": "Atentado contra los Marines",
+    "effects": [
+      "Retira toda la Influencia estadounidense de Líbano.",
+      "Retira 2 de Influencia estadounidense adicional de cualquier lugar de Oriente Medio."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "89": {
+    "id": 89,
+    "title": "Derribo del KAL-007",
+    "effects": [
+      "Reduce DEFCON en 1. EE. UU. gana 2 PV.",
+      "Si EE. UU. controla Corea del Sur, puede gastar después 4 Operaciones en colocar Influencia o Realineamientos."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "90": {
+    "id": 90,
+    "title": "Glasnost",
+    "effects": [
+      "La URSS gana 2 PV. Mejora DEFCON en 1.",
+      "Si El Reformador está activo, la URSS puede gastar después 4 Operaciones en colocar Influencia o Realineamientos."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "91": {
+    "id": 91,
+    "title": "Ortega Elegido en Nicaragua",
+    "effects": [
+      "Retira toda la Influencia estadounidense de Nicaragua.",
+      "Después la URSS puede intentar un Golpe de Estado gratuito con las Operaciones de esta carta en un país adyacente a Nicaragua."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "92": {
+    "id": 92,
+    "title": "Terrorismo",
+    "effects": [
+      "El rival descarta 1 carta al azar sin activar su evento.",
+      "Si la URSS juega esto con Crisis de los Rehenes de Irán activa, EE. UU. descarta 2 cartas al azar en su lugar."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "93": {
+    "id": 93,
+    "title": "Escándalo Irán-Contra",
+    "effects": [
+      "Durante el resto del turno, todas las tiradas estadounidenses de Realineamiento sufren −1."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "94": {
+    "id": 94,
+    "title": "Chernóbil",
+    "effects": [
+      "EE. UU. elige una región.",
+      "Durante el resto del turno, la URSS no puede colocar Influencia allí mediante Operaciones. La Influencia de eventos no se ve afectada."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "95": {
+    "id": 95,
+    "title": "Crisis de la Deuda Latinoamericana",
+    "effects": [
+      "EE. UU. debe descartar inmediatamente una carta de al menos 3 Operaciones.",
+      "Si no lo hace, duplica la Influencia soviética en 2 países de América del Sur."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "96": {
+    "id": 96,
+    "title": "Derribe Ese Muro",
+    "effects": [
+      "Cancela e impide Willy Brandt. Añade 3 de Influencia estadounidense en Alemania Oriental.",
+      "Después EE. UU. puede intentar un Golpe de Estado o Realineamientos gratuitos en Europa con las Operaciones de esta carta, ignorando restricciones geográficas DEFCON. Las penalizaciones DEFCON de países conflictivos siguen aplicándose."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "97": {
+    "id": 97,
+    "title": "El Imperio del Mal",
+    "effects": [
+      "Cancela e impide El Poder de las Flores.",
+      "EE. UU. gana 1 PV."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "98": {
+    "id": 98,
+    "title": "Aldrich Ames",
+    "effects": [
+      "EE. UU. revela su Mano a la URSS durante el resto del turno.",
+      "La URSS elige una carta de esa Mano para descartarla sin ejecutar su evento."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "99": {
+    "id": 99,
+    "title": "Despliegue de Pershing II",
+    "effects": [
+      "La URSS gana 1 PV.",
+      "Retira 1 de Influencia estadounidense de cada uno de hasta 3 países de Europa Occidental."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "100": {
+    "id": 100,
+    "title": "Juegos de Guerra",
+    "effects": [
+      "Solo con DEFCON 2: puedes dar 6 PV al rival y terminar inmediatamente la partida sin Puntuación Final."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "101": {
+    "id": 101,
+    "title": "Solidaridad",
+    "effects": [
+      "Añade 3 de Influencia estadounidense en Polonia."
+    ],
+    "prerequisite": "Requiere Juan Pablo II Elegido Papa.",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "102": {
+    "id": 102,
+    "title": "Guerra Irán-Irak",
+    "effects": [
+      "Ataca Irán o Irak. Tira un dado y resta 1 por cada país adyacente al objetivo controlado por el rival. Un resultado de 4–6 gana.",
+      "La victoria te da 2 PV y sustituye toda la Influencia rival del objetivo por la tuya.",
+      "Obtén 2 Operaciones Militares en cualquier caso."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "103": {
+    "id": 103,
+    "title": "Desertores",
+    "effects": [
+      "En la Fase de Titulares, cancela y descarta la carta de Titulares soviética, aunque sea de puntuación.",
+      "Si la URSS la juega en su ronda de acción, EE. UU. gana 1 PV, salvo que se use para la Carrera Espacial."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "104": {
+    "id": 104,
+    "title": "Los Cinco de Cambridge",
+    "effects": [
+      "EE. UU. revela todas las cartas de puntuación de su Mano.",
+      "Añade 1 de Influencia soviética en una región indicada en esas cartas.",
+      "No puede ocurrir en la Guerra tardía."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "105": {
+    "id": 105,
+    "title": "Relación Especial",
+    "effects": [
+      "Si EE. UU. controla el Reino Unido y OTAN no está activa, añade 1 de Influencia estadounidense en un país adyacente al Reino Unido.",
+      "Si lo controla y OTAN está activa, añade en su lugar 2 de Influencia estadounidense en un país de Europa Occidental y gana 2 PV."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "106": {
+    "id": 106,
+    "title": "NORAD",
+    "effects": [
+      "Al final de una ronda de acción en la que DEFCON haya pasado a 2, si EE. UU. controla Canadá, añade 1 de Influencia estadounidense en un país donde ya tenga Influencia.",
+      "Cenagal cancela este evento."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "107": {
+    "id": 107,
+    "title": "Che",
+    "effects": [
+      "La URSS puede intentar un Golpe de Estado con las Operaciones de esta carta en un país no conflictivo de América Central, América del Sur o África.",
+      "Si retira Influencia estadounidense, puede intentar un segundo golpe en otro país con las mismas restricciones."
+    ],
+    "prerequisite": "",
+    "note": ""
+  },
+  "108": {
+    "id": 108,
+    "title": "Nuestro Hombre en Teherán",
+    "effects": [
+      "Si EE. UU. controla un país de Oriente Medio, mira las 5 primeras cartas del mazo de robo.",
+      "Revela y descarta cualquiera de ellas sin ejecutar eventos. Devuelve las demás al mazo y barájalo."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "109": {
+    "id": 109,
+    "title": "Yuri y Samantha",
+    "effects": [
+      "Durante el resto del turno, la URSS gana 1 PV cada vez que EE. UU. intenta un Golpe de Estado."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  },
+  "110": {
+    "id": 110,
+    "title": "Venta de AWACS a Arabia Saudí",
+    "effects": [
+      "Añade 2 de Influencia estadounidense en Arabia Saudí.",
+      "Impide Revolución Musulmana."
+    ],
+    "prerequisite": "",
+    "note": "RETIRA DEL JUEGO SI SE USA COMO EVENTO."
+  }
+}

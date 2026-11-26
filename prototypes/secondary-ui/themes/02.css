@@ -1,0 +1,59 @@
+/* 02 · 机密卷宗 — a manila dossier: a file tab on top, the title stamped in red ink, typed labels,
+   index cards to choose from. */
+[data-ui='02'] .sx {
+  --ink: #2b2318; --strong: #16110a; --muted: rgba(43, 35, 24, 0.66); --line: rgba(43, 35, 24, 0.3);
+  --accent: #b1261d; --on-accent: #fff3df; --well: rgba(70, 48, 12, 0.1); --select: #b1261d;
+  --r: 2px; --pad: 28px;
+  --font: 'STFangsong', 'FangSong', 'Songti SC', serif; --display: 'Songti SC', 'STSong', serif; --mono: 'Courier New', 'American Typewriter', monospace;
+  --side-a: #24508f; --side-b: #a8271e; --side-n: #5d5a4f;
+  font-size: 15.5px;
+  /* paper: faint fibres over an uneven manila */
+  background: repeating-linear-gradient(1deg, rgba(110, 80, 30, 0.045) 0 1px, transparent 1px 4px), radial-gradient(130% 100% at 18% 0%, #f0e2bb, #e0cd9f 60%, #d6c191);
+  /* a second sheet shows behind the first */
+  box-shadow: inset 0 0 0 1px rgba(255, 250, 230, 0.5), 5px 6px 0 -1px #cdb884, 5px 6px 0 0 rgba(60, 40, 10, 0.5), 0 26px 60px rgba(0, 0, 0, 0.65);
+}
+[data-ui='02'] .pg-stage { padding-top: 24px; gap: 40px; }
+[data-ui='02'].pg-tip .pg-stage { gap: 30px; }
+/* the file tab */
+[data-ui='02'] .sx::before { content: '机密 · TOP SECRET'; position: absolute; left: 24px; bottom: 100%; padding: 4px 16px 2px; border-radius: 7px 7px 0 0; background: #e6d5a8; box-shadow: inset 0 1px 0 rgba(255, 250, 230, 0.6); font: 700 11px/1.6 var(--mono); letter-spacing: 0.22em; color: #b1261d; }
+[data-ui='02'] .sx-tip::before, [data-ui='02'] .sx-toast::before { content: '备忘'; left: 14px; padding: 2px 12px 0; font-size: 10px; }
+[data-ui='02'] .sx-kicker { font: 700 12px/1.5 var(--mono); letter-spacing: 0.14em; color: rgba(43, 35, 24, 0.78); }
+[data-ui='02'] .sx-kicker::before { content: '案由：'; }
+/* stamped, a little askew, the ink uneven */
+[data-ui='02'] .sx-title { display: inline-block; margin: 8px 0 0 -4px; padding: 3px 14px 2px; border: 2.5px solid #b1261d; border-radius: 4px; color: #b1261d; font-weight: 900; letter-spacing: 0.14em; transform: rotate(-1.4deg); mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 0 60%, rgba(0, 0, 0, 0.72) 100%); mask-image: radial-gradient(circle at 30% 40%, #000 0 60%, rgba(0, 0, 0, 0.72) 100%); }
+[data-ui='02'] .sx-title small { color: rgba(177, 38, 29, 0.8); font-family: var(--mono); }
+[data-ui='02'] .sx-sub { margin-top: 12px; }
+[data-ui='02'] .sx-head { padding-bottom: 14px; border-bottom: 1px solid rgba(43, 35, 24, 0.5); margin: 0 var(--pad); padding-left: 0; padding-right: 0; }
+[data-ui='02'] .sx-head::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; border-bottom: 1px solid rgba(43, 35, 24, 0.5); }
+
+[data-ui='02'] .sx-btn { border-radius: 1px; border: 1.5px solid #2b2318; background: none; font: 700 14px/1 var(--mono); letter-spacing: 0.14em; }
+[data-ui='02'] .sx-btn:hover { background: #2b2318; color: #f0e2bb; border-color: #2b2318; }
+[data-ui='02'] .sx-btn.is-primary { border-color: #8d1c15; background: #b1261d; box-shadow: inset 0 0 0 2px rgba(255, 240, 220, 0.22); }
+[data-ui='02'] .sx-btn.is-primary:hover { background: #981f18; color: #fff3df; filter: none; }
+[data-ui='02'] .sx-btn.is-ghost { border-color: transparent; text-decoration: underline dotted; }
+[data-ui='02'] .sx-chip { border-radius: 4px 4px 0 0; border-color: rgba(43, 35, 24, 0.55); border-bottom-width: 2px; font-family: var(--mono); color: rgba(43, 35, 24, 0.78); }
+[data-ui='02'] .sx-chip.is-on { background: #2b2318; border-color: #2b2318; color: #f0e2bb; }
+[data-ui='02'] .sx-key { border: 1.5px solid #2b2318; border-radius: 3px; background: rgba(255, 250, 235, 0.5); color: #2b2318; }
+[data-ui='02'] .sx-link { color: #24508f; text-decoration: underline; font-family: var(--mono); }
+[data-ui='02'] .sx-close { border: 1.5px solid #2b2318; border-radius: 2px; color: #2b2318; }
+[data-ui='02'] .sx-close:hover { background: #2b2318; color: #f0e2bb; border-color: #2b2318; }
+[data-ui='02'] .sx-tag { border-radius: 1px; font-family: var(--mono); }
+
+[data-ui='02'] .sx-well { border-radius: 0; border: 1px dashed rgba(43, 35, 24, 0.42); }
+[data-ui='02'] .sx-face .game-card { box-shadow: 1px 3px 0 rgba(60, 40, 10, 0.25), 0 8px 16px rgba(60, 40, 10, 0.35); }
+[data-ui='02'] .sx-slot.is-on .sx-face { box-shadow: 0 0 0 3px #b1261d; }
+/* a paper clip holds the chosen card */
+[data-ui='02'] .sx-slot.is-on::before { content: ''; position: absolute; z-index: 2; left: 18px; top: -12px; width: 13px; height: 38px; border: 2.5px solid #8f959b; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(0, 0, 0, 0.3); }
+/* index cards */
+[data-ui='02'] .sx-option { border-radius: 2px; border: 1px solid rgba(43, 35, 24, 0.28); background: linear-gradient(#b1261d, #b1261d) 0 30px / 100% 1px no-repeat, repeating-linear-gradient(180deg, transparent 0 25px, rgba(36, 80, 143, 0.16) 25px 26px) 0 31px, #f8f1dc; box-shadow: 1px 2px 0 rgba(60, 40, 10, 0.22); padding-top: 9px; }
+[data-ui='02'] .sx-option:hover { border-color: #2b2318; transform: translateY(-1px); }
+[data-ui='02'] .sx-option.is-on { border-color: #b1261d; box-shadow: inset 0 0 0 1.5px #b1261d, 2px 3px 0 rgba(60, 40, 10, 0.3); }
+[data-ui='02'] .sx-option.is-on::after { content: '选定'; position: absolute; right: 12px; top: 40px; padding: 1px 9px; border: 2px solid #b1261d; border-radius: 3px; color: #b1261d; font: 900 15px/1.4 var(--display); letter-spacing: 0.2em; transform: rotate(8deg); mix-blend-mode: multiply; }
+[data-ui='02'] .sx-steps { font-family: var(--mono); }
+[data-ui='02'] .sx-opt-title { margin-top: 6px; }
+[data-ui='02'] .sx-sec { font-family: var(--mono); letter-spacing: 0.14em; color: #2b2318; border-bottom: 1px solid rgba(43, 35, 24, 0.5); padding-bottom: 3px; }
+[data-ui='02'] .sx-sec span::before { content: '▌'; margin-right: 4px; color: #b1261d; }
+[data-ui='02'] .sx-lead { font-family: 'Kaiti SC', 'STKaiti', serif; font-size: 17px; }
+[data-ui='02'] .sx-prose, [data-ui='02'] .sx-terms { font-size: 14.5px; }
+[data-ui='02'] .sx-example { border-radius: 0; background: rgba(255, 250, 235, 0.55); box-shadow: inset 3px 0 0 #b1261d; font-size: 13.5px; }
+[data-ui='02'] .sx-toast p { font-family: var(--display); font-weight: 700; }

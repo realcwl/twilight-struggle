@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "outputDir": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core",
+  "frames": [
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-00-at-0.35s.png",
+      "time": 0.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-01-at-2s.png",
+      "time": 2
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-02-at-4.7s.png",
+      "time": 4.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-03-at-15.35s.png",
+      "time": 15.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-04-at-17s.png",
+      "time": 17
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-05-at-19.7s.png",
+      "time": 19.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-06-at-20.35s.png",
+      "time": 20.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-07-at-22s.png",
+      "time": 22
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-08-at-24.7s.png",
+      "time": 24.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-09-at-35.35s.png",
+      "time": 35.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-10-at-37s.png",
+      "time": 37
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-11-at-39.7s.png",
+      "time": 39.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-12-at-70.35s.png",
+      "time": 70.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-13-at-72s.png",
+      "time": 72
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-14-at-74.7s.png",
+      "time": 74.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-15-at-75.35s.png",
+      "time": 75.35
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-16-at-77s.png",
+      "time": 77
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/frame-17-at-79.7s.png",
+      "time": 79.7
+    }
+  ],
+  "contactSheets": [
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/contact-sheet-1.jpg",
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/core/contact-sheet-2.jpg"
+  ],
+  "_meta": {
+    "version": "0.9.50",
+    "latestVersion": "0.9.50",
+    "updateAvailable": false,
+    "checkedAt": "2026-11-15T02:18:26.710Z",
+    "skillsOutdated": 0,
+    "skillsMissing": 0
+  }
+}

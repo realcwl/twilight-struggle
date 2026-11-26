@@ -1,0 +1,54 @@
+/* 10 连线: the key over the cards corner, numbered tokens on what the effects touch, and threads. */
+.v10-key { position: absolute; left: 0; bottom: calc(100% + 1.1rem); padding: 1rem 1rem 0.8rem; }
+.v10-head { display: flex; align-items: baseline; gap: 0.7rem; padding: 0 0.5rem 0.7rem; border-bottom: 1px solid var(--line); }
+.v10-head .hud-num { font-size: 1.5rem; color: var(--gold); }
+.v10-key.empty .hud-num { color: var(--muted); }
+.v10-rows { display: grid; gap: 0.1rem; padding-top: 0.5rem; min-width: 17rem; }
+.v10-key.empty .v10-rows::before { content: '当前没有生效的事件'; padding: 0.5rem; font-size: 1.15rem; color: var(--muted); }
+.v10-row { position: relative; display: flex; align-items: center; gap: 0.8rem; height: 2.8rem; padding: 0 0.7rem 0 0.5rem; border-radius: 0.5rem; white-space: nowrap; transition: background 0.15s, filter 0.3s; }
+.v10-row b { font: 900 1.4rem/1 var(--han); letter-spacing: 0.05em; color: var(--bright); }
+.v10-until { display: inline-flex; align-items: center; gap: 0.35rem; margin-left: auto; padding-left: 1.4rem; font-size: 1.1rem; color: var(--muted); }
+.v10-until em { font-style: normal; }
+.v10-mark { display: inline-grid; place-items: center; font-size: 1.3rem; color: var(--gold); }
+.v10-mark .pe-n { font-size: 1.45rem; color: var(--bright); }
+.v10-mark.tick { animation: v10-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v10-tick { 0% { transform: scale(2.2); } }
+.v10-row:hover { background: rgba(240, 191, 74, 0.14); box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.5); }
+.v10-row.pe-new { animation: v10-new 2.4s ease-out; }
+@keyframes v10-new { 0%, 60% { background: rgba(240, 191, 74, 0.26); box-shadow: inset 0 0 0 1px var(--gold), 0 0 1.6rem rgba(240, 191, 74, 0.5); } }
+.v10-row.pe-fire { animation: v10-new 1.6s ease-out; }
+.v10-row.pe-ending { filter: saturate(0.2) brightness(0.75); }
+.v10-row .pe-stamp { left: auto; right: 0.2rem; transform: translate(0, -50%) rotate(-9deg); animation-name: v10-stamp; }
+@keyframes v10-stamp { 0% { opacity: 0; transform: translate(0, -50%) rotate(-9deg) scale(2.3); } 100% { opacity: 1; transform: translate(0, -50%) rotate(-9deg) scale(1); } }
+.v10-row .pe-stamp b { font-size: 1.2rem; }
+
+/* the token: the side's enamel with the effect's number, the same in the key and on the board */
+.v10-token { flex: none; display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: radial-gradient(circle at 50% 26%, var(--cl), var(--c) 60%, color-mix(in srgb, var(--c) 60%, #000)); box-shadow: 0 0 0 1.5px #f3e3b0, 0 0 0 2.5px rgba(16, 12, 9, 0.85), 0 0.2rem 0.5rem rgba(0, 0, 0, 0.6); font: 800 1.1rem/1 'Cinzel', 'Songti SC', serif; font-style: normal; color: var(--ink); pointer-events: auto; cursor: default; transition: transform 0.2s, filter 0.3s; }
+.v10-token.is-a { --c: #2e6ad6; --cl: #8ab6ff; --ink: #fff; }
+.v10-token.is-b { --c: #de3f2b; --cl: #ff9482; --ink: #fff; }
+.v10-token.is-n { --c: #cdbf95; --cl: #f6ecc9; --ink: #2a2218; }
+.v10-post .v10-token:hover { transform: scale(1.25); }
+.v10-token.unseen { opacity: 0; }
+.v10-post .v10-token.pe-new { animation: v10-land 0.5s cubic-bezier(0.3, 1.5, 0.5, 1) both, v10-ring 1.7s ease-out; }
+@keyframes v10-land { 0% { transform: scale(2.4); opacity: 0; } }
+@keyframes v10-ring { 0%, 50% { box-shadow: 0 0 0 1.5px #f3e3b0, 0 0 0 0.3rem #f0bf4a, 0 0 1.6rem rgba(240, 191, 74, 0.9); } }
+.v10-token.pe-ending { filter: saturate(0.15) brightness(0.7); }
+
+.v10-post { position: absolute; left: 0; top: 0; z-index: 6; display: flex; align-items: center; gap: 0.3rem; pointer-events: none; }
+.v10-post.empty { display: none; }
+.v10-left { transform: translate(-100%, -50%) translateX(calc(-30px * var(--s, 1))); padding: 0.25rem 0.35rem 0.25rem 0.6rem; border-radius: 1.3rem; background: rgba(16, 12, 9, 0.74); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.3); }
+.v10-right { transform: translate(0, -50%) translateX(calc(30px * var(--s, 1))); padding: 0.25rem 0.35rem 0.25rem 0.6rem; border-radius: 1.3rem; background: rgba(16, 12, 9, 0.74); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.3); }
+.v10-below { transform: translate(-50%, 0) translateY(calc(22px * var(--s, 1))); padding: 0.25rem 0.35rem 0.25rem 0.6rem; border-radius: 1.3rem; background: rgba(16, 12, 9, 0.74); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.3); }
+.v10-where { margin-right: 0.15rem; font: 700 1rem/1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.14em; color: rgba(236, 223, 195, 0.88); white-space: nowrap; }
+/* on a country: at the node's upper right corner */
+.v10-corner { transform: translate(calc(16px * var(--s, 1)), calc(-100% - 6px * var(--s, 1))); }
+.v10-corner .v10-token { width: 1.6rem; height: 1.6rem; font-size: 0.95rem; }
+/* on a meter: at its corner, inside the pane */
+.v10-meter { transform: translate(-60%, -45%); }
+.v10-hand { left: 50%; top: auto; bottom: 14.4rem; transform: translateX(-50%); }
+
+/* threads: a pale line in a dark casing, as the map's own links are drawn */
+.v10-threads { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; fill: none; overflow: visible; }
+.v10-threads .casing { stroke: rgba(16, 12, 9, 0.85); stroke-width: 5; stroke-linecap: round; }
+.v10-threads .line { stroke: #f6dc8e; stroke-width: 2; stroke-linecap: round; filter: drop-shadow(0 0 3px rgba(240, 191, 74, 0.8)); }
+.v10-threads .line.hot { stroke: #fff7e4; stroke-width: 2.6; }

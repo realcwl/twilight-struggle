@@ -1,0 +1,389 @@
+{
+  "query": "dice influence tokens",
+  "tier": "words",
+  "tier_detail": "local word match",
+  "dropped": 0,
+  "unindexed": 0,
+  "shown": 24,
+  "total": 448,
+  "report_gap": "npx hyperframes feedback --search-miss \"dice influence tokens\" --wanted \"<the move you needed>\" --tier words",
+  "results": [
+    {
+      "name": "code-typing",
+      "type": "block",
+      "title": "Code Typing",
+      "description": "Token-streamed typing reveal with a caret that tracks the frontier — deterministic, no CSS animation.",
+      "tags": [
+        "code",
+        "code-animation",
+        "typing",
+        "developer"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 5,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-typing.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-typing.png"
+      }
+    },
+    {
+      "name": "svg-mask-reveal",
+      "type": "component",
+      "title": "SVG Mask Reveal",
+      "description": "A soft token-colored sweep reveals media only through an editable SVG wordmark mask.",
+      "tags": [
+        "effect",
+        "svg",
+        "mask",
+        "wordmark",
+        "reveal",
+        "exhibit"
+      ]
+    },
+    {
+      "name": "star-rating-fill",
+      "type": "component",
+      "title": "Star Rating Fill",
+      "description": "A token-driven star row whose colored layer sweeps to a rating, preserves the fractional final star, and can count the value in sync.",
+      "tags": [
+        "data",
+        "rating",
+        "stars",
+        "fractional",
+        "fill",
+        "prove"
+      ]
+    },
+    {
+      "name": "conic-progress-ring",
+      "type": "component",
+      "title": "Conic Progress Ring",
+      "description": "A token-driven conic progress ring whose angular fill and center count settle together from one registered percentage.",
+      "tags": [
+        "data",
+        "progress",
+        "ring",
+        "conic-gradient",
+        "prove",
+        "demonstrate"
+      ]
+    },
+    {
+      "name": "count-up",
+      "type": "component",
+      "title": "Count Up",
+      "description": "A token-native stat counter that eases between values, counting up or down, and lands with a restrained scale pulse.",
+      "tags": [
+        "motion-primitive",
+        "proof",
+        "stats",
+        "counter",
+        "number",
+        "countdown",
+        "deterministic"
+      ]
+    },
+    {
+      "name": "store-badge-lockup",
+      "type": "component",
+      "title": "Store Badge Lockup",
+      "description": "Settles a short headline above equal-size App Store and Google Play badges as a token-driven mobile end-card call to action.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "mobile",
+        "store-badges",
+        "cta",
+        "ask"
+      ]
+    },
+    {
+      "name": "notification-stack",
+      "type": "component",
+      "title": "Notification Stack",
+      "description": "1 to 5 token notification cards slide-settle into a vertical stack on cues, newest on top; one card grows slightly and brightens as the focus while the rest dim by position.",
+      "tags": [
+        "motion-primitive",
+        "product-demo",
+        "notification",
+        "stack",
+        "stagger"
+      ]
+    },
+    {
+      "name": "multiplayer-cursors",
+      "type": "component",
+      "title": "Multiplayer Cursors",
+      "description": "Labeled collaborator cursors with token-derived colors and soft glows drift from spread positions into a shared center zone, proving live multiplayer presence.",
+      "tags": [
+        "cursor",
+        "pointer",
+        "multiplayer",
+        "collaboration",
+        "presence",
+        "loop",
+        "prove"
+      ]
+    },
+    {
+      "name": "code-morph",
+      "type": "block",
+      "title": "Code Morph",
+      "description": "One snippet transforms into another — tokens glide between positions, leavers fade out, enterers fade in. Shiki Magic Move re-driven as a paused GSAP timeline.",
+      "tags": [
+        "code",
+        "code-animation",
+        "morph",
+        "refactor",
+        "developer"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 7,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-morph.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-morph.png"
+      }
+    },
+    {
+      "name": "code-particle-assemble",
+      "type": "block",
+      "title": "Code Particle Assemble",
+      "description": "Thousands of GPU points scatter through space and fly to the exact glyph pixels of the code, resolving into readable syntax-highlighted text — a particle system, not a token tween.",
+      "tags": [
+        "code",
+        "code-animation",
+        "particles",
+        "gpu",
+        "webgl",
+        "developer"
+      ],
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
+      "duration": 8,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-particle-assemble.mp4",
+        "poster": "https://static.heygen.ai/hyperframes-oss/docs/images/catalog/blocks/code-particle-assemble.png"
+      }
+    },
+    {
+      "name": "streaming-text",
+      "type": "component",
+      "title": "Streaming Text",
+      "description": "Words arrive the way an AI answer streams - in uneven bursts on a measured token rhythm, each word landing grey and inking to full colour - rather than the even tick of a typewriter",
+      "tags": [
+        "video-primitive",
+        "text-effect",
+        "ai",
+        "chat"
+      ]
+    },
+    {
+      "name": "ui-focus-zoom",
+      "type": "component",
+      "title": "UI Focus Zoom",
+      "description": "A full app surface establishes with one settle, then the camera zooms and pans to an anchored region on its cue and holds the zoomed state, with an optional soft focus halo at the anchor. The surface is a slot with a token-styled skeleton default.",
+      "tags": [
+        "camera",
+        "product-demo",
+        "zoom",
+        "focus",
+        "pan",
+        "slot",
+        "servo"
+      ]
+    },
+    {
+      "name": "browser-device-stage",
+      "type": "component",
+      "title": "Browser Device Stage",
+      "description": "A generic app surface in token-native device chrome (browser, window, or phone). The screen is a slot for caller img/video/HTML with a token-styled skeleton default; one settle entrance, a readable hold, and an optional screen swap.",
+      "tags": [
+        "stage",
+        "product-demo",
+        "device",
+        "browser",
+        "phone",
+        "slot",
+        "chrome"
+      ]
+    },
+    {
+      "name": "before-after-wipe",
+      "type": "component",
+      "title": "Before After Wipe",
+      "description": "Two full-bleed content slots compare before and after states as a persistent divider wipes the after layer over the before layer and rests at a configurable split. Callers fill the named before/after slot panels; token-styled defaults render when a slot is left empty.",
+      "tags": [
+        "prop",
+        "ui-props",
+        "compare",
+        "comparison",
+        "split-screen",
+        "holdable",
+        "before-after",
+        "wipe",
+        "slots"
+      ]
+    },
+    {
+      "name": "ai-chat-reveal",
+      "type": "block",
+      "title": "AI Chat Reveal",
+      "description": "A question is typed on a rising keyboard, sent, and answered by an AI that streams its reply word by word on a measured token rhythm - thinking dot, uneven bursts, bulleted list - before the app cuts to a branded closing card",
+      "tags": [
+        "showcase",
+        "mock-ui",
+        "ai",
+        "chat",
+        "vertical",
+        "ad-template"
+      ],
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "duration": 19.3333,
+      "preview": {
+        "video": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/ai-chat-reveal/preview.mp4",
+        "poster": "https://static.heygen.ai/hyperframes/templates/promoted/254fe4bd8a3f00c1e70ac5e38a1bce25060f7590/ai-chat-reveal/poster.jpg"
+      }
+    },
+    {
+      "name": "code-terminal-run",
+      "type": "component",
+      "title": "Code Terminal Run",
+      "description": "A token-chrome terminal panel runs one command: the prompt line types deterministically behind an integer-cycle caret, executes after a beat, and output lines print one per cue before a fresh prompt appears.",
+      "tags": [
+        "motion-primitive",
+        "product-demo",
+        "terminal",
+        "typing",
+        "deterministic"
+      ]
+    },
+    {
+      "name": "whiteboard-ink",
+      "type": "component",
+      "title": "Whiteboard Ink",
+      "description": "A whiteboard sketch draws one measured stroke at a time while a pen nib follows the active tip. Preset sketches (bulb, flow, rocket) or your own multi-stroke SVG paths via the strokes slot; a path marked data-ink=accent rides the accent token.",
+      "tags": [
+        "motion-primitive",
+        "intro",
+        "reveal",
+        "svg",
+        "whiteboard",
+        "line-draw",
+        "slot"
+      ]
+    },
+    {
+      "name": "morph-swap",
+      "type": "component",
+      "title": "Morph Swap",
+      "description": "Two slotted siblings stacked at one shared center: A holds, then condenses or reshapes into B on a shared 50% 50% transform origin. Condense shrink-fades A exactly as B scales up; reshape morphs the silhouette on scaleX/scaleY, never width or height tweens. Token card defaults render when a slot is left empty.",
+      "tags": [
+        "transition",
+        "morph",
+        "swap",
+        "condense",
+        "reshape",
+        "holdable",
+        "slots"
+      ]
+    },
+    {
+      "name": "screen-flow-carousel",
+      "type": "component",
+      "title": "Screen Flow Carousel",
+      "description": "Two to five app screens ride a horizontal rail: one primary at center, neighbors receded, advancing on cues with a velocity-matched throw and a smooth long-tail catch while a mono caption swaps with each advance. Screens are slots with token skeleton defaults.",
+      "tags": [
+        "product-demo",
+        "feature-tour",
+        "carousel",
+        "rail",
+        "slot",
+        "screens"
+      ]
+    },
+    {
+      "name": "stop-motion-cadence",
+      "type": "component",
+      "title": "Stop Motion Cadence",
+      "description": "The stepped-time law as a demo primitive: one driver quantizes timeline time to floor(t * fps) / fps and feeds ALL motion; four token paper-cut shapes throw-and-land with squash on hits, 2-frame boil jitter seeded per step, and sparkle accents living exactly 2 to 3 frames.",
+      "tags": [
+        "motion-primitive",
+        "time-law",
+        "stop-motion",
+        "stepped",
+        "boil",
+        "deterministic",
+        "experiment"
+      ]
+    },
+    {
+      "name": "split-tilt-cards",
+      "type": "component",
+      "title": "Split Tilt Cards",
+      "description": "Two equal-weight cards arrive from opposite wings with mirrored rotateY book-open tilts under one shared perspective, pill badges spring-pop at each inner edge, and the pair holds with a barely-there phase-opposed idle float. Card bodies are content slots with token skeleton defaults.",
+      "tags": [
+        "motion-primitive",
+        "layout",
+        "compare",
+        "holdable",
+        "book-open",
+        "tilt",
+        "slots"
+      ]
+    },
+    {
+      "name": "iris-reveal",
+      "type": "component",
+      "title": "Iris Reveal",
+      "description": "A circle clip-path opens from an authored origin revealing state B over state A in one confident pass, then holds on B. Classic register dims and desaturates the before state so the after state lands in full color; a thin accent rim rides the iris edge. Callers fill the named before/after slot panels; token-styled defaults render when a slot is left empty.",
+      "tags": [
+        "transition",
+        "iris",
+        "circle-reveal",
+        "clip-path",
+        "bridge",
+        "slots"
+      ]
+    },
+    {
+      "name": "whip-pan-cut",
+      "type": "component",
+      "title": "Whip Pan Cut",
+      "description": "A full-frame whip pan: scene A whips off laterally with capped directional motion blur while scene B enters in the same direction at matched velocity, on a speed-ramp profile with a decelerating catch. Both scenes ride one strip, so seam velocity is exact by construction. Callers fill the named before/after slot panels; token-styled defaults render when a slot is left empty.",
+      "tags": [
+        "transition",
+        "whip-pan",
+        "motion-blur",
+        "velocity-match",
+        "speed-ramp",
+        "bridge",
+        "slots"
+      ]
+    },
+    {
+      "name": "light-sweep-pass",
+      "type": "component",
+      "title": "Light Sweep Pass",
+      "description": "A traveling key light re-shades a slotted scene: a soft diagonal gradient band crosses the frame once while every per-element highlight and shadow shifts in lockstep (all driven by one --light-x property), then the light settles into a resting key. Quiet, expensive-feeling; the scene itself never moves. Callers fill the named scene slot; a token hero-and-cards default renders when it is left empty.",
+      "tags": [
+        "motion-primitive",
+        "overlay",
+        "light",
+        "sweep",
+        "slots",
+        "deterministic"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+/* 01 生效区: a ledge over the cards corner. It hangs from that corner's pane, so it moves with it. */
+.v01-shelf { position: absolute; left: 0; bottom: calc(100% + 1.1rem); display: flex; align-items: stretch; gap: 1.2rem; padding: 1.1rem 1.6rem 1rem 1.2rem; border-radius: 1rem; background: var(--panel); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.55), 0 0 0 0.4rem rgba(16, 12, 9, 0.6), 0 1.2rem 3rem rgba(0, 0, 0, 0.5); pointer-events: auto; }
+/* the label runs down the side, as a spine does */
+.v01-head { display: flex; flex-direction: column; align-items: center; gap: 0.7rem; padding-right: 1.1rem; border-right: 1px solid var(--line); }
+.v01-head .hud-lb { writing-mode: vertical-rl; font-size: 1.15rem; letter-spacing: 0.3em; }
+.v01-head .hud-num { font-size: 1.9rem; color: var(--gold); }
+.v01-row { display: flex; align-items: flex-start; gap: 1.1rem; min-width: 5.6rem; min-height: 9.5rem; }
+.v01-shelf.empty .v01-row::before { content: ''; width: 5.6rem; aspect-ratio: 5 / 7; border-radius: 0.3rem; outline: 1px dashed rgba(236, 223, 195, 0.35); outline-offset: -1px; background: rgba(18, 14, 11, 0.5); }
+.v01-shelf.empty .hud-num { color: var(--muted); }
+
+.v01-item { position: relative; display: grid; justify-items: center; gap: 0.55rem; width: 5.6rem; transition: transform 0.2s cubic-bezier(0.2, 0.85, 0.25, 1); }
+.v01-shelf.crowded .v01-row { gap: 0.5rem; }
+.v01-shelf.crowded .v01-name { max-width: 5.4rem; font-size: 0.92rem; }
+.v01-shelf.crowded .v01-seal { right: -0.45rem; }
+.v01-card { position: relative; --card-w: 5.6rem; width: var(--card-w); aspect-ratio: 5 / 7; border-radius: calc(var(--card-w) * 0.046); }
+.v01-card .slot { position: absolute; inset: 0; cursor: inherit; }
+.v01-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0.8cqw 3cqw rgba(0, 0, 0, 0.6); transition: box-shadow 0.2s; }
+.v01-name { max-width: 6.6rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 700 1rem/1.15 var(--han); letter-spacing: 0.03em; color: var(--text); }
+/* what ends it, as a small lacquer seal on the card's corner */
+.v01-seal { position: absolute; right: -0.75rem; top: 6.25rem; display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: radial-gradient(circle at 50% 24%, #3f3327, #15110d 78%); box-shadow: 0 0 0 1px var(--gold), 0 0.2rem 0.6rem rgba(0, 0, 0, 0.65); font-size: 1.2rem; color: var(--gold); }
+.v01-seal .pe-n { font-size: 1.25rem; color: var(--bright); }
+.v01-seal.tick { animation: v01-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v01-tick { 0% { transform: scale(1.9); box-shadow: 0 0 0 0.2rem var(--gold), 0 0 1.4rem var(--gold); } }
+
+.v01-item:hover { transform: translateY(-0.6rem); z-index: 2; }
+.v01-item:hover .tilt { box-shadow: 0 0 0 0.4cqw rgba(255, 247, 228, 0.9), 0 2cqw 7cqw rgba(0, 0, 0, 0.75); }
+.v01-item:hover .v01-name { color: var(--bright); }
+.v01-item.pe-new .tilt { animation: v01-new 2.2s ease-out; }
+@keyframes v01-new { 0%, 35% { box-shadow: 0 0 0 0.9cqw var(--gold), 0 0 12cqw rgba(240, 191, 74, 0.9); } }
+.v01-item.pe-fire { animation: v01-fire 1.5s cubic-bezier(0.3, 0.7, 0.3, 1); z-index: 2; }
+.v01-item.pe-fire .tilt { box-shadow: 0 0 0 0.9cqw var(--gold), 0 0 12cqw rgba(240, 191, 74, 0.9); }
+@keyframes v01-fire { 12% { transform: translateY(-1.3rem); } 26% { transform: translateY(0); } 36% { transform: translateY(-0.5rem); } 48%, 100% { transform: none; } }
+.v01-item.pe-ending .slot { filter: saturate(0.35) brightness(0.8); transition: filter 0.3s; }
+.v01-item .pe-stamp { top: 3.9rem; }
+.v01-item .pe-stamp b { font-size: 1.25rem; }

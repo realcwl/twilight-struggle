@@ -1,0 +1,10 @@
+node_modules/
+dist/
+assets/raw/
+assets/cache/
+.DS_Store
+*.log
+
+.wrangler/
+.dev.vars*
+.env*

@@ -1,0 +1,30 @@
+/* 06 Stamp and postmark */
+.yr-06 { width: 27.6rem; height: 13.8rem; border-radius: 0.25rem; background: linear-gradient(172deg, #efe5c9, #dccfab); box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.55); transform: rotate(-1.6deg); transform-origin: 0 0; --ink: #8f2f22; --pm: #1c2740; }
+.yr-06[data-era='middle'] { --ink: #1d5f6c; }
+.yr-06[data-era='late'] { --ink: #5b3a8a; }
+/* a sheet of holes; the solid middle laid over it leaves half-holes round the edge */
+.p6-stamp { position: absolute; left: 0.9rem; top: 0.9rem; width: 9.6rem; height: 12rem; padding: 0.4rem; --p: 0.8rem; background: radial-gradient(circle at center, transparent 0.21rem, #f2e9d0 0.23rem) calc(var(--p) / -2) calc(var(--p) / -2) / var(--p) var(--p); transform: rotate(-2.5deg); filter: drop-shadow(0 0.12rem 0.2rem rgba(0, 0, 0, 0.4)); }
+.yr-06.fresh .p6-stamp { animation: p6-lick 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2); }
+@keyframes p6-lick { from { transform: rotate(-9deg) translate(-0.6rem, -1.4rem) scale(1.08); opacity: 0; } }
+.p6-in { position: relative; height: 100%; padding: 0.5rem 0.55rem; background: linear-gradient(180deg, #f6eed8, #ece0c2); color: var(--ink); display: flex; flex-direction: column; transition: color 0.4s; }
+.p6-top { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 0.32rem; font: 900 1.05rem/1 var(--han); letter-spacing: 0.22em; }
+.p6-top span { font: 700 0.86rem/1 'Playfair Display', serif; letter-spacing: 0.04em; font-variant-numeric: lining-nums; }
+/* one ink on paper: the picture is the card's scene with everything dark turned into the era's colour */
+.p6-art { position: relative; flex: 1; outline: 1.5px solid var(--ink); outline-offset: -1px; background: #f6eed8; overflow: hidden; isolation: isolate; }
+.p6-art .yr-scene { position: absolute; inset: 0; filter: grayscale(1) contrast(1.2) brightness(1.08); }
+.p6-art::after { content: ''; position: absolute; inset: 0; background: var(--ink); mix-blend-mode: screen; transition: background 0.4s; }
+.p6-art::before { content: ''; position: absolute; inset: 0; z-index: 1; background: repeating-linear-gradient(180deg, rgba(246, 238, 216, 0.34) 0 1px, transparent 1px 0.22rem); }
+.p6-val { position: absolute; left: 0.85rem; bottom: 1.75rem; z-index: 2; font: 900 2.7rem/0.8 'Playfair Display', serif; font-variant-numeric: lining-nums; color: #f6eed8; -webkit-text-stroke: 0.09rem var(--ink); paint-order: stroke fill; text-shadow: 0.08rem 0.08rem 0 var(--ink); }
+.p6-bot { padding-top: 0.36rem; overflow: hidden; font: 900 0.98rem/1 var(--han); letter-spacing: 0.14em; text-align: right; white-space: nowrap; text-overflow: ellipsis; }
+.p6-mark { position: absolute; left: 7.4rem; top: 1.5rem; width: 19.6rem; overflow: visible; transform: rotate(-7deg); mix-blend-mode: multiply; }
+.p6-ring { fill: none; stroke: var(--pm); stroke-width: 2.2; opacity: 0.86; }
+.p6-ring.thin { stroke-width: 0.9; }
+.p6-arc { font: 900 8.6px var(--han); letter-spacing: 1.2px; fill: var(--pm); text-anchor: middle; opacity: 0.9; }
+.p6-year { font: 900 21px 'Playfair Display', serif; font-variant-numeric: lining-nums; fill: var(--pm); text-anchor: middle; }
+.p6-sub { font: 700 8px 'Playfair Display', serif; font-variant-numeric: lining-nums; letter-spacing: 1px; fill: var(--pm); text-anchor: middle; opacity: 0.85; }
+.p6-w { fill: none; stroke: var(--pm); stroke-width: 2; stroke-linecap: round; opacity: 0.16; transition: opacity 0.4s; }
+.p6-w.done { opacity: 0.6; }
+.p6-w.now { opacity: 0.95; }
+.p6-phase { position: absolute; right: 1rem; bottom: 0.75rem; font: 900 1.15rem/1 var(--han); letter-spacing: 0.1em; white-space: nowrap; }
+.p6-phase.a { color: #1d4f9c; }
+.p6-phase.b { color: #b3261e; }

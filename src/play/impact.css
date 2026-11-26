@@ -1,0 +1,23 @@
+/* The moments that land (impact.ts): a plinth set down hard, a number broken to pieces, a die firing
+   on what it beat. Everything is drawn in one layer of its own on top of the play stage. */
+.play > .im-layer { position: absolute; inset: 0; z-index: 96; overflow: hidden; pointer-events: none; }
+.im-layer > canvas, .im-layer > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.im-layer > svg { overflow: visible; }
+.im-at { position: absolute; box-sizing: border-box; }
+.im-flash { position: absolute; inset: 0; opacity: 0; }
+.im-ring { border-radius: 50%; }
+/* a stand-in for one cell of a token, exactly where the real one is */
+.im-chip { overflow: hidden; text-align: center; color: #fff; font-family: MapDisplay, MapText, 'Songti SC', serif; font-weight: 800; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45); }
+.im-ball { border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8a8a8a, #151515 70%); box-shadow: 0 0 1.6rem #ff9a3d, 0 0 0.4rem #fff; }
+
+/* while a plinth is being set down, or broken, it does not also fade in or out by itself */
+.wm-plate.im-set .wm-plinth { transition: none !important; }
+
+/* dice: the points that are added come in one at a time */
+.play .sp-dice.is-counting .sp-total { opacity: 1; }
+.play .sp-dice.is-counting .sp-mods > span { opacity: 0.32; transition: opacity 0.12s; }
+.play .sp-dice.is-counting .sp-mods > span.on { opacity: 1; }
+.play .sp-math.is-building .sp-term { opacity: 0; }
+.play .sp-math.is-building .sp-term.on { opacity: 1; }
+/* what the winning die fired on */
+.play .sp-math b.bar.is-beaten { opacity: 0.3; text-decoration: line-through; }

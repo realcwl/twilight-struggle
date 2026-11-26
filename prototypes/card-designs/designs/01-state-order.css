@@ -1,0 +1,44 @@
+/* 01 State Order */
+.d01 .face {
+  background:
+    repeating-conic-gradient(from 0deg at 50% 50%, rgba(255, 225, 190, 0.075) 0 1.5deg, rgba(0, 0, 0, 0.11) 1.5deg 3deg),
+    radial-gradient(120% 85% at 50% 34%, #c8161f 0%, #930b15 46%, #4a040a 100%);
+}
+.d01 .front { background-position: 50% 30%; }
+.d01-gloss {
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0.13) 40%, rgba(255, 255, 255, 0.02) 47%, rgba(255, 255, 255, 0) 60%);
+  mix-blend-mode: screen;
+}
+.d01-engrave { font: 700 13.500px 'Cinzel', serif; letter-spacing: 3.2px; fill: #4b2c06; paint-order: stroke; stroke: rgba(255, 244, 190, 0.55); stroke-width: 0.8px; }
+.d01-title { font: 800 31px 'Cinzel', serif; letter-spacing: 4px; fill: #7c0d15; paint-order: stroke; stroke: rgba(255, 252, 240, 0.9); stroke-width: 1.4px; }
+.d01-title .cap { font-size: 40px; }
+.d01-foot { font: 700 12.500px 'Cinzel', serif; letter-spacing: 2.6px; fill: #f2d588; }
+.d01-value { font: 900 46px 'Cinzel', serif; fill: #fff6d6; paint-order: stroke; stroke: #4a0307; stroke-width: 2.2px; }
+.d01-text {
+  left: 13.500cqw;
+  right: 13.500cqw;
+  top: 95.500cqw;
+  height: 28.500cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5cqw;
+  text-align: center;
+  color: #35140f;
+  z-index: 2;
+}
+.d01-text p { margin: 0; }
+.d01-text .rules { font: 500 4.800cqw/1.2 'EB Garamond', serif; text-wrap: balance; }
+.d01-text .rules b { font-weight: 800; color: #8a0f17; }
+.d01-text .note { font: italic 500 3.500cqw/1.2 'EB Garamond', serif; color: #8a0f17; }
+.d01-text .note::before {
+  content: '';
+  display: block;
+  width: 26cqw;
+  height: 0.3cqw;
+  margin: 0 auto 1.3cqw;
+  background: linear-gradient(90deg, transparent, #b9912f 25%, #b9912f 75%, transparent);
+}

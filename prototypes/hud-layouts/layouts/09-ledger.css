@@ -1,0 +1,21 @@
+/* 09 Ledger: the hand is a written list in a column on the right */
+/* the column is solid and full height, so the map stops where it starts */
+#game[data-layout='09'] { --map-r: 26rem; --info-rx: 27.6rem; }
+.L09 .col { position: absolute; inset: 0 0 0 auto; width: 26rem; display: flex; flex-direction: column; border-radius: 0; background: linear-gradient(270deg, rgba(34, 27, 20, 0.97), rgba(22, 17, 13, 0.95)); box-shadow: -1px 0 0 rgba(240, 191, 74, 0.55), -1rem 0 2.4rem rgba(0, 0, 0, 0.45); }
+.L09 .col > * { padding: 1.3rem 1.6rem; }
+.L09 .col > * + * { border-top: 1px solid var(--line); }
+.L09 header { display: grid; justify-items: start; gap: 1rem; }
+.L09 header .w-phase { padding: 0; background: none; box-shadow: none; }
+.L09 header .w-phase b { color: var(--cl); }
+.L09 .stats { display: grid; gap: 1rem; }
+.L09 .stats > .f-chip { display: flex; }
+.L09 .stats > .f-chip .lb { margin-right: auto; }
+.L09 .stats .f-bar { font-size: 0.9rem; margin: -0.2rem 0 0.3rem; }
+.L09 .cards { flex: 1; min-height: 0; }
+.L09 .cards .cap { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 0.9rem; }
+.L09 .cards .hint { font: 400 1rem/1 var(--han); color: var(--muted); }
+.L09 footer { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.2rem; }
+.L09 footer .f-chip { display: flex; }
+.L09 footer .f-chip .lb { margin-right: auto; font-size: 1.05em; letter-spacing: 0.06em; }
+.L09 footer .num { font-size: 1.4em; }
+.L09 .table { position: absolute; right: 28rem; bottom: 2.2rem; --card-w: 10em; }

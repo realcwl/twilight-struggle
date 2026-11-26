@@ -1,0 +1,9 @@
+/* V2 03 Foundry */
+.e03 .face { background: #8f1a14; }
+.e03 .face.back { background: #2f353a; }
+.e03 .k-title { font-size: 45px; letter-spacing: 2px; fill: #17130f; }
+.e03 .k-title.lit { fill: rgba(255, 255, 255, 0.6); }
+.e03 .k-type { fill: #f3e9cc; }
+.e03 .k-type.hot { fill: #fff6dc; }
+.e03 .txt { left: 13cqw; right: 13cqw; top: 94.6cqw; height: 29.6cqw; }
+.e03 .txt .rules { font-size: 4.7cqw; }

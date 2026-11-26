@@ -1,0 +1,70 @@
+/* the explanation pane is one of the sheets */
+@import url('../ui/sheet.css');
+.term-influence{--term:#08635f;--term-wash:#08635f12;--term-light:#91ddc8}
+.term-conflict{--term:#9b3529;--term-wash:#9b352912;--term-light:#f7ad98}
+.term-scoring{--term:#80520d;--term-wash:#80520d12;--term-light:#ead18b}
+.term-timing{--term:#754095;--term-wash:#75409512;--term-light:#d2aff1}
+.term-cards{--term:#235e94;--term-wash:#235e9412;--term-light:#a2c7ed}
+.game-term{color:var(--term,#08635f)!important;background:var(--term-wash,#08635f12)!important;font-weight:750!important;white-space:nowrap;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.game-term:is([data-term],[data-country-ref],[data-card-ref]){cursor:help;text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1px;text-underline-offset:.16em}
+.game-term:is([data-term],[data-country-ref],[data-card-ref]):focus-visible{outline:1px solid currentColor;outline-offset:2px}
+/* The explanation pane is a small sheet (src/ui/sheet.css): ivory, so its words keep the colours they have on the cards. */
+.term-help .game-term{padding:.06em .2em;font-weight:650!important}
+.term-key{display:inline-flex;gap:6px;align-items:center;font-size:11px;color:var(--term);white-space:nowrap}.term-key:before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+/* the short bar over the heading takes the colour of the word's group */
+.term-help{--sh-bar:var(--term,var(--sh-strong));position:fixed;inset:auto;margin:0;width:min(calc(420*var(--su)),calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:0;z-index:2147483000;font-size:calc(13.5*var(--su));line-height:1.7;overscroll-behavior:contain}
+.term-help[hidden]{display:none!important}
+.term-help::backdrop{pointer-events:none;background:transparent}
+.term-help header{display:flex;justify-content:space-between;align-items:flex-start;gap:calc(12*var(--su));padding:var(--sh-pad) var(--sh-pad) calc(14*var(--su))}
+/* the sheet's way out (.sheet-x), written out here: tools/card-history-browser.mjs looks for a button whose class is exactly th-close */
+.term-help .th-close{flex:none;display:grid;place-items:center;width:calc(30*var(--su));height:calc(30*var(--su));margin:calc(-7*var(--su)) calc(-7*var(--su)) 0 0;padding:0;border:0;border-radius:0;background:none;color:var(--sh-strong);font:300 calc(26*var(--su))/1 -apple-system,'Helvetica Neue',Arial,sans-serif;cursor:pointer;transition:color .15s}
+.term-help .th-close:hover{color:var(--sh-accent)}
+/* the demonstration is a picture mounted on the sheet */
+.term-help .th-media{position:relative;aspect-ratio:16/9;margin:0 var(--sh-pad);background:#101822;box-shadow:0 0 0 1px var(--sh-line)}
+.term-help video{display:block;width:100%;height:100%;object-fit:contain}
+.term-help .th-play{position:absolute;right:8px;bottom:8px;padding:3px 9px;border:1px solid #ffffff30;border-radius:2px;background:#101822dd;color:#eef2f5;font:inherit;font-size:calc(10.5*var(--su));letter-spacing:.1em;cursor:pointer}
+.term-help .th-body{padding:calc(14*var(--su)) var(--sh-pad) calc(18*var(--su))}
+.term-help p{margin:0 0 calc(10*var(--su));color:var(--sh-ink)}
+.term-help .th-example{padding-left:calc(14*var(--su));font-size:calc(12.5*var(--su));color:var(--sh-muted);box-shadow:inset 2px 0 0 var(--term,var(--sh-accent))}
+.term-help footer{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:calc(14*var(--su));font-size:calc(11*var(--su));letter-spacing:.06em;color:var(--sh-muted)}
+@media(prefers-reduced-motion:reduce){.term-help{scroll-behavior:auto}}
+
+.game-ref[aria-expanded="true"]{background:color-mix(in srgb,var(--term) 18%,transparent)!important}
+.term-help .th-reference{padding:0 var(--sh-pad) var(--sh-pad)}
+.term-help .th-reference[hidden],.term-help .th-body[hidden],.term-help .th-media[hidden]{display:none}
+.th-card-help{width:min(calc(344*var(--su)),calc(100vw - 24px))}
+.th-reference .ts-card-slot{--card-w:100%;width:100%}
+.term-help .game-card .game-term{color:var(--term)!important;background:var(--term-wash)!important;padding:0;font-weight:750!important}
+.term-help .game-card .rules-copy p{color:inherit}
+.term-help .game-card .rules-copy .card-note{color:#655a43}
+.th-country-meta,.th-influence{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.th-country-meta{color:var(--sh-muted);border-top:1px solid var(--sh-line);border-bottom:1px solid var(--sh-line);padding:calc(10*var(--su)) 0}
+.th-country-meta b{font:800 calc(20*var(--su))/1 var(--sh-display);margin-left:8px;color:var(--sh-strong)}
+.th-influence{margin:14px 0}
+.th-influence>span{display:flex;align-items:center;gap:18px}
+.th-influence b{font:800 calc(32*var(--su))/1.1 var(--sh-display)}
+.th-influence .a{color:var(--sh-a)}.th-influence .b{color:var(--sh-b)}
+.th-reference .th-control{margin:0;font-weight:600;letter-spacing:.08em;color:var(--sh-strong)}
+.th-reference .th-map-hint{margin:calc(12*var(--su)) 0 0;font-size:calc(11*var(--su));letter-spacing:.06em;color:var(--sh-muted)}
+
+/* Titles keep the card's typography; only the help cursor reveals the extra layer. */
+.card-history-trigger{cursor:help;color:inherit;background:none;border:0}
+.card-history-trigger:focus-visible{outline:1px dotted #d8c399;outline-offset:3px}
+.hud .hd-card.is-up [data-card-history]{pointer-events:auto}
+.th-history-help header{position:sticky;top:0;z-index:1;background:var(--sh-paper)}
+.th-history-help .th-reference{padding:0}
+.th-history-prose{padding:calc(4*var(--su)) var(--sh-pad) var(--sh-pad);font-size:calc(14*var(--su));line-height:1.85;letter-spacing:.015em}
+.term-help .th-history-lead{color:var(--sh-strong);font:600 calc(16.5*var(--su))/1.6 var(--sh-display);letter-spacing:.02em;margin-bottom:calc(14*var(--su))}
+.th-history-prose>p{margin-bottom:14px}
+.th-history-photo{margin:0 var(--sh-pad) calc(14*var(--su));}
+.th-history-photo img{display:block;width:100%;height:auto;max-height:calc(210*var(--su));object-fit:contain;background:rgba(20,19,16,.06);box-shadow:0 0 0 1px var(--sh-line)}
+.th-history-photo figcaption{padding:calc(8*var(--su)) 0 0;color:var(--sh-muted);font-size:calc(11*var(--su));line-height:1.5}
+.th-history-photo small{display:block;margin-top:4px;font-size:10px}
+.th-history-photo a,.th-history-sources a{color:inherit;text-decoration-thickness:1px}
+.th-history-sources{border-top:1px solid var(--sh-line);margin-top:calc(18*var(--su));padding-top:calc(10*var(--su));font-size:calc(11*var(--su));line-height:1.6;color:var(--sh-muted)}
+.th-history-sources summary{cursor:pointer;width:fit-content}
+.th-history-sources ul{padding-left:16px;margin:8px 0 0}.th-history-sources li+li{margin-top:6px}
+.th-history-loading{padding:0 var(--sh-pad) var(--sh-pad)}
+
+.term-help .has-local-captions .th-play{top:3px;bottom:auto;right:4px;padding:2px 5px;font-size:10px}
+.term-help .help-video-title{padding-right:75px}

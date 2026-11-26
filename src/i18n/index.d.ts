@@ -1,0 +1,11 @@
+export type Language = 'zh' | 'en' | 'es';
+export const LANGUAGES: readonly {id:Language;tag:string;label:string}[];
+export function normalizeLanguage(value:unknown):Language;
+export function getLanguage():Language;
+export function setLanguage(value:unknown):Language;
+export function t(source:unknown,values?:readonly unknown[],locale?:Language):string;
+export function text(value:string,locale?:Language):string;
+export function markup(source:string,values?:readonly unknown[],locale?:Language):string;
+export function localized(value:Partial<Record<Language,string>>,locale?:Language):string;
+export function withLocales<T>(value:T):T;
+export function translateDictionary<T>(value:T,locale:Language):T;

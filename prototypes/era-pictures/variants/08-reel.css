@@ -1,0 +1,33 @@
+/* 08 Reel: the game's own turn wheel, with pictures where its ten gold segments were */
+.ep-host[data-ep='08'] { padding: 1.2rem 1.9rem 1.2rem 1.3rem; }
+.ep-08 { display: flex; align-items: center; gap: 1.9rem; --d: 12.8rem; --R: 5.02rem; }
+
+.r8-disc { position: relative; flex: none; width: var(--d); height: var(--d); }
+/* a dark disc with fine grooves, like pressed card */
+.r8-wheel { position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, #1d1711 0 0.07rem, #15100c 0.07rem 0.2rem); box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.35), inset 0 0 1.4rem rgba(0, 0, 0, 0.7), 0 0.5rem 1.3rem rgba(0, 0, 0, 0.6); transform: rotate(calc(var(--i, 0) * -36deg)); transition: transform 0.95s cubic-bezier(0.5, 0, 0.15, 1.15); }
+.r8-arcs { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; stroke: rgba(236, 223, 195, 0.2); stroke-width: 1; stroke-linecap: round; }
+.r8-arcs path.now { stroke: var(--gold); filter: drop-shadow(0 0 1px rgba(240, 191, 74, 0.9)); }
+/* a picture chip: a small window in the disc */
+.r8-c { position: absolute; left: 50%; top: 50%; width: 2.5rem; height: 1.9rem; margin: -0.95rem 0 0 -1.25rem; border-radius: 0.24rem; overflow: hidden; background: #050403; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 0.12rem rgba(236, 223, 195, 0.18); transform: rotate(calc(var(--k) * 36deg)) translateY(calc(var(--R) * -1)); }
+.r8-c .ep-pic { position: absolute; inset: 0; transition: filter 0.7s; }
+.r8-c.done .ep-pic { --state: brightness(0.5); }
+.r8-c.todo .ep-pic { --state: brightness(0.1); }
+.r8-c.now { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 0.16rem var(--gold), 0 0 0.9rem rgba(240, 191, 74, 0.7); }
+.r8-c b { position: absolute; left: 0; right: 0; bottom: 0.08rem; text-align: center; font: 600 0.68rem/1 'Oswald', sans-serif; color: #fff; text-shadow: 0 1px 2px #000, 0 0 3px #000; opacity: 0; }
+.r8-c.todo b { opacity: 0.5; }
+
+/* the window in the middle: the current picture behind a round glass */
+.r8-eye { position: absolute; left: 50%; top: 50%; width: 6.3rem; height: 6.3rem; margin: -3.15rem 0 0 -3.15rem; border-radius: 50%; overflow: hidden; background: #050403; box-shadow: 0 0 0 0.14rem #17110c, 0 0 0 0.3rem #b98a2a, 0 0 0 0.36rem #f3d98a, 0 0 0 0.44rem #6b4d1c, 0 0.3rem 1rem rgba(0, 0, 0, 0.7); }
+.r8-eye .ep-pic { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s; background-size: auto 122%; }
+.r8-eye .ep-pic.on { opacity: 1; }
+.r8-eye i { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(90% 70% at 32% 20%, rgba(255, 255, 255, 0.28), transparent 46%); box-shadow: inset 0 0 1.1rem rgba(0, 0, 0, 0.75); }
+/* the fixed pointer at twelve o'clock */
+.r8-mark { position: absolute; left: 50%; top: -0.62rem; width: 0; height: 0; margin-left: -0.5rem; border: 0.5rem solid transparent; border-top: 0.72rem solid var(--gold); filter: drop-shadow(0 0 0.4rem rgba(240, 191, 74, 0.8)); }
+
+.r8-side { display: grid; gap: 1.15rem; min-width: 14.4rem; }
+.r8-ph { display: grid; gap: 0.55rem; }
+.r8-ph .ep-head { font-size: 1.7rem; }
+.r8-ph .ep-hint { font-size: 1.15rem; }
+.r8-yr { display: flex; align-items: center; gap: 1.1rem; }
+.r8-yr > div { display: grid; gap: 0.5rem; }
+.r8-rd { display: flex; align-items: center; gap: 0.8rem; height: 1.3rem; }

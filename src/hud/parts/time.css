@@ -1,0 +1,57 @@
+/* The selected 07 long-scroll prototype. Only the rollers have been simplified. */
+.hud .hud-tl:not(.ep-host):has(> .ts) { display:block; width:39.4rem; max-width:calc(100vw - 3.2rem); padding:.9rem .9rem 1.1rem; }
+.ts { --pitch:12.4rem; --over:2rem; --ph:7.4rem; --x:0; width:100%; font:400 1.2rem/1.2 var(--han); }
+.ts:focus-visible { outline:1px solid var(--gold); outline-offset:.45rem; border-radius:.3rem; }
+.ts-window { position:relative; height:calc(var(--ph) + 1.6rem); border-radius:.35rem; background:#0a0807; box-shadow:0 0 0 1px #ecdfc324; overflow:hidden; }
+.ts-roll { position:absolute; left:50%; top:0; bottom:0; width:calc(var(--turns,10) * var(--pitch)); transform:translateX(calc(var(--x) * var(--pitch) * -1)); transition:transform 1s cubic-bezier(.4,0,.2,1); background:linear-gradient(#17110b,#0e0a07); }
+.ts-scene { position:absolute; left:calc(var(--k) * var(--pitch) - var(--over)); top:0; width:calc(var(--pitch) + 2 * var(--over)); height:var(--ph); mask-image:linear-gradient(90deg,transparent,#000 calc(2 * var(--over)),#000 calc(100% - 2 * var(--over)),transparent); }
+.ts-pic { display:block; width:100%; height:100%; background:#0b0908 var(--at,50% 50%)/cover no-repeat; filter:var(--grade,saturate(1)) var(--state,brightness(1)); transition:filter .9s; }
+.ts-pic.g-bw { --grade:grayscale(1) contrast(1.12) brightness(1.04); }
+.ts-pic.g-fade { --grade:saturate(.62) sepia(.2) contrast(.96) brightness(1.03); }
+.ts-pic.g-full { --grade:saturate(1.08) contrast(1.02); }
+.ts-scene.done .ts-pic { --state:brightness(.62) sepia(.25); }
+.ts-scene.todo .ts-pic { --state:brightness(.14) saturate(.4); }
+.ts-rule { position:absolute; left:0; right:0; bottom:0; height:1.6rem; background:linear-gradient(#2c2115,#1a130c); box-shadow:inset 0 1px #f0bf4a66; }
+.ts-rule>span { position:absolute; left:calc(var(--k) * var(--pitch)); top:0; bottom:0; width:var(--pitch); border-left:1px solid #f0bf4abf; }
+.ts-rule b { position:absolute; left:.34rem; bottom:.2rem; font:600 .84rem/1 Oswald,sans-serif; letter-spacing:.08em; color:#ecdfc3cc; }
+.ts-rule em { display:flex; width:100%; }
+.ts-rule i { flex:1; height:.4rem; border-right:1px solid #ecdfc359; }
+.ts-rule i:last-child { border-right:0; }
+.ts-index { position:absolute; left:50%; top:0; bottom:0; width:2px; margin-left:-1px; background:var(--gold); box-shadow:0 0 .9rem .1rem #f0bf4abf; pointer-events:none; }
+.ts-index::before,.ts-index::after { content:''; position:absolute; left:50%; width:.7rem; height:.7rem; margin-left:-.35rem; background:var(--gold); transform:rotate(45deg); }
+.ts-index::before { top:-.4rem; }.ts-index::after { bottom:-.4rem; }
+/* Constant slim matte-gold end bars: no large cylinder, caps or growing spool. */
+.ts-rod { position:absolute; top:0; bottom:0; width:.42rem; background:linear-gradient(90deg,#604b2c,#a68c54 50%,#78613b); pointer-events:none; }
+.ts-rod.l { left:0; box-shadow:2px 0 6px #0009; }.ts-rod.r { right:0; box-shadow:-2px 0 6px #0009; }
+.ts-caption { display:flex; align-items:center; gap:1.15rem; margin-top:1rem; padding:0 .35rem; }
+.ts-year { flex:none; font:800 3.3rem/.86 var(--num); font-variant-numeric:tabular-nums; color:var(--bright); }
+.ts-middle { flex:none; display:grid; gap:.7rem; }
+.ts-meta { display:flex; align-items:baseline; gap:.8rem; white-space:nowrap; font:700 1.15rem/1 var(--han); }
+.ts-era { font:700 1.2rem/1 var(--han); letter-spacing:.18em; color:var(--gold); }
+.ts-turn { font:800 1.25em/1 var(--num); color:var(--bright); }.ts-meta i { font-family:var(--num); color:var(--muted); }
+.ts .rd { gap:.8rem; min-height:1.4rem; }.ts .rd .hud-lb { font:700 1.05rem/1 var(--han); letter-spacing:.14em; }
+.ts .rd-pips { gap:.4rem; }.ts .rd-pip { width:.82rem; height:.82rem; flex:none; }
+.ts .rd-pip.now { width:1.25rem; height:1.25rem; box-shadow:0 0 0 .14rem var(--bright),0 0 .8rem var(--c); }
+.ts .rd-pip b,.ts .rd-pip.now b { display:none; }
+.ts .ph { min-width:0; margin-left:auto; align-items:flex-end; text-align:right; gap:.6rem; }
+.ts .ph b { font:900 1.5rem/1.2 var(--han); letter-spacing:.08em; white-space:normal; }
+.ts .ph span { font:400 1.05rem/1.3 var(--han); white-space:normal; text-wrap:pretty; }
+.ts[data-phase='headline'] .ph b,.ts[data-phase='cleanup'] .ph b { color:var(--gold); }
+.ts-snap .ts-roll,.ts-snap .ts-pic { transition:none; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts-caption { flex-wrap:wrap; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts .ph { flex:1 0 100%; flex-direction:row; justify-content:space-between; align-items:baseline; text-align:left; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts .ph b { font-size:1.35rem; white-space:nowrap; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts .ph span { text-align:right; font-size:1rem; }
+.ts-quote { display:flex; justify-content:center; align-items:baseline; gap:.45rem; margin:.95rem .35rem 0; padding-top:.65rem; border-top:1px solid #d4b76e1c; color:#c8b994; font:400 1.02rem/1.45 var(--han); }
+.ts-quote[hidden] { display:none; }
+.ts-quote q { min-width:0; white-space:nowrap; quotes:'“' '”'; }
+.ts-quote cite { flex:none; white-space:nowrap; color:#ac9c7c; font:inherit; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts-quote { display:block; text-align:center; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts-quote q { white-space:normal; }
+.hud:is([data-lang='en'],[data-lang='es']) .ts-quote cite { margin-left:.45rem; }
+@media(max-width:700px) {
+  /* Keep the opponent's count in the free corner beside the panorama. */
+  .hud:has(.ts) .op { left:auto; right:1.6rem; top:1.6rem; transform:none; }
+  .hud:has(.ts) .op-cards { display:none; }
+}
+@media(prefers-reduced-motion:reduce) { .ts-roll,.ts-pic,.ts .rd-pip { transition:none; } }

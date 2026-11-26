@@ -1,0 +1,23 @@
+/* 04 Front page */
+.yr-04 { width: 25rem; padding: 1rem 1.3rem 1.2rem; background: linear-gradient(175deg, #efe6cf, #ddd0b0); color: #1d1814; transform: rotate(-1.3deg); transform-origin: 0 0; box-shadow: 0.2rem 0.3rem 0 #c9bc9c, 0.4rem 0.6rem 0 #b3a685, 0 1.2rem 2.2rem rgba(0, 0, 0, 0.55); }
+.yr-04[data-era='late'] { background: linear-gradient(175deg, #f4f1e8, #e2ded2); }
+.n4-mast { display: flex; align-items: flex-end; justify-content: space-between; padding-bottom: 0.45rem; border-bottom: 0.3rem double #1d1814; }
+.n4-mast b { font: 900 2.7rem/1 var(--han); letter-spacing: 0.22em; }
+.n4-year { font: 900 3.2rem/0.85 'Playfair Display', serif; font-variant-numeric: lining-nums; letter-spacing: -0.01em; }
+.yr-04[data-era='late'] .n4-year { font: 700 3.3rem/0.85 'Oswald', sans-serif; color: #b3261e; }
+.n4-date { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.38rem 0; border-bottom: 1px solid #1d1814; font: 700 0.95rem/1 var(--han); letter-spacing: 0.1em; white-space: nowrap; }
+.n4-body { display: grid; grid-template-columns: 9.4rem 1fr; gap: 1rem; margin-top: 0.8rem; }
+.n4-body.fresh { animation: n4-in 0.5s ease-out; }
+@keyframes n4-in { from { opacity: 0; transform: translateY(0.4rem); } }
+/* a halftone plate: grey in the early and middle years, colour once the presses change */
+.n4-pic { position: relative; aspect-ratio: 1 / 0.86; outline: 1px solid #1d1814; overflow: hidden; }
+.n4-pic .yr-scene { position: absolute; inset: 0; filter: grayscale(1) contrast(1.25) brightness(1.05); }
+.yr-04[data-era='late'] .n4-pic .yr-scene { filter: saturate(0.85) contrast(1.05); }
+.n4-pic::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle, rgba(29, 24, 20, 0.5) 0.07rem, transparent 0.09rem) 0 0 / 0.26rem 0.26rem; mix-blend-mode: multiply; }
+.n4-kick { display: inline-block; padding: 0.2rem 0.5rem; background: #1d1814; color: #efe6cf; font: 700 0.95rem/1 var(--han); letter-spacing: 0.16em; }
+.yr-04[data-era='late'] .n4-kick { background: #b3261e; }
+.n4-text h3 { margin: 0.55rem 0 0.4rem; font: 900 2.05rem/1.12 var(--han); letter-spacing: 0.04em; text-wrap: balance; }
+.yr-04[data-era='late'] .n4-text h3 { font-family: 'PingFang SC', 'Heiti SC', sans-serif; letter-spacing: 0.02em; }
+.n4-by { margin: 0 0 0.55rem; font: 700 1rem/1.1 var(--han); letter-spacing: 0.08em; color: rgba(29, 24, 20, 0.7); }
+/* body copy nobody is meant to read */
+.n4-lines { display: block; height: 1.9rem; background: repeating-linear-gradient(180deg, rgba(29, 24, 20, 0.42) 0 0.14rem, transparent 0.14rem 0.5rem); mask: linear-gradient(90deg, #000 0 92%, transparent 92%); }

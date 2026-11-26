@@ -1,0 +1,188 @@
+/* Region identity prototype. Two parts: the treatments themselves (what would move into the game),
+   and the page chrome for switching between them (which would not). */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #14110f; }
+#map { position: fixed; inset: 0; }
+
+/* ================================================================ treatments on the node token
+   Each token carries data-region and --rc (its region colour), set by main.ts.
+   A treatment is on while the stage has its class: .ri-01 … .ri-05. */
+.wm-plate[data-region] {
+  /* the region colour deepened a little for a filled token */
+  --rcd: color-mix(in oklab, var(--rc) 84%, #0e0a07);
+  --ri-ink: #1a120b;
+}
+.ri-base, .ri-chip { display: none; }
+
+/* 04 has since been merged into the game: every token now carries a region cell of its own (.wm-mark
+   in src/map/map.css), and the other cells gave up some width for it. This page hides that cell and
+   puts the others back to their earlier widths, so 00 still shows the map as it was before the merge
+   and the ten treatments stay comparable. */
+.wm-stage .wm-mark { display: none; }
+.wm-stage .wm-stab { width: calc(24px - 10px * var(--k)); }
+.wm-stage .wm-inf { min-width: calc(29px - 16px * var(--k)); padding: 0 calc(3px - 2px * var(--k)); }
+
+/* ---- 01 铭牌底色: the token itself is the region colour; influence sits in it as two inset chips */
+.ri-01 .wm-plate[data-region] .wm-plate-body { background: var(--rcd); }
+.ri-01 .wm-plate[data-region] .wm-inf { color: rgba(20, 14, 9, 0.6); }
+.ri-01 .wm-plate[data-region] .wm-inf.on { color: #fff; box-shadow: inset 0 calc(3px - 1px * var(--k)) 0 var(--rcd), inset 0 calc(-3px + 1px * var(--k)) 0 var(--rcd); }
+
+/* ---- 02 彩色底座: a slab of region colour under the token, showing as a lip along its lower edge */
+.ri-02 .ri-base {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: calc(90px - 44px * var(--k));
+  height: calc(30px - 6px * var(--k));
+  transform: translate(-50%, -50%) scale(var(--s)) translateY(6px);
+  border-radius: calc(15px - 3px * var(--k)) calc(9px - 1px * var(--k)) calc(9px - 1px * var(--k)) calc(15px - 3px * var(--k));
+  background: linear-gradient(180deg, var(--rc) 55%, color-mix(in oklab, var(--rc) 78%, #000));
+  box-shadow: 0 0 0 1px rgba(20, 14, 9, 0.9), 0 3px 8px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.2s ease, height 0.2s ease;
+}
+.wm-plates.zooming .ri-base { transition: none; }
+
+/* ---- 03 稳定度徽章: the stability badge takes the region colour; a key country keeps a gold ring in it */
+.ri-03 .wm-plate[data-region] .wm-stab { background: var(--rc); color: var(--ri-ink); box-shadow: inset 0 0 0 1.5px rgba(20, 14, 9, 0.55); }
+.ri-03 .wm-plate.key[data-region] .wm-stab { box-shadow: inset 0 0 0 2.5px var(--gold), inset 0 0 0 3.5px rgba(20, 14, 9, 0.55); }
+
+/* ---- 04 大区字签: a cell at the token's right end. Up close it holds the region's character;
+   from far away it narrows to a sliver of colour. The influence cells give up a little width for it. */
+.ri-04 .wm-plate[data-region] .ri-chip {
+  display: block;
+  flex: none;
+  width: calc(17px - 12px * var(--k));
+  background: var(--rc);
+  color: var(--ri-ink);
+  text-align: center;
+  font-family: MapText, 'Songti SC', serif;
+  font-weight: 800;
+  font-size: calc(12px * (1 - var(--k)));
+  box-shadow: inset 1px 0 0 rgba(20, 14, 9, 0.55);
+  transition: width 0.2s ease, font-size 0.2s ease;
+}
+.ri-04 .wm-plate[data-region] .wm-inf { min-width: calc(24px - 11px * var(--k)); }
+.wm-plates.zooming .ri-chip { transition: none; }
+
+/* ---- 05 名签旗框: the name on a tag of region colour; the flag, which stands in for the name from
+   far away, framed in the same colour */
+.ri-05 .wm-plate[data-region] .wm-plate-name {
+  padding: 1px 7px 2px;
+  border-radius: 4px;
+  background: var(--rc);
+  color: var(--ri-ink);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 1.25px rgba(20, 14, 9, 0.9), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.ri-05 .wm-plate.named[data-region] .wm-plate-name,
+.ri-05 .wm-plate.expanded[data-region] .wm-plate-name { transform: translate(-50%, -100%) translateY(calc(-4px * var(--s) - var(--top))) scale(var(--s)); }
+.ri-05 .wm-plate[data-region] .wm-flag { box-shadow: 0 0 0 2.5px var(--rc), 0 0 0 3.5px rgba(20, 14, 9, 0.9), 0 1px 4px rgba(0, 0, 0, 0.6); }
+.ri-05 .wm-plate[data-region] .wm-flag::before { left: -6.5px; background: var(--rc); }
+
+/* with any treatment on, the info card of whatever is in focus carries its region's colour */
+.ri-on .wm-card { border-top: 3px solid var(--focus-rc, transparent); }
+
+/* ================================================================ page chrome */
+#ui {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  font: 13px/1.45 MapText, 'Songti SC', 'Noto Serif SC', serif;
+  color: #ecdfc3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ready #ui { opacity: 1; }
+#ui.bare .ri-bar, #ui.bare .ri-side { display: none; }
+#ui > * { pointer-events: auto; }
+:where(#ui) button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
+
+.ri-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 32px);
+  padding: 8px 10px 9px;
+  border-radius: 12px;
+  background: rgba(22, 17, 13, 0.93);
+  box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.22), 0 14px 40px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+}
+.ri-tabs { display: flex; gap: 4px; overflow-x: auto; }
+.ri-tabs button {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 66px;
+  padding: 4px 6px 5px;
+  border-radius: 7px;
+  color: rgba(236, 223, 195, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.12);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.ri-tabs button b { font: 800 15px/1.1 MapDisplay, serif; letter-spacing: 0.04em; }
+.ri-tabs button span { font-size: 12px; white-space: nowrap; }
+.ri-tabs button:hover { background: rgba(236, 223, 195, 0.08); color: #fff7e4; }
+.ri-tabs button.on { background: #f0bf4a; color: #241a12; box-shadow: none; }
+.ri-desc { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; max-width: 800px; margin: 8px 4px 0; }
+.ri-desc-name { font-size: 15px; font-weight: 800; color: #fff7e4; letter-spacing: 0.04em; }
+.ri-desc-where { padding: 0 7px; border-radius: 99px; font-size: 11.5px; color: #241a12; background: rgba(236, 223, 195, 0.85); }
+.ri-desc-blurb { flex-basis: 100%; color: rgba(236, 223, 195, 0.92); }
+.ri-desc-risk { flex-basis: 100%; color: rgba(236, 223, 195, 0.58); font-size: 12.5px; }
+.ri-tools { position: absolute; right: 12px; bottom: calc(100% + 8px); display: flex; align-items: center; gap: 8px; }
+.ri-check { display: flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 99px; background: rgba(22, 17, 13, 0.9); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.22); cursor: pointer; }
+.ri-check input { accent-color: #f0bf4a; margin: 0; }
+.ri-pill {
+  padding: 3px 11px;
+  border-radius: 99px;
+  background: rgba(22, 17, 13, 0.9);
+  box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.22);
+  white-space: nowrap;
+}
+.ri-pill:hover { background: rgba(60, 46, 33, 0.95); }
+
+/* top centre: the map's own info card takes whichever top corner is away from the pointer */
+.ri-side { position: absolute; left: 50%; top: 12px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ri-row { display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px; }
+.ri-hint { padding: 2px 9px; border-radius: 99px; font-size: 11.5px; color: rgba(236, 223, 195, 0.7); background: rgba(22, 17, 13, 0.7); }
+
+/* the legend: shown with every treatment, absent from the control */
+.ri-legend {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  padding: 9px 8px 8px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #281f17, #1b1510);
+  box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.28), 0 14px 40px rgba(0, 0, 0, 0.55);
+}
+#ui.ri-on .ri-legend { display: flex; }
+.ri-legend-h { margin: 0 6px 4px; font-size: 11.5px; letter-spacing: 0.14em; color: rgba(236, 223, 195, 0.6); }
+.ri-legend-row { display: flex; align-items: center; gap: 8px; padding: 3px 7px; border-radius: 6px; text-align: left; }
+.ri-legend-row:hover { background: rgba(236, 223, 195, 0.1); }
+.ri-swatch { flex: none; width: 15px; height: 15px; border-radius: 4px; background-color: var(--rc); box-shadow: inset 0 0 0 1px rgba(20, 14, 9, 0.5); }
+.ri-legend-letter { flex: none; width: 17px; height: 17px; border-radius: 4px; text-align: center; font-size: 12px; font-weight: 800; line-height: 17px; color: #1a120b; background: var(--rc); }
+.ri-legend-name { min-width: 3.4em; font-size: 14px; font-weight: 700; color: #fff7e4; }
+.ri-legend-n { margin-left: auto; font: 600 12px MapDisplay, serif; color: rgba(236, 223, 195, 0.55); }
+/* the letter only means something while 04 is on; the hatch only while 08 is */
+.ri-legend-letter { display: none; }
+#ui.ri-letter .ri-legend-letter { display: block; }
+#ui.ri-hatch .ri-swatch { background-color: #2a2018; }
+#ui.ri-hatch .ri-swatch.p1 { background-image: repeating-linear-gradient(180deg, var(--rc) 0 2px, transparent 2px 5px); }
+#ui.ri-hatch .ri-swatch.p2 { background-image: radial-gradient(circle, var(--rc) 1.5px, transparent 2px); background-size: 5px 5px; }
+#ui.ri-hatch .ri-swatch.p3 { background-image: repeating-linear-gradient(45deg, var(--rc) 0 2px, transparent 2px 5px); }
+#ui.ri-hatch .ri-swatch.p4 { background-image: repeating-linear-gradient(90deg, var(--rc) 0 2px, transparent 2px 5px); }
+#ui.ri-hatch .ri-swatch.p5 { background-image: repeating-linear-gradient(90deg, var(--rc) 0 1.5px, transparent 1.5px 7.5px), repeating-linear-gradient(180deg, var(--rc) 0 1.5px, transparent 1.5px 7.5px); }
+#ui.ri-hatch .ri-swatch.p6 { background-image: repeating-radial-gradient(circle at 50% -60%, transparent 0 3px, var(--rc) 3px 5px); }
+
+.ri-error { position: fixed; inset: auto 16px 16px 16px; margin: 0; padding: 12px 14px; border-radius: 8px; background: #3a1512; color: #ffd9d2; font: 13px/1.5 ui-monospace, monospace; white-space: pre-wrap; z-index: 99; }

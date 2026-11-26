@@ -1,0 +1,111 @@
+{
+  "ok": true,
+  "outputDir": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all",
+  "frames": [
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-00-at-5.6s.png",
+      "time": 5.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-01-at-11.6s.png",
+      "time": 11.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-02-at-17.6s.png",
+      "time": 17.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-03-at-23.6s.png",
+      "time": 23.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-04-at-29.6s.png",
+      "time": 29.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-05-at-35.6s.png",
+      "time": 35.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-06-at-41.6s.png",
+      "time": 41.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-07-at-47.6s.png",
+      "time": 47.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-08-at-51.1s.png",
+      "time": 51.1
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-09-at-53.6s.png",
+      "time": 53.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-10-at-59.6s.png",
+      "time": 59.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-11-at-65.6s.png",
+      "time": 65.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-12-at-71.6s.png",
+      "time": 71.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-13-at-77.6s.png",
+      "time": 77.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-14-at-83.6s.png",
+      "time": 83.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-15-at-89.6s.png",
+      "time": 89.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-16-at-95.6s.png",
+      "time": 95.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-17-at-101.6s.png",
+      "time": 101.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-18-at-107.6s.png",
+      "time": 107.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-19-at-113.6s.png",
+      "time": 113.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-20-at-119.6s.png",
+      "time": 119.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-21-at-125.6s.png",
+      "time": 125.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/frame-22-at-131.6s.png",
+      "time": 131.6
+    }
+  ],
+  "cleared": {
+    "count": 26,
+    "note": "cleared 26 stills from an earlier run in /Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all"
+  },
+  "contactSheets": [
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/contact-sheet-1.jpg",
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/contact-sheet-2.jpg",
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-all/contact-sheet-3.jpg"
+  ],
+  "_meta": {
+    "version": "0.9.51",
+    "updateAvailable": false
+  }
+}

@@ -1,0 +1,15 @@
+/* V2 10 Porcelain */
+.e10 .face { background: #f4f0e4; }
+.e10 .k-title { font-size: 54px; fill: #15110e; }
+.e10 .k-no { fill: #15110e; }
+.e10 .k-foot { fill: #8d6c1f; }
+.e10 .k-value { fill: #fffaf0; }
+.e10 .txt { left: 12cqw; right: 12cqw; top: 98.6cqw; height: 24.8cqw; text-align: center; }
+.e10 .txt .rules { text-wrap: balance; }
+/* glaze: a broad soft highlight and the usual band of light */
+.e10-gloss {
+  background:
+    radial-gradient(60% 34% at 28% 10%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 70%),
+    linear-gradient(118deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.35) 41%, rgba(255, 255, 255, 0.05) 47%, rgba(255, 255, 255, 0) 58%);
+  mix-blend-mode: soft-light;
+}

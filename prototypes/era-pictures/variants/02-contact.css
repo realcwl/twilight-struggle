@@ -1,0 +1,37 @@
+/* 02 Contact sheet: two strips printed on one sheet, the pick ringed in grease pencil and enlarged */
+.ep-host[data-ep='02'] { padding: 1.1rem 1.2rem 1.2rem; }
+.ep-02 { width: 36.4rem; --fw: 4.1rem; --fh: 2.75rem; --grease: #e2412f; }
+.c2-top { display: flex; align-items: center; gap: 1.2rem; }
+
+/* glossy black photographic paper */
+.c2-sheet { position: relative; flex: none; display: grid; gap: 0.5rem; padding: 0.6rem 0.6rem; border-radius: 0.2rem; background: linear-gradient(115deg, #17140f, #0a0908 40%, #14110d 62%, #080706); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.16), 0 0.5rem 1.2rem rgba(0, 0, 0, 0.55); }
+.c2-strip { display: flex; gap: 0.16rem; padding: 0.72rem 0.26rem 0.3rem; background: #000; border-radius: 0.1rem; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07); }
+.c2-f { position: relative; flex: none; width: var(--fw); height: var(--fh); }
+.c2-f .ep-pic { width: 100%; height: 100%; }
+.c2-f.todo .ep-pic { --state: brightness(0.05); }
+.c2-f.done .ep-pic { --state: brightness(0.72); }
+/* the film's own edge numbers, above each frame */
+.c2-f i { position: absolute; left: 0.1rem; top: -0.62rem; font: 600 0.55rem/1 'Share Tech Mono', ui-monospace, monospace; letter-spacing: 0.1em; color: #e5a23a; opacity: 0.85; }
+.c2-f i::after { content: '▸'; margin-left: 0.3em; font-size: 0.9em; }
+.c2-tick { position: absolute; right: 0.14rem; bottom: 0.12rem; width: 0.95rem; height: 0.95rem; fill: none; stroke: #f3e7c4; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: 0; filter: drop-shadow(0 0 1px #000); }
+.c2-f.done .c2-tick { opacity: 0.9; }
+.c2-ring { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; overflow: visible; fill: none; stroke: var(--grease); stroke-width: 3.2; stroke-linecap: round; vector-effect: non-scaling-stroke; transform: scale(1.3, 1.36) rotate(-3deg); filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.7)); pointer-events: none; }
+.c2-ring path { vector-effect: non-scaling-stroke; stroke-dasharray: 400; stroke-dashoffset: 0; }
+.c2-ring.draw path { animation: c2-draw 0.55s ease-out; }
+@keyframes c2-draw { from { stroke-dashoffset: 400; } }
+
+/* the enlargement: a print with a white border, lying a little askew */
+.c2-print { position: relative; flex: 1; padding: 0.4rem 0.4rem 1.35rem; background: linear-gradient(170deg, #f1ead8, #d9cfb6); border-radius: 0.1rem; box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(0, 0, 0, 0.4); transform: rotate(var(--tilt, 1deg)); transition: transform 0.5s; }
+.c2-print .ep-pic { width: 100%; aspect-ratio: 3 / 2; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35); }
+.c2-print em { position: absolute; left: 0.6rem; right: 0.6rem; bottom: 0.16rem; display: flex; justify-content: space-between; font: 400 1.02rem/1.1 'Kaiti SC', 'STKaiti', 'KaiTi', 'Songti SC', serif; color: #3a2a1c; }
+.c2-print.drop { animation: c2-drop 0.5s cubic-bezier(0.2, 0.7, 0.3, 1); }
+@keyframes c2-drop { from { transform: translateY(-1.2rem) rotate(calc(var(--tilt, 1deg) + 5deg)); opacity: 0; } }
+
+.c2-cap { display: flex; align-items: center; gap: 1.4rem; margin-top: 0.9rem; padding: 0 0.3rem; }
+.c2-mid { display: grid; gap: 0.6rem; }
+.c2-mid > div { display: flex; align-items: center; gap: 0.8rem; height: 1.6rem; }
+.c2-ph { display: grid; gap: 0.6rem; margin-left: auto; justify-items: end; }
+.c2-tally { flex: none; overflow: visible; fill: none; stroke-width: 2.4; stroke-linecap: round; }
+.c2-tally path { stroke: rgba(236, 223, 195, 0.2); }
+.c2-tally path.done { stroke: #efe2be; }
+.c2-tally path.now { stroke: var(--grease); filter: drop-shadow(0 0 0.3rem var(--grease)); }

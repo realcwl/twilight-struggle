@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AGI 争霸 · 规则草稿</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="top-l">
+    <b>AGI 争霸 2022–2030</b>
+    <span class="muted">暂名 · 规则草稿 <span id="ver"></span></span>
+  </div>
+  <div class="top-r" id="notebar"></div>
+</header>
+
+<div class="layout">
+
+<nav class="toc" id="toc">
+  <a href="#intro">开头</a>
+  <a href="#r0"><i>R0</i>核心玩法</a>
+  <a href="#r1"><i>R1</i>这一版改了什么</a>
+  <a href="#r2"><i>R2</i>学了什么</a>
+  <a href="#r3"><i>R3</i>节奏</a>
+  <a href="#r4"><i>R4</i>一回合怎么走</a>
+  <a href="#r5"><i>R5</i>一张牌的用法</a>
+  <a href="#r6"><i>R6</i>运气</a>
+  <a href="#r7"><i>R7</i>三条表</a>
+  <a href="#r8"><i>R8</i>基建与突破</a>
+  <a href="#r9"><i>R9</i>连锁</a>
+  <a href="#r10"><i>R10</i>地图</a>
+  <a href="#r11"><i>R11</i>记分</a>
+  <a href="#r12"><i>R12</i>卡牌与大势</a>
+  <a href="#r13"><i>R13</i>胜负</a>
+  <a href="#q"><i>Q</i>等你拍板</a>
+</nav>
+
+<main>
+
+<!-- ───────────── 开头 ───────────── -->
+<section id="intro">
+  <h1>AGI 争霸 2022–2030 <small>暂名</small></h1>
+  <p class="lead">两个人，一方美国、一方中国。从 2022 年打到 2030 年，一年一回合，共 9 回合。打事件牌抢市场，掷骰子修基建，一路捡「突破」拼出自己这一局的打法；同时被两条线勒着：<b>资本逼你花钱，电网不让你乱花</b>。</p>
+
+  <div class="facts">
+    <div><b>9</b><span>回合，一年一回合</span></div>
+    <div><b id="fact-cards">88</b><span>张事件牌</span></div>
+    <div><b>3</b><span>条基建线：算力、数据、人才</span></div>
+    <div><b id="fact-boons">26</b><span>张突破，升级时三选一</span></div>
+    <div><b id="fact-trends">10</b><span>张大势，每局翻 3 张</span></div>
+    <div><b>约一半</b><span>的出牌要掷骰</span></div>
+  </div>
+
+  <div class="callout">
+    <p><b>这一页只谈规则和卡牌，不是视觉稿。</b>数值都是先放着的，标了 <span class="tbd">待调</span>。</p>
+    <p><b>怎么改：</b>每条规则、每张牌都有编号（R6a、E07、算3、D02…）。在对话里报编号说怎么改就行；也可以点旁边的「批注」写在页面上，写完点右上角「复制全部批注」贴给我。需要你拍板的事集中在最后的 <a href="#q">Q</a>。</p>
+  </div>
+</section>
+
+<!-- ───────────── R0 核心玩法 ───────────── -->
+<section id="r0" data-note="R0" data-title="核心玩法">
+  <h2><i>R0</i>核心玩法，以及它和冷战热斗差在哪</h2>
+  <p class="lead">骨架是冷战热斗的：一张牌既是事件又是预算，对手的牌到了你手里也得打，在地图上争垄断，靠记分牌兑现。长在骨架上的新东西是三样：<b>到处要掷的骰子，能重掷的 GPU，一路三选一拼出来的打法</b>。</p>
+
+  <h3 class="sub" data-note="R0a" data-title="一句话到一张图"><i>R0a</i>你在这个游戏里做什么</h3>
+  <div class="coreflow">
+    <div><span>手里</span><b>事件牌，偶尔一张记分牌</b>每年 7–8 张，有自己的、对手的、中立的。</div>
+    <i>→</i>
+    <div><span>每轮打一张</span><b>当事件，或者当预算</b>预算三种花法：拓展（稳）、收购（掷骰）、基建（掷骰）。</div>
+    <i>→</i>
+    <div><span>攒三样东西</span><b>地盘、打法、余地</b>地盘是份额和垄断；打法是三条线的突破和常驻牌；余地是 GPU。</div>
+    <i>→</i>
+    <div><span>兑现</span><b>记分牌结算大区</b>存在、支配、控制。差额记进主导权，拉到 20 就赢。</div>
+  </div>
+  <div class="leashes">
+    <div><b>资本压力</b>每年必须花够钱（3 / 4 / 5），只有收购和基建算。花不够，对手拿分。</div>
+    <div><b>电力</b>大动作吃双方共用的电。谁的行动把电打到 0，谁直接输。</div>
+  </div>
+  <p class="fine center">上面一排是你想做的事，下面两条是勒着你的线：一条逼你出手，一条不让你乱出手。</p>
+
+  <h3 class="sub" data-note="R0b" data-title="每一轮在想什么"><i>R0b</i>每一轮你在想的六件事</h3>
+  <div class="think">
+    <div><b>这张牌怎么用</b>当事件，还是拿牌值去拓展、收购、修基建。</div>
+    <div><b>对手的牌怎么办</b>当预算打，它的事件照样发生。一年只有一次机会把它投进基建躲掉。</div>
+    <div><b>赌不赌</b>收购和基建都要掷骰。投大牌稳一点，投小牌省一点；GPU 是留着重掷，还是押上去。</div>
+    <div><b>修哪条线</b>算力、数据、人才，升级时三选一。拿到的突破决定这一局你靠什么赢。</div>
+    <div><b>钱花够了没有，电还剩多少</b>花钱的动作正好也是费电的动作。</div>
+    <div><b>记分牌哪一轮打</b>抽到的那一年必须打。早打趁自己领先，晚打等自己追上。</div>
+  </div>
+
+  <h3 class="sub" data-note="R0c" data-title="一年的样子"><i>R0c</i>一年的样子：2026 年，美国这一边</h3>
+  <p class="fine">用牌库里现成的牌走一遍。年初电力 4，美国有 2 个 GPU，今年的资本压力是 4。</p>
+  <ol class="beats">
+    <li><span>头条</span><b>GPT-5 发布（M05）</b>要掷两颗取低的：掷出 3 和 5，算 3，没翻车。任选一条线直接升 1 级：人才线到 2 级，翻出三张突破，留下「猎头」。这张牌带 ⚡，电力 4 → 3。</li>
+    <li><span>行动 1</span><b>手里有一张中国的牌：开源模型出海（M14）</b>当预算打，中国最多白拿 4 点份额。于是把它投进算力线：事件不发生。骰子 2 + 牌值 3 = 5，刚好过 1 级的门槛。升级耗电，电力 3 → 2。资本开支记 3。</li>
+    <li><span>行动 2</span><b>收购阿联酋</b>关键市场，重量级 2，这时美国 1 点、中国 2 点。用一张 3 值牌：第一颗掷出 2，只能清 1 点。交 1 个 GPU 重掷，掷出 5：5 + 3 − 4 = 4，清掉中国 2 点，自己加 2 点，美国垄断。「猎头」触发，从中国手里随机拿走一张牌。收购关键市场耗电，电力 2 → 1。资本开支到 6，今年达标。</li>
+    <li><span>对面</span><b>中国手里那张 ⚡ 牌打不出去了</b>电力只剩 1。谁再做一个耗电的动作，谁输。中国这一年剩下的轮次只能拓展，或者先找电。</li>
+    <li><span>行动 5</span><b>打出海湾记分</b>美国垄断阿联酋（关键）和以色列，中国一个都没有：美国支配，4 分，加关键市场 1 分。主导权向美国移 5 格。</li>
+  </ol>
+  <p class="fine">这一年里掷了三次骰子，用了一个 GPU，拿了一张突破，把电从 4 打到 1，而决定输赢的那 5 分来自一张记分牌。这就是想要的手感。</p>
+
+  <h3 class="sub" data-note="R0d" data-title="和冷战热斗一样的"><i>R0d</i>和冷战热斗一样的</h3>
+  <div class="two">
+    <div>
+      <p>骨架原样留着，会冷战热斗的人不用重学：</p>
+      <div class="moves same">
+        <span>两个人对打</span><span>一张牌两种用法</span><span>对手的事件照样触发</span><span>头条</span><span>轮流出牌的行动轮</span>
+        <span>记分牌，抽到当年必须打</span><span>存在 / 支配 / 控制</span><span>三个时代三副牌</span><span>拔河的分数条，到 20 赢</span>
+        <span>一条共用的危险表，打到底的人输</span><span>一条每年必须完成的指标</span><span>年终最多留一张牌</span>
+      </div>
+    </div>
+    <div>
+      <p>这几样换了名字，算法没变：</p>
+      <table class="grid namemap">
+        <thead><tr><th>冷战热斗</th><th>这里</th></tr></thead>
+        <tbody>
+          <tr><td>影响力</td><td>份额</td></tr>
+          <tr><td>稳定度</td><td>重量级</td></tr>
+          <tr><td>控制一个国家</td><td>垄断一个市场：份额差达到重量级</td></tr>
+          <tr><td>战场国</td><td>关键市场 ★</td></tr>
+          <tr><td>政变</td><td>收购：骰子 + 牌值 − 重量级 × 2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="sub" data-note="R0e" data-title="和冷战热斗不一样的"><i>R0e</i>和冷战热斗不一样的</h3>
+  <table class="grid diff">
+    <thead><tr><th style="width:9em"></th><th style="width:36%">冷战热斗</th><th>这里</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="3">多出来的</td></tr>
+      <tr><td>骰子</td><td>政变、调整阵营、太空竞赛和几张战争牌要掷。掷出什么就是什么。</td><td>收购、基建、四分之一的事件牌都要掷。全场一套规则：6 会爆，1 会砸。约一半的出牌要掷骰。</td></tr>
+      <tr><td>重掷</td><td>没有。</td><td><b>GPU</b>：交 1 个重掷一次。它是可以抢、可以卡、可以囤的资源，出口管制打的就是它。</td></tr>
+      <tr><td>你这一局的打法</td><td>双方的能力每局一样，差别来自抽到的牌。</td><td><b>突破</b>：基建每升一级，翻 3 张留 1 张，跟你一整局。26 张里每局只见到一部分。</td></tr>
+      <tr><td>留在场上的牌</td><td>少数事件留下一个标记，多半只管某张牌或某个国家。</td><td><b>常驻</b>：每方最多 3 张，一直生效。<b>环境</b>：全场 1 张，对双方生效，每个时代由一张大势开头。</td></tr>
+      <tr><td>牌与牌的关系</td><td>有些牌互相点名：这张取消那张，那张要求先发生这张。</td><td>不点名。牌只让通用的事情发生，或者等通用的事情（耗电、弃牌、掷出 6……），组合是打出来的。</td></tr>
+      <tr><td>牌面的小动作</td><td>有：比大小、被拖住、被迫表态。</td><td>更多，而且各不相同：暗标、扣下再赎、同时表态、预告跳票、欠账、掷到掷不出为止。</td></tr>
+
+      <tr class="grp"><td colspan="3">换掉的</td></tr>
+      <tr><td>太空竞赛 → 基建</td><td>一条赛道，弃牌掷骰前进，走到某格拿固定的奖励。是处理烂牌的出口，很少是主线。</td><td>三条线：算力、数据、人才。投牌掷骰，没过攒底子，能加注。升级给突破。终点是 AGI：三条线合起来的一次梭哈。它是主线之一。</td></tr>
+      <tr><td>军事行动 → 资本压力</td><td>基本只有政变算。要求跟着核战争等级走。</td><td>收购和基建都算，有些事件也给。要求跟着时代走：3 / 4 / 5。</td></tr>
+      <tr><td>核战争 → 电力</td><td>在战场国政变会让局势升级；越紧，能政变的大区越少；每回合缓和一级。</td><td>带 ⚡ 的事件、算力线升级、收购关键市场都耗电。不分大区，只有一个总数。每年恢复 1 点，可以修自备电。耗电从不看骰子。</td></tr>
+      <tr><td>地图</td><td>八十多个国家，一开局全部能进。</td><td>29 个市场，按时代开放：9 → 20 → 29。早期只在东亚和欧洲打。</td></tr>
+      <tr><td>先手</td><td>苏联每回合先手。</td><td>跟着时代换：早期美国，中期落后的一方，后期中国。</td></tr>
+      <tr><td>谁先强谁后强</td><td>苏联前期占优，美国后期占优。</td><td>美国早期略优，中国后期略优。差距故意做小。</td></tr>
+
+      <tr class="grp"><td colspan="3">拿掉的</td></tr>
+      <tr><td>调整阵营</td><td>有。</td><td>没有。让对手掉份额只有收购和事件牌两条路。</td></tr>
+      <tr><td>来回流转的特殊牌</td><td>有一张，用完交给对面。</td><td>没有。它的位置被 GPU 占了。</td></tr>
+      <tr><td>控制一个大区直接赢</td><td>有：记分时控制欧洲。</td><td>没有。多了一种收官的办法：掷成 AGI，当年年终提前结算。</td></tr>
+      <tr><td>长度</td><td>十回合；每回合 6 到 7 个行动轮。</td><td>九回合；每回合 5 / 6 / 6 个行动轮。每方整局大约少打十几张牌。</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub" data-note="R0f" data-title="只需要新学的"><i>R0f</i>会冷战热斗的人，只需要新学这六件事</h3>
+  <ol class="tight newsix">
+    <li><b>骰子</b>：6 再掷一颗加上去，1 直接失败。</li>
+    <li><b>GPU</b>：交 1 个，重掷一次。</li>
+    <li><b>基建</b>：三条线，投牌掷骰；升级时三张突破挑一张。</li>
+    <li><b>常驻、环境、大势</b>：留在场上一直生效的牌，各有张数上限。</li>
+    <li><b>资本压力</b>：收购和基建都算花钱，每年 3 / 4 / 5。</li>
+    <li><b>电力</b>：一个总数，不分大区；带 ⚡ 的动作各耗 1；到 0 的人输。</li>
+  </ol>
+  <p class="fine">别的都可以照老习惯打。少了两样：没有调整阵营，没有那张来回流转的牌。</p>
+</section>
+
+<!-- ───────────── R1 ───────────── -->
+<section id="r1" data-note="R1" data-title="这一版改了什么">
+  <h2><i>R1</i>这一版（v0.4）改了什么</h2>
+  <p>这一轮都是你定的：垄断和记分照原来的算法来，用记分牌；牌库的差距收小；资本压力抬高。我之前提的份额条和年度报告都撤掉了。</p>
+  <div class="changes c3">
+    <div><b>垄断按差额算</b><span>每个市场有一个重量级。份额比对手多出的数达到重量级，就是垄断。份额不再有上限。见 <a href="#r5a">R5a</a>。</span></div>
+    <div><b>大区记分三档</b><span>存在、支配、控制。见 <a href="#r11">R11</a>。</span></div>
+    <div><b>用记分牌</b><span>六张记分牌跟着大区的时代进牌堆，抽到的那一年必须打出。见 <a href="#r11">R11</a>。</span></div>
+    <div><b>牌库差距收到 1 张</b><span>早期美 11 / 中 10，后期美 8 / 中 9。为此新增了 E32、L25 两张牌。</span></div>
+    <div><b>资本压力 3 / 4 / 5</b><span>原来是 2 / 3 / 4。牌值最大是 4，所以后期一张牌付不清。见 <a href="#r7">R7b</a>。</span></div>
+    <div><b>跟着改的牌</b><span>23 张牌面从「格」改成「点份额」。E09、M06、L05、数7 原来依赖格子或年度报告，单独重写了。</span></div>
+  </div>
+
+  <details class="older">
+    <summary>v0.3 那一轮：基建改成三条线</summary>
+    <div class="changes c3">
+    <div><b>四条线并成三条</b><span>算力（芯片、数据中心、电都在里面）、数据（训练数据）、人才（核心科学家）。26 张突破重新分进三个池子。见 <a href="#r8">R8</a>。</span></div>
+    <div><b>三条线吃三样东西</b><span>掷骰前可以加注：算力线吃 GPU，数据线吃你垄断的市场，人才线吃手牌。GPU、地图、手牌都接到了基建上。</span></div>
+    <div><b>AGI 是三条线合起来的一掷</b><span>原来它挂在模型线顶上，那条线没有了。现在是骰子 + 牌值 + 三条线的等级之和，对门槛 18。见 <a href="#r8b">R8b</a>。</span></div>
+    <div><b>开局家底换了</b><span>美国：人才线 1 级，3 个 GPU。中国：数据线 1 级，1 个 GPU。原来中国是能源线 1 级。</span></div>
+    <div><b>电不再有自己的线</b><span>电力那条表还在，规则没变。自备电改由算力线的突破和几张牌给。</span></div>
+    <div><b>加了 3 张讲数据的牌</b><span>E31 数据授权潮、M35 Meta 入股 Scale AI、M36 国民级 AI 应用。另有 14 张牌面跟着改了线名。</span></div>
+  </div>
+  </details>
+  <details class="older">
+    <summary>v0.2 那一轮：roguelike 的组合、运气、牌的创意</summary>
+  <div class="changes">
+    <div><b>事件牌全部重写</b><span>每张牌从那件事本身出发，给它一个专属的小动作，不再是「+2 这个、+1 那个」。见 <a href="#r2b">R2b</a>、<a href="#r12">R12</a>。</span></div>
+    <div><b>基建改成掷骰</b><span>投牌、掷骰、过门槛才升级；没过就攒 1 点底子，下次更容易。见 <a href="#r5c">R5c</a>。</span></div>
+    <div><b>升级给的是三选一</b><span>每升一级，从那条线翻 3 张「突破」留 1 张，跟你一整局。三条线三种脾气。见 <a href="#r8">R8</a>。</span></div>
+    <div><b>新东西：GPU</b><span>1 个 GPU 重掷一次。芯片战在这里就是「谁有重掷」的战。见 <a href="#r6b">R6b</a>。</span></div>
+    <div><b>全游戏一套骰子</b><span>掷出 6 会爆，掷出 1 会砸，砸了有安慰。约一半的出牌要掷骰。见 <a href="#r6">R6</a>。</span></div>
+    <div><b>牌与牌不再点名</b><span>牌只做两件事：让一个通用的事情发生，或者等一个通用的事情。组合是自己长出来的。见 <a href="#r9">R9</a>。</span></div>
+    <div><b>每个时代翻一张大势</b><span>一条对双方都生效的规则，每局翻到的不一样。见 <a href="#r12b">R12b</a>。</span></div>
+    <div><b>故意没动的</b><span>拓展和电力不掷骰。运气管得失，电力管生死。见 <a href="#r6d">R6d</a>。</span></div>
+  </div>
+  </details>
+
+  <h3 class="sub" data-note="R1a" data-title="你的要求怎么接"><i>R1a</i>你提过的要求，现在各自落在哪</h3>
+  <table class="grid">
+    <thead><tr><th style="width:3em"></th><th style="width:27%">你的要求</th><th>现在的做法</th><th style="width:7em">状态</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>主题是中美 AGI 争霸</td><td>美国对中国，2022 → 2030。牌是这几年的真事和往后的推演。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>2</td><td>地图简化</td><td>6 个大区、29 个市场，按时代逐步开放：9 → 20 → 29。见 <a href="#r10">R10</a>。</td><td><span class="st prop">我的建议</span></td></tr>
+      <tr><td>3</td><td>不要调整阵营</td><td>删掉了。想让对手掉份额只有两条路：收购，或事件牌。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>4</td><td>太空竞赛改成基建，各有主题</td><td>三条基建线：算力、数据、人才。掷骰升级，升级时三选一。见 <a href="#r8">R8</a>。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>5</td><td>2022–2030 共 9 回合，三个阶段</td><td>早期 2022–24、中期 2025–27、后期 2028–30，每个时代一副牌。见 <a href="#r3">R3</a>。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>6</td><td>点数改成市场份额，过线就是垄断</td><td>和原来的算法一样：份额比对手多出的数达到这个市场的重量级，就是垄断。见 <a href="#r5a">R5a</a>。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>7</td><td>政变改成收购</td><td>掷骰把对手的份额变成你的；算进资本开支；动关键市场要耗电。见 <a href="#r5b">R5b</a>。</td><td><span class="st prop">我的建议</span></td></tr>
+      <tr><td>8</td><td>军事行动条改成资本压力，核战争改成能源</td><td>每回合必须花够钱，否则掉分；大动作都吃公共电力，谁把电用光谁输。见 <a href="#r7">R7</a>。</td><td><span class="st ask">Q3</span></td></tr>
+      <tr><td>9</td><td>节奏快一点，每回合少一张牌</td><td>行动轮 5 / 6 / 6，比原来各少一轮。记分牌回到牌堆之后会占掉其中几轮。</td><td><span class="st prop">我的建议</span></td></tr>
+      <tr><td>10</td><td>要有 roguelike 的感觉，牌之间有想不到的组合</td><td>突破三选一、常驻牌、通用事件。见 <a href="#r2">R2</a>、<a href="#r9">R9</a>。</td><td><span class="st prop">我的建议</span></td></tr>
+      <tr><td>11</td><td>运气占三到五成，要刺激，要掷骰</td><td>基建掷骰、爆与砸、GPU 重掷、一批掷骰的牌、大势。见 <a href="#r6">R6</a>。</td><td><span class="st ask">Q7</span></td></tr>
+      <tr><td>12</td><td>牌要有创意，不能机械</td><td>每张牌演它自己那件事。见 <a href="#r2b">R2b</a>。</td><td><span class="st prop">我的建议</span></td></tr>
+      <tr><td>13</td><td>大区记分照原来的来，用记分牌</td><td>存在、支配、控制三档；六张记分牌进牌堆。见 <a href="#r11">R11</a>。</td><td><span class="st ok">已定</span></td></tr>
+      <tr><td>14</td><td>牌库差 1 张就够；资本压力 3 / 4 / 5</td><td>照改了。见 <a href="#r3">R3d</a>、<a href="#r7">R7b</a>。</td><td><span class="st ok">已定</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────── R2 ───────────── -->
+<section id="r2" data-note="R2" data-title="学了什么">
+  <h2><i>R2</i>从 Hades、炉石和冷战热斗各学了什么</h2>
+  <p>先说结论：好的 roguelike 不是牌多、数值大，是<b>运气递给你一样东西，你把它用成了设计者没写在牌上的样子</b>。下面八条是我认为它们做对的事，以及每一条在这里对应什么。</p>
+
+  <table class="grid lessons">
+    <thead><tr><th style="width:2.4em"></th><th style="width:22%">经验</th><th style="width:33%">它们怎么做的</th><th>搬到这里</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>运气只管菜单，点菜的是你</b></td><td>Hades 每过一个房间给三个祝福让你挑一个；炉石的「发现」是三选一。</td><td>基建升级翻 3 张突破留 1 张；牌上的「发现」。骰子定你能不能升级，升级之后拿什么是你选的。</td></tr>
+      <tr><td>2</td><td><b>祝福改的是动作，不是数字</b></td><td>Hades 的祝福挂在攻击、特技、冲刺上。按的还是那个键，出来的东西变了。</td><td>突破和常驻都挂在天天做的事上：掷骰、重掷、耗电、弃牌、花钱。同一个动作，每一局做出来的后果不一样。</td></tr>
+      <tr><td>3</td><td><b>零件之间互不点名</b></td><td>炉石写的是「每当你施放一个法术」，不是「如果你有某某牌」。组合是玩家发现的。</td><td>上一版里「如果垄断荷兰则多 1」「结束某张牌的效果」这类写法全部删了。牌只产生通用事件，或者等通用事件。见 <a href="#r9">R9</a>。</td></tr>
+      <tr><td>4</td><td><b>代价就是燃料</b></td><td>杀戮尖塔里的自残流、消耗流；炉石的弃牌术。一张牌的坏处，是另一张牌的开关。</td><td>耗电、弃牌、资本压力上升、检定失败、掷出 1，这些「坏事」都有牌在等。</td></tr>
+      <tr><td>5</td><td><b>要有少数几张翻倍和改规则的牌</b></td><td>炉石的「你的战吼触发两次」。它没有自己的效果，却让一半的牌变了样。</td><td>GPU 翻倍、1 不算砸、5 也爆、耗电不动公共电力、对面的管制对他自己也生效。</td></tr>
+      <tr><td>6</td><td><b>好的随机是自己选着去赌的</b></td><td>结果当场看得见，输了有垫子，赢了能滚起来。炉石的尤格萨隆、Hades 的暴击都是这样。</td><td>爆（6 再加一颗）、砸了拿 1 个 GPU、失败攒底子、GPU 重掷。每一次掷骰之前，你都知道自己在赌什么。</td></tr>
+      <tr><td>7</td><td><b>每一局从第一分钟就不一样</b></td><td>酒馆战棋每局一条「畸变」；Hades 每次出门带不同的信物。</td><td>每个时代翻一张大势；开局双方各先挑一张突破。</td></tr>
+      <tr><td>8</td><td><b>牌要演那件事本身</b></td><td>冷战热斗的牌让人记住，是因为牌面上的动作就是那段历史：被拖住、被逼着表态、被迫摊牌。</td><td>每张牌先问一句：这件事当时最让人记住的是什么？然后让牌面做那个动作。见下面 R2b。</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub" id="r2b" data-note="R2b" data-title="牌要演那件事"><i>R2b</i>牌要演那件事：三张牌的前后对比</h3>
+  <div class="ba">
+    <div>
+      <h4>OpenAI 宫斗五日 <span>E20</span></h4>
+      <p class="old">美国随机弃 1 张手牌；模型线 −1 进度。</p>
+      <p class="new">美国手里牌值最高的那张牌被扣下，明年年初才还。美国可以马上弃 2 张别的牌，把它赎回来。</p>
+      <p class="fine">那五天发生的事：最重要的人被拿走了，过几天回来；员工联名把他要了回来。</p>
+    </div>
+    <div>
+      <h4>苹果智能 <span>E09</span></h4>
+      <p class="old">美国在日本、英国、德国中任选两处，各获得 1 格。</p>
+      <p class="new">美国在三处各放 1 格「预告」，先占着位置，不算份额。年终为每一格掷骰：4 以上变成真的，否则拿掉。</p>
+      <p class="fine">发布会开了，功能一再跳票。先占位，兑不兑现另说。</p>
+    </div>
+    <div>
+      <h4>DeepSeek 时刻 <span>M12</span></h4>
+      <p class="old">中国模型线 +2 进度；主导权 +1；美国资本压力 +1。</p>
+      <p class="new">发布。中国的 GPU 每比美国少 1 个，美国主导权 −1（最多 −3）。</p>
+      <p class="fine">震动来自「用这么少的算力做到了」。所以算力越少，这一下越响。</p>
+    </div>
+  </div>
+  <p>这一版用到的手法，每种只出现一两次，免得变成新的套路：</p>
+  <div class="moves">
+    <span>掷到掷不出为止 <i>E01 L01</i></span>
+    <span>先占位，年终兑现 <i>E09</i></span>
+    <span>扣下，可以赎 <i>E20 M22</i></span>
+    <span>暗标 <i>E21 M28</i></span>
+    <span>同时表态 <i>E23</i></span>
+    <span>认罚还是赌一把 <i>E25</i></span>
+    <span>越打越大 <i>E13</i></span>
+    <span>以彼之道 <i>E15</i></span>
+    <span>抢头条 <i>E12</i></span>
+    <span>清零，看时机 <i>E26</i></span>
+    <span>重开旧牌 <i>E27</i></span>
+    <span>欠账 <i>M01</i></span>
+    <span>拿货换地盘 <i>M02</i></span>
+    <span>一口全包 <i>M06</i></span>
+    <span>破釜沉舟 <i>M16</i></span>
+    <span>借地方绕规则 <i>M17</i></span>
+    <span>反着比 <i>M12</i></span>
+    <span>对面定大小 <i>M34</i></span>
+    <span>开价与留人 <i>M29</i></span>
+    <span>不算数的份额 <i>L05</i></span>
+    <span>一颗骰子定归属 <i>L18</i></span>
+    <span>摊牌 <i>L19</i></span>
+    <span>永远差一点 <i>L22</i></span>
+  </div>
+</section>
+
+<!-- ───────────── R3 节奏 ───────────── -->
+<section id="r3" data-note="R3" data-title="节奏">
+  <h2><i>R3</i>节奏：三个时代，三种打法</h2>
+  <p>三个时代的主场、手段、松紧都不一样，优势也从美国慢慢移到中国。roguelike 那一层也跟着走：早期挑打法，中期成型，后期兑现。</p>
+
+  <div id="turn-grid"></div>
+
+  <div class="eras">
+    <article class="era" data-note="R3a" data-title="早期">
+      <h3><i>R3a</i>早期 2022–2024 <span>芯片与规则</span></h3>
+      <dl>
+        <dt>主场</dt><dd>东亚（芯片链）和欧洲（设备与规则）。全图只开 9 个市场，格局小。</dd>
+        <dt>打什么</dt><dd>抢盟友市场；管制和反制围着 GPU 打：谁有重掷，谁掷得起。</dd>
+        <dt>你这一局的打法</dt><dd>开局先挑一张突破；头一两次基建掷骰，基本定下这局走哪条线。</dd>
+        <dt>松紧</dt><dd>手牌 7，行动 5 轮。电从 5 起，还很宽裕。资本压力 3。牌堆里只有东亚、欧洲两张记分牌。</dd>
+        <dt>倾向</dt><dd><b class="us-t">美国略优。</b>开局在东亚、欧洲站得更深；3 个 GPU 对 1 个；早期牌 11 : 10；美国先手。</dd>
+      </dl>
+    </article>
+    <article class="era" data-note="R3b" data-title="中期">
+      <h3><i>R3b</i>中期 2025–2027 <span>资本与产能</span></h3>
+      <dl>
+        <dt>主场</dt><dd>新开海湾（资本、能源）和印太（新市场、新数据中心）。东亚、欧洲照常结算。20 个市场。</dd>
+        <dt>打什么</dt><dd>收购成了主要手段；大事件开始抢电；资本压力升到 4，逼你出手。</dd>
+        <dt>你这一局的打法</dt><dd>常驻牌一张张上场，和手里的突破对上了，机器开始转。这副牌里暗标、赎回、欠账最多。</dd>
+        <dt>松紧</dt><dd>手牌 8，行动 6 轮。记分牌变成四张。电开始不够用。</dd>
+        <dt>倾向</dt><dd><b>均势。</b>牌 12 : 12。先手给落后的一方。</dd>
+      </dl>
+    </article>
+    <article class="era" data-note="R3c" data-title="后期">
+      <h3><i>R3c</i>后期 2028–2030 <span>普及与终局</span></h3>
+      <dl>
+        <dt>主场</dt><dd>新开拉美、非洲，全图 29 个市场。2030 年终六个大区全部结算一次，哪里都不能丢。</dd>
+        <dt>打什么</dt><dd>电贴着红线；资本压力 5，一张牌已经不够付；AGI 工程是三条线合起来的一掷，谁都可以赌。</dd>
+        <dt>你这一局的打法</dt><dd>兑现。翻倍的牌、连掷的牌、一颗骰子定归属的牌都在这副牌里，前面攒的东西在这里放大。</dd>
+        <dt>松紧</dt><dd>手牌 8，行动 6 轮。六张记分牌都在牌堆里，2030 年终再全算一遍。</dd>
+        <dt>倾向</dt><dd><b class="cn-t">中国略优。</b>后期牌 8 : 9；数据线靠地盘喂，市场开得越多越好修；拉美、非洲的预置份额中国更多；中国先手。</dd>
+      </dl>
+    </article>
+  </div>
+
+  <h3 class="sub" data-note="R3d" data-title="倾斜靠什么做出来"><i>R3d</i>倾斜靠什么做出来</h3>
+  <p>规则对两边完全一样，倾斜全在这六处。每一处都能单独拧。</p>
+  <table class="grid">
+    <thead><tr><th style="width:9em">杠杆</th><th>早期</th><th>中期</th><th>后期</th></tr></thead>
+    <tbody>
+      <tr><td>牌库</td><td class="us-c">美 11 张 / 中 10 张</td><td>12 / 12</td><td class="cn-c">美 8 张 / 中 9 张</td></tr>
+      <tr><td>开局站位</td><td class="us-c">东亚、欧洲：美国更深</td><td>海湾、印太：差不多</td><td class="cn-c">拉美、非洲：中国更多</td></tr>
+      <tr><td>开局家底</td><td class="us-c">美国人才线 1 级，3 个 GPU</td><td>—</td><td class="cn-c">中国数据线 1 级：市场开得越多越值钱</td></tr>
+      <tr><td>先手</td><td class="us-c">美国</td><td>落后的一方</td><td class="cn-c">中国</td></tr>
+      <tr><td>电力</td><td>宽裕，谁都不缺</td><td>开始抢</td><td class="cn-c">贴线；中国有 L09、L15 两张常驻</td></tr>
+      <tr><td>资本压力</td><td>3</td><td>4</td><td>5</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <div>
+      <h4>牌库往哪边偏</h4>
+      <div id="tilt"></div>
+      <p class="fine">「力度」是我给每张有归属的牌估的 1–3 分，卡牌上用圆点标着，觉得哪张估错了直接说。</p>
+    </div>
+    <div>
+      <h4>为什么还是快</h4>
+      <ul class="tight">
+        <li>每方整局出 60 张牌（头条 9 + 行动 51）。原来的壳是十回合、七十多张。</li>
+        <li>没有调整阵营，行动只有三种。</li>
+        <li>骰子多，但每次只掷一颗，当场出结果。</li>
+        <li>触发都由程序结算。这是电脑游戏，所以才敢做这么多「每当」。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── R4 ───────────── -->
+<section id="r4" data-note="R4" data-title="一回合怎么走">
+  <h2><i>R4</i>一回合（一年）怎么走</h2>
+  <ol class="flow">
+    <li><b>时代开头</b><span>只在时代的第一年：翻一张大势，把新时代的牌和记分牌洗进牌库，开放新大区。</span></li>
+    <li><b>发牌，发 GPU</b><span>补到手牌上限 7 / 8 / 8；按算力线等级领 GPU。</span></li>
+    <li><b>头条</b><span>双方各暗出一张牌，同时翻开，都当事件发生。牌值大的先结算。</span></li>
+    <li><b>行动轮</b><span>轮流出牌，5 / 6 / 6 轮。每轮打一张，用法见 R5。</span></li>
+    <li><b>年终</b><span>① 资本压力检查 ② 电力 +1 ③ 各自最多留 1 张手牌，记分牌不能留</span></li>
+  </ol>
+  <p class="fine">牌库抽完就把弃牌堆洗回来；标了「一次性」的牌，事件发生过就移出游戏。</p>
+</section>
+
+<!-- ───────────── R5 ───────────── -->
+<section id="r5" data-note="R5" data-title="一张牌的用法">
+  <h2><i>R5</i>一张牌能干什么</h2>
+  <p>每张牌有三样东西：<b>归属</b>（美国 / 中国 / 中立）、<b>牌值</b>（1–4）、<b>事件</b>。打出来的时候二选一：</p>
+
+  <div class="uses">
+    <div class="use">
+      <h4>当事件</h4>
+      <p>照牌面执行。只能主动触发自己的或中立的事件。</p>
+    </div>
+    <div class="use wide">
+      <h4>当预算</h4>
+      <p>把牌值当钱花，做下面三件事之一。<b>如果这张是对手的事件，事件照样发生</b>（先后由你定）。只有投进基建时不触发。</p>
+      <div class="three">
+        <div><b>拓展</b><span>在市场里铺份额。不掷骰，花多少得多少。</span></div>
+        <div><b>收购</b><span>掷骰把对手的份额变成你的。</span></div>
+        <div><b>基建</b><span>把牌投进一条线，掷骰升级。每年 1 次，对手的事件不触发。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="fine">记分牌是另一种牌：没有归属，没有牌值，打出来就结算一个大区。见 <a href="#r11">R11</a>。</p>
+
+  <h3 class="sub" id="r5a" data-note="R5a" data-title="份额与垄断"><i>R5a</i>市场份额与垄断</h3>
+  <div class="two">
+    <div>
+      <ul class="tight">
+        <li>每个市场有一个<b>重量级</b>：1 到 4。市场越大、越难啃，数字越大。</li>
+        <li>双方在一个市场里的<b>份额</b>是两个数，没有上限。</li>
+        <li><b>垄断</b>：你的份额比对手多出的数，达到这个市场的重量级。和原来的「控制」是同一个算法。</li>
+        <li><b>拓展的价钱</b>：每加 1 点份额 = 1 预算。对手正垄断这个市场时，每点 2 预算。</li>
+        <li><b>渠道</b>：只能在你已经有份额的市场、或者和它相连的市场里拓展。</li>
+      </ul>
+      <p class="fine">上一版我提的是有上限的份额条，占过半算垄断。这一版照你定的撤掉了，牌面里的「格」都改成了「点份额」。</p>
+    </div>
+    <div class="widget" id="share-demo"></div>
+  </div>
+
+  <h3 class="sub" id="r5b" data-note="R5b" data-title="收购"><i>R5b</i>收购</h3>
+  <div class="two">
+    <div>
+      <ul class="tight">
+        <li>选一个对手有份额的市场。不需要渠道，钱到哪儿都能花。</li>
+        <li><b>成功数 = 骰子 + 牌值 − 重量级 × 2</b>。每 1 点清掉对手 1 点份额；对手清光了，多出来的点数变成你的份额。</li>
+        <li>掷出 6 会爆：再掷一颗加上去。掷出 1 砸了：什么都拿不到。见 <a href="#r6a">R6a</a>。</li>
+        <li>不管成不成，牌值都记进今年的<b>资本开支</b>。</li>
+        <li>收购<b>关键市场</b> ★ 耗电 1：接盘之后要扩容。</li>
+      </ul>
+    </div>
+    <div class="widget" id="acq-calc"></div>
+  </div>
+
+  <h3 class="sub" id="r5c" data-note="R5c" data-title="基建掷骰"><i>R5c</i>基建：投牌，掷骰</h3>
+  <div class="two">
+    <div>
+      <ul class="tight">
+        <li>每年 1 次。把一张手牌投进一条线：牌上的事件不触发，牌值记进资本开支。</li>
+        <li><b>骰子 + 牌值 + 底子 ≥ 门槛</b>，就升一级。门槛：1 级 5，2 级 7，3 级 9。<span class="tbd">待调</span></li>
+        <li><b>加注</b>：掷之前可以多押一点东西换加值，三条线各吃一样，见 <a href="#r8">R8</a>。</li>
+        <li><b>没过</b>：这条线 +1 底子，下次掷骰多 1 点。一直攒到升级为止。</li>
+        <li><b>过了</b>：底子清零；拿这条线每级固定给的东西；再翻 3 张这条线的突破，留 1 张。见 <a href="#r8">R8</a>。</li>
+        <li>牌上写「免费掷一次某条线」：不用投牌，不占每年那 1 次，不记开支。</li>
+      </ul>
+      <p class="fine">上一版是投了就有进度，不掷骰。现在每一次投牌都是一次小赌：用大牌稳一点，用小牌省一点，失败也不白投。</p>
+    </div>
+    <div id="infra-odds"></div>
+  </div>
+</section>
+
+<!-- ───────────── R6 运气 ───────────── -->
+<section id="r6" data-note="R6" data-title="运气">
+  <h2><i>R6</i>运气：占多少，放在哪，怎么掰</h2>
+  <p>目标是你说的三到五成。做法不是到处加随机，是三句话：<b>骰子多</b>（约一半的出牌要掷），<b>尾巴长</b>（6 会爆，偶尔出一个大得离谱的结果），<b>能掰</b>（GPU 重掷、底子、突破）。会玩的人赢在更会掰，不是赢在不用掷。</p>
+
+  <div class="two">
+    <div data-note="R6a" data-title="骰子规则" id="r6a" class="blk">
+      <h3><i>R6a</i>全游戏一套骰子</h3>
+      <ul class="tight">
+        <li><b>检定</b>：一颗六面骰 + 牌值 + 修正，对门槛。收购、基建、牌上的检定都是这一条。</li>
+        <li><b>爆</b>：掷出 6，再掷一颗加上去，可以连着爆。所以没有「不可能」的门槛。</li>
+        <li><b>砸</b>：检定的第一颗掷出 1，直接失败，加多少都没用。安慰：拿 1 个 GPU。</li>
+        <li><b>重掷</b>：交 1 个 GPU，重掷自己刚掷的一颗骰子。每颗骰子只能重掷一次。</li>
+        <li><b>发布</b>（牌上的词）：掷一颗骰子。1 翻车，事件作废；2 到 5 照常；6 爆款，整个事件结算两次。</li>
+      </ul>
+    </div>
+    <div data-note="R6b" data-title="GPU" id="r6b" class="blk boxed">
+      <h3><i>R6b</i>GPU：重掷的机会</h3>
+      <p><b>1 个 GPU = 重掷一次。</b>算力多，就是同一件事可以多试几次。</p>
+      <ul class="tight">
+        <li>开局美国 3 个，中国 1 个。最多囤 5 个。<span class="tbd">待调</span></li>
+        <li>来源：算力线每年发；英伟达的牌；每次砸了拿 1 个；一批事件和突破。</li>
+        <li>出口管制、禁售、反垄断调查，打的都是对面的 GPU。</li>
+        <li>有些牌让 GPU 有第二种用途：换地盘（M02）、把获得改成夺取（L02）、暗标（M28）。</li>
+      </ul>
+      <p class="fine">一个运气占四成的游戏里，重掷就是硬通货。这样「卡芯片」这件事不用另写规则，它本来就是全场最疼的事。</p>
+    </div>
+  </div>
+
+  <h3 class="sub" data-note="R6c" data-title="运气在哪儿"><i>R6c</i>运气都放在哪儿</h3>
+  <table class="grid">
+    <thead><tr><th style="width:11em">来源</th><th style="width:8em">哪一种</th><th style="width:14em">一局大概几次</th><th>你能怎么掰</th></tr></thead>
+    <tbody>
+      <tr><td>抽到什么牌</td><td>先给你，你再决定</td><td>每年 7–8 张</td><td>人才线的筛选；发现；从对面手里拿牌</td></tr>
+      <tr><td>突破翻到哪 3 张</td><td>先给你，你再决定</td><td>每方 5–7 次</td><td>选升哪条线；一张已经被拿走的突破不会再出现</td></tr>
+      <tr><td>大势</td><td>先给你，你再决定</td><td>3 张</td><td>用环境牌顶掉</td></tr>
+      <tr><td>记分牌哪一年来</td><td>先给你，你再决定</td><td>6 张，跟着牌堆走</td><td>哪一年打由不得你，哪一轮打你挑；数7 可以先看牌库顶</td></tr>
+      <tr><td>基建掷骰</td><td>你决定了，再看结果</td><td>每方 10 次上下</td><td>投大牌；底子；加注；GPU；数据线的校准</td></tr>
+      <tr><td>收购掷骰</td><td>你决定了，再看结果</td><td>每方 8–12 次</td><td>同上；挑重量级低的市场下手</td></tr>
+      <tr><td>牌上的掷骰</td><td>你决定了，再看结果</td><td id="dice-cards-n">25 张牌</td><td>GPU 重掷；不想赌就把它当预算打</td></tr>
+      <tr><td>暗标、同时表态</td><td>猜对面</td><td>4 张牌</td><td>读人</td></tr>
+    </tbody>
+  </table>
+
+  <div class="two">
+    <div data-note="R6d" data-title="不掷骰的两样" id="r6d" class="blk">
+      <h3><i>R6d</i>故意不掷骰的两样</h3>
+      <ul class="tight">
+        <li><b>拓展</b>：花多少预算得多少格。它是手里最稳的一件事，掷输了总还有它。</li>
+        <li><b>电力</b>：耗多少电，牌上印着，从不看骰子。把电用光会直接输，这件事不能交给运气。</li>
+      </ul>
+      <p><b>运气管得失，电力管生死。</b>没有一颗骰子能直接让你输掉整局。</p>
+      <h3 style="margin-top:18px"><i>R6e</i>想调运气的多少，拧这几处</h3>
+      <ul class="tight">
+        <li>门槛的高低：现在常见的一次检定成功率在三成到七成之间。</li>
+        <li>爆的条件：只有 6 爆，还是 5 也爆。</li>
+        <li>砸：留着还是去掉。</li>
+        <li>GPU 的总量：发得越多，运气越被掰平。</li>
+        <li>要掷骰的牌占多少：现在是四分之一强。</li>
+      </ul>
+      <p class="fine">「三到五成」这个数现在验不了，要等能跑的原型，让两个打法不同的电脑互打几千局才知道。现在给的是方向和旋钮。</p>
+    </div>
+    <div class="widget" id="check-calc"></div>
+  </div>
+</section>
+
+<!-- ───────────── R7 ───────────── -->
+<section id="r7" data-note="R7" data-title="三条表">
+  <h2><i>R7</i>三条表：主导权、资本压力、电力</h2>
+
+  <div class="loop">
+    <div>资本压力<span>每回合必须花够钱</span></div>
+    <i>→</i>
+    <div>只能靠收购和基建来花<span>都是大动作</span></div>
+    <i>→</i>
+    <div>大动作吃公共电力<span>余量见底谁都别动</span></div>
+    <i>→</i>
+    <div>得先找电<span>供电牌、自备电，都要占掉行动</span></div>
+  </div>
+  <p class="fine center">你说的「要投资，但是又要 balance 产能」，就是这一圈。</p>
+
+  <div class="meters">
+    <article data-note="R7a" data-title="主导权">
+      <h3><i>R7a</i>主导权 <span>分数</span></h3>
+      <p>一条拔河的分数条，从「美国 +20」到「中国 +20」，开局在 0。所有得分都记差额。到头的一方立刻赢。<span class="tbd">待调</span></p>
+    </article>
+
+    <article data-note="R7b" data-title="资本压力">
+      <h3><i>R7b</i>资本压力 <span>原来的军事行动条</span></h3>
+      <ul class="tight">
+        <li>每回合有一个开支目标：早期 3，中期 4，后期 5。</li>
+        <li>牌值最大是 4，所以后期光靠一张牌付不清：一年至少要有两次花钱的动作，或者靠事件补。</li>
+        <li><b>收购</b>和<b>投牌基建</b>算开支，记牌值。有些事件直接给开支。</li>
+        <li>年终没达标：差几点，对手拿几分。</li>
+        <li>牌上写「资本压力 +1」，就是这一年的目标抬高 1。</li>
+      </ul>
+    </article>
+
+    <article data-note="R7c" data-title="电力余量">
+      <h3><i>R7c</i>电力余量 <span>原来的核战争条</span></h3>
+      <div class="power" id="power-ladder"></div>
+      <ul class="tight">
+        <li>双方共用一条。开局 5，每年年终 +1，最高 5。</li>
+        <li><b>耗电 1</b>：带 ⚡ 的事件；算力线每升一级；收购关键市场。</li>
+        <li><b>自备电</b>：算力线的突破和几张牌给的。用自备电也算「耗电」，只是不动公共电力。</li>
+        <li><b>谁的行动让电力降到 0，谁输。</b>哪怕那是对手的事件：牌是你打出来的。</li>
+      </ul>
+      <p class="fine">余量只剩 1 的时候，手里那张对手的 ⚡ 牌只能投基建，或者捏到明年。是不是直接判负是 <a href="#q3">Q3</a>。</p>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────── R8 ───────────── -->
+<section id="r8" data-note="R8" data-title="基建与突破">
+  <h2><i>R8</i>基建三线与突破</h2>
+  <p>算力、数据、人才。做 AI 就靠这三样，在这个游戏里它们也是三种驯服运气的办法。</p>
+  <div class="triad">
+    <div><b>算力</b><span>芯片、数据中心、电。</span>不满意就再来一次。</div>
+    <div><b>数据</b><span>训练数据。</span>把骰面往上掰。</div>
+    <div><b>人才</b><span>核心科学家。</span>挑自己想要的牌。</div>
+  </div>
+  <ul class="tight">
+    <li>每条线 3 级，门槛 5 / 7 / 9。每一级率先到达的一方 +1 主导权。</li>
+    <li>每升一级拿两样：这条线固定给的东西，加上<b>翻 3 张突破留 1 张</b>。突破跟你一整局，拿走的那张对面就再也翻不到。</li>
+    <li><b>三条线吃三样东西</b>：掷骰之前可以加注。算力线吃 GPU，数据线吃你垄断的市场，人才线吃手牌。想把哪条线修上去，就得在那样东西上有家底。</li>
+    <li><b>开局</b>：美国人才线 1 级、3 个 GPU；中国数据线 1 级、1 个 GPU。双方各从自己那条线翻 3 张突破留 1 张：第一分钟就有了不同的打法。</li>
+  </ul>
+  <div id="infra"></div>
+
+  <h3 class="sub" id="r8b" data-note="R8b" data-title="AGI 工程"><i>R8b</i>AGI 工程：三条线合起来的一掷</h3>
+  <div class="two">
+    <div>
+      <ul class="tight">
+        <li>后期才能掷。算一次基建行动，要投一张牌。</li>
+        <li><b>骰子 + 牌值 + 三条线的等级之和 ≥ 18</b>。<span class="tbd">待调</span></li>
+        <li>三种加注都能用：交 GPU、弃手牌，每样 +1；垄断的市场照数据线的算法加，最多 +3。</li>
+        <li>不需要哪条线先修到几级。等级低也能赌，只是要押上更多东西。</li>
+        <li><b>掷成</b>：+4 主导权，这一年年终直接进入终局结算。<b>没成</b>：投的牌和押上去的东西都没了。</li>
+      </ul>
+      <p class="fine">这是整局最大的一次梭哈：把攒了八年的卡、牌、地盘都押上去，掷一颗骰子。掷成之后算什么，还是 <a href="#q4">Q4</a>。</p>
+    </div>
+    <div id="agi-odds"></div>
+  </div>
+
+  <h3 class="sub" data-note="R8a" data-title="挂在你身上的三层"><i>R8a</i>场上一直生效的东西，有三层</h3>
+  <table class="grid">
+    <thead><tr><th style="width:7em">哪一层</th><th style="width:16em">从哪儿来</th><th style="width:12em">能有几张</th><th>怎么没的</th></tr></thead>
+    <tbody>
+      <tr><td><b>突破</b></td><td>基建升级，三选一</td><td>不限，一般 5–7 张</td><td>不会没。它就是你这一局的打法。</td></tr>
+      <tr><td><b>常驻</b></td><td>事件牌，牌面写着「常驻」</td><td>每方最多 3 张</td><td>来了第 4 张，自己挑一张旧的弃掉；也会被对面的牌移除、翻面。</td></tr>
+      <tr><td><b>环境</b></td><td>大势，或者写着「环境」的中立牌</td><td>全场只有 1 张</td><td>新的顶掉旧的。对双方都生效。</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────── R9 ───────────── -->
+<section id="r9" data-note="R9" data-title="连锁">
+  <h2><i>R9</i>连锁：组合是怎么自己长出来的</h2>
+  <p>没有一张牌写着「和某某牌一起用」。每张牌只做两件事里的一件：<b>让一个通用的事情发生</b>，或者<b>等一个通用的事情</b>。通用的事情一共 17 种，很多本来是代价。下面可以点着看：谁会产生它，谁在等它。</p>
+
+  <div class="chain">
+    <div class="ev-list" id="ev-list"></div>
+    <div class="ev-panel" id="ev-panel"></div>
+  </div>
+
+  <h3 class="sub" data-note="R9b" data-title="随便抽一组"><i>R9b</i>随便抽一组，看能不能连上</h3>
+  <p class="fine">程序从牌和突破里随机抽，只保证前一张产生的事情正好是后一张在等的，不保证强。多点几次，看有没有让你想打一局的。</p>
+  <div class="widget" id="chain-rand"></div>
+
+  <h3 class="sub" data-note="R9c" data-title="六个组合"><i>R9c</i>六个没有哪张牌自己说出来的组合</h3>
+  <div id="stories"></div>
+</section>
+
+<!-- ───────────── R10 ───────────── -->
+<section id="r10" data-note="R10" data-title="地图">
+  <h2><i>R10</i>地图：6 个大区，29 个市场</h2>
+  <p>一个地方能留在图上，要么它手里有东西（代工、光刻、存储、矿、电、钱、人），要么它是两边都想要的大市场。美国本土和中国本土不上图，只当出发点。</p>
+  <ul class="tight">
+    <li><b>关键市场</b> ★：记分时多算 1 分，收购它要耗电。</li>
+    <li><b>大区按时代开放</b>。没开放的大区不能拓展、不能收购，它的记分牌也还没进牌堆；事件牌写明了才能提前进去（比如 M20）。这是 <a href="#q5">Q5</a>。</li>
+    <li>下面是 2022 年的开局份额和每个市场的重量级。开局时双方再各自加 2 点份额，只能加在东亚和欧洲，美国先放。</li>
+    <li>连线还没画。暂定：同一个大区里的市场都相连；大区之间靠几个门户相连（美国—日本 / 英国 / 墨西哥，中国—香港 / 韩国 / 越南，香港—新加坡，印度—阿联酋，土耳其—德国，埃及—沙特，南非—巴西）。</li>
+  </ul>
+  <div class="legend">
+    <span><i class="c us"></i>美国的份额</span><span><i class="c cn"></i>中国的份额</span><span><i class="wt">3</i>重量级</span>
+    <span>★ 关键市场</span><span class="mono-badge us-b">美</span><span class="mono-badge cn-b">中</span> 开局就垄断
+  </div>
+  <div id="map"></div>
+</section>
+
+<!-- ───────────── R11 ───────────── -->
+<section id="r11" data-note="R11" data-title="记分">
+  <h2><i>R11</i>记分：记分牌，存在 / 支配 / 控制</h2>
+  <p>照你定的：和原来一样用记分牌，一张牌结算一个大区，按存在、支配、控制三档给分。我上一版提的「年度报告」撤掉了。</p>
+
+  <h3 class="sub" data-note="R11a" data-title="记分牌"><i>R11a</i>六张记分牌</h3>
+  <div id="scoring-cards"></div>
+  <ul class="tight">
+    <li>记分牌没有归属，没有牌值。打出来占一个行动轮，立刻结算那个大区，双方都算。也可以当头条打。</li>
+    <li><b>抽到的那一年必须打出</b>，不能留到明年。哪一轮打，你自己挑。</li>
+    <li>记分牌只能打出来：不能弃，不能投基建，不能拿去暗标或加注。被对手拿走了，就归他打。</li>
+    <li>打完进弃牌堆，会随着洗牌回来，所以早开的大区会被结算好几次。</li>
+    <li>每张记分牌跟着它的大区进牌堆：早期 2 张，中期再加 2 张，后期再加 2 张。</li>
+  </ul>
+
+  <h3 class="sub" data-note="R11b" data-title="一个大区怎么算分"><i>R11b</i>一个大区怎么算分</h3>
+  <div class="two">
+    <div>
+      <ul class="tight">
+        <li><b>存在</b>：在这个大区至少垄断 1 个市场。</li>
+        <li><b>支配</b>：垄断的市场比对手多，垄断的关键市场也比对手多，而且关键的和非关键的至少各垄断 1 个。</li>
+        <li><b>控制</b>：垄断这个大区全部关键市场，而且垄断的市场比对手多。</li>
+        <li>两边各拿自己那一档的分，再加每个垄断的关键市场 +1。差额记到主导权上。</li>
+        <li><b>终局</b>（2030 年终）：六个大区全算一遍；每条修到 3 级的基建线再 +1。</li>
+      </ul>
+    </div>
+    <div id="score-table"></div>
+  </div>
+
+  <h3 class="sub" data-note="R11c" data-title="换回记分牌带来的两件事"><i>R11c</i>换回记分牌，带来两件要留意的事</h3>
+  <ul class="tight">
+    <li><b>行动轮更紧了。</b>你要的是每回合少一张牌，现在是 5 / 6 / 6 轮；记分牌又要占掉其中一轮。手里同时来两张记分牌的那一年，早期只剩 3 轮能做事。要不要把行动轮加回一轮，打过才知道。</li>
+    <li><b>哪个大区在哪一年被结算，现在看洗牌。</b>「早期主场小、后期是全局」还在，因为记分牌是跟着时代进牌堆的；但某一年会不会一张都没有、或者一年来三张，不再由规则保证。</li>
+  </ul>
+  <p class="fine">另外三样东西还留着，它们都是牌，不是规则：<b>E30 行业份额报告</b>（对一个大区加开一次半值结算）、<b>L05</b>（让对面一个大区的部分份额在记分时不算数）、<b>数7 趋势预测</b>（先看牌库顶 3 张，能看到记分牌要来）。</p>
+</section>
+
+<!-- ───────────── R12 卡牌 ───────────── -->
+<section id="r12" data-note="R12" data-title="卡牌总体">
+  <h2><i>R12</i>卡牌 <span id="card-total"></span> 张，大势 <span id="trend-total"></span> 张</h2>
+  <p>2022 到 2026 年的牌都取自真事；2027 年以后的全部是推演，牌上标着。真事的日期是凭记忆写的，定稿前我会逐条核对。牌属于时代，不属于某一年。</p>
+
+  <details class="gloss" open>
+    <summary>牌面用词</summary>
+    <div class="gloss-grid">
+      <div><b>获得 N 点份额</b>你在那个市场的份额加 N。</div>
+      <div><b>夺取 N 点</b>对手减 N，你加 N。</div>
+      <div><b>清退 N 点</b>对手的份额减 N。</div>
+      <div><b>记分牌</b>抽到的那一年必须打出，打出就结算那个大区。</div>
+      <div><b>发布</b>掷骰：1 翻车作废，6 爆款结算两次。</div>
+      <div><b>发现</b>从牌库顶翻 3 张，拿 1 张，其余洗回去。</div>
+      <div><b>常驻</b>留在场上一直生效。每方最多 3 张。</div>
+      <div><b>环境</b>对双方生效，全场只有 1 张，新的顶旧的。</div>
+      <div><b>GPU</b>交 1 个，重掷自己的一颗骰子。</div>
+      <div><b>底子</b>某条基建线下一次掷骰的加值，升级后清零。</div>
+      <div><b>免费掷一次</b>不投牌的基建掷骰，按牌上给的牌值算。</div>
+      <div><b>暗出</b>双方同时盖着出，一起翻开。</div>
+      <div><b>⚡ 耗电</b>事件发生时电力 −1。能用自备电抵。</div>
+      <div><b>🔋 供电</b>牌面会写怎么给电。</div>
+      <div><b>资本开支 +N</b>直接记进今年的开支。</div>
+      <div><b>资本压力 +N</b>今年的开支目标抬高 N。</div>
+      <div><b>一次性</b>事件发生后移出游戏。没标的会洗回来。</div>
+      <div><b>打出方</b>中立牌上用：谁打出来就是谁。</div>
+      <div><b>力度 ●●●</b>我估的事件强弱，只给有归属的牌。</div>
+    </div>
+  </details>
+
+  <div id="deck-stats"></div>
+
+  <h3 class="sub" id="r12b" data-note="R12b" data-title="大势"><i>R12b</i>大势：每个时代开头翻一张</h3>
+  <p class="fine">一条对双方都生效的规则，占着「环境」的位置，直到被一张环境牌顶掉，或者下个时代翻出新的。十张里每局只见三张。</p>
+  <div id="trends"></div>
+
+  <h3 class="sub" data-note="R12c" data-title="事件牌"><i>R12c</i>事件牌</h3>
+  <div class="filters" id="filters"></div>
+  <div id="cards"></div>
+</section>
+
+<!-- ───────────── R13 ───────────── -->
+<section id="r13" data-note="R13" data-title="胜负">
+  <h2><i>R13</i>怎么分胜负</h2>
+  <table class="grid">
+    <tbody>
+      <tr><td style="width:10em"><b>主导权到头</b></td><td>分数条被拉到某一方的 +20：那一方立刻赢。</td></tr>
+      <tr><td><b>大停电</b></td><td>谁的行动让电力降到 0，谁立刻输。耗电从不看骰子，所以这永远是你自己算出来的。</td></tr>
+      <tr><td><b>AGI</b></td><td>后期，三条线合起来的一掷，门槛 18。率先掷成的一方 +4 主导权，游戏在这一年年终直接进入终局结算。</td></tr>
+      <tr><td><b>打满 9 回合</b></td><td>2030 年终做终局结算，分数条在谁那一边谁赢。正好在 0 算平局。</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───────────── Q ───────────── -->
+<section id="q">
+  <h2><i>Q</i>等你拍板的 8 件事</h2>
+  <p>每一条我都先给了倾向。你只回「Q3 选 B」「Q7 同意」这样就行。编号没有重排。</p>
+  <p class="done-line"><b>已经定了的：</b>Q1 份额怎么算（按差额，达到重量级就是垄断）；Q2 记分形式（记分牌，存在 / 支配 / 控制）。</p>
+  <div class="qs">
+    <article id="q3" data-note="Q3" data-title="大停电的后果">
+      <h4><i>Q3</i>把电用光，后果多重</h4>
+      <p><b>A（我的倾向）</b>直接判负。<br><b>B</b> 重罚：主导权 −5，电力回到 2，游戏继续。</p>
+      <p class="fine">别处的运气变多之后，我更想留着 A：它是全场唯一一件完全靠算的事。</p>
+    </article>
+    <article id="q4" data-note="Q4" data-title="AGI 是什么">
+      <h4><i>Q4</i>掷成 AGI 意味着什么</h4>
+      <p><b>A（我的倾向）</b>+4 分，并在当年年终提前终局。<br><b>B</b> 直接获胜。<br><b>C</b> 只加分，不结束游戏。</p>
+      <p class="fine">现在 AGI 是三条线合起来的一次梭哈，门槛 18。选 B 就等于后期每一年都有人可能一把掷赢，最刺激，也最不讲理。</p>
+    </article>
+    <article id="q5" data-note="Q5" data-title="大区开放">
+      <h4><i>Q5</i>大区要不要锁到时代才开放</h4>
+      <p><b>A（我的倾向）</b>锁住。早期只能动 9 个市场。<br><b>B</b> 一开始全开，只是没到时代不结算。</p>
+    </article>
+    <article id="q6" data-note="Q6" data-title="先手">
+      <h4><i>Q6</i>先手按时代换</h4>
+      <p>现在是：早期美国先手，中期落后方先手，后期中国先手。</p>
+      <p class="fine">先手能先抢到那一格电，后手能在年终结算前落最后一子。哪个更值钱得打过才知道。</p>
+    </article>
+    <article id="q7" data-note="Q7" data-title="运气的量">
+      <h4><i>Q7</i>运气现在这个量，对不对</h4>
+      <p>现在：约一半的出牌要掷骰；一次检定的成功率多在三成到七成；6 会爆；1 会砸；有 GPU 可以重掷。</p>
+      <p class="fine">觉得还不够疯，就让 5 也爆、少发 GPU。觉得太疯，就去掉砸、多发 GPU。旋钮在 R6e。</p>
+    </article>
+    <article id="q8" data-note="Q8" data-title="GPU">
+      <h4><i>Q8</i>「GPU = 重掷」这个做法要不要</h4>
+      <p><b>我的倾向：要。</b>它让运气有了一个可以抢、可以卡、可以囤的东西，也让英伟达和出口管制的牌有了实感。</p>
+      <p class="fine">上一版问过要不要一张来回流转的英伟达牌。有了 GPU，那张牌就不需要了。</p>
+    </article>
+    <article id="q9" data-note="Q9" data-title="一把定很多的牌">
+      <h4><i>Q9</i>「一颗骰子定很多」的牌，要到什么程度</h4>
+      <p>最极端的是 <b>L18 黄仁勋交棒</b>：双方全部 GPU 放一起，一颗骰子定归谁。还有 M24、M27、L01。</p>
+      <p class="fine"><b>我的倾向：每个时代留一两张</b>，放在后期更多。它们是让人站起来的时刻，但多了就没人愿意经营了。</p>
+    </article>
+    <article id="q10" data-note="Q10" data-title="名字和用词">
+      <h4><i>Q10</i>名字和用词</h4>
+      <p>游戏名还没有。这两版新出来的词：突破、常驻、环境、大势、GPU、底子、加注、校准、爆、砸、发布、发现。</p>
+      <p class="fine">哪个听着别扭直接换。牌里用了真实的公司和人名，自己玩没问题，要发行的话得再过一遍。</p>
+    </article>
+  </div>
+
+  <h3 class="sub">这一版没做的</h3>
+  <p class="fine">连线图、数值平衡、电脑对手、任何画面。牌的创意是上一版的重点，但这些牌里一定有不够好的，哪张没意思直接报编号，我单独重想。</p>
+</section>
+
+</main>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

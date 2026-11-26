@@ -1,0 +1,1102 @@
+[
+  {
+    "id": 1,
+    "title": "Asia Scoring",
+    "ops": 0,
+    "era": "early",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 2,
+    "title": "Europe Scoring",
+    "ops": 0,
+    "era": "early",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 3,
+    "title": "Middle East Scoring",
+    "ops": 0,
+    "era": "early",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 4,
+    "title": "Duck and Cover",
+    "ops": 3,
+    "era": "early",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 5,
+    "title": "Five Year Plan",
+    "ops": 3,
+    "era": "early",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 6,
+    "title": "The China Card",
+    "ops": 4,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 7,
+    "title": "Socialist Governments",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 8,
+    "title": "Fidel",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 9,
+    "title": "Vietnam Revolts",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 10,
+    "title": "Blockade",
+    "ops": 1,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 11,
+    "title": "Korean War",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 12,
+    "title": "Romanian Abdication",
+    "ops": 1,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 13,
+    "title": "Arab-Israeli War",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 14,
+    "title": "COMECON",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 15,
+    "title": "Nasser",
+    "ops": 1,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 16,
+    "title": "Warsaw Pact Formed",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 17,
+    "title": "De Gaule Leads France",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 18,
+    "title": "Captured Nazi Scientist",
+    "ops": 1,
+    "era": "early",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 19,
+    "title": "Truman Doctrine",
+    "ops": 1,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 20,
+    "title": "Olympic Games",
+    "ops": 2,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 21,
+    "title": "NATO",
+    "ops": 4,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 22,
+    "title": "Independent Reds",
+    "ops": 2,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 23,
+    "title": "Marshall Plan",
+    "ops": 4,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 24,
+    "title": "Indo-Pakistani War",
+    "ops": 2,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 25,
+    "title": "Containment",
+    "ops": 3,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 26,
+    "title": "CIA Created",
+    "ops": 1,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 27,
+    "title": "US/Japan Mutual Defense Pact",
+    "ops": 4,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 28,
+    "title": "Suez Crisis",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 29,
+    "title": "East European Unrest",
+    "ops": 3,
+    "era": "early",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 30,
+    "title": "Decolonization",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 31,
+    "title": "Red Scare/Purge",
+    "ops": 4,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 32,
+    "title": "UN Intervention",
+    "ops": 1,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 33,
+    "title": "De-Stalinization",
+    "ops": 3,
+    "era": "early",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 34,
+    "title": "Nuclear Test Ban",
+    "ops": 4,
+    "era": "early",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 35,
+    "title": "Formosan Resolution",
+    "ops": 2,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 36,
+    "title": "Brush War",
+    "ops": 3,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 37,
+    "title": "Central America Scoring",
+    "ops": 0,
+    "era": "mid",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 38,
+    "title": "SouthEast Asia Scoring",
+    "ops": 0,
+    "era": "mid",
+    "side": "scoring",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 39,
+    "title": "Arms Race",
+    "ops": 3,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 40,
+    "title": "Cuban Missile Crisis",
+    "ops": 3,
+    "era": "mid",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 41,
+    "title": "Nuclear Subs",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 42,
+    "title": "Quagmire",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 43,
+    "title": "Salt Negotiations",
+    "ops": 3,
+    "era": "mid",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 44,
+    "title": "Bear Trap",
+    "ops": 3,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 45,
+    "title": "Summit",
+    "ops": 1,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 46,
+    "title": "How I Learned to Stop Worrying",
+    "ops": 2,
+    "era": "mid",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 47,
+    "title": "Junta",
+    "ops": 2,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 48,
+    "title": "Kitchen Debates",
+    "ops": 1,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 49,
+    "title": "Missile Envy",
+    "ops": 2,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 50,
+    "title": "\"We Will Bury You\"",
+    "ops": 4,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 51,
+    "title": "Brezhnev Doctrine",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 52,
+    "title": "Portuguese Empire Crumbles",
+    "ops": 2,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 53,
+    "title": "South African Unrest",
+    "ops": 2,
+    "era": "mid",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 54,
+    "title": "Allende",
+    "ops": 1,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 55,
+    "title": "Willy Brandt",
+    "ops": 2,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 56,
+    "title": "Muslim Revolution",
+    "ops": 4,
+    "era": "mid",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 57,
+    "title": "ABM Treaty",
+    "ops": 4,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 58,
+    "title": "Cultural Revolution",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 59,
+    "title": "Flower Power",
+    "ops": 4,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 60,
+    "title": "U2 Incident",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 61,
+    "title": "OPEC",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 62,
+    "title": "\"Lone Gunman\"",
+    "ops": 1,
+    "era": "mid",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 63,
+    "title": "Colonial Rear Guards",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 64,
+    "title": "Panama Canal Returned",
+    "ops": 1,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 65,
+    "title": "Camp David Accords",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 66,
+    "title": "Puppet Governments",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 67,
+    "title": "Grain Sales to Soviets",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 68,
+    "title": "John Paul II Elected Pope",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 69,
+    "title": "Latin American Death Squads",
+    "ops": 2,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 70,
+    "title": "OAS Founded",
+    "ops": 1,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 71,
+    "title": "Nixon Plays the China Card",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 72,
+    "title": "Sadat Expels Soviets",
+    "ops": 1,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 73,
+    "title": "Shuttle Diplomacy",
+    "ops": 3,
+    "era": "mid",
+    "side": "us",
+    "once": false,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 74,
+    "title": "The Voice of America",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 75,
+    "title": "Liberation Theology",
+    "ops": 2,
+    "era": "mid",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 76,
+    "title": "Ussuri River Skirmish",
+    "ops": 3,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 77,
+    "title": "\"Ask Not What Your Country Can Do For You...\"",
+    "ops": 3,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 78,
+    "title": "Alliance For Progress",
+    "ops": 3,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 79,
+    "title": "Africa Scoring",
+    "ops": 0,
+    "era": "mid",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 80,
+    "title": "\"One Small Step...\"",
+    "ops": 2,
+    "era": "mid",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 81,
+    "title": "South America Scoring",
+    "ops": 0,
+    "era": "mid",
+    "side": "scoring",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 82,
+    "title": "Iranian Hostage Crisis",
+    "ops": 3,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 83,
+    "title": "The Iron Lady",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 84,
+    "title": "Reagan Bombs Libya",
+    "ops": 2,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 85,
+    "title": "Star Wars",
+    "ops": 2,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 86,
+    "title": "North Sea Oil",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 87,
+    "title": "The Reformer",
+    "ops": 3,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 88,
+    "title": "Marine Barracks Bombing",
+    "ops": 2,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 89,
+    "title": "Soviets Shoot Down KAL-007",
+    "ops": 4,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 90,
+    "title": "Glasnost",
+    "ops": 4,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 91,
+    "title": "Ortega Elected in Nicaragua",
+    "ops": 2,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 92,
+    "title": "Terrorism",
+    "ops": 2,
+    "era": "late",
+    "side": "neutral",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 93,
+    "title": "Iran-Contra Scandal",
+    "ops": 2,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 94,
+    "title": "Chernobyl",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 95,
+    "title": "Latin American Dept Crisis",
+    "ops": 2,
+    "era": "late",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 96,
+    "title": "Tear Down This Wall",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 97,
+    "title": "\"An Evil Empire\"",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": false
+  },
+  {
+    "id": 98,
+    "title": "Aldrich Ames Remix",
+    "ops": 3,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 99,
+    "title": "Pershing II Deployed",
+    "ops": 3,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 100,
+    "title": "Wargames",
+    "ops": 4,
+    "era": "late",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 101,
+    "title": "Solidarity",
+    "ops": 2,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 102,
+    "title": "Iran-Iraq War",
+    "ops": 2,
+    "era": "late",
+    "side": "neutral",
+    "once": true,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 103,
+    "title": "Defectors",
+    "ops": 2,
+    "era": "early",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": false
+  },
+  {
+    "id": 104,
+    "title": "The Cambridge Five",
+    "ops": 2,
+    "era": "early",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": true
+  },
+  {
+    "id": 105,
+    "title": "Special Relationship",
+    "ops": 2,
+    "era": "early",
+    "side": "us",
+    "once": false,
+    "persistent": false,
+    "optional": true
+  },
+  {
+    "id": 106,
+    "title": "NORAD",
+    "ops": 3,
+    "era": "early",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": true
+  },
+  {
+    "id": 107,
+    "title": "Che",
+    "ops": 3,
+    "era": "mid",
+    "side": "ussr",
+    "once": false,
+    "persistent": false,
+    "optional": true
+  },
+  {
+    "id": 108,
+    "title": "Our Man in Tehran",
+    "ops": 2,
+    "era": "mid",
+    "side": "us",
+    "once": true,
+    "persistent": false,
+    "optional": true
+  },
+  {
+    "id": 109,
+    "title": "Yuri and Samantha",
+    "ops": 2,
+    "era": "late",
+    "side": "ussr",
+    "once": true,
+    "persistent": false,
+    "optional": true
+  },
+  {
+    "id": 110,
+    "title": "AWACS Sale to Saudis",
+    "ops": 3,
+    "era": "late",
+    "side": "us",
+    "once": true,
+    "persistent": true,
+    "optional": true
+  }
+]

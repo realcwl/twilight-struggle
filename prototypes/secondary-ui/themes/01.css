@@ -1,0 +1,43 @@
+/* 01 · 黑漆描金 — black lacquer, a double gold fillet, gold corner pieces, a foil title.
+   The same family as the HUD's dark brown and gold. */
+[data-ui='01'] .sx {
+  --ink: #e8dcc0; --strong: #fff4d6; --muted: rgba(232, 220, 192, 0.62); --line: rgba(214, 170, 84, 0.36);
+  --accent: #d9a94a; --on-accent: #1a1209; --well: rgba(0, 0, 0, 0.38); --select: #f4cf7a;
+  --r: 5px; --pad: 28px;
+  background: linear-gradient(168deg, #2d231a 0%, #18120d 44%, #0f0b08 100%);
+  /* from the panel outwards: gold fillet, a band of lacquer, a second finer fillet */
+  box-shadow: 0 0 0 1px #070504, 0 0 0 2.5px #c39742, 0 0 0 7px #15100b, 0 0 0 8px rgba(195, 151, 66, 0.6), 0 30px 80px rgba(0, 0, 0, 0.72);
+}
+/* the sheen of the lacquer */
+[data-ui='01'] .sx::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; background: linear-gradient(118deg, rgba(255, 240, 210, 0.09) 0%, rgba(255, 240, 210, 0.02) 22%, transparent 34%); }
+/* gold corner pieces */
+[data-ui='01'] .sx::after {
+  content: ''; position: absolute; inset: 7px; pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate(0 15 15)'%3E%3Cg fill='none' stroke='%23d9a94a' stroke-width='1.2'%3E%3Cpath d='M1 15V1h14'/%3E%3Cpath d='M5 11V5h6'/%3E%3C/g%3E%3Crect x='7.2' y='7.2' width='3.6' height='3.6' transform='rotate(45 9 9)' fill='%23d9a94a'/%3E%3C/g%3E%3C/svg%3E") left top / 30px 30px no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate(90 15 15)'%3E%3Cg fill='none' stroke='%23d9a94a' stroke-width='1.2'%3E%3Cpath d='M1 15V1h14'/%3E%3Cpath d='M5 11V5h6'/%3E%3C/g%3E%3Crect x='7.2' y='7.2' width='3.6' height='3.6' transform='rotate(45 9 9)' fill='%23d9a94a'/%3E%3C/g%3E%3C/svg%3E") right top / 30px 30px no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate(180 15 15)'%3E%3Cg fill='none' stroke='%23d9a94a' stroke-width='1.2'%3E%3Cpath d='M1 15V1h14'/%3E%3Cpath d='M5 11V5h6'/%3E%3C/g%3E%3Crect x='7.2' y='7.2' width='3.6' height='3.6' transform='rotate(45 9 9)' fill='%23d9a94a'/%3E%3C/g%3E%3C/svg%3E") right bottom / 30px 30px no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate(270 15 15)'%3E%3Cg fill='none' stroke='%23d9a94a' stroke-width='1.2'%3E%3Cpath d='M1 15V1h14'/%3E%3Cpath d='M5 11V5h6'/%3E%3C/g%3E%3Crect x='7.2' y='7.2' width='3.6' height='3.6' transform='rotate(45 9 9)' fill='%23d9a94a'/%3E%3C/g%3E%3C/svg%3E") left bottom / 30px 30px no-repeat;
+}
+[data-ui='01'] .sx-tip::after, [data-ui='01'] .sx-toast::after { inset: 5px; background-size: 18px 18px; }
+[data-ui='01'] .sx-kicker { color: #c9a04e; letter-spacing: 0.26em; }
+[data-ui='01'] .sx-title { letter-spacing: 0.1em; background: linear-gradient(180deg, #fdebb2 0%, #e0b458 52%, #a97a2d 100%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.7)); }
+[data-ui='01'] .sx-title small { -webkit-text-fill-color: rgba(232, 220, 192, 0.62); }
+/* a gold rule with a lozenge at its middle closes the heading */
+[data-ui='01'] .sx-head::after { content: ''; display: block; height: 11px; margin-top: 14px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 11'%3E%3Cpath d='M11 .8l4.7 4.7L11 10.2 6.3 5.5z' fill='%2317110c' stroke='%23d9a94a' stroke-width='1.1'/%3E%3Cpath d='M11 3.6l1.9 1.9L11 7.4 9.1 5.5z' fill='%23d9a94a'/%3E%3C/svg%3E") center / 22px 11px no-repeat, linear-gradient(90deg, transparent, rgba(217, 169, 74, 0.75) 12%, rgba(217, 169, 74, 0.75) 88%, transparent) center / 100% 1px no-repeat; }
+[data-ui='01'] .sx-detail-text .sx-head::after, [data-ui='01'] .sx-tip .sx-head::after { margin-top: 10px; }
+
+[data-ui='01'] .sx-btn { border-radius: 2px; border-color: rgba(217, 169, 74, 0.6); background: rgba(0, 0, 0, 0.3); box-shadow: inset 0 0 0 3px #17110c, inset 0 0 0 4px rgba(217, 169, 74, 0.28); letter-spacing: 0.16em; }
+[data-ui='01'] .sx-btn:hover { background: rgba(217, 169, 74, 0.12); box-shadow: inset 0 0 0 3px #1d160f, inset 0 0 0 4px rgba(217, 169, 74, 0.55); }
+[data-ui='01'] .sx-btn.is-primary { border-color: #f0cf85; background: linear-gradient(180deg, #f7df9a 0%, #d6a548 55%, #b07f2c 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(90, 55, 10, 0.5), 0 2px 10px rgba(217, 169, 74, 0.28); text-shadow: 0 1px 0 rgba(255, 240, 200, 0.5); }
+[data-ui='01'] .sx-btn.is-ghost { border-color: transparent; background: none; box-shadow: none; }
+[data-ui='01'] .sx-chip { border-radius: 2px; border-color: rgba(217, 169, 74, 0.4); }
+[data-ui='01'] .sx-chip.is-on { background: linear-gradient(180deg, #f1d488, #c9983e); border-color: #f0cf85; }
+[data-ui='01'] .sx-key { border-color: rgba(217, 169, 74, 0.5); border-radius: 2px; color: #e9c877; }
+[data-ui='01'] .sx-close { border-radius: 2px; border-color: rgba(217, 169, 74, 0.5); color: #d9a94a; transform: rotate(45deg); }
+[data-ui='01'] .sx-close svg { transform: rotate(-45deg); }
+[data-ui='01'] .sx-close:hover { background: rgba(217, 169, 74, 0.16); }
+
+[data-ui='01'] .sx-well { border-radius: 3px; box-shadow: inset 0 3px 12px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(217, 169, 74, 0.26); }
+[data-ui='01'] .sx-option { border-radius: 2px; border-color: rgba(217, 169, 74, 0.34); background: rgba(0, 0, 0, 0.26); }
+[data-ui='01'] .sx-option.is-on { border-color: #e9c877; background: linear-gradient(180deg, rgba(217, 169, 74, 0.17), rgba(217, 169, 74, 0.06)); box-shadow: inset 0 0 0 1px #e9c877, inset 0 0 0 4px #17110c, inset 0 0 0 5px rgba(217, 169, 74, 0.4); }
+[data-ui='01'] .sx-option.is-on::after { content: ''; position: absolute; right: 16px; top: 16px; width: 10px; height: 10px; transform: rotate(45deg); background: linear-gradient(135deg, #fdebb2, #c39742); box-shadow: 0 0 10px rgba(244, 207, 122, 0.7); }
+[data-ui='01'] .sx-sec span { padding-bottom: 2px; border-bottom: 1px solid rgba(217, 169, 74, 0.6); }
+[data-ui='01'] .sx-example { border-radius: 2px; box-shadow: inset 2px 0 0 #d9a94a; }
+[data-ui='01'] .sx-toast .sx-kicker { padding: 3px 10px; border: 1px solid rgba(217, 169, 74, 0.55); letter-spacing: 0.2em; }

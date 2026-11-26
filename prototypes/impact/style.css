@@ -1,0 +1,140 @@
+/* Impact prototype. Three parts: the layers and pieces every set draws with (fx-), the page and the
+   staging that is the same for all ten (im-), and what belongs to one set (st- cn- gl- sw- jp- tb- ps- lk-). */
+html, body { margin: 0; height: 100%; overflow: hidden; background: #14110f; }
+#map { position: fixed; inset: 0; }
+/* the map's own key and hover card are not part of this */
+.wm-legend, .wm-card { display: none !important; }
+/* the game fades a plinth in and out; here every set decides for itself how one arrives and how one goes */
+.wm-plinth { transition: none !important; }
+
+/* ================================================================ layers and pieces */
+.fx-ground { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.fx-top { position: fixed; inset: 0; z-index: 5000; overflow: hidden; pointer-events: none; }
+.fx-svg, .fx-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fx-svg { overflow: visible; }
+.fx-at { position: absolute; box-sizing: border-box; }
+.fx-flash { position: absolute; inset: -40px; opacity: 0; }
+.fx-ring { border-radius: 50%; }
+.fx-scorch { border-radius: 50%; }
+.fx-rays { border-radius: 50%; -webkit-mask: radial-gradient(closest-side, #000 18%, transparent 100%); mask: radial-gradient(closest-side, #000 18%, transparent 100%); }
+.fx-slam { white-space: nowrap; transform: translate(-50%, -50%); font-family: 'Songti SC', 'Noto Serif SC', 'STSong', serif; font-weight: 900; line-height: 1.15; text-shadow: 0 3px 10px rgba(0, 0, 0, 0.75); }
+/* a stand-in for one cell of a token: the same block of colour, the same number */
+.fx-chip { text-align: center; font-family: MapDisplay, MapText, 'Songti SC', serif; font-weight: 800; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45); overflow: hidden; }
+.fx-plinth svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.fx-plinth path { stroke: #fff; stroke-width: 1.5px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.fx-plinth { filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55)); }
+
+/* ================================================================ the page */
+#ui { position: fixed; inset: 0; z-index: 6000; pointer-events: none; font-family: 'Songti SC', 'Noto Serif SC', 'STSong', serif; color: #ecdfc3; }
+body.bare #ui .im-bar { display: none; }
+.im-bar { position: absolute; left: 14px; right: 14px; top: 12px; display: flex; flex-direction: column; gap: 8px; padding: 10px 14px 11px; border-radius: 12px; background: linear-gradient(180deg, rgba(40, 31, 23, 0.95), rgba(27, 21, 16, 0.95)); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.28), 0 14px 40px rgba(0, 0, 0, 0.55); pointer-events: auto; }
+.im-tabs { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.im-title { margin-right: 8px; font-size: 16px; letter-spacing: 0.1em; color: #fff7e4; white-space: nowrap; }
+.im-tab { position: relative; display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 11px 6px; border: 0; border-radius: 8px; background: rgba(236, 223, 195, 0.07); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.18); color: #ecdfc3; font: inherit; font-size: 14px; cursor: pointer; white-space: nowrap; }
+.im-tab i { font: 700 11px/1 ui-monospace, Menlo, monospace; font-style: normal; color: rgba(236, 223, 195, 0.55); }
+.im-tab:hover { background: rgba(236, 223, 195, 0.14); }
+.im-tab.on { background: #f0bf4a; color: #1a120b; box-shadow: none; font-weight: 800; }
+.im-tab.on i { color: rgba(26, 18, 11, 0.6); }
+.im-tab em { font-style: normal; font-size: 10px; padding: 0 4px; border-radius: 4px; background: #de3f2b; color: #fff; }
+.im-row { display: flex; align-items: flex-start; gap: 18px; }
+.im-desc { flex: 1; min-width: 0; font-size: 13px; line-height: 1.5; }
+.im-desc-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.im-desc-head b { font-size: 17px; color: #fff7e4; letter-spacing: 0.06em; }
+.im-sign { color: #f7d98b; }
+.im-feel { color: rgba(236, 223, 195, 0.6); font-size: 12px; letter-spacing: 0.1em; }
+.im-desc p { margin: 2px 0 0; color: rgba(236, 223, 195, 0.86); }
+.im-desc p.im-risk { color: rgba(236, 223, 195, 0.56); }
+.im-acts { display: flex; align-items: center; gap: 6px; flex: none; flex-wrap: wrap; justify-content: flex-end; max-width: 46%; }
+.im-act { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border: 0; border-radius: 8px; background: rgba(236, 223, 195, 0.1); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.28); color: #fff7e4; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.im-act:hover { background: rgba(236, 223, 195, 0.2); }
+.im-act.playing { box-shadow: inset 0 0 0 2px #f0bf4a; }
+.im-act.on { background: #f0bf4a; color: #1a120b; }
+.im-act kbd { font: 700 10px/1 ui-monospace, Menlo, monospace; padding: 2px 4px; border-radius: 3px; background: rgba(0, 0, 0, 0.3); color: rgba(236, 223, 195, 0.75); }
+.im-act.on kbd { color: #1a120b; background: rgba(0, 0, 0, 0.12); }
+.im-sep { width: 1px; height: 22px; background: rgba(236, 223, 195, 0.25); margin: 0 4px; }
+/* what is going on, said in one line */
+.im-caption { position: absolute; left: 50%; top: 142px; transform: translateX(-50%); display: flex; align-items: baseline; gap: 12px; padding: 6px 16px; border-radius: 99px; background: rgba(18, 14, 11, 0.82); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.22); white-space: nowrap; opacity: 0; transition: opacity 0.25s; }
+.im-caption.on { opacity: 1; }
+.im-caption b { font-size: 16px; color: #fff7e4; letter-spacing: 0.08em; }
+.im-caption span { font-size: 13px; color: rgba(236, 223, 195, 0.75); }
+body.bare .im-caption { top: 18px; }
+
+/* ================================================================ the staging every set shares */
+.im-plus, .im-minus { border-radius: 7px; text-align: center; color: #fff; font: 800 15px/24px MapDisplay, MapText, serif; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9), 0 4px 10px rgba(0, 0, 0, 0.55); }
+.im-minus { line-height: 22px; font-size: 14px; }
+.im-pop { z-index: 2; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.9); }
+.im-margin { font-family: 'Cinzel', MapDisplay, 'Songti SC', serif; -webkit-text-stroke: 2px rgba(20, 14, 9, 0.9); paint-order: stroke fill; text-shadow: 0 6px 18px rgba(0, 0, 0, 0.75); }
+/* the coup's sum */
+.im-strip { position: absolute; left: 50%; bottom: 11vh; transform: translateX(-50%); display: flex; align-items: flex-end; gap: 12px; }
+.im-term { display: flex; flex-direction: column; align-items: center; min-width: 74px; padding: 7px 14px 8px; border-radius: 10px; background: rgba(18, 14, 11, 0.88); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.25), 0 8px 22px rgba(0, 0, 0, 0.5); color: #ecdfc3; font-family: 'Songti SC', 'Noto Serif SC', serif; }
+.im-term b { font: 800 30px/1.1 'Cinzel', MapDisplay, serif; color: #fff7e4; }
+.im-term span { font-size: 12px; color: rgba(236, 223, 195, 0.7); min-height: 1em; }
+.im-term.a b { color: #8ab6ff; }
+.im-term.b b { color: #ff9482; }
+.im-term.sum { background: rgba(240, 191, 74, 0.16); box-shadow: inset 0 0 0 2px #f0bf4a, 0 8px 22px rgba(0, 0, 0, 0.5); }
+.im-term.sum b { font-size: 40px; color: #ffe08a; }
+/* the dice */
+.im-duel { position: absolute; left: 50%; bottom: 3.5vh; transform: translate(-50%, 0); display: flex; align-items: flex-start; gap: 96px; padding: 12px 70px 10px; --die: 92px; font-family: 'Songti SC', 'Noto Serif SC', serif; color: #ecdfc3; }
+.im-duel::before { content: ''; position: absolute; inset: -30px -60px -40px; z-index: -1; background: radial-gradient(closest-side, rgba(10, 8, 6, 0.86), rgba(10, 8, 6, 0.6) 62%, transparent); }
+.im-seat { display: flex; flex-direction: column; align-items: center; width: 170px; }
+.im-who { font-size: 13px; letter-spacing: 0.2em; color: rgba(236, 223, 195, 0.75); }
+.im-seat.a .im-who { color: #8ab6ff; }
+.im-seat.b .im-who { color: #ff9482; }
+.im-diebox { display: grid; place-items: center; width: 150px; height: 124px; }
+.im-total { display: block; min-height: 58px; font: 800 54px/58px 'Cinzel', MapDisplay, serif; color: #fff7e4; text-shadow: 0 3px 12px rgba(0, 0, 0, 0.8); transition: color 0.2s, opacity 0.3s; }
+.im-seat.won .im-total { color: #ffe08a; }
+.im-seat.lost .im-total { opacity: 0.45; }
+.im-mods { display: flex; flex-direction: column; align-items: center; gap: 3px; min-height: 44px; margin-top: 2px; }
+.im-mod { padding: 1px 9px; border-radius: 99px; font-size: 12px; white-space: nowrap; background: rgba(236, 223, 195, 0.1); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.22); }
+.im-seat.a .im-mod { box-shadow: inset 0 0 0 1px rgba(138, 182, 255, 0.6); }
+.im-seat.b .im-mod { box-shadow: inset 0 0 0 1px rgba(255, 148, 130, 0.6); }
+.im-vs { align-self: center; margin-top: 30px; font: 800 20px/1 'Cinzel', serif; font-style: normal; letter-spacing: 0.1em; color: rgba(236, 223, 195, 0.5); }
+
+/* ================================================================ 01 · 盖章 */
+/* the stamp, seen from above: a brass block with a wooden knob */
+.st-stamp { border-radius: 10px; background: linear-gradient(160deg, #d6ab52, #8a6422); box-shadow: inset 0 0 0 3px #e9c877, inset 0 0 0 6px #6d4d18, 0 22px 34px rgba(0, 0, 0, 0.6); }
+.st-stamp::after { content: ''; position: absolute; left: 50%; top: 50%; height: 62%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8a5630, #3a2010 75%); box-shadow: 0 5px 9px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255, 255, 255, 0.12); }
+.st-stamp.small { border-radius: 50%; }
+.st-ink { padding: 1px 10px 2px; border: 3px solid currentColor; border-radius: 6px; letter-spacing: 0.14em; text-shadow: none; background: rgba(239, 226, 196, 0.9); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4); }
+.st-post { display: grid; place-items: center; border: 3px solid; border-radius: 50%; background: rgba(239, 226, 196, 0.95); font: 800 11px/1 MapDisplay, serif; }
+.st-blot { border-radius: 46% 54% 50% 50% / 56% 44% 56% 44%; filter: blur(0.6px); }
+
+/* ================================================================ 02 · 炮击 */
+/* a shell in flight is seen by its glow; the ball a die fires is iron with fire behind it */
+.cn-shell { border-radius: 50%; background: radial-gradient(circle at 40% 40%, #fff, #ffb14a 45%, #7a3b10); box-shadow: 0 0 14px 5px rgba(255, 150, 60, 0.85), 0 0 3px #fff; }
+.cn-ball { border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8a8a8a, #151515 70%); box-shadow: 0 0 16px #ff9a3d, 0 0 4px #fff; }
+
+/* ================================================================ 03 · 碎玻璃 */
+.gl-bead { border-radius: 50%; box-shadow: 0 0 10px #fff, inset 0 0 0 2px rgba(255, 255, 255, 0.85); }
+
+/* ================================================================ 04 · 冲击波 */
+.sw-pulse { border-radius: 50%; }
+
+/* ================================================================ 06 · 头奖 */
+.jp-bulb { border-radius: 50%; background: #ffe08a; box-shadow: 0 0 10px #ffc94a, 0 0 2px #fff; }
+.jp-coin { border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.85), 0 2px 4px rgba(0, 0, 0, 0.5); }
+.jp-coin.big { box-shadow: inset 0 0 0 2.5px rgba(255, 255, 255, 0.9), inset 0 0 0 5px rgba(0, 0, 0, 0.18), 0 3px 6px rgba(0, 0, 0, 0.5); }
+.jp-combo { font-family: 'Cinzel', MapDisplay, serif; text-shadow: 0 0 12px #ffb300, 0 2px 0 #7a4b00; }
+.jp-gold { text-shadow: 0 0 22px #ffb300, 0 0 4px #fff, 0 6px 18px rgba(0, 0, 0, 0.75); }
+
+/* ================================================================ 08 · 实木棋子 */
+.tb-disc { display: grid; place-items: center; border-radius: 50%; color: #fff; font: 800 10px/1 MapDisplay, serif; box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.78), 0 3px 0 rgba(0, 0, 0, 0.45), 0 6px 9px rgba(0, 0, 0, 0.4); }
+
+/* ================================================================ 09 · 宣传画 */
+.ps-paper { position: absolute; inset: -40px; background: radial-gradient(circle, rgba(20, 14, 9, 0.42) 1.3px, transparent 1.7px) 0 0 / 7px 7px, radial-gradient(ellipse at center, transparent 45%, rgba(20, 14, 9, 0.5)); mix-blend-mode: multiply; }
+.ps-band { padding: 3px 28px 6px; letter-spacing: 0.16em; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35); box-shadow: 0 0 0 3px #fff, 6px 9px 0 rgba(0, 0, 0, 0.4); }
+.ps-head { -webkit-text-stroke: 4px #1a120b; paint-order: stroke fill; text-shadow: 7px 7px 0 rgba(0, 0, 0, 0.5); }
+.ps-star { text-align: center; font-size: 27px; line-height: 28px; -webkit-text-stroke: 1.5px #fff; paint-order: stroke fill; text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6); }
+.ps-cut { box-shadow: 0 0 0 2px #fff, 0 3px 6px rgba(0, 0, 0, 0.5); }
+
+/* ================================================================ 10 · 锁定 */
+.lk-ret { transform: translate(-50%, -50%); }
+.lk-ret i { position: absolute; width: 26%; height: 26%; border: 2.5px solid currentColor; }
+.lk-ret i:nth-child(1) { left: 0; top: 0; border-right: 0; border-bottom: 0; }
+.lk-ret i:nth-child(2) { right: 0; top: 0; border-left: 0; border-bottom: 0; }
+.lk-ret i:nth-child(3) { left: 0; bottom: 0; border-right: 0; border-top: 0; }
+.lk-ret i:nth-child(4) { right: 0; bottom: 0; border-left: 0; border-top: 0; }
+.lk-ret.locked i { border-width: 4px; filter: drop-shadow(0 0 6px currentColor); }
+.lk-ret.locked::after { content: ''; position: absolute; left: 50%; top: 50%; width: 6px; height: 6px; margin: -3px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+.lk-mono { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-weight: 700; letter-spacing: 0.18em; text-shadow: 0 0 10px currentColor; padding: 3px 9px; background: rgba(8, 12, 18, 0.72); -webkit-text-stroke: 0; }
+.lk-seg { border-radius: 2px; }

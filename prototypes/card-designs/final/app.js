@@ -1,0 +1,84 @@
+import {installTermHelp} from '../../../src/cards/tooltips.js';
+import {termLegend} from '../../../src/cards/terms.js';
+import {cardHTML,fitCards,esc,eraNames,sideNames} from './card.js';
+const $=s=>document.querySelector(s);
+const cards=await fetch('/prototypes/card-designs/final/cards.json').then(r=>r.json());
+const params=new URLSearchParams(location.search);
+if(params.has('export')){
+ const c=cards.find(c=>c.id===Number(params.get('export')))||cards[20];
+ document.documentElement.className='export';document.body.innerHTML=cardHTML(c,{back:params.get('side')==='back',lazy:false,interactive:false});
+ document.title=`${String(c.id).padStart(3,'0')} ${c.titleZh} · 冷战热斗`;
+ await document.fonts.ready;fitCards();await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));window.__ready=true;
+}else {installTermHelp();document.querySelector('.term-legend').innerHTML=termLegend()+'<small>悬停术语，查看短片解释</small>';await init();}
+async function init(){
+ const state={era:'all',side:'all',set:'all',search:'',pending:false,backs:false,comments:[],visible:[],card:null,back:false,pinning:false,anchor:null,files:[],selected:null,saving:false,availableArt:new Set()};
+ const drafts=new Map();let toastTimer;
+ async function api(url,options={}){const r=await fetch(url,{...options,headers:{'Content-Type':'application/json',...options.headers}});let json;try{json=await r.json()}catch{throw Error('本地服务未响应，请运行 npm run cards:review。')}if(!r.ok)throw Error(json.error||'操作失败');return json;}
+ function toast(t){$('#toast').textContent=t;$('#toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('show'),2500)}
+ function openCount(id){return state.comments.filter(c=>c.status==='open'&&(id===undefined||c.cardId===id)).length}
+ function storageKey(id){return `ts-review-draft-${id}`}
+ function saveDraft(){if(!state.card)return;const d={text:$('#comment-text').value,anchor:state.anchor,back:state.back,files:state.files};drafts.set(state.card.id,d);try{localStorage.setItem(storageKey(state.card.id),JSON.stringify({...d,files:[]}))}catch{}}
+ function restoreDraft(c){let d=drafts.get(c.id);if(!d){try{d=JSON.parse(localStorage.getItem(storageKey(c.id))||'null')}catch{}}d=d||{};$('#comment-text').value=d.text||'';state.anchor=d.anchor||null;state.files=d.files||[];state.back=!!d.back;state.pinning=false;$('#save-state').textContent='保存后可在下一轮直接说「帮我 address」。';$('#save-state').className='';renderAttachments();anchorLabel();}
+ function renderGallery(){
+   state.visible=cards.filter(c=>(state.era==='all'||c.era===state.era)&&(state.side==='all'||c.side===state.side)&&(state.set==='all'||(state.set==='optional')===c.optional)&&(!state.pending||openCount(c.id)>0)&&(!state.search||`${String(c.id).padStart(3,'0')} ${c.id} ${c.title} ${c.titleZh} ${c.effectsZh.join(' ')} ${c.prerequisiteZh}`.toLowerCase().includes(state.search.toLowerCase())));
+   $('#gallery').innerHTML=state.visible.map(c=>`<button class="tile" data-id="${c.id}" aria-label="审阅 ${esc(c.titleZh)}">${cardHTML(c,{back:state.backs,artReady:state.availableArt.has(c.id)})}<div class="tile-meta"><div class="tile-name"><small>${String(c.id).padStart(3,'0')} / ${eraNames[c.era]}${c.optional?'<span class="optional-tag">可选</span>':''}</small>${esc(c.titleZh)}</div>${openCount(c.id)?`<span class="comment-count">${openCount(c.id)} 条评论</span>`:''}</div></button>`).join('');
+   $('#result-count').textContent=`${state.visible.length} / 110 张卡牌${state.pending?' · 有待处理评论':''}`;$('#empty').hidden=state.visible.length>0;$('#pending-count').textContent=openCount();$('#pending-toggle').classList.toggle('active',state.pending);
+   $('#art-progress').textContent=state.availableArt.size<110?`新插图 ${state.availableArt.size} / 110`:'';
+   document.querySelectorAll('[data-era]').forEach(b=>{const active=b.dataset.era===state.era;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+   requestAnimationFrame(()=>fitCards($('#gallery')));
+ }
+ function reset(){state.era=state.side=state.set='all';state.search='';state.pending=false;$('#search').value='';$('#side-filter').value=$('#set-filter').value='all';renderGallery()}
+ $('#search').addEventListener('input',e=>{state.search=e.target.value;renderGallery()});
+ document.querySelectorAll('[data-era]').forEach(b=>b.addEventListener('click',()=>{state.era=b.dataset.era;renderGallery()}));
+ $('#side-filter').addEventListener('change',e=>{state.side=e.target.value;renderGallery()});$('#set-filter').addEventListener('change',e=>{state.set=e.target.value;renderGallery()});
+ $('#pending-toggle').addEventListener('click',()=>{state.pending=!state.pending;renderGallery()});$('#back-toggle').addEventListener('change',e=>{state.backs=e.target.checked;renderGallery()});
+ $('#reset-filters').onclick=$('#empty-reset').onclick=reset;
+ $('#gallery').addEventListener('click',e=>{const tile=e.target.closest('[data-id]');if(tile&&!e.target.closest('[data-term]'))openCard(Number(tile.dataset.id))});
+ function openCard(id,{hash=true}={}){const c=cards.find(c=>c.id===id);if(!c)return;if(state.card)saveDraft();state.card=c;state.selected=null;restoreDraft(c);$('#card-number').textContent='#'+String(id).padStart(3,'0');$('#card-name-zh').textContent=c.titleZh;$('#card-set').textContent=c.optional?'官方可选牌':'基础牌';$('#card-facts').innerHTML=`<span>${c.id===6?'特殊牌':sideNames[c.side]} · ${eraNames[c.era]}</span>${c.once?'<span>* 事件后移除</span>':''}${c.persistent?'<span>下划线：持续效果</span>':''}<a href="${c.source}" target="_blank" rel="noreferrer">核对原牌 ↗</a>`;renderLarge();renderComments();navigation();if(!$('#viewer').open)$('#viewer').showModal();if(hash)history.replaceState(null,'',`#card-${id}`);}
+ function navigation(){let list=state.visible;if(!list.some(c=>c.id===state.card.id))list=cards;const i=list.findIndex(c=>c.id===state.card.id);$('#position').textContent=`${i+1} / ${list.length}`;$('#prev').disabled=i===0;$('#next').disabled=i===list.length-1;return{list,i}}
+ function move(delta){if(state.saving)return;const{list,i}=navigation();const c=list[i+delta];if(c)openCard(c.id)}
+ $('#prev').onclick=()=>move(-1);$('#next').onclick=()=>move(1);
+ function renderLarge(){const c=state.card;if(!c)return;$('#large-card').innerHTML=cardHTML(c,{back:state.back,lazy:false,artReady:state.availableArt.has(c.id)});$('#flip-card').textContent=state.back?'查看正面 ↻':'查看背面 ↻';$('#export-card').href=`/?export=${c.id}&side=${state.back?'back':'front'}`;$('#large-card').classList.toggle('pinning',state.pinning);$('#pin-mode').setAttribute('aria-pressed',String(state.pinning));$('#stage-hint').textContent=state.pinning?'点击牌面，标记你希望修改的位置。':'点击「标注位置」，然后点击牌面添加评论。';renderPins();requestAnimationFrame(()=>fitCards($('#large-card')))}
+ function cardComments(){return state.comments.filter(c=>c.cardId===state.card?.id)}
+ function shownComments(){return cardComments().filter(c=>$('#show-resolved').checked||c.status==='open')}
+ function renderPins(){document.querySelectorAll('#large-card>.pin').forEach(e=>e.remove());shownComments().forEach((c,index)=>{if(!c.anchor||c.side!==(state.back?'back':'front'))return;const b=document.createElement('button');b.className=`pin ${c.status} ${c.id===state.selected?'selected':''}`;b.style.left=c.anchor.x*100+'%';b.style.top=c.anchor.y*100+'%';b.textContent=index+1;b.dataset.comment=c.id;b.title=c.text.slice(0,100)||'图片评论';b.setAttribute('aria-label',`评论 ${index+1}: ${c.text.slice(0,60)}`);$('#large-card').append(b)});if(state.anchor){const pin=document.createElement('span');pin.className='pin draft';pin.style.left=state.anchor.x*100+'%';pin.style.top=state.anchor.y*100+'%';pin.textContent='+';$('#large-card').append(pin)}}
+ $('#flip-card').onclick=()=>{state.back=!state.back;state.anchor=null;state.pinning=false;anchorLabel();renderLarge();saveDraft()};
+ $('#pin-mode').onclick=()=>{state.pinning=!state.pinning;renderLarge()};
+ $('#large-card').addEventListener('click',e=>{const pin=e.target.closest('[data-comment]');if(pin){selectComment(pin.dataset.comment);return}if(!state.pinning)return;const rect=$('#large-card').getBoundingClientRect();state.anchor={x:Math.max(0,Math.min(1,(e.clientX-rect.left)/rect.width)),y:Math.max(0,Math.min(1,(e.clientY-rect.top)/rect.height))};state.pinning=false;anchorLabel();renderLarge();$('#comment-text').focus();saveDraft()});
+ function anchorLabel(){$('#anchor-label').textContent=state.anchor?`${state.back?'背面':'正面'} · 位置 ${Math.round(state.anchor.x*100)}%, ${Math.round(state.anchor.y*100)}%`:`${state.back?'背面':'正面'} · 整张卡牌`;$('#clear-anchor').hidden=!state.anchor;}
+ $('#clear-anchor').onclick=()=>{state.anchor=null;anchorLabel();renderPins();saveDraft()};
+ function selectComment(id){state.selected=id;const c=state.comments.find(c=>c.id===id);if(c){state.back=c.side==='back';renderLarge();renderComments();requestAnimationFrame(()=>document.querySelector(`[data-comment-row="${id}"]`)?.scrollIntoView({block:'nearest',behavior:'smooth'}))}}
+ function renderComments(){
+   const all=cardComments();const list=shownComments();$('#card-comment-count').textContent=all.filter(c=>c.status==='open').length;
+   $('#comments').innerHTML=list.length?list.map((c,index)=>`<article class="comment ${c.status} ${c.id===state.selected?'selected':''}" data-comment-row="${c.id}"><div class="comment-head"><button data-focus="${c.id}">${index+1} · ${c.side==='back'?'背面':'正面'}${c.anchor?' / 定位':' / 整张'}</button><span>${c.revision!==state.card.revision?`基于 v${c.revision} · `:''}${c.status==='resolved'?'已处理':'待处理'}</span></div><p class="comment-body">${esc(c.text)}</p><div class="comment-images">${c.attachments.map(a=>`<button data-image="${a.url}" aria-label="查看图片 ${esc(a.name)}"><img src="${a.url}" alt="${esc(a.name)}" loading="lazy"></button>`).join('')}</div>${c.resolution?`<p class="resolution">处理记录：${esc(c.resolution)}</p>`:''}<div class="comment-foot"><time>${new Date(c.createdAt).toLocaleString('zh-CN',{month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})}</time><div><button data-edit="${c.id}">编辑</button><button data-status="${c.id}">${c.status==='open'?'✓ 标记已处理':'↺ 重新打开'}</button></div></div></article>`).join(''):`<div class="no-comments">${all.length?'没有待处理评论。':'还没有评论。'}<span>可以评论整张牌，也可以在牌面上精确标注。</span></div>`;
+   renderPins();
+ }
+ $('#show-resolved').onchange=renderComments;
+ $('#comments').addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;try{if(b.dataset.focus){selectComment(b.dataset.focus);return}if(b.dataset.image){$('#image-lightbox img').src=b.dataset.image;$('#image-lightbox').showModal();return}if(b.dataset.status){const c=state.comments.find(c=>c.id===b.dataset.status);const updated=await api('/api/comments/'+c.id,{method:'PATCH',body:JSON.stringify({status:c.status==='open'?'resolved':'open'})});replaceComment(updated);toast(updated.status==='resolved'?'评论已标记为已处理':'评论已重新打开');return}if(b.dataset.edit){const c=state.comments.find(c=>c.id===b.dataset.edit);const row=b.closest('.comment');row.innerHTML=`<textarea class="comment-edit" aria-label="编辑评论">${esc(c.text)}</textarea><div class="comment-foot"><button data-cancel-edit>取消</button><button data-save-edit="${c.id}">保存修改</button></div>`;row.querySelector('textarea').focus();return}if(b.hasAttribute('data-cancel-edit')){renderComments();return}if(b.dataset.saveEdit){const updated=await api('/api/comments/'+b.dataset.saveEdit,{method:'PATCH',body:JSON.stringify({text:b.closest('.comment').querySelector('textarea').value})});replaceComment(updated);toast('评论已更新')}}catch(err){toast(err.message)}});
+ function replaceComment(updated){state.comments=state.comments.map(c=>c.id===updated.id?updated:c);renderComments();renderGallery()}
+ async function readFile(file){return new Promise((ok,no)=>{const reader=new FileReader();reader.onload=()=>ok(reader.result);reader.onerror=no;reader.readAsDataURL(file)})}
+ async function addFiles(files){
+   for(const f of files){if(state.files.length>=6){toast('每条评论最多 6 张图片');break}if(!['image/png','image/jpeg','image/webp','image/gif'].includes(f.type)){toast('支持 PNG、JPEG、WebP 和 GIF 图片');continue}if(f.size>8*1024*1024){toast('每张图片最大 8 MB');continue}if(state.files.reduce((s,a)=>s+(a.size||0),0)+f.size>24*1024*1024){toast('每条评论的图片合计最大 24 MB');break}state.files.push({name:f.name||'粘贴的图片.png',data:await readFile(f),size:f.size})}renderAttachments();saveDraft();
+ }
+ function renderAttachments(){$('#attachment-previews').innerHTML=state.files.map((f,i)=>`<div class="attachment"><img src="${f.data}" alt="${esc(f.name)}"><button type="button" data-remove="${i}" aria-label="移除图片">×</button></div>`).join('')}
+ $('#attachment-previews').onclick=e=>{const b=e.target.closest('[data-remove]');if(b){state.files.splice(Number(b.dataset.remove),1);renderAttachments();saveDraft()}};
+ $('#image-input').onchange=async e=>{await addFiles([...e.target.files]);e.target.value=''};
+ $('#comment-form').addEventListener('paste',e=>{const images=[...e.clipboardData.items].filter(i=>i.type.startsWith('image/')).map(i=>i.getAsFile()).filter(Boolean);if(images.length){e.preventDefault();addFiles(images)}});
+ ['dragenter','dragover'].forEach(t=>$('#comment-form').addEventListener(t,e=>{e.preventDefault();$('#comment-form').classList.add('dragging')}));
+ $('#comment-form').addEventListener('dragleave',e=>{if(!$('#comment-form').contains(e.relatedTarget))$('#comment-form').classList.remove('dragging')});
+ $('#comment-form').addEventListener('drop',e=>{e.preventDefault();$('#comment-form').classList.remove('dragging');addFiles([...e.dataTransfer.files])});
+ $('#comment-text').addEventListener('input',saveDraft);
+ $('#comment-form').onsubmit=async e=>{e.preventDefault();if(state.saving)return;const text=$('#comment-text').value.trim();if(!text&&!state.files.length){$('#comment-text').focus();return}state.saving=true;$('#submit-comment').disabled=true;$('#save-state').textContent='正在保存到本地…';$('#save-state').className='';
+  try{const saved=await api('/api/comments',{method:'POST',body:JSON.stringify({cardId:state.card.id,revision:state.card.revision,text,side:state.back?'back':'front',anchor:state.anchor,attachments:state.files.map(({name,data})=>({name,data}))})});state.comments.push(saved);$('#comment-text').value='';state.files=[];state.anchor=null;saveDraft();renderAttachments();anchorLabel();renderComments();renderGallery();$('#save-state').textContent='✓ 已保存到项目 · 刷新后仍然保留';toast('评论和图片已保存')}catch(err){$('#save-state').textContent=err.message;$('#save-state').className='error'}finally{state.saving=false;$('#submit-comment').disabled=false}
+ };
+ $('#close-viewer').onclick=()=>{if(!state.saving)$('#viewer').close()};$('#viewer').addEventListener('cancel',e=>{if(state.saving)e.preventDefault()});$('#viewer').addEventListener('close',()=>{if($('#viewer').open)return;saveDraft();state.card=null;history.replaceState(null,'',location.pathname)});
+ $('#close-lightbox').onclick=()=>$('#image-lightbox').close();$('#image-lightbox').onclick=e=>{if(e.target===$('#image-lightbox'))$('#image-lightbox').close()};
+ document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea,select,[data-term],.term-help')||e.target.isContentEditable)return;if($('#image-lightbox').open)return;if(e.key==='/'&&!$('#viewer').open){e.preventDefault();$('#search').focus()}if($('#viewer').open){if(e.key==='ArrowLeft')move(-1);if(e.key==='ArrowRight')move(1)}});
+ let resize;window.addEventListener('resize',()=>{clearTimeout(resize);resize=setTimeout(()=>fitCards(),120)});
+ try{state.comments=(await api('/api/comments')).comments}catch(err){toast(err.message);$('#save-state').textContent=err.message;$('#save-state').className='error'}
+ try{state.availableArt=new Set(Object.keys(await fetch('/prototypes/card-designs/final/art-manifest.json').then(r=>r.json())).map(Number))}catch{}
+ renderGallery();await document.fonts.ready;fitCards();const hash=location.hash.match(/^#card-(\d+)$/);if(hash)openCard(Number(hash[1]),{hash:false});
+ window.addEventListener('hashchange',()=>{const m=location.hash.match(/^#card-(\d+)$/);if(m)openCard(Number(m[1]),{hash:false})});
+ setInterval(async()=>{if(document.hidden||state.saving||$('.comment-edit'))return;if(state.availableArt.size<110){try{const m=await fetch('/prototypes/card-designs/final/art-manifest.json').then(r=>r.json());const ids=Object.keys(m).map(Number);if(ids.length!==state.availableArt.size){state.availableArt=new Set(ids);renderGallery();if(state.card)renderLarge()}}catch{}}try{const next=(await api('/api/comments')).comments;if(JSON.stringify(next)!==JSON.stringify(state.comments)){state.comments=next;renderGallery();if(state.card)renderComments()}}catch{}},10000);
+ window.__cardReview={cards,state,openCard,fitCards,refresh:async()=>{state.comments=(await api('/api/comments')).comments;renderGallery();if(state.card)renderComments()}};window.__ready=true;
+}

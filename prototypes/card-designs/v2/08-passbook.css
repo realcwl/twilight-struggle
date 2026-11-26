@@ -1,0 +1,8 @@
+/* V2 08 Passbook */
+.e08 .face { background: #5c1212; }
+.e08 .face.back { background: #3a2415; }
+.e08 .k-title { font-size: 46px; }
+.e08 .k-foot { fill: #ecc970; font-size: 12px; }
+.e08 .k-value { fill: #3a2206; }
+.e08 .k-value.lit { fill: rgba(255, 246, 200, 0.75); }
+.e08 .txt { left: 13.6cqw; right: 10cqw; top: 88cqw; height: 26.8cqw; }

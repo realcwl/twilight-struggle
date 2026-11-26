@@ -1,0 +1,91 @@
+/* Shared by the ten displays: the page's toolbar, notes and overview, and the pieces every display
+   uses (a picture, the round pips, the words). A display's own stylesheet is scoped to .ep-NN (its
+   element) and .ep-host[data-ep='NN'] (the pane it sits in).
+
+   Everything inside the HUD is in rem: 1rem is 10 px on a 1600 x 900 screen (see src/hud/hud.css). */
+
+:root { --bar: 44px; --ui: -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif; }
+html:not(.clean) #game { top: var(--bar); }
+
+/* ------------------------------------------------------------------ toolbar and notes */
+#toolbar { position: fixed; inset: 0 0 auto 0; height: var(--bar); z-index: 9800; display: flex; align-items: center; gap: 12px; padding: 0 12px; overflow: hidden; background: #0a0908; border-bottom: 1px solid #2c241b; font: 500 12.5px/1 var(--ui); color: #b9ad94; user-select: none; -webkit-user-select: none; white-space: nowrap; }
+html.clean #toolbar { display: none; }
+#toolbar .tb-title { flex: none; font-weight: 700; letter-spacing: 0.04em; color: #f0bf4a; }
+#toolbar button { height: 28px; padding: 0 9px; border: 1px solid #2c241b; border-radius: 6px; background: #14110e; font: inherit; color: inherit; cursor: pointer; }
+#toolbar button:hover { border-color: #6b5527; color: #fff7e4; }
+#toolbar button[aria-pressed='true'] { border-color: #f0bf4a; background: #2a2012; color: #fff7e4; }
+#toolbar kbd { margin-left: 7px; padding: 1px 5px; border-radius: 4px; background: rgba(236, 223, 195, 0.1); font: 600 10.5px/1.4 ui-monospace, Menlo, monospace; color: #8f846e; }
+.tb-tabs { flex: none; display: flex; gap: 3px; }
+.tb-tabs button { display: inline-flex; align-items: center; gap: 6px; padding: 0 7px; }
+.tb-tabs button b { font: 700 12px/1 ui-monospace, Menlo, monospace; color: #8f846e; }
+.tb-tabs button span { display: none; }
+.tb-tabs button[aria-pressed='true'] b { color: #f0bf4a; }
+.tb-tabs button[aria-pressed='true'] span { display: inline; }
+.tb-idea { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #8f846e; }
+.tb-now { flex: none; font-variant-numeric: tabular-nums; color: #cfc4ac; }
+.tb-acts { flex: none; display: flex; gap: 5px; }
+
+#notes { position: fixed; top: calc(var(--bar) + 10px); right: 10px; z-index: 9700; width: 372px; max-height: calc(100vh - var(--bar) - 20px); overflow: auto; padding: 16px 18px 14px; border-radius: 10px; background: rgba(14, 12, 10, 0.96); box-shadow: 0 0 0 1px #4b3d27, 0 18px 50px rgba(0, 0, 0, 0.7); font: 400 13px/1.55 var(--ui); color: #cfc4ac; user-select: text; -webkit-user-select: text; }
+html.clean #notes { top: 10px; max-height: calc(100vh - 20px); }
+#notes h2 { margin: 0 0 2px; font: 700 17px/1.3 var(--ui); color: #fff7e4; }
+#notes h2 small { margin-left: 8px; font: 500 12px/1 var(--ui); color: #f0bf4a; }
+#notes p { margin: 6px 0 10px; text-wrap: pretty; }
+#notes h3 { margin: 12px 0 5px; font: 700 11px/1 var(--ui); letter-spacing: 0.12em; color: #8f846e; }
+#notes dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 12px; margin: 0; }
+#notes dt { color: #8f846e; }
+#notes dd { margin: 0; }
+#notes ul { margin: 0; padding-left: 16px; }
+#notes li { margin: 2px 0; }
+#notes li.pro::marker { color: #5fae93; }
+#notes li.con::marker { color: #e58236; }
+
+/* ------------------------------------------------------------------ the overview */
+#gallery { position: fixed; inset: var(--bar) 0 0 0; z-index: 9500; overflow: auto; padding: 1.6rem 3rem 6rem; background: radial-gradient(120% 80% at 50% 0%, #1b2639, #0c1320 70%); }
+html.clean #gallery { top: 0; }
+.gl-row { display: grid; grid-template-columns: 17rem repeat(3, 44rem); align-items: center; gap: 0 2.4rem; padding: 2.2rem 0; border-top: 1px solid rgba(236, 223, 195, 0.1); cursor: pointer; }
+.gl-row:hover { background: rgba(236, 223, 195, 0.03); }
+.gl-head { position: sticky; top: -1.6rem; z-index: 5; padding: 1.2rem 0 1rem; border-top: 0; border-bottom: 1px solid rgba(236, 223, 195, 0.25); background: #131b2b; cursor: default; }
+.gl-head .gl-name { font: 500 1.25rem/1.3 var(--ui); color: #8f9bb3; }
+.gl-th { font: 500 1.25rem/1 var(--ui); color: #8f9bb3; }
+.gl-th b { margin-right: 1rem; font: 700 1.5rem/1 'Songti SC', serif; letter-spacing: 0.12em; color: #f0bf4a; }
+.gl-name b { display: block; font: 700 1.3rem/1 ui-monospace, Menlo, monospace; letter-spacing: 0.1em; color: #f0bf4a; }
+.gl-name span { display: block; margin-top: 0.7rem; font: 900 2.5rem/1 'Songti SC', 'Noto Serif SC', serif; letter-spacing: 0.08em; color: #fff7e4; }
+.gl-name small { display: block; margin-top: 0.9rem; font: 400 1.25rem/1.4 var(--ui); color: #8f9bb3; }
+.gl-cell.hud { position: relative; inset: auto; z-index: auto; display: flex; pointer-events: auto; }
+.gl-cell .hud-tl { position: relative; left: auto; top: auto; }
+
+/* ------------------------------------------------------------------ the pane a display sits in */
+/* the game's own dial, words and pips make room for the display */
+.ep-host > :not(.ep-v) { display: none !important; }
+.ep-host { display: block; padding: 1.2rem; }
+.ep-v { position: relative; font: 400 1.2rem/1.2 var(--han); color: var(--text); cursor: pointer; }
+
+/* ------------------------------------------------------------------ a picture */
+/* --grade is the era's look, --state what the display does to a frame that is past or to come */
+.ep-pic { display: block; background: #0b0908 var(--at, 50% 50%) / cover no-repeat; filter: var(--grade, saturate(1)) var(--state, brightness(1)); }
+.ep-pic.g-bw { --grade: grayscale(1) contrast(1.12) brightness(1.04); }
+.ep-pic.g-fade { --grade: saturate(0.62) sepia(0.2) contrast(0.96) brightness(1.03); }
+.ep-pic.g-full { --grade: saturate(1.08) contrast(1.02); }
+
+/* ------------------------------------------------------------------ the words */
+.ep-year { font: 800 3.3rem/0.86 var(--num); color: var(--bright); font-variant-numeric: tabular-nums; }
+.ep-era { font: 700 1.2rem/1 var(--han); letter-spacing: 0.18em; color: var(--gold); white-space: nowrap; }
+.ep-meta { font: 700 1.15rem/1 var(--han); letter-spacing: 0.05em; color: var(--text); white-space: nowrap; }
+.ep-meta b { font: 800 1.25em/1 var(--num); color: var(--bright); }
+.ep-meta i { font-family: var(--num); color: var(--muted); }
+.ep-head { font: 900 1.5rem/1 var(--han); letter-spacing: 0.08em; color: var(--cl); white-space: nowrap; }
+.ep-hint { font: 400 1.05rem/1 var(--han); color: var(--muted); white-space: nowrap; }
+.ep-v[data-phase='headline'] .ep-head, .ep-v[data-phase='cleanup'] .ep-head { color: var(--gold); }
+.ep-lb { font: 700 1.05rem/1 var(--han); letter-spacing: 0.14em; color: var(--muted); white-space: nowrap; }
+
+/* the action rounds as pips: what the game's own corner draws, a size smaller */
+.ep-pips { display: inline-flex; align-items: center; gap: 0.4rem; }
+.ep-pip { flex: none; width: 0.82rem; height: 0.82rem; border-radius: 50%; background: rgba(18, 14, 11, 0.75); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.45); transition: width 0.3s, height 0.3s, background 0.3s; }
+.ep-pip.done { background: var(--gold-d); box-shadow: none; }
+.ep-pip.now { width: 1.25rem; height: 1.25rem; background: var(--c); box-shadow: 0 0 0 0.14rem var(--bright), 0 0 0.8rem var(--c); }
+
+/* the usual line of words under a display */
+.ep-cap { display: flex; align-items: center; gap: 1.4rem; margin-top: 1rem; padding: 0 0.4rem; }
+.ep-cap-mid { display: grid; gap: 0.7rem; }
+.ep-cap-mid > div { display: flex; align-items: center; gap: 0.8rem; height: 1.4rem; }
+.ep-cap-ph { display: grid; gap: 0.6rem; margin-left: auto; justify-items: end; }

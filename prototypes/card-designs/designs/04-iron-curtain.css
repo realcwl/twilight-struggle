@@ -1,0 +1,61 @@
+/* 04 Iron Curtain */
+.d04 .face { background: #2c3238; }
+.d04 .scene {
+  --sky-a: #171e25;
+  --sky-b: #4e5c67;
+  --sky-c: #c7c1ae;
+  --ray: #ffffff;
+  --ray-o: 0.08;
+  --glow: #d9d3be;
+  --sun: #e6dfc9;
+  --sun-ring: #e6dfc9;
+  --far2: #98a1a4;
+  --far: #67727a;
+  --haze: #b8b5a6;
+  --mid: #283037;
+  --flag-a: #41566c;
+  --flag-b: #e3dfd0;
+  --flag-c: #c02a22;
+  --fig-d: #1f2519;
+  --fig-m: #414b31;
+  --fig-l: #7b8560;
+  --skin: #c9a184;
+  --skin-d: #8f6a54;
+  --crowd-a: #1c2227;
+  --crowd-b: #0d1114;
+  --crowd-l: #d6cfbc;
+  --crowd-l-o: 0.45;
+  --dove: #f1eee2;
+  --pennant: #c02a22;
+}
+.d04-era { font: 700 23px 'Stardos Stencil', serif; letter-spacing: 6px; fill: #15171a; }
+.d04-title { font: 700 39px 'Stardos Stencil', serif; letter-spacing: 5px; fill: #ece8dc; }
+.d04-title.sm { font-size: 19px; letter-spacing: 5px; fill: #d9d5c8; opacity: 0.85; }
+.d04-stamped { font: 600 13px 'Oswald', sans-serif; letter-spacing: 3px; fill: #c9cfd4; paint-order: stroke; stroke: rgba(0, 0, 0, 0.6); stroke-width: 1.6px; }
+.d04-value { font: 700 56px 'Stardos Stencil', serif; fill: #fff4ea; paint-order: stroke; stroke: #4d0305; stroke-width: 2.5px; }
+.d04-text {
+  left: 12.500cqw;
+  right: 12.500cqw;
+  top: 93cqw;
+  height: 34cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.8cqw;
+  text-align: center;
+  color: #171b1f;
+  text-shadow: 0 0.2cqw 0 rgba(255, 255, 255, 0.45);
+}
+.d04-text p { margin: 0; }
+.d04-text .rules { font: 400 4.400cqw/1.28 'Oswald', sans-serif; letter-spacing: 0.01em; text-wrap: balance; }
+.d04-text .rules b { font-weight: 600; color: #a5130f; }
+.d04-text .note { font: 700 2.900cqw/1.2 'Stardos Stencil', serif; letter-spacing: 0.14em; text-transform: uppercase; color: #a5130f; text-wrap: balance; }
+.d04-text .note::before {
+  content: '';
+  display: block;
+  height: 0.3cqw;
+  margin: 0 6cqw 1.7cqw;
+  background: #171b1f;
+  opacity: 0.5;
+  box-shadow: 0 0.25cqw 0 rgba(255, 255, 255, 0.5);
+}

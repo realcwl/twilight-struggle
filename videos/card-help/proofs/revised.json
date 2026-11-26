@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "outputDir": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/revised",
+  "frames": [
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/revised/frame-00-at-9.7s.png",
+      "time": 9.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/revised/frame-01-at-14.7s.png",
+      "time": 14.7
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/revised/frame-02-at-104.7s.png",
+      "time": 104.7
+    }
+  ],
+  "contactSheets": [
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/revised/contact-sheet.jpg"
+  ],
+  "_meta": {
+    "version": "0.9.50",
+    "latestVersion": "0.9.50",
+    "updateAvailable": false,
+    "checkedAt": "2026-11-15T02:18:26.710Z",
+    "skillsOutdated": 0,
+    "skillsMissing": 0
+  }
+}

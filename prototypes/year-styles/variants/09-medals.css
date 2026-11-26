@@ -1,0 +1,31 @@
+/* 09 Three medallions */
+.yr-09 { display: flex; align-items: center; gap: 1.8rem; padding: 1.4rem 1.9rem 1.4rem 1.6rem; }
+.e9-pins { display: flex; align-items: center; gap: 0.9rem; }
+.e9-pin { position: relative; flex: none; width: 5.6rem; height: 5.6rem; transition: width 0.6s cubic-bezier(0.3, 0.8, 0.3, 1), height 0.6s cubic-bezier(0.3, 0.8, 0.3, 1); }
+.e9-pin.now { width: 10rem; height: 10rem; }
+.e9-rim { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.e9-rim .seg { fill: none; stroke: rgba(236, 223, 195, 0.16); stroke-width: 4.4; transition: stroke 0.4s; }
+.e9-rim .seg.done { stroke: #8f6d27; }
+.e9-rim .seg.on { stroke: var(--gold); filter: drop-shadow(0 0 1.6px rgba(240, 191, 74, 0.95)); }
+/* the same gold-ringed disc the cards frame their pictures in */
+.e9-disc { position: absolute; inset: 13%; border-radius: 50%; overflow: hidden; background: radial-gradient(circle at 50% 25%, #3a2f24, #15110d 78%); box-shadow: 0 0 0 0.14rem #17120e, 0 0 0 0.3rem #c59a3c, 0 0 0 0.4rem #17120e, 0 0.4rem 1rem rgba(0, 0, 0, 0.6); display: grid; place-items: center; }
+.e9-disc .yr-scene { position: absolute; inset: 0; transition: filter 0.6s; }
+.e9-disc::after { content: ''; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0.3rem 0.9rem rgba(0, 0, 0, 0.6); }
+.e9-pin.past .yr-scene { filter: sepia(0.85) saturate(0.6) brightness(0.62); }
+.e9-pin.past .e9-disc, .e9-pin.next .e9-disc { box-shadow: 0 0 0 0.1rem #17120e, 0 0 0 0.2rem #6f5a2c, 0 0 0 0.28rem #17120e; }
+.e9-disc i { font: 700 0.95rem/1.25 var(--num); text-align: center; color: rgba(236, 223, 195, 0.42); }
+.e9-name { position: absolute; left: 50%; bottom: -0.25rem; z-index: 1; transform: translateX(-50%); padding: 0.2rem 0.55rem 0.24rem; border-radius: 0.3rem; background: #17120e; box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.25); font: 700 0.95rem/1 var(--han); letter-spacing: 0.16em; text-indent: 0.16em; color: var(--muted); white-space: nowrap; }
+.e9-pin.now .e9-name { bottom: -0.1rem; background: var(--gold); box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.5); font-size: 1.15rem; font-weight: 900; color: #1c1608; }
+.e9-read { display: grid; justify-items: start; gap: 0.75rem; }
+.e9-year { font: 800 4.3rem/0.85 var(--num); color: var(--bright); }
+.e9-turn { font: 700 1.2rem/1 var(--han); letter-spacing: 0.1em; color: var(--muted); }
+.e9-turn b { font: 800 1.5rem/1 var(--num); color: var(--bright); }
+.e9-turn i { font: 600 1.15rem/1 var(--num); }
+.e9-rounds { display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
+.e9-rounds em { margin-right: 0.3rem; font: 700 1.05rem/1 var(--han); letter-spacing: 0.1em; color: var(--muted); }
+.e9-rounds i { display: grid; place-items: center; width: 0.9rem; height: 0.9rem; border-radius: 50%; background: rgba(18, 14, 11, 0.75); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.45); font: 800 0 / 1 var(--num); color: #1c1608; transition: width 0.3s, height 0.3s; }
+.e9-rounds i.done { background: var(--gold-d); box-shadow: none; }
+.e9-rounds i.now { width: 1.8rem; height: 1.8rem; background: var(--gold); box-shadow: 0 0 0 0.12rem var(--bright), 0 0 0.8rem var(--gold); font-size: 1.1rem; }
+.e9-phase { font: 900 1.3rem/1 var(--han); letter-spacing: 0.08em; white-space: nowrap; }
+.e9-phase.a { color: var(--a-l); }
+.e9-phase.b { color: var(--b-l); }

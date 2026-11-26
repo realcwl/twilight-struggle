@@ -1,0 +1,177 @@
+/* 02 落点即选择. Everything floats over the map in screen coordinates (position: fixed), because
+   most of it hangs from a map node and has to follow it. */
+
+/* the hand's own picture of the dragged card is replaced by a small one hanging from the pointer */
+/* (only while the pinned copy is out: in the headline the hand's own card is the one being carried) */
+#game[data-cp='02']:has(.cp-layer.is-carrying) .cp-hand .hc.is-drag { opacity: 0; }
+#game[data-cp='02'] .wm-stage[data-cp='drop'] { --cp-mark: #f0bf4a; }
+
+/* the strip at the top is only a legend here: slimmer and quieter than the plain one */
+.v-02 .cp-ribbon { top: 7.2rem; gap: 1.4rem; padding: 0.7rem 1.4rem 0.7rem 1.1rem; border-radius: 99px; background: rgba(18, 14, 11, 0.88); box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.28), 0 0.8rem 2rem rgba(0, 0, 0, 0.45); }
+.v-02 .cp-ribbon .rb-main { display: flex; align-items: baseline; gap: 1.2rem; }
+.v-02 .cp-ribbon .rb-title { font-size: 1.6rem; }
+.v-02 .cp-ribbon .rb-text { font-size: 1.25rem; }
+.v-02 .cp-ribbon .rb-pips i { width: 1.2rem; height: 1.2rem; }
+.v-02 .cp-ribbon .rb-pips b { font-size: 1.7rem; }
+.v-02 .cp-ribbon .rb-btns button { padding: 0.35rem 1rem; border-radius: 99px; }
+
+/* ---- the two places off the map a card can land */
+.v-02 .d2-zone { position: fixed; z-index: 3; display: grid; place-content: center; justify-items: center; gap: 0.4rem; border-radius: 1rem; border: 0.2rem dashed rgba(240, 191, 74, 0.85); background: rgba(240, 191, 74, 0.1); color: var(--gold); text-align: center; cursor: pointer; animation: d2-zone 1.5s ease-in-out infinite; transition: transform 0.15s, background 0.15s, box-shadow 0.15s; }
+@keyframes d2-zone { 50% { border-color: rgba(240, 191, 74, 0.4); } }
+.v-02 .d2-zone b { display: flex; align-items: center; gap: 0.4rem; font: 900 1.8rem/1.1 var(--han); letter-spacing: 0.16em; margin-right: -0.16em; }
+.v-02 .d2-zone span { font-size: 1.1rem; letter-spacing: 0.06em; color: var(--text); }
+.v-02 .d2-zone svg { width: 1.6rem; height: 1.6rem; }
+.v-02 .d2-zone.is-hot { transform: scale(1.06); border-style: solid; background: rgba(240, 191, 74, 0.24); box-shadow: 0 0 3rem rgba(240, 191, 74, 0.65), inset 0 0 1.6rem rgba(240, 191, 74, 0.3); animation: none; }
+.v-02 .d2-zone.is-no { border-color: rgba(222, 63, 43, 0.75); background: rgba(222, 63, 43, 0.08); color: var(--b-l); animation: none; cursor: not-allowed; }
+.v-02 .d2-zone.is-no.is-hot { box-shadow: 0 0 2.4rem rgba(222, 63, 43, 0.5); background: rgba(222, 63, 43, 0.16); }
+/* the meter itself has to stay readable, so its caption hangs underneath the frame */
+.v-02 .d2-zone-space { background: rgba(240, 191, 74, 0.05); }
+.v-02 .d2-zone-space b, .v-02 .d2-zone-space span { position: absolute; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.v-02 .d2-zone-space b { top: calc(100% + 0.9rem); padding: 0.3rem 1.2rem; border-radius: 99px; font-size: 1.5rem; color: #1c1608; background: var(--gold); box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.5); }
+.v-02 .d2-zone-space span { top: calc(100% + 3.9rem); padding: 0.25rem 1rem; border-radius: 99px; background: rgba(14, 11, 8, 0.9); box-shadow: 0 0 0 1px var(--line); }
+.v-02 .d2-zone-space.is-no b { color: #fff; background: var(--b); }
+
+.v-02 .d2-note { position: fixed; z-index: 4; width: 27rem; padding: 1.2rem 1.5rem 1.1rem; border-radius: 1rem; background: var(--panel); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.6), 0 0 0 0.4rem rgba(16, 12, 9, 0.6), 0 1.2rem 3rem rgba(0, 0, 0, 0.55); opacity: 0; transform: translateX(-1rem); transition: opacity 0.18s, transform 0.18s; pointer-events: none; }
+.v-02 .d2-note.is-on { opacity: 1; transform: none; }
+.v-02 .d2-note.b { box-shadow: 0 0 0 1px rgba(222, 63, 43, 0.85), 0 0 0 0.4rem rgba(16, 12, 9, 0.6), 0 1.2rem 3rem rgba(0, 0, 0, 0.55); }
+.v-02 .nt-head { display: flex; align-items: center; gap: 0.6rem; color: var(--gold); }
+.v-02 .nt-head svg { width: 2rem; height: 2rem; }
+.v-02 .nt-head b { font: 900 1.8rem/1.1 var(--han); letter-spacing: 0.1em; color: var(--bright); }
+.v-02 .d2-note.b .nt-head, .v-02 .d2-note.b .nt-head b { color: var(--b-l); }
+.v-02 .d2-note ul { display: grid; gap: 0.45rem; margin: 0.9rem 0 0; padding: 0; list-style: none; font-size: 1.4rem; line-height: 1.35; }
+.v-02 .d2-note li { display: flex; gap: 0.6rem; align-items: baseline; }
+.v-02 .d2-note li::before { content: ''; flex: none; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--gold); transform: translateY(-0.15rem); }
+.v-02 .d2-note li.warn { color: #ff9a84; }
+.v-02 .d2-note li.warn::before { display: none; }
+.v-02 .d2-note li.warn svg { flex: none; width: 1.3rem; height: 1.3rem; transform: translateY(0.18rem); }
+.v-02 .d2-note li.lethal { font-weight: 800; color: #ff5a40; }
+.v-02 .d2-note p { margin: 0.8rem 0 0; font-size: 1.15rem; line-height: 1.45; color: var(--muted); }
+
+/* ---- the card while it is carried */
+.v-02 .d2-ghost { position: fixed; z-index: 30; width: 0; height: 0; pointer-events: none; }
+.v-02 .gh-pin { position: absolute; left: -0.8rem; top: -0.8rem; width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 0.18rem solid rgba(240, 191, 74, 0.95); box-shadow: 0 0 0 0.12rem rgba(16, 12, 9, 0.9), 0 0 1rem rgba(240, 191, 74, 0.7); transition: transform 0.15s, background 0.15s; }
+.v-02 .gh-pin::after { content: ''; position: absolute; inset: 0.42rem; border-radius: 50%; background: var(--gold); }
+.v-02 .d2-ghost.is-over .gh-pin { transform: scale(1.35); background: rgba(240, 191, 74, 0.35); }
+.v-02 .d2-ghost.is-big .gh-pin, .v-02 .d2-ghost.is-parked .gh-pin { opacity: 0; }
+.v-02 .d2-ghost.is-theirs .gh-pin { border-color: var(--b-l); box-shadow: 0 0 0 0.12rem rgba(16, 12, 9, 0.9), 0 0 1rem rgba(222, 63, 43, 0.8); }
+.v-02 .d2-ghost.is-theirs .gh-pin::after { background: var(--b); }
+.v-02 .gh-card { position: absolute; left: 1.2rem; top: 1.2rem; width: 6.4rem; aspect-ratio: 5 / 7; --card-w: 6.4rem; transform-origin: 0 0; transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1); }
+.v-02 .gh-card .slot { position: absolute; inset: 0; }
+.v-02 .gh-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0 0 0.15rem rgba(255, 247, 228, 0.9), 0 0.8rem 2rem rgba(0, 0, 0, 0.7); }
+.v-02 .d2-ghost.is-big .gh-card { transform: translate(-8.4rem, -11rem) scale(2.25); }
+.v-02 .d2-ghost.is-theirs .gh-card .tilt { box-shadow: 0 0 0 0.15rem var(--b), 0 0 2rem rgba(222, 63, 43, 0.6), 0 0.8rem 2rem rgba(0, 0, 0, 0.7); }
+
+.v-02 .d2-say { position: fixed; z-index: 40; transform: translate(-50%, -3.4rem); padding: 0.5rem 1.2rem; border-radius: 99px; white-space: nowrap; font-weight: 700; font-size: 1.25rem; color: #fff; background: rgba(150, 34, 22, 0.96); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0.6rem 1.6rem rgba(0, 0, 0, 0.6); pointer-events: none; animation: d2-say 1.7s ease-out both; }
+@keyframes d2-say { 0% { opacity: 0; transform: translate(-50%, -2.2rem); } 12% { opacity: 1; transform: translate(-50%, -3.4rem); } 80% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -4.6rem); } }
+
+/* ---- the fan of verbs at a country */
+.v-02 .d2-wheel { position: fixed; z-index: 20; width: 0; height: 0; }
+.v-02 .wh-verb { position: absolute; left: calc(var(--x) - 8.5rem); bottom: var(--y); display: grid; grid-template-columns: 2.4rem 1fr; column-gap: 0.7rem; row-gap: 0.15rem; align-items: center; width: 17rem; padding: 0.8rem 0.9rem; border: 0; border-radius: 0.9rem; text-align: left; background: var(--panel); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.6), 0 0 0 0.3rem rgba(16, 12, 9, 0.6), 0 0.8rem 2.2rem rgba(0, 0, 0, 0.6); transition: transform 0.12s, box-shadow 0.12s; animation: d2-verb 0.26s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+.v-02 .wh-verb.p0 { --x: -16.5rem; --y: 3.4rem; }
+.v-02 .wh-verb.p1 { --x: 0rem; --y: 9.6rem; animation-delay: 0.04s; }
+.v-02 .wh-verb.p2 { --x: 16.5rem; --y: 3.4rem; animation-delay: 0.08s; }
+.v-02 .d2-wheel.is-below .wh-verb { bottom: auto; top: var(--y); }
+.v-02 .d2-wheel.is-below .wh-verb.p0, .v-02 .d2-wheel.is-below .wh-verb.p2 { --y: 3rem; }
+.v-02 .d2-wheel.is-below .wh-verb.p1 { --y: 8.4rem; }
+@keyframes d2-verb { from { opacity: 0; transform: scale(0.6); } }
+.v-02 .wh-ic { grid-row: 1 / span 2; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; color: var(--gold); }
+.v-02 .wh-ic svg { width: 100%; height: 100%; }
+.v-02 .wh-verb b { font: 800 1.45rem/1.2 var(--han); letter-spacing: 0.05em; color: var(--bright); white-space: nowrap; }
+.v-02 .wh-verb b kbd { float: right; }
+.v-02 .wh-verb span { font-size: 1.1rem; line-height: 1.3; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.v-02 .wh-verb.is-off span { white-space: normal; }
+.v-02 .wh-verb em { grid-column: 1 / -1; display: flex; align-items: center; gap: 0.35rem; margin-top: 0.25rem; font-style: normal; font-size: 1.1rem; color: #ff9a84; white-space: nowrap; }
+.v-02 .wh-verb em svg { width: 1.2rem; height: 1.2rem; flex: none; }
+.v-02 .wh-verb:hover:not(:disabled) { transform: translateY(-0.3rem); box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.5), 0 0.8rem 2.2rem rgba(0, 0, 0, 0.6); }
+.v-02 .wh-verb.is-off { opacity: 0.6; box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.25), 0 0.6rem 1.6rem rgba(0, 0, 0, 0.5); cursor: default; }
+.v-02 .wh-verb.is-off .wh-ic { color: #7d735f; }
+.v-02 .wh-verb.is-off b { color: var(--muted); }
+.v-02 .wh-verb.is-off span { color: #d8a090; }
+/* a glance while the card is still in the air: only what is possible, small */
+.v-02 .d2-wheel.is-peek { pointer-events: none; }
+.v-02 .d2-wheel.is-peek .wh-verb { width: 14.6rem; left: calc(var(--x) * 0.86 - 7.3rem); padding: 0.5rem 0.7rem; grid-template-columns: 2rem 1fr; animation-duration: 0.16s; }
+.v-02 .d2-wheel.is-peek .wh-ic { width: 2rem; height: 2rem; }
+.v-02 .d2-wheel.is-peek .wh-verb.p1 { --y: 8.4rem; }
+.v-02 .d2-wheel.is-peek .wh-verb.is-off { display: none; }
+.v-02 .d2-wheel.is-peek .wh-verb b { font-size: 1.25rem; }
+.v-02 .d2-wheel.is-peek .wh-verb span, .v-02 .d2-wheel.is-peek .wh-verb em { font-size: 1rem; }
+.v-02 .wh-foot { position: absolute; left: 0; top: 4.6rem; transform: translateX(-50%); display: grid; justify-items: center; gap: 0.6rem; white-space: nowrap; }
+.v-02 .d2-wheel.is-below .wh-foot { top: auto; bottom: 5.4rem; }
+.v-02 .wh-foot em { padding: 0.3rem 1rem; border-radius: 99px; font-style: normal; font-size: 1.15rem; color: #fff; background: rgba(150, 34, 22, 0.95); }
+.v-02 .wh-back { padding: 0.4rem 1.1rem; border: 1px solid rgba(236, 223, 195, 0.3); border-radius: 99px; background: rgba(18, 14, 11, 0.9); font-size: 1.15rem; color: var(--muted); }
+.v-02 .wh-back:hover { border-color: var(--gold); color: var(--bright); }
+
+/* ---- the tag that hangs under a country; with dice it becomes the plate that carries the verdict */
+.v-02 .d2-tag { position: fixed; z-index: 12; transform: translate(-50%, 2.9rem); display: grid; justify-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem 0.7rem; border-radius: 0.9rem; white-space: nowrap; background: rgba(20, 16, 12, 0.95); box-shadow: 0 0 0 1px var(--c), 0 0 0 0.3rem rgba(16, 12, 9, 0.55), 0 0.8rem 2.2rem rgba(0, 0, 0, 0.6); animation: d2-tag 0.25s cubic-bezier(0.2, 1.3, 0.4, 1) both; transition: gap 0.25s, padding 0.25s; }
+.v-02 .d2-tag::before { content: ''; position: absolute; left: 50%; top: -0.9rem; width: 1px; height: 0.9rem; background: var(--c); }
+.v-02 .d2-tag.is-free::before { display: none; }
+@keyframes d2-tag { from { opacity: 0; transform: translate(-50%, 1.8rem) scale(0.8); } }
+.v-02 .tg-verb { display: flex; align-items: center; gap: 0.5rem; font: 800 1.35rem/1.2 var(--han); letter-spacing: 0.08em; color: var(--cl); }
+.v-02 .tg-verb svg { width: 1.5rem; height: 1.5rem; }
+.v-02 .tg-left { font-size: 1.2rem; color: var(--muted); }
+.v-02 .tg-left b { font: 800 1.6rem/1 var(--num); color: var(--bright); }
+.v-02 .tg-btns { display: flex; gap: 0.6rem; }
+.v-02 .tg-btns:empty { display: none; }
+.v-02 .tg-btns button { padding: 0.35rem 1rem; border: 1px solid rgba(236, 223, 195, 0.3); border-radius: 99px; background: rgba(236, 223, 195, 0.07); font-weight: 700; font-size: 1.2rem; }
+.v-02 .tg-btns button:hover { border-color: var(--gold); color: var(--bright); }
+.v-02 .tg-btns button.primary { border-color: var(--gold); background: linear-gradient(180deg, #f6cf6a, #c9952c); color: #1c1608; }
+.v-02 .tg-btns button.primary kbd { background: rgba(28, 22, 8, 0.15); color: #4a380c; box-shadow: none; }
+.v-02 .pl-need { font-size: 1.15rem; color: var(--muted); }
+.v-02 .pl-need b { font: 800 1.4rem/1 var(--num); color: var(--bright); }
+.v-02 .pl-need small { margin-left: 0.4rem; opacity: 0.75; }
+.v-02 .pl-rows { display: flex; align-items: center; gap: 1.4rem; }
+.v-02 .pl-vs { font: 900 1.2rem/1 var(--han); font-style: normal; color: var(--muted); }
+.v-02 .pl-seat { display: flex; align-items: baseline; gap: 0.55rem; font: 800 1.9rem/1 var(--num); color: var(--bright); }
+.v-02 .pl-seat i { align-self: center; padding: 0.15rem 0.6rem; border-radius: 99px; font: 800 1rem/1.3 var(--han); font-style: normal; letter-spacing: 0.1em; color: #fff; background: var(--c); }
+.v-02 .pl-seat .pl-die { display: grid; place-items: center; align-self: center; width: 2.6rem; height: 2.6rem; border-radius: 0.5rem; color: #fff; background: var(--c); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+.v-02 .pl-seat em { font-style: normal; color: var(--text); }
+.v-02 .pl-seat em small { margin-left: 0.25rem; font: 400 1rem/1 var(--han); color: var(--muted); }
+.v-02 .pl-seat u { text-decoration: none; color: var(--muted); }
+.v-02 .pl-seat .pl-total { min-width: 2.4rem; text-align: center; font-size: 2.3rem; color: rgba(236, 223, 195, 0.3); transition: color 0.2s, transform 0.2s; }
+.v-02 .d2-tag:not(.is-read) .pl-die { color: transparent; background: rgba(236, 223, 195, 0.12); }
+.v-02 .d2-tag.is-summed .pl-total { color: var(--bright); transform: scale(1.15); }
+.v-02 .pl-verdict { padding: 0.25rem 1.2rem; border-radius: 0.5rem; font: 900 1.6rem/1.3 var(--han); letter-spacing: 0.12em; opacity: 0; transform: scale(1.6) rotate(-4deg); }
+.v-02 .pl-verdict:empty { display: none; }
+.v-02 .d2-tag.is-done .pl-verdict { opacity: 1; transform: rotate(-1.5deg); transition: transform 0.22s cubic-bezier(0.2, 1.6, 0.4, 1), opacity 0.12s; }
+.v-02 .d2-tag.good .pl-verdict { color: #10241c; background: #7fe0c0; }
+.v-02 .d2-tag.bad .pl-verdict { color: #fff; background: var(--l1); }
+.v-02 .d2-tag.even .pl-verdict { color: #1c1608; background: #cfc4ad; }
+/* once the dice have spoken the plate keeps only its verdict, while the consequences play */
+.v-02 .d2-tag.is-small { gap: 0.3rem; padding: 0.45rem 0.9rem 0.55rem; }
+.v-02 .d2-tag.is-small .pl-need, .v-02 .d2-tag.is-small .pl-rows { display: none; }
+.v-02 .d2-tag.is-small .pl-verdict { font-size: 1.3rem; }
+
+/* ---- the points still in hand while placing: they ride beside the pointer */
+.v-02 .d2-purse { position: fixed; z-index: 35; transform: translate(1.8rem, 1.6rem); display: flex; gap: 0.3rem; padding: 0.35rem 0.6rem; border-radius: 99px; background: rgba(16, 12, 9, 0.88); box-shadow: 0 0 0 1px rgba(138, 182, 255, 0.7); pointer-events: none; }
+.v-02 .d2-purse i { width: 1.2rem; height: 1.2rem; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #b9d4ff, var(--a) 60%, #173f8a); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55); transition: all 0.2s; }
+.v-02 .d2-purse i.used { background: none; box-shadow: inset 0 0 0 0.12rem rgba(236, 223, 195, 0.35); transform: scale(0.75); }
+.v-02 .d2-purse.is-empty { opacity: 0.5; }
+
+/* ---- a die lying on the map */
+.v-02 .d2-die .cp-die { --die: 4.4rem; }
+.v-02 .d2-die { position: fixed; z-index: 14; --die: 4.4rem; width: var(--die); height: var(--die); margin: calc(var(--die) / -2) 0 0 calc(var(--die) / -2); filter: drop-shadow(0 0.7rem 0.8rem rgba(0, 0, 0, 0.55)); pointer-events: none; transition: opacity 0.3s; }
+.v-02 .d2-die.is-out { opacity: 0; }
+
+/* ---- a slip left on a meter: how it just changed, until the next card */
+.v-02 .d2-slip { position: fixed; z-index: 8; transform: translate(calc(-100% - 1.5rem), -50%); padding: 0.25rem 1rem; border-radius: 99px; white-space: nowrap; font: 800 1.5rem/1.3 var(--num); color: #fff; background: var(--sc, #6b5f52); box-shadow: 0 0 0 0.15rem rgba(16, 12, 9, 0.9), 0 0.4rem 1rem rgba(0, 0, 0, 0.5); pointer-events: none; animation: d2-slip 0.4s cubic-bezier(0.2, 1.4, 0.4, 1) 2.4s both; }
+.v-02 .d2-slip::after { content: ''; position: absolute; left: 100%; top: 50%; width: 1.1rem; height: 0.15rem; margin-top: -0.075rem; background: var(--sc, #6b5f52); }
+.v-02 .d2-slip.a { --sc: var(--a); }
+.v-02 .d2-slip.b { --sc: var(--b); }
+.v-02 .d2-slip.bad { --sc: var(--l1); }
+.v-02 .d2-slip.good { --sc: #2f9a77; }
+.v-02 .d2-slip.theirs::before { content: '苏联 '; font: 700 1.1rem/1 var(--han); opacity: 0.9; }
+@keyframes d2-slip { from { opacity: 0; } }
+
+/* ---- the opponent's card, held up under their hand before it comes down */
+.v-02 .d2-opp { position: fixed; z-index: 25; left: 50%; top: 8.4rem; transform: translateX(-50%); display: grid; justify-items: center; gap: 1rem; animation: d2-opp 0.45s cubic-bezier(0.2, 0.9, 0.3, 1) both; }
+@keyframes d2-opp { from { opacity: 0; transform: translateX(-50%) translateY(-9rem) scale(0.4); } }
+.v-02 .op-card { position: relative; width: 17rem; aspect-ratio: 5 / 7; --card-w: 17rem; }
+.v-02 .op-card .slot { position: absolute; inset: 0; }
+.v-02 .op-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0 0 0.3rem var(--b), 0 0 5rem rgba(222, 63, 43, 0.55), 0 1.6rem 4rem rgba(0, 0, 0, 0.75); }
+.v-02 .op-cap { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 1.5rem; border-radius: 99px; background: rgba(14, 11, 8, 0.92); box-shadow: 0 0 0 1px var(--b); }
+.v-02 .op-cap b { color: var(--b-l); letter-spacing: 0.1em; }
+.v-02 .op-cap span { font-size: 1.4rem; color: var(--bright); font-weight: 700; }
+
+/* the comet that carries a consequence to its meter is a little heavier here */
+.cp-fx.v-02 .cp-tracer .tail { stroke-width: 5; }
+.cp-fx.v-02 .cp-tracer .head { r: 9px; }

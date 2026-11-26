@@ -1,0 +1,31 @@
+/* 02 档案签: tabs out of the left edge. The stack hangs from the cards corner's pane and reaches
+   back to the edge of the screen (the pane stands 1.6rem in). */
+.v02 { position: absolute; left: -1.6rem; bottom: calc(100% + 1.5rem); display: grid; gap: 0.8rem; pointer-events: none; }
+.v02-head { display: flex; align-items: baseline; gap: 0.7rem; margin-left: 1.9rem; text-shadow: 0 1px 3px #000, 0 0 0.8em #000; }
+.v02-head .hud-lb { color: rgba(236, 223, 195, 0.82); }
+.v02-head .hud-num { font-size: 1.5rem; color: var(--gold); }
+.v02.empty .hud-num { color: var(--muted); }
+.v02-list { display: grid; justify-items: start; gap: 0.5rem; }
+
+.v02-tab { position: relative; display: flex; align-items: center; gap: 0.9rem; height: 3.4rem; padding-right: 1.4rem; border-radius: 0 1.7rem 1.7rem 0; background: linear-gradient(180deg, rgba(50, 40, 30, 0.97), rgba(24, 19, 15, 0.98)); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.5), 0.3rem 0.5rem 1.4rem rgba(0, 0, 0, 0.55); pointer-events: auto; white-space: nowrap; transition: transform 0.2s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.2s; }
+/* the tab's head: the side's enamel, with its letter */
+.v02-cap { align-self: stretch; display: grid; place-items: center; width: 3.3rem; padding-left: 0.5rem; background: linear-gradient(180deg, var(--cl), var(--c) 45%, color-mix(in srgb, var(--c) 62%, #000)); box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3); font: 900 1.3rem/1 var(--han); color: var(--ink); text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); }
+.v02-tab.is-n .v02-cap { text-shadow: none; }
+.v02-tab b { font: 900 1.45rem/1 var(--han); letter-spacing: 0.06em; color: var(--bright); }
+.v02-until { display: inline-flex; align-items: center; gap: 0.35rem; padding-left: 0.9rem; border-left: 1px solid var(--line); font: 400 1.15rem/1 var(--han); color: var(--muted); }
+.v02-until em { font-style: normal; }
+.v02-mark { display: inline-grid; place-items: center; font-size: 1.35rem; color: var(--gold); }
+.v02-mark .pe-n { font-size: 1.5rem; color: var(--bright); }
+.v02-mark.tick { animation: v02-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v02-tick { 0% { transform: scale(2.2); color: var(--gold); } }
+
+.v02-tab:hover { transform: translateX(0.6rem); box-shadow: 0 0 0 1px var(--gold), 0 0 1.6rem rgba(240, 191, 74, 0.35), 0.3rem 0.5rem 1.4rem rgba(0, 0, 0, 0.55); }
+.v02-tab.pe-new { animation: v02-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.15) both, v02-glint 2.2s ease-out; }
+@keyframes v02-in { 0% { transform: translateX(-100%); } }
+@keyframes v02-glint { 0%, 40% { box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.8); } }
+.v02-tab.pe-fire { animation: v02-fire 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); box-shadow: 0 0 0 0.2rem var(--gold), 0 0 2.4rem rgba(240, 191, 74, 0.8); }
+@keyframes v02-fire { 12% { transform: translateX(1.6rem); } 30% { transform: translateX(0.2rem); } 42% { transform: translateX(0.8rem); } 56%, 100% { transform: none; } }
+.v02-tab.pe-ending { filter: saturate(0.3) brightness(0.85); }
+.v02-tab .pe-stamp { left: auto; right: -0.6rem; transform: translate(0, -50%) rotate(-9deg); animation-name: v02-stamp; }
+@keyframes v02-stamp { 0% { opacity: 0; transform: translate(0, -50%) rotate(-9deg) scale(2.3); } 100% { opacity: 1; transform: translate(0, -50%) rotate(-9deg) scale(1); } }
+.v02-tab .pe-stamp b { font-size: 1.3rem; }

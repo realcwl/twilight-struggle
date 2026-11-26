@@ -1,0 +1,28 @@
+/* 07 Scroll: one long painting passing under a fixed gold line */
+.ep-host[data-ep='07'] { padding: 0.9rem 0.9rem 1.1rem; }
+.ep-07 { width: 37.6rem; --pitch: 12.4rem; --over: 2rem; --ph: 7.4rem; --x: 0; --done: 0; }
+.p7-win { position: relative; height: calc(var(--ph) + 1.6rem); border-radius: 0.4rem; background: #0a0807; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(236, 223, 195, 0.14); overflow: hidden; }
+.p7-roll { position: absolute; left: 50%; top: 0; bottom: 0; width: calc(10 * var(--pitch)); transform: translateX(calc(var(--x) * var(--pitch) * -1)); transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(180deg, #17110b, #0e0a07); }
+/* each scene runs into its neighbours: the edges are painted out, not cut */
+.p7-s { position: absolute; left: calc(var(--k) * var(--pitch) - var(--over)); top: 0; width: calc(var(--pitch) + 2 * var(--over)); height: var(--ph); -webkit-mask-image: linear-gradient(90deg, transparent, #000 calc(2 * var(--over)), #000 calc(100% - 2 * var(--over)), transparent); mask-image: linear-gradient(90deg, transparent, #000 calc(2 * var(--over)), #000 calc(100% - 2 * var(--over)), transparent); }
+.p7-s .ep-pic { width: 100%; height: 100%; transition: filter 0.9s; }
+.p7-s.done .ep-pic { --state: brightness(0.62) sepia(0.25); }
+.p7-s.todo .ep-pic { --state: brightness(0.14) saturate(0.4); }
+/* the scale along the foot of the scroll: a turn's first year, then one tick a round */
+.p7-rule { position: absolute; left: 0; right: 0; bottom: 0; height: 1.6rem; background: linear-gradient(180deg, #2c2115, #1a130c); box-shadow: inset 0 1px 0 rgba(240, 191, 74, 0.4); }
+.p7-rule span { position: absolute; left: calc(var(--k) * var(--pitch)); top: 0; bottom: 0; width: var(--pitch); display: flex; align-items: flex-start; border-left: 1px solid rgba(240, 191, 74, 0.75); }
+.p7-rule b { position: absolute; left: 0.34rem; bottom: 0.2rem; font: 600 0.84rem/1 'Oswald', sans-serif; letter-spacing: 0.08em; color: rgba(236, 223, 195, 0.8); }
+.p7-rule i { flex: 1; height: 0.4rem; border-right: 1px solid rgba(236, 223, 195, 0.35); }
+.p7-rule i:last-child { border-right: 0; }
+/* now */
+.p7-index { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--gold); box-shadow: 0 0 0.9rem 0.1rem rgba(240, 191, 74, 0.75); pointer-events: none; }
+.p7-index::before, .p7-index::after { content: ''; position: absolute; left: 50%; width: 0.7rem; height: 0.7rem; margin-left: -0.35rem; background: var(--gold); transform: rotate(45deg); }
+.p7-index::before { top: -0.4rem; }
+.p7-index::after { bottom: -0.4rem; }
+/* the two rollers: what has gone by is wound on the left one, what is to come is still on the right */
+.p7-rod { position: absolute; top: 0; bottom: 0; background: linear-gradient(90deg, #1c1108, #8a6230 28%, #e2bb7c 48%, #9a6e38 66%, #1a0f07); box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.8); transition: width 1s; }
+.p7-rod.l { left: 0; width: calc(0.7rem + 1.5rem * var(--done)); box-shadow: 0.5rem 0 0.9rem rgba(0, 0, 0, 0.7); }
+.p7-rod.r { right: 0; width: calc(0.7rem + 1.5rem * (1 - var(--done))); box-shadow: -0.5rem 0 0.9rem rgba(0, 0, 0, 0.7); }
+.p7-rod::before, .p7-rod::after { content: ''; position: absolute; left: 0; right: 0; height: 0.34rem; background: linear-gradient(90deg, #4a3413, #f0cf7c 45%, #5a4018); }
+.p7-rod::before { top: 0; }
+.p7-rod::after { bottom: 0; }

@@ -1,0 +1,47 @@
+/* 01's gold-edged lacquer shelf. Player attribution belongs to its position/header, never card colour. */
+.ps-layer { position: absolute; inset: 0; z-index: 24; pointer-events: none; }
+.ps-shelf { position: absolute; display: flex; align-items: stretch; gap: 1.1rem; max-width: min(44rem, calc(100% - 3.2rem)); padding: 1.1rem 1.1rem .9rem; border-radius: 1rem; background: var(--panel); box-shadow: 0 0 0 1px rgba(240,191,74,.55), 0 0 0 .4rem rgba(16,12,9,.6), 0 1.2rem 3rem #0008; pointer-events: auto; }
+.ps-mine { left: 1.6rem; bottom: calc(var(--over-piles, 18rem) + 1.1rem); max-width: min(44rem, var(--passive-bottom-room, calc(100% - 3.2rem))); }
+.ps-theirs { top: calc(var(--under-opponent, 6rem) + 1rem); left: 50%; transform: translateX(-50%); max-width: min(44rem, var(--passive-top-room, 40rem)); }
+.ps-legacy { left: 1.6rem; top: calc(var(--under-left, 14rem) + 1.2rem); --cl: var(--muted); --c: #74664b; }
+.ps-head { flex: none; display: flex; flex-direction: column; align-items: center; gap: .7rem; padding-right: 1rem; border-right: 1px solid var(--line); }
+.ps-head .hud-lb { writing-mode: vertical-rl; color: var(--cl); font-size: 1.1rem; letter-spacing: .14em; }
+.ps-head .hud-num { font-size: 1.7rem; color: var(--gold); }
+.ps-who { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--c); color: #fff; font: 800 1.1rem/1 var(--han); box-shadow: 0 0 0 1px #ffffff50; }
+.ps-row { min-width: 0; display: flex; align-items: flex-start; gap: 1rem; overflow-x: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #91713d #21180e; padding: .5rem .7rem .5rem .3rem; }
+.ps-item { position: relative; flex: 0 0 5.6rem; display: grid; justify-items: center; align-content: start; gap: .55rem; width: 5.6rem; padding: 0; border: 0; background: transparent; color: var(--text); font: inherit; cursor: help; transition: transform .2s; }
+.ps-card { display: block; position: relative; --card-w: 5.6rem; width: var(--card-w); aspect-ratio: 5 / 7; }
+.ps-card .slot { position: absolute; inset: 0; pointer-events: none; }
+.ps-card .tilt { border-radius: 4.6cqw; box-shadow: 0 .8cqw 3cqw #0009; }
+.ps-name { display: block; max-width: 5.6rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 700 1rem/1.2 var(--han); }
+.ps-seal { position: absolute; right: -.5rem; top: 6.25rem; display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: radial-gradient(circle at 50% 24%, #3f3327, #15110d 78%); box-shadow: 0 0 0 1px var(--gold), 0 .2rem .6rem #000a; color: var(--gold); }
+.ps-seal svg, .ps-facts dd svg { width: 1.35rem; height: 1.35rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ps-item:hover, .ps-item[aria-expanded='true'] { transform: translateY(-.4rem); }
+.ps-item:focus-visible { outline: 1px solid var(--gold); outline-offset: .4rem; border-radius: .3rem; }
+.ps-item:hover .ps-name { color: var(--bright); }
+.ps-new .tilt { animation: ps-arrive 1.7s ease-out; }
+@keyframes ps-arrive { from { box-shadow: 0 0 0 1cqw var(--gold), 0 0 12cqw #f0bf4acc; } }
+.ps-ending { filter: saturate(.3); z-index: 2; }
+.ps-stamp { position: absolute; top: 3rem; padding: .25em .4em; border: 2px solid #ff9f8a; color: #ff9f8a; background: #24140ef0; white-space: nowrap; font: 800 1.1rem/1 var(--han); transform: rotate(-9deg); }
+/* What a lasting effect is, read on a sheet (src/ui/sheet.css): the card and, beside it, the facts. Layout only. */
+.ps-detail { --sh-pad: calc(26 * var(--su)); position: fixed; z-index: 48; display: flex; align-items: flex-start; gap: calc(26 * var(--su)); padding: var(--sh-pad); max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px); overflow-y: auto; pointer-events: auto; }
+.ps-detail.is-a { --sh-bar: var(--sh-a); }
+.ps-detail.is-b { --sh-bar: var(--sh-b); }
+.ps-detail-card { flex: none; --card-w: clamp(190px, calc(240 * var(--su)), 300px); width: var(--card-w); }
+.ps-facts { width: calc(250 * var(--su)); min-width: 0; padding-right: calc(18 * var(--su)); }
+.ps-facts .sheet-title { font-size: calc(23 * var(--su)); letter-spacing: 0.1em; }
+.ps-facts p { margin: calc(14 * var(--su)) 0 0; padding-bottom: calc(16 * var(--su)); border-bottom: 1px solid var(--sh-line); }
+.ps-facts dl { display: grid; grid-template-columns: auto 1fr; gap: calc(9 * var(--su)) calc(14 * var(--su)); margin: calc(14 * var(--su)) 0 0; font-size: calc(13.5 * var(--su)); }
+.ps-facts dt { font-size: calc(11 * var(--su)); line-height: 2; letter-spacing: 0.2em; color: var(--sh-muted); white-space: nowrap; }
+.ps-facts dd { margin: 0; display: flex; gap: calc(5 * var(--su)); align-items: center; color: var(--sh-strong); }
+.ps-facts dd svg { color: var(--sh-accent); }
+.ps-close { position: absolute; top: calc(8 * var(--su)); right: calc(8 * var(--su)); }
+.hud.passive-narrow .ps-theirs { left: 1.6rem; transform: none; top: calc(var(--under-corners, 15rem) + 1rem); max-width: calc(100% - 3.2rem); }
+@media (max-width: 600px) {
+  .ps-detail { --sh-pad: 14px; gap: 12px; padding-top: 22px; }
+  .ps-detail-card { --card-w: min(44vw,210px); }
+  .ps-facts { width: auto; flex: 1; }
+  .ps-facts dl { display: block; }
+  .ps-facts dt { margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .ps-item { transition: none; } .ps-new .tilt { animation: none; } }

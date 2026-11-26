@@ -1,0 +1,36 @@
+/* 10 Panel clock */
+.yr-10 { display: flex; align-items: center; gap: 1.8rem; padding: 1.3rem 1.9rem 1.3rem 1.4rem; }
+.i10-dial { position: relative; flex: none; width: 13.4rem; height: 13.4rem; }
+.i10-dial svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.i10-bezel { fill: #0e0b09; stroke: rgba(240, 191, 74, 0.55); stroke-width: 1; }
+.i10-face { fill: #17130f; stroke: rgba(236, 223, 195, 0.12); stroke-width: 0.6; }
+.i10-hair { fill: none; stroke: rgba(236, 223, 195, 0.4); stroke-width: 0.7; }
+.i10-done { fill: none; stroke: var(--gold); stroke-width: 2.4; opacity: 0.85; }
+.i10-tick { stroke: rgba(236, 223, 195, 0.4); stroke-width: 0.7; }
+.i10-tick.x { stroke: rgba(236, 223, 195, 0.85); stroke-width: 1.3; }
+.i10-n { font: 800 14px var(--num); fill: rgba(236, 223, 195, 0.5); text-anchor: middle; transition: fill 0.3s; }
+.i10-n.done { fill: rgba(236, 223, 195, 0.75); }
+.i10-n.on { fill: var(--gold); font-size: 16px; }
+.i10-turn { fill: none; stroke: rgba(236, 223, 195, 0.16); stroke-width: 4.2; transition: stroke 0.4s; }
+.i10-turn.done { stroke: #8f6d27; }
+.i10-turn.on { stroke: var(--gold); filter: drop-shadow(0 0 1.8px rgba(240, 191, 74, 0.95)); }
+.i10-era { font: 900 11.5px var(--han); letter-spacing: 3px; fill: var(--gold); text-anchor: middle; }
+.i10-hand { transform-origin: 100px 100px; transition: transform 0.8s cubic-bezier(0.3, 1.5, 0.45, 1); filter: drop-shadow(0 0.8px 1px rgba(0, 0, 0, 0.8)); }
+.i10-hand path { fill: var(--bright); stroke: rgba(18, 14, 11, 0.9); stroke-width: 0.6; paint-order: stroke; }
+.i10-hub { fill: #c59a3c; stroke: #120e0b; stroke-width: 1.4; }
+.i10-pin { fill: #120e0b; }
+/* the year, on four number wheels */
+.i10-year { position: absolute; left: 50%; top: 67%; display: flex; gap: 1px; padding: 0.14rem; border-radius: 0.24rem; background: #050403; box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.6), inset 0 0 0.3rem #000; transform: translateX(-50%); }
+.i10-year span { position: relative; width: 1.2rem; height: 1.76rem; overflow: hidden; background: linear-gradient(180deg, #0c0a08, #2c2620 45%, #2c2620 55%, #0c0a08); }
+.i10-year i { display: block; transform: translateY(calc(var(--d, 0) * -10%)); transition: transform 0.7s cubic-bezier(0.3, 0.8, 0.3, 1); }
+.i10-year b { display: block; height: 1.76rem; font: 600 1.5rem/1.76rem 'Oswald', sans-serif; text-align: center; color: #f4ecd8; }
+.i10-read { display: grid; justify-items: start; gap: 0.8rem; }
+.i10-phase { font: 900 1.6rem/1 var(--han); letter-spacing: 0.08em; white-space: nowrap; }
+.i10-phase.a { color: var(--a-l); }
+.i10-phase.b { color: var(--b-l); }
+.i10-round, .i10-turns { font: 700 1.2rem/1 var(--han); letter-spacing: 0.1em; color: var(--muted); }
+.i10-turns b { font: 800 1.9rem/1 var(--num); color: var(--bright); }
+.i10-turns i { font: 600 1.15rem/1 var(--num); }
+.i10-round b { font: 800 1.9rem/1 var(--num); color: var(--bright); }
+.i10-round i { font: 600 1.15rem/1 var(--num); }
+.i10-span { font: 700 1.15rem/1 var(--num); letter-spacing: 0.06em; color: var(--muted); }

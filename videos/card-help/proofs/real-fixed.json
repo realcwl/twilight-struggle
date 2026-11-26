@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "outputDir": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed",
+  "frames": [
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/frame-00-at-17.6s.png",
+      "time": 17.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/frame-01-at-23.6s.png",
+      "time": 23.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/frame-02-at-77.6s.png",
+      "time": 77.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/frame-03-at-89.6s.png",
+      "time": 89.6
+    },
+    {
+      "path": "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/frame-04-at-95.6s.png",
+      "time": 95.6
+    }
+  ],
+  "contactSheets": [
+    "/Users/weilunchen/dev/twilight-struggle/videos/card-help/proofs/real-fixed/contact-sheet.jpg"
+  ],
+  "_meta": {
+    "version": "0.9.51",
+    "updateAvailable": false
+  }
+}

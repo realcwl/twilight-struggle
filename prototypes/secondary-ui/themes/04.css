@@ -1,0 +1,51 @@
+/* 04 · 珐琅红 — the card's frame grown into an interface: cream stock, an enamel-red heading band
+   piped in gold, a round gold badge, pill buttons in enamel. */
+[data-ui='04'] .sx {
+  --ink: #2c2219; --strong: #1b130c; --muted: rgba(44, 34, 25, 0.66); --line: rgba(44, 34, 25, 0.22);
+  --accent: #a3232a; --on-accent: #fff3dc; --well: #e6dbc0; --select: #b3262d;
+  --r: 14px; --pad: 26px;
+  --side-a: #24508f; --side-b: #a3232a; --side-n: #5f6a70;
+  background: radial-gradient(130% 100% at 30% 0%, #f8f0dc, #efe4ca 70%);
+  /* gold line, a rim of enamel, gold again */
+  box-shadow: 0 0 0 2px #cba85c, 0 0 0 7.5px #7a181e, 0 0 0 9px #cba85c, 0 0 0 10px #4d0e12, 0 30px 70px rgba(0, 0, 0, 0.68);
+}
+/* the heading band: enamel, glossy along its upper half, piped in gold below */
+[data-ui='04'] .sx-head { padding: 15px 76px 14px var(--pad); border-radius: 12px 12px 0 0; border-bottom: 3px solid #cba85c; background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 46%, transparent 47%), linear-gradient(180deg, #b72c33, #8b1c22); box-shadow: inset 0 -1px 0 #6a1318, 0 1px 0 #6a1318; }
+[data-ui='04'] .sx-kicker { color: #f0d697; letter-spacing: 0.2em; }
+[data-ui='04'] .sx-title { color: #fff6e2; letter-spacing: 0.08em; text-shadow: 0 1px 0 #5a0e13, 0 2px 6px rgba(0, 0, 0, 0.35); }
+[data-ui='04'] .sx-title small { color: #f0d697; }
+[data-ui='04'] .sx-sub { color: rgba(255, 243, 220, 0.86); }
+/* the round badge: a star, or the way out */
+[data-ui='04'] .sx-pick > .sx-head::after, [data-ui='04'] .sx-order > .sx-head::after, [data-ui='04'] .sx-confirm > .sx-head::after, [data-ui='04'] .sx-tip > .sx-head::after { content: '★'; position: absolute; right: 20px; top: 50%; display: grid; place-items: center; width: 40px; height: 40px; margin-top: -20px; border-radius: 50%; color: #7a181e; font-size: 19px; line-height: 1; background: radial-gradient(circle at 36% 30%, #fbe9b0, #cba85c 58%, #94712e); box-shadow: 0 0 0 2px #6a1318, 0 0 0 3.5px #cba85c, 0 3px 6px rgba(0, 0, 0, 0.4); }
+[data-ui='04'] .sx-tip > .sx-head::after { right: 14px; width: 30px; height: 30px; margin-top: -15px; font-size: 14px; }
+[data-ui='04'] .sx-close { right: 18px; top: 18px; width: 36px; height: 36px; border: 0; color: #7a181e; background: radial-gradient(circle at 36% 30%, #fbe9b0, #cba85c 58%, #94712e); box-shadow: 0 0 0 2px #6a1318, 0 0 0 3.5px #cba85c, 0 3px 6px rgba(0, 0, 0, 0.4); }
+[data-ui='04'] .sx-close svg { stroke-width: 2.4; }
+[data-ui='04'] .sx-close:hover { color: #3d0a0d; filter: brightness(1.08); }
+/* beside a card the band would stop half way across: there the heading is set in red on the cream */
+[data-ui='04'] .sx-detail-text .sx-head { padding: var(--pad) 70px 12px var(--pad); border-radius: 0; border-bottom: 0; background: linear-gradient(#cba85c, #cba85c) var(--pad) 100% / calc(100% - 2 * var(--pad)) 2px no-repeat; box-shadow: none; }
+[data-ui='04'] .sx-detail-text .sx-kicker { color: var(--muted); }
+[data-ui='04'] .sx-detail-text .sx-title { color: #a3232a; text-shadow: none; }
+
+[data-ui='04'] .sx-btn { min-height: 42px; border-radius: 99px; border: 0; background: linear-gradient(180deg, #fbf5e4, #e9dcbd); color: #3a2a1c; box-shadow: 0 0 0 1.5px #cba85c, 0 0 0 3px #7a181e, 0 3px 6px rgba(60, 20, 10, 0.3); }
+[data-ui='04'] .sx-btn:hover { color: #1b130c; background: linear-gradient(180deg, #fffaf0, #f1e6cb); }
+[data-ui='04'] .sx-btn.is-primary { color: #fff6e2; background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.04) 48%, transparent 50%), linear-gradient(180deg, #bd2f36, #8b1c22); text-shadow: 0 1px 0 #5a0e13; }
+[data-ui='04'] .sx-btn.is-primary:hover { color: #fff; }
+[data-ui='04'] .sx-btn.is-ghost { background: none; box-shadow: none; color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
+[data-ui='04'] .sx-foot { padding-bottom: calc(var(--pad) + 2px); gap: 16px; }
+[data-ui='04'] .sx-chip { border-color: #cba85c; background: #fbf5e4; color: #5a4632; box-shadow: 0 1px 2px rgba(60, 20, 10, 0.2); }
+[data-ui='04'] .sx-chip.is-on { color: #fff6e2; border-color: #6a1318; background: linear-gradient(180deg, #b72c33, #8b1c22); box-shadow: 0 0 0 1.5px #cba85c; }
+[data-ui='04'] .sx-key { border-color: rgba(44, 34, 25, 0.45); background: #fbf5e4; color: #2c2219; box-shadow: 0 1px 0 rgba(44, 34, 25, 0.35); }
+
+[data-ui='04'] .sx-well { border-radius: 8px; box-shadow: inset 0 2px 6px rgba(80, 50, 20, 0.28), inset 0 0 0 1px rgba(203, 168, 92, 0.75); }
+[data-ui='04'] .sx-face .game-card { box-shadow: 0 2px 2px rgba(60, 30, 10, 0.3), 0 10px 18px rgba(60, 30, 10, 0.32); }
+[data-ui='04'] .sx-slot.is-on .sx-face { box-shadow: 0 0 0 2px #fbe9b0, 0 0 0 5px #b3262d, 0 0 0 6.5px #cba85c, 0 10px 20px rgba(120, 20, 20, 0.35); }
+[data-ui='04'] .sx-option { border-radius: 10px; border-color: #cba85c; background: #fbf5e4; box-shadow: 0 2px 4px rgba(60, 30, 10, 0.14); overflow: hidden; }
+[data-ui='04'] .sx-option.is-on { border-color: #8b1c22; box-shadow: inset 0 0 0 1.5px #b3262d, 0 0 0 1.5px #cba85c, 0 4px 10px rgba(120, 20, 20, 0.22); }
+/* a red corner, ticked, on the chosen one */
+[data-ui='04'] .sx-option.is-on::after { content: '✓'; position: absolute; right: 0; top: 0; width: 44px; height: 44px; padding: 3px 0 0 23px; color: #fff6e2; font: 700 14px/1 var(--font); background: linear-gradient(225deg, #b3262d 50%, transparent 50.5%); }
+[data-ui='04'] .sx-sec { color: #a3232a; }
+[data-ui='04'] .sx-sec span { padding: 1px 10px; border-radius: 99px; color: #fff6e2; background: #a3232a; box-shadow: 0 0 0 1.5px #cba85c; letter-spacing: 0.14em; }
+[data-ui='04'] .sx-example { border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(203, 168, 92, 0.75); }
+[data-ui='04'] .sx-toast { padding-left: 14px; }
+[data-ui='04'] .sx-toast .sx-kicker { padding: 3px 12px; border-radius: 99px; color: #fff6e2; background: linear-gradient(180deg, #b72c33, #8b1c22); box-shadow: 0 0 0 1.5px #cba85c; letter-spacing: 0.12em; }
+[data-ui='04'] .sx-toast .sx-btn { box-shadow: 0 0 0 1.5px #cba85c, 0 0 0 2.5px #7a181e; }

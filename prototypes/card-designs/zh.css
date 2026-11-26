@@ -1,0 +1,16 @@
+@font-face{font-family:'Card Chinese';src:url('assets/fonts/card-zh.woff2') format('woff2');font-weight:400 800;font-display:block}
+/* A single semantic colour across factions; the pale backing and weight keep it visible at hand size. */
+.game-term{color:#08635f!important;font-weight:750!important;background:rgba(8,99,95,.075);white-space:nowrap;box-decoration-break:clone;-webkit-box-decoration-break:clone;border-radius:.12em}
+
+.slot .face text:not(.k-value):not([class$="-value"]),.slot .face .txt,.slot .face [class$="-text"],.slot .face [class$="-copy"],.slot .face p,.slot .face h3,.slot .face [class$="-note"]{font-family:'Card Chinese','PingFang SC',serif!important}
+.slot .face .rules{line-height:1.45!important;letter-spacing:0!important;line-break:strict}
+.slot .face .note{line-height:1.45!important;letter-spacing:.02em!important}
+.slot .face .k-type,.slot .face .k-foot{letter-spacing:.08em!important}
+.nato .n-title{font-size:37px!important;letter-spacing:.02em!important}
+.nato .txt{font-size:4cqw;line-height:1.55}
+/* Light teal on the three early concepts with dark rules panels. */
+.d03 .game-term,.d09 .game-term,.d10 .game-term{color:#8de0cc!important;background:rgba(141,224,204,.08)}
+.d08-note .game-term{color:#b5f1df!important;background:rgba(0,0,0,.12)}
+.slot tspan.game-term{fill:currentColor}
+.e05 .k-foot .game-term{color:#9be7d4!important}
+.slot .d10-copy h3{font-size:14cqw;line-height:1.2;padding-top:1.6cqw;margin-top:0}

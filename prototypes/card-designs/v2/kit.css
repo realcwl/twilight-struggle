@@ -1,0 +1,98 @@
+/* Shared by the V2 designs: the three poster inks, the type they all set their slots in, the rules
+   block, and the parallax that lifts badges and emblems off the card. */
+.v2 {
+  --paper: #efe4c6;
+  --ink: #15110e;
+  --hot: #c8281e;
+}
+
+/* the illustration in three inks: red sky, black figures, paper lights */
+.v2 .scene {
+  --sky-a: #c8281e;
+  --sky-b: #d9573f;
+  --sky-c: #efdcb2;
+  --ray: #efe4c6;
+  --ray-o: 0.3;
+  --glow: #efe4c6;
+  --sun: #f3e9cc;
+  --sun-ring: #15110e;
+  --sun-ring-o: 0.7;
+  --far2: #e4b79b;
+  --far: #b94a36;
+  --haze: #efdcb2;
+  --haze-o: 0.35;
+  --mid: #2a1915;
+  --flag-a: #15110e;
+  --flag-b: #f3e9cc;
+  --flag-c: #c8281e;
+  --fig-d: #0e0b09;
+  --fig-m: #2b2520;
+  --fig-l: #6e655a;
+  --skin: #ecdcb8;
+  --skin-d: #b99b79;
+  --beard: #0a0807;
+  --beard-l: #3b332c;
+  --ink: #0a0807;
+  --crowd-a: #15110e;
+  --crowd-b: #0a0807;
+  --crowd-l: #f3e9cc;
+  --crowd-l-o: 0.5;
+  --accent: #f3e9cc;
+  --dove: #f7efd8;
+  --pennant: #c8281e;
+}
+
+/* slot type, in viewBox units (the frame is 500 x 700) */
+.v2 .k-title { font: 400 48px 'Russo One', sans-serif; letter-spacing: 3px; fill: var(--paper); }
+.v2 .k-type { font: 600 12.5px 'Oswald', sans-serif; letter-spacing: 3px; fill: var(--ink); }
+.v2 .k-type.hot { font-weight: 700; fill: var(--hot); }
+.v2 .k-foot { font: 600 11px 'Oswald', sans-serif; letter-spacing: 3px; fill: var(--paper); }
+.v2 .k-no { font: 400 15px 'Russo One', sans-serif; letter-spacing: 2px; fill: var(--paper); }
+.v2 .k-value { font: 400 56px 'Russo One', sans-serif; fill: var(--paper); }
+
+/* rules block */
+.v2 .txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.3cqw;
+  z-index: 2;
+  color: var(--ink);
+}
+.v2 .txt p { margin: 0; }
+.v2 .txt .rules { font: 400 4.5cqw/1.22 'Oswald', sans-serif; text-wrap: pretty; }
+.v2 .txt .rules b { font-weight: 700; color: var(--hot); }
+.v2 .txt .note { font: 600 2.7cqw/1.15 'Oswald', sans-serif; letter-spacing: 0.15em; text-transform: uppercase; color: var(--hot); }
+
+/* Parallax. A .px layer sits above the card by --d and slides toward the pointer as the card tilts,
+   leaving its cast shadow (drawn on the layer below) behind. Transform only, so nothing repaints. */
+.v2 .px {
+  transform: translate(calc(var(--tx) * var(--d, 1.2cqw)), calc(var(--ty) * var(--d, 1.2cqw)));
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+.v2 .back .px { transform: translate(calc(var(--tx) * var(--d, 1.2cqw) * -1), calc(var(--ty) * var(--d, 1.2cqw))); }
+.v2.is-live .px { transition: transform 0.08s linear; }
+
+/* ink sitting on rough stock */
+.v2-print {
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.22) 0.16cqw, transparent 0.2cqw);
+  background-size: 0.9cqw 0.9cqw;
+  mix-blend-mode: multiply;
+  opacity: 0.35;
+}
+/* a band of light across a glossy surface */
+.v2-gloss {
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0) 26%, rgba(255, 255, 255, 0.13) 39%, rgba(255, 255, 255, 0.02) 46%, rgba(255, 255, 255, 0) 60%);
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2 .px { transition-duration: 0.01s; }
+}

@@ -1,0 +1,135 @@
+/* Country identity prototype. Standalone: nothing here depends on the game's code. */
+:root {
+  --bg: #171310;
+  --panel: #1f1914;
+  --line: rgba(236, 223, 195, 0.14);
+  --text: #ecdfc3;
+  --muted: rgba(236, 223, 195, 0.62);
+  --gold: #f0bf4a;
+  --parchment: #ecdfc3;
+  --ink: #241a12;
+  --blue: #2e6ad6;
+  --red: #de3f2b;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  padding: 28px 28px 48px;
+  min-width: 1180px;
+  color: var(--text);
+  font: 14px/1.5 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+}
+.top { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; max-width: 1560px; margin: 0 auto 22px; }
+h1 { margin: 0; font-size: 30px; letter-spacing: 0.04em; line-height: 1.15; color: #fff7e4; text-wrap: balance; }
+.lede { margin: 8px 0 0; max-width: 68ch; color: var(--muted); text-wrap: pretty; }
+.controls { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-size: 13px; }
+.controls label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.controls input { accent-color: var(--gold); width: 15px; height: 15px; margin: 0; }
+.hint { color: var(--muted); font-size: 12px; }
+.foot { max-width: 1560px; margin: 26px auto 0; color: var(--muted); font-size: 12px; }
+
+#sheet { max-width: 1560px; margin: 0 auto; display: grid; grid-template-columns: 250px repeat(6, minmax(0, 1fr)); gap: 10px; }
+.colhead { align-self: end; padding: 0 2px 2px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.rowhead { padding: 4px 14px 4px 0; }
+.rowhead .num { font-size: 12px; letter-spacing: 0.16em; color: var(--gold); font-variant-numeric: tabular-nums; }
+.rowhead h2 { margin: 1px 0 4px; font-size: 17px; line-height: 1.2; color: #fff7e4; text-wrap: balance; }
+.rowhead p { margin: 0; font-size: 12.5px; line-height: 1.4; color: var(--muted); text-wrap: pretty; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+.chip { padding: 0 7px; border-radius: 99px; font-size: 11px; line-height: 18px; background: rgba(236, 223, 195, 0.08); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.18); white-space: nowrap; }
+.chip.good { box-shadow: inset 0 0 0 1px rgba(126, 190, 120, 0.6); color: #b9e0b0; }
+.chip.warn { box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.6); color: #f3d68a; }
+.chip.bad { box-shadow: inset 0 0 0 1px rgba(232, 120, 100, 0.6); color: #f0a898; }
+.rule { grid-column: 1 / -1; height: 1px; background: var(--line); margin: 4px 0; }
+.section { grid-column: 1 / -1; margin: 18px 0 2px; }
+.section h2 { margin: 0; font-size: 20px; color: #fff7e4; }
+.section p { margin: 4px 0 0; max-width: 78ch; color: var(--muted); text-wrap: pretty; }
+
+/* ---------------------------------------------------------------- a tile: one country, one treatment */
+.cell { position: relative; aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; background: #26302c; box-shadow: 0 0 0 1px rgba(236, 223, 195, 0.14); cursor: default; isolation: isolate; }
+.cell-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.84) brightness(0.86); transition: filter 0.3s; }
+.cell.hot .cell-bg { filter: saturate(1) brightness(1); }
+.layer { position: absolute; inset: 0; pointer-events: none; }
+
+/* the node, as in the game */
+.plate { position: absolute; left: 42%; top: 58%; /* overridden per country */ display: flex; flex-direction: column; align-items: center; gap: 3px; transform: translate(-50%, -50%); z-index: 5; }
+.plate-name { font-family: 'Songti SC', 'Iowan Old Style', Georgia, serif; font-weight: 800; font-size: 14px; line-height: 1.1; letter-spacing: 0.05em; white-space: nowrap; color: #fffaf0; -webkit-text-stroke: 3.5px rgba(22, 15, 9, 0.92); paint-order: stroke fill; }
+.plate-body { display: flex; align-items: stretch; height: 24px; border-radius: 12px 6px 6px 12px; background: #1e1711; box-shadow: 0 0 0 1.5px rgba(236, 223, 195, 0.75), 0 2px 8px rgba(0, 0, 0, 0.65); overflow: hidden; font: 800 14px/24px Didot, 'Bodoni 72', Georgia, serif; }
+.stab { width: 24px; border-radius: 50%; text-align: center; background: var(--parchment); color: var(--ink); font-size: 13px; box-shadow: inset 0 0 0 1.5px rgba(36, 26, 18, 0.5); }
+.inf { min-width: 23px; padding: 0 3px; text-align: center; color: rgba(236, 223, 195, 0.32); }
+.inf.a { margin-left: 2px; }
+.inf.on.a { background: var(--blue); color: #fff; }
+.inf.on.b { background: var(--red); color: #fff; }
+
+/* ---------------------------------------------------------------- 1. low-poly miniature */
+.lowpoly { position: absolute; left: 74%; top: 60%; height: 44%; transform: translate(-50%, -50%); filter: drop-shadow(0 6px 5px rgba(0, 0, 0, 0.45)); transition: transform 0.3s; }
+.cell.hot .lowpoly { transform: translate(-50%, -56%) scale(1.08); }
+
+/* ---------------------------------------------------------------- 2. paper stand-up */
+.standee { position: absolute; left: 75%; top: 86%; width: 27%; transform: translate(-50%, -62%); perspective: 300px; }
+.standee svg { display: block; width: 100%; overflow: visible; transform-origin: 50% 100%; transform: rotateX(62deg); opacity: 0.85; filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.5)); transition: transform 0.5s cubic-bezier(0.2, 1.5, 0.4, 1), opacity 0.3s; }
+.standee::after { content: ''; position: absolute; left: 4%; right: 4%; bottom: -5%; height: 13%; border-radius: 50%; background: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%); z-index: -1; }
+.cell.hot .standee svg { transform: rotateX(0deg); opacity: 1; }
+
+/* ---------------------------------------------------------------- 3. landmark silhouette on the node */
+.glyph { width: 28px; display: grid; place-items: center; background: #2b2119; box-shadow: inset -1px 0 0 rgba(236, 223, 195, 0.25); }
+.glyph svg { width: 21px; height: 21px; display: block; transition: transform 0.3s; }
+.cell.hot .glyph svg { transform: scale(1.14); }
+.plate.has-glyph .plate-body { border-radius: 6px; }
+.plate.has-glyph .stab { border-radius: 0; box-shadow: inset -1px 0 0 rgba(36, 26, 18, 0.35); }
+
+/* ---------------------------------------------------------------- 4. antique-atlas ink vignette */
+/* dark ink with a thin halo of bare paper, so it reads on land and on water alike */
+.ink { position: absolute; left: 75%; top: 62%; width: 29%; transform: translate(-50%, -50%) perspective(260px) rotateX(34deg); opacity: 0.92; filter: drop-shadow(0 0 1.2px rgba(246, 236, 208, 0.95)) drop-shadow(0 0 5px rgba(246, 236, 208, 0.55)); }
+.ink svg { display: block; width: 100%; overflow: visible; }
+.ink path { stroke-dasharray: 400; stroke-dashoffset: 0; }
+.cell.hot .ink path { animation: draw 1.6s ease-out both; }
+@keyframes draw { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+
+/* ---------------------------------------------------------------- 5. emblem medallion */
+.medal { position: absolute; left: -30px; top: 50%; width: 34px; height: 34px; margin-top: -3px; border-radius: 50%; transform: translateY(-50%); background: radial-gradient(circle at 34% 28%, #fff1b8, #e9bc4c 46%, #b8862a 100%); box-shadow: 0 0 0 1.5px #5d4215, inset 0 0 0 2.5px rgba(255, 244, 200, 0.55), 0 3px 7px rgba(0, 0, 0, 0.6); display: grid; place-items: center; transition: transform 0.7s cubic-bezier(0.3, 1.4, 0.5, 1); }
+.medal svg { width: 23px; height: 23px; display: block; }
+.plate.has-medal { padding-left: 4px; }
+.plate.has-medal .plate-body { position: relative; overflow: visible; border-radius: 6px; }
+.plate.has-medal .stab { margin-left: 8px; }
+.plate.has-medal .inf.b { border-radius: 0 5px 5px 0; }
+.cell.hot .medal { transform: translateY(-50%) rotateY(360deg); }
+
+/* ---------------------------------------------------------------- 6. flag ribbon */
+/* flies from a short staff on the node's right end, clear of the name above */
+.pennant { position: absolute; right: -37px; top: -5px; width: 30px; height: 20px; transform-origin: 0 50%; filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.55)); }
+.pennant svg { display: block; width: 100%; height: 100%; border-radius: 1.5px; box-shadow: 0 0 0 1px rgba(22, 15, 9, 0.8); }
+.pennant::before { content: ''; position: absolute; left: -3.5px; top: -3px; width: 2.5px; height: 34px; border-radius: 2px; background: linear-gradient(#f1dca0, #9a7b3a); box-shadow: 0 0 0 1px rgba(22, 15, 9, 0.8); }
+.plate.has-pennant .plate-body { position: relative; overflow: visible; }
+.plate.has-pennant .stab { border-radius: 12px 0 0 12px; }
+.plate.has-pennant .inf.b { border-radius: 0 5px 5px 0; }
+.cell.hot .pennant { animation: flutter 0.9s ease-in-out infinite; }
+@keyframes flutter { 0%, 100% { transform: skewY(0deg) scaleX(1); } 30% { transform: skewY(-7deg) scaleX(0.94); } 65% { transform: skewY(5deg) scaleX(0.97); } }
+
+/* ---------------------------------------------------------------- 7. native script name */
+.native { font-size: 25px; line-height: 1; white-space: nowrap; color: #fffaf0; -webkit-text-stroke: 4px rgba(22, 15, 9, 0.92); paint-order: stroke fill; transition: transform 0.3s, color 0.3s; }
+.native + .plate-name { font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase; font-family: Didot, 'Bodoni 72', Georgia, serif; font-weight: 700; -webkit-text-stroke: 3px rgba(22, 15, 9, 0.92); color: rgba(255, 250, 240, 0.86); }
+.cell.hot .native { transform: scale(1.1); color: #ffe9a8; }
+
+/* ---------------------------------------------------------------- 8. pattern woven into the land */
+.weave { position: absolute; inset: 0; mix-blend-mode: soft-light; opacity: 0.7; transition: opacity 0.4s; }
+.weave svg { width: 100%; height: 100%; display: block; }
+.cell.hot .weave { opacity: 1; mix-blend-mode: overlay; }
+
+/* ---------------------------------------------------------------- 9. ambient motion */
+.motes { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s; }
+.cell.hot .motes { opacity: 1; }
+.cell .idle-note { position: absolute; left: 8px; bottom: 6px; font-size: 10.5px; letter-spacing: 0.08em; color: rgba(255, 250, 240, 0.7); text-shadow: 0 1px 2px #000; transition: opacity 0.3s; }
+.cell.hot .idle-note { opacity: 0; }
+
+/* ---------------------------------------------------------------- 10. postage stamp in the info card */
+.stamp { position: absolute; right: 5%; top: 7%; width: 27%; transform: rotate(4deg); transform-origin: 60% 40%; filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.55)); transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1); }
+.stamp svg { display: block; width: 100%; overflow: visible; }
+.stamp .postmark { opacity: 0; transform-origin: 30% 70%; transform: scale(1.5) rotate(-18deg); transition: opacity 0.25s 0.15s, transform 0.3s 0.15s; }
+.cell.hot .stamp { transform: rotate(-2deg) scale(1.16); }
+.cell.hot .stamp .postmark { opacity: 0.85; transform: scale(1) rotate(-18deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition-duration: 0.01ms !important; }
+}

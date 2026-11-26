@@ -1,0 +1,46 @@
+/* 06 压角: slips tucked under the corner panes. A rail is a child of its pane with a negative
+   z-index, so its slips are painted behind the pane and only what sticks out past the edge shows. */
+.v06-rail { position: absolute; z-index: -1; display: flex; gap: 0.6rem; pointer-events: none; }
+.v06-up { left: 1.5rem; bottom: 100%; align-items: flex-end; }
+.v06-down { left: 1.5rem; top: 100%; align-items: flex-start; }
+.v06-tr { left: auto; right: 1.5rem; }
+
+/* the head of a card: its enamel, the black title bar, the gold edge */
+.v06-slip { position: relative; pointer-events: auto; padding: 0.22rem; border-radius: 0.7rem 0.7rem 0 0; background: linear-gradient(180deg, #f6dc8e, #b98a2a); box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.6); transition: transform 0.24s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.2s; }
+.v06-up .v06-slip { margin-bottom: -2.1rem; padding-bottom: 2.3rem; }
+.v06-down .v06-slip { margin-top: -2.1rem; padding-top: 2.3rem; border-radius: 0 0 0.7rem 0.7rem; }
+.v06-slip::before { content: ''; position: absolute; inset: 0.22rem; border-radius: 0.5rem 0.5rem 0 0; background: radial-gradient(120% 100% at 50% 0, var(--cl), var(--c) 55%, color-mix(in srgb, var(--c) 55%, #000)); }
+.v06-down .v06-slip::before { border-radius: 0 0 0.5rem 0.5rem; background: radial-gradient(120% 100% at 50% 100%, var(--cl), var(--c) 55%, color-mix(in srgb, var(--c) 55%, #000)); }
+.v06-head { position: relative; display: flex; align-items: center; gap: 0.7rem; height: 2.2rem; margin: 0.85rem 0 0; padding: 0 0.9rem; background: #15110e; box-shadow: 0 -1px 0 #e9cf86, 0 1px 0 #e9cf86; white-space: nowrap; }
+.v06-down .v06-head { margin: 0 0 0.85rem; }
+.v06-head b { font: 900 1.35rem/1 var(--han); letter-spacing: 0.06em; color: #fbf5e0; }
+.v06-mark { display: inline-grid; place-items: center; margin-left: auto; font-size: 1.25rem; color: var(--gold); }
+.v06-mark .pe-n { font-size: 1.4rem; color: var(--bright); }
+.v06-mark.tick { animation: v06-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v06-tick { 0% { transform: scale(2.2); } }
+
+.v06-up .v06-slip:hover { transform: translateY(-1.3rem); box-shadow: 0 0 0 1px var(--bright), 0 0 1.6rem rgba(240, 191, 74, 0.5), 0 0.3rem 1rem rgba(0, 0, 0, 0.6); }
+.v06-down .v06-slip:hover { transform: translateY(1.3rem); box-shadow: 0 0 0 1px var(--bright), 0 0 1.6rem rgba(240, 191, 74, 0.5), 0 0.3rem 1rem rgba(0, 0, 0, 0.6); }
+/* it slides in under the edge */
+.v06-up .v06-slip.pe-new { animation: v06-in-up 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.v06-down .v06-slip.pe-new { animation: v06-in-down 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes v06-in-up { 0% { transform: translateY(-3.4rem); } 100% { transform: none; } }
+@keyframes v06-in-down { 0% { transform: translateY(3.4rem); } 100% { transform: none; } }
+.v06-slip.pe-new .v06-head { animation: v06-glint 2.3s ease-out; }
+@keyframes v06-glint { 0%, 45% { box-shadow: 0 -2px 0 var(--gold), 0 2px 0 var(--gold), 0 0 1.6rem rgba(240, 191, 74, 0.9); } }
+.v06-up .v06-slip.pe-fire { animation: v06-fire-up 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); }
+.v06-down .v06-slip.pe-fire { animation: v06-fire-down 1.4s cubic-bezier(0.3, 0.7, 0.3, 1); }
+.v06-slip.pe-fire .v06-head { box-shadow: 0 -2px 0 var(--gold), 0 2px 0 var(--gold), 0 0 1.6rem rgba(240, 191, 74, 0.9); }
+@keyframes v06-fire-up { 14% { transform: translateY(-1.7rem); } 32% { transform: translateY(-0.2rem); } 44% { transform: translateY(-0.8rem); } 58%, 100% { transform: none; } }
+@keyframes v06-fire-down { 14% { transform: translateY(1.7rem); } 32% { transform: translateY(0.2rem); } 44% { transform: translateY(0.8rem); } 58%, 100% { transform: none; } }
+.v06-slip.pe-ending { filter: saturate(0.25) brightness(0.8); transition: filter 0.3s; }
+.v06-up .v06-slip.pe-ending { transform: translateY(-1.3rem); }
+.v06-down .v06-slip.pe-ending { transform: translateY(1.3rem); }
+.v06-up .v06-slip .pe-stamp { top: 1.6rem; }
+.v06-down .v06-slip .pe-stamp { top: auto; bottom: 1.6rem; transform: translate(-50%, 50%) rotate(-9deg); animation-name: v06-stamp; }
+@keyframes v06-stamp { 0% { opacity: 0; transform: translate(-50%, 50%) rotate(-9deg) scale(2.3); } 100% { opacity: 1; transform: translate(-50%, 50%) rotate(-9deg) scale(1); } }
+.v06-slip .pe-stamp b { font-size: 1.15rem; }
+
+/* the country card sits under the top corners; it steps down past what hangs there */
+#game[data-pe='06'] .hud-brief { top: calc(var(--under-left, 14rem) + 4.4rem); }
+#game[data-pe='06'] .hud-brief.right { top: calc(var(--under-right, 17rem) + 4.4rem); }

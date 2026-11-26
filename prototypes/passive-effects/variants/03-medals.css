@@ -1,0 +1,30 @@
+/* 03 勋章: medals hanging from the top edge of the screen. */
+.v03 { position: absolute; top: 0; display: flex; align-items: flex-start; gap: 1.3rem; pointer-events: none; }
+.v03-r { left: calc(50% + 12.6rem); }
+
+.v03-medal { position: relative; display: grid; justify-items: center; width: 5.6rem; pointer-events: auto; transform-origin: 50% 0; }
+/* the ribbon comes down from the edge: the side's colour, two pale stripes */
+.v03-ribbon { width: 2.2rem; height: 2.5rem; background: linear-gradient(90deg, transparent 0 18%, rgba(255, 255, 255, 0.5) 18% 26%, transparent 26% 74%, rgba(255, 255, 255, 0.5) 74% 82%, transparent 82%), linear-gradient(180deg, color-mix(in srgb, var(--c) 70%, #000), var(--c) 55%, var(--cl)); box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.5); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%); }
+.v03-medal.is-n .v03-ribbon { background: linear-gradient(90deg, transparent 0 18%, rgba(90, 70, 30, 0.45) 18% 26%, transparent 26% 74%, rgba(90, 70, 30, 0.45) 74% 82%, transparent 82%), linear-gradient(180deg, #8f8463, #cdbf95 55%, #f6ecc9); }
+.v03-disc { position: relative; width: 5.2rem; height: 5.2rem; margin-top: -0.55rem; border-radius: 50%; background: #120e0b; box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.65); }
+.v03-art { position: absolute; inset: 0.62rem; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 0.16rem var(--c), 0 0 0 0.26rem #120e0b; }
+.v03-art svg { display: block; width: 100%; height: 100%; }
+.v03-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; stroke: rgba(236, 223, 195, 0.2); stroke-width: 5.5; stroke-linecap: butt; }
+.v03-ring .lit { stroke: var(--gold); filter: drop-shadow(0 0 1.5px rgba(240, 191, 74, 0.8)); }
+.v03-seal { position: absolute; right: -0.55rem; bottom: -0.45rem; display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: radial-gradient(circle at 50% 24%, #3f3327, #15110d 78%); box-shadow: 0 0 0 1px var(--gold), 0 0.2rem 0.5rem rgba(0, 0, 0, 0.6); font-size: 1.1rem; color: var(--gold); }
+.v03-seal .pe-n { font-size: 1.2rem; color: var(--bright); }
+.v03-seal.tick { animation: v03-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v03-tick { 0% { transform: scale(2); box-shadow: 0 0 0 0.2rem var(--gold), 0 0 1.4rem var(--gold); } }
+.v03-name { margin-top: 0.5rem; max-width: 7rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 700 1rem/1.15 var(--han); letter-spacing: 0.03em; color: var(--bright); text-shadow: 0 1px 3px #000, 0 0 0.7em #000, 0 0 0.3em #000; }
+
+.v03-medal:hover .v03-disc { box-shadow: 0 0 0 0.16rem var(--bright), 0 0 1.6rem rgba(240, 191, 74, 0.6), 0 0.35rem 1rem rgba(0, 0, 0, 0.65); }
+/* it arrives on its ribbon and swings to rest */
+.v03-medal.pe-new { animation: v03-drop 1.3s cubic-bezier(0.3, 0.6, 0.3, 1) both; }
+.v03-medal.pe-new .v03-disc { animation: v03-glint 2.2s ease-out; }
+@keyframes v03-drop { 0% { transform: translateY(-110%) rotate(0); } 28% { transform: translateY(0) rotate(9deg); } 50% { transform: rotate(-6deg); } 70% { transform: rotate(3deg); } 86% { transform: rotate(-1.2deg); } 100% { transform: none; } }
+@keyframes v03-glint { 0%, 45% { box-shadow: 0 0 0 0.22rem var(--gold), 0 0 2.2rem rgba(240, 191, 74, 0.9); } }
+.v03-medal.pe-fire { animation: v03-swing 1.5s cubic-bezier(0.3, 0.6, 0.3, 1); }
+.v03-medal.pe-fire .v03-disc { box-shadow: 0 0 0 0.22rem var(--gold), 0 0 2.2rem rgba(240, 191, 74, 0.9); }
+@keyframes v03-swing { 14% { transform: rotate(12deg); } 34% { transform: rotate(-8deg); } 54% { transform: rotate(4.500deg); } 72% { transform: rotate(-2deg); } 100% { transform: none; } }
+.v03-medal.pe-ending .v03-art, .v03-medal.pe-ending .v03-ribbon { filter: saturate(0.25) brightness(0.75); transition: filter 0.3s; }
+.v03-medal .pe-stamp b { font-size: 1.2rem; }

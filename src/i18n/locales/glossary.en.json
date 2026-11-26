@@ -1,0 +1,162 @@
+{
+  "control": {
+    "label": "Control",
+    "summary": "You control a country when your influence is at least its Stability and exceeds the opponent's influence by at least that Stability.",
+    "example": "Stability 3: your 4 vs their 2 is not control. Increasing yours to 5 gives a lead of 3 and control."
+  },
+  "influence": {
+    "label": "Influence",
+    "summary": "Influence represents political investment in a country. Both sides can have influence; having it does not necessarily mean control.",
+    "example": "Adding 1 influence normally costs 1 Operation, or 2 in an enemy-controlled country."
+  },
+  "stability": {
+    "label": "Stability",
+    "summary": "The country's fixed threshold for control, also used to calculate coup difficulty.",
+    "example": "Stability 3 requires an influence lead of 3 to control; a coup subtracts 2 × 3 from its total."
+  },
+  "battleground": {
+    "label": "Battleground",
+    "summary": "A specially marked strategic country. Battlegrounds affect regional scoring; coups there normally lower DEFCON.",
+    "example": "Each controlled battleground normally adds 1 VP. The map badge identifies battleground status."
+  },
+  "ordinary": {
+    "label": "Non-battleground",
+    "summary": "An ordinary country without a battleground marker. It still counts toward the regional country total.",
+    "example": "Domination requires at least one controlled non-battleground in addition to a battleground advantage."
+  },
+  "coup": {
+    "label": "Coup",
+    "summary": "Choose a legal target with enemy influence. Die + Operations − 2 × Stability gives the influence change if positive.",
+    "example": "Die 5 + Operations 2 − Stability 2 × 2 = 3. Remove 2 enemy influence first; the remaining 1 becomes yours."
+  },
+  "realignment": {
+    "label": "Realignment",
+    "summary": "Costs 1 Operation per roll. Both sides roll with modifiers; the higher total removes enemy influence equal to the difference. It never adds your influence.",
+    "example": "Controlled neighbors, influence advantage and an adjacent friendly superpower modify rolls. A final 6 vs 4 removes 2 from the loser."
+  },
+  "defcon": {
+    "label": "DEFCON",
+    "summary": "This game's nuclear crisis ranges from 5 (peaceful) to 2 (critical). It never falls below 2, preventing sudden losses to nuclear war.",
+    "example": "At 2, coups that would cause nuclear war cannot be selected. Safe non-battleground coups remain available, subject to regional restrictions."
+  },
+  "milops": {
+    "label": "Military Operations",
+    "summary": "Each turn requires military activity. Coups and war events provide Military Operations; realignments do not.",
+    "example": "At turn end, if 3 are required and you completed 1, the opponent gains the 2 VP difference."
+  },
+  "required-milops": {
+    "label": "Required Military Operations",
+    "summary": "At turn end, the military requirement equals the current DEFCON level.",
+    "example": "Required 3, completed 1: shortfall 2. Exceeding the requirement earns no extra VP."
+  },
+  "headline": {
+    "label": "Headline Phase",
+    "summary": "Before the turn's actions, both players secretly choose a card, reveal together, and resolve both events.",
+    "example": "Higher Operations resolves first; the US wins ties. Scoring cards count as 0; the China Card cannot be a headline."
+  },
+  "action-round": {
+    "label": "Action Round",
+    "summary": "One side plays a card and resolves all its events or Operations before the other side acts.",
+    "example": "Normally the USSR acts first, then the US: 6 actions each in early war and 7 in mid/late war."
+  },
+  "turn": {
+    "label": "Turn",
+    "summary": "A turn contains dealing, headlines, multiple action rounds and end-of-turn checks.",
+    "example": "This turn lasts until the current turn ends; this action round covers only the current side's action."
+  },
+  "ops": {
+    "label": "Operations",
+    "summary": "The upper-left card value. Choose one use: influence placement, realignment, coup or the Space Race.",
+    "example": "3 Operations normally place 3 total influence in countries not controlled by the enemy. Event Operations follow their card text."
+  },
+  "vp": {
+    "label": "Victory Points",
+    "summary": "Both sides share one VP track. Gaining VP moves the marker toward your side.",
+    "example": "The US gaining 2 moves the marker 2 toward the US. Either side reaching 20 VP wins immediately."
+  },
+  "scoring": {
+    "label": "Scoring",
+    "summary": "Compare controlled countries in a region, then award the card's Presence, Domination or Control value.",
+    "example": "Usually add battleground and enemy-superpower adjacency points. The difference moves the VP marker."
+  },
+  "scoring-card": {
+    "label": "Scoring card",
+    "summary": "Scores its region directly and has no Operations. When only enough actions remain, only highlighted scoring cards may be played.",
+    "example": "Two actions left with two scoring cards: other cards are locked until you play the scoring cards."
+  },
+  "non-scoring-card": {
+    "label": "Non-scoring card",
+    "summary": "Any card other than a regional scoring card. Effects asking for one exclude scoring cards.",
+    "example": "With a 3-Operations event and Europe Scoring, only the event is eligible."
+  },
+  "presence": {
+    "label": "Presence",
+    "summary": "The basic regional scoring threshold: control at least one country in the region.",
+    "example": "Influence without control of any country does not qualify."
+  },
+  "domination": {
+    "label": "Domination",
+    "summary": "Control more total countries and more battlegrounds than your opponent, including at least one battleground and one non-battleground.",
+    "example": "A battleground lead alone is insufficient; all three conditions must be met."
+  },
+  "region-control": {
+    "label": "Regional Control",
+    "summary": "Control more countries than the opponent and every battleground in the region.",
+    "example": "This is a regional scoring status, distinct from controlling one country. European Control wins immediately."
+  },
+  "final-scoring": {
+    "label": "Final Scoring",
+    "summary": "After turn 10, score the six main regions and award 1 VP to the China Card's holder.",
+    "example": "Southeast Asia is not scored separately. Compare final VP; a level track is a draw."
+  },
+  "space": {
+    "label": "Space Race",
+    "summary": "Use a card meeting the next space's Operations requirement, then roll within its success range to advance.",
+    "example": "Normally one attempt per turn. Space cards never trigger their event, even an opposing event."
+  },
+  "hand": {
+    "label": "Hand",
+    "summary": "Cards you hold and have not played, normally hidden from your opponent. Refill to 8 in early war, 9 later.",
+    "example": "The China Card is separate and does not count toward this limit. Scoring cards cannot be held across turns."
+  },
+  "deck": {
+    "label": "Draw pile",
+    "summary": "Undrawn cards lie face down. When empty, the discard pile is normally reshuffled into a new deck.",
+    "example": "Removed cards never return. Mid- and late-war cards enter on their designated turns."
+  },
+  "draw": {
+    "label": "Draw",
+    "summary": "Take cards from the draw pile into your hand, as specified by the rules or an event.",
+    "example": "Drawing does not trigger a card's event; playing or another effect does."
+  },
+  "discard-pile": {
+    "label": "Discard pile",
+    "summary": "Used or discarded cards that have not been permanently removed lie here face up.",
+    "example": "They may be reshuffled when the draw pile empties. Starred cards are normally removed only after their event triggers."
+  },
+  "discard": {
+    "label": "Discard",
+    "summary": "Move a specified card from your hand to the discard pile. Forced discards do not trigger the discarded event.",
+    "example": "Discarding differs from playing for Operations, which may trigger an opposing event."
+  },
+  "removed": {
+    "label": "Removed from play",
+    "summary": "Starred events are normally permanently removed once their event actually triggers. They are not reshuffled.",
+    "example": "Using your own card only for Operations does not trigger its event. Unmet prerequisites do not automatically remove a starred card."
+  },
+  "draft-tension": {
+    "label": "Tension",
+    "summary": "A situation meter from the old concept deck, modified by that deck's card text.",
+    "example": "This prototype term is distinct from the current deck's DEFCON."
+  },
+  "draft-prestige": {
+    "label": "Prestige",
+    "summary": "A scoring resource from the old concept deck, gained or lost as instructed.",
+    "example": "The current deck uses Victory Points; Prestige remains only in the separate prototype."
+  },
+  "draft-tally": {
+    "label": "Tally",
+    "summary": "The old concept deck's instruction to calculate a region's result.",
+    "example": "The current deck uses Scoring. Prototype values follow its own draft rules."
+  }
+}

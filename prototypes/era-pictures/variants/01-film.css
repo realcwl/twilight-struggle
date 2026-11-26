@@ -1,0 +1,23 @@
+/* 01 Film: a strip through a projector's gate */
+.ep-host[data-ep='01'] { padding: 0.9rem 0.9rem 1.1rem; }
+.ep-01 { width: 38.4rem; --pitch: 7.6rem; --fw: 6.9rem; }
+.f1-win { position: relative; height: 8.5rem; border-radius: 0.5rem; background: #070605; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(236, 223, 195, 0.14); overflow: hidden; }
+/* the strip slides so that the current frame sits in the gate; the perforations ride with it */
+.f1-strip { position: absolute; left: 50%; top: 0; bottom: 0; display: flex; width: calc(10 * var(--pitch)); transform: translateX(calc((var(--i) + 0.5) * var(--pitch) * -1)); transition: transform 0.9s cubic-bezier(0.5, 0, 0.2, 1); background: linear-gradient(#000, #000) 0 0 / 100% 1.3rem no-repeat, linear-gradient(#000, #000) 0 100% / 100% 1.3rem no-repeat, #1a140e; }
+.f1-strip::before, .f1-strip::after { content: ''; position: absolute; left: 0; right: 0; height: 0.62rem; background: repeating-linear-gradient(90deg, transparent 0 0.34rem, #d8cdb2 0.34rem 0.9rem, transparent 0.9rem 1.2667rem); opacity: 0.55; border-radius: 0.1rem; }
+.f1-strip::before { top: 0.32rem; }
+.f1-strip::after { bottom: 0.32rem; }
+.f1-f { position: relative; flex: none; width: var(--pitch); padding: 1.5rem calc((var(--pitch) - var(--fw)) / 2); }
+.f1-f .ep-pic { height: 100%; border-radius: 0.18rem; transition: filter 0.7s; }
+.f1-f.done .ep-pic { --state: brightness(0.5); }
+.f1-f.todo .ep-pic { --state: brightness(0.12) contrast(0.8); }
+.f1-f i { position: absolute; left: calc((var(--pitch) - var(--fw)) / 2 + 0.32rem); top: 1.66rem; font: 600 1rem/1 'Oswald', sans-serif; color: #fff; text-shadow: 0 1px 2px #000, 0 0 4px #000; }
+.f1-f.todo i { color: rgba(255, 255, 255, 0.32); }
+/* film grain and the lamp's warmth on the frame in the gate */
+.f1-f.now::after { content: ''; position: absolute; inset: 1.5rem calc((var(--pitch) - var(--fw)) / 2); border-radius: 0.18rem; background: radial-gradient(120% 90% at 50% 40%, rgba(255, 226, 170, 0.12), transparent 60%, rgba(0, 0, 0, 0.32)); pointer-events: none; }
+.f1-gate { position: absolute; left: 50%; top: 1.24rem; bottom: 1.24rem; width: calc(var(--fw) + 0.52rem); margin-left: calc((var(--fw) + 0.52rem) / -2); border-radius: 0.3rem; box-shadow: 0 0 0 2px var(--gold), 0 0 1.7rem rgba(240, 191, 74, 0.5), 0 0 0 100rem rgba(7, 6, 5, 0.24); pointer-events: none; }
+
+.f1-cap { display: flex; align-items: center; gap: 1.4rem; margin-top: 1rem; padding: 0 0.5rem; }
+.f1-mid { display: grid; gap: 0.75rem; }
+.f1-mid > div { display: flex; align-items: center; gap: 0.8rem; height: 1.3rem; }
+.f1-ph { display: grid; gap: 0.6rem; margin-left: auto; justify-items: end; }

@@ -1,0 +1,42 @@
+/* Inks for the deck's illustrations, one palette per side. The drawings only use classes, so a scene
+   re-inks itself when the card's side changes. Classes sc-* are fills, st-* are strokes. */
+.scene .sc-hot { fill: var(--sky-a); }
+.scene .sc-paper { fill: var(--sun); }
+.scene .sc-ray[stroke] { fill: none; color: var(--ray); stroke: var(--ray); }
+.scene .st-d { fill: none; stroke: var(--fig-d); }
+.scene .st-m { fill: none; stroke: var(--fig-m); }
+.scene .st-l { fill: none; stroke: var(--fig-l); }
+.scene .st-mid { fill: none; stroke: var(--mid); }
+.scene .st-far { fill: none; stroke: var(--far); }
+.scene .st-far2 { fill: none; stroke: var(--far2); }
+.scene .st-paper { fill: none; stroke: var(--sun); }
+.scene .st-hot { fill: none; stroke: var(--sky-a); }
+/* the farther of two skylines sits back in the haze */
+.scene .is-back .sc-far { fill: var(--far2); }
+.scene .is-back .sc-far2 { fill: var(--sky-c); }
+.scene .is-back .st-far { stroke: var(--far2); }
+
+/* three inks: the side's colour, black, paper */
+.side-ussr .scene, .side-us .scene, .side-neutral .scene, .side-tally .scene {
+  --ray: #efe4c6; --ray-o: 0.3; --glow: #efe4c6; --sun: #f3e9cc; --sun-ring: #15110e; --sun-ring-o: 0.7;
+  --haze-o: 0.35; --flag-a: #15110e; --flag-b: #f3e9cc;
+  --fig-d: #0e0b09; --fig-m: #2b2520; --fig-l: #6e655a; --skin: #ecdcb8; --skin-d: #b99b79;
+  --beard: #0a0807; --beard-l: #3b332c; --ink: #0a0807;
+  --crowd-a: #15110e; --crowd-b: #0a0807; --crowd-l: #f3e9cc; --crowd-l-o: 0.5; --accent: #f3e9cc; --dove: #f7efd8;
+}
+.side-ussr .scene {
+  --sky-a: #c8281e; --sky-b: #d9573f; --sky-c: #efdcb2; --far2: #e4b79b; --far: #b94a36; --haze: #efdcb2;
+  --mid: #2a1915; --flag-c: #c8281e; --pennant: #c8281e;
+}
+.side-us .scene {
+  --sky-a: #1f4f8f; --sky-b: #4a80c2; --sky-c: #e9e2c8; --far2: #a9c0dc; --far: #3a67a6; --haze: #e9e2c8;
+  --mid: #141d2e; --flag-c: #1f4f8f; --pennant: #1f4f8f;
+}
+.side-neutral .scene {
+  --sky-a: #b47f22; --sky-b: #d3a548; --sky-c: #f2e5bd; --far2: #e3c98c; --far: #9a6c1d; --haze: #f2e5bd;
+  --mid: #2a2013; --flag-c: #b47f22; --pennant: #b47f22;
+}
+.side-tally .scene {
+  --sky-a: #2a2622; --sky-b: #6d5a33; --sky-c: #ecd590; --far2: #c8a658; --far: #5c4a28; --haze: #ecd590;
+  --mid: #14110d; --flag-c: #c8962e; --pennant: #c8962e; --ray: #ecd590; --ray-o: 0.16; --sun: #f6e7b0; --glow: #f6e7b0;
+}

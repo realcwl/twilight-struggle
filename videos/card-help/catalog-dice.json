@@ -1,0 +1,14 @@
+{
+  "query": "dice",
+  "tier": "words",
+  "tier_detail": "local word match",
+  "dropped": 0,
+  "unindexed": 0,
+  "shown": 0,
+  "total": 448,
+  "warnings": [
+    "On-device search needs a one-time 33 MB download that stays on this machine. Nothing is sent anywhere. Ask the person you are working for, and pass --on-device --yes once they agree."
+  ],
+  "report_gap": "npx hyperframes feedback --search-miss \"dice\" --wanted \"<the move you needed>\" --tier words",
+  "results": []
+}

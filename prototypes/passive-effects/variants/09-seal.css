@@ -1,0 +1,55 @@
+/* 09 一枚印: one bar over the piles (where the play screen has its "all cards" bar), a list on
+   hover, and a sheet to read the cards on. */
+.v09-bar { display: flex; align-items: center; gap: 0.6em; width: 100%; height: 2.3rem; padding: 0 0.75em 0 0.6em; border: 1px solid rgba(240, 191, 74, 0.55); border-radius: 0.5rem; background: rgba(240, 191, 74, 0.08); font: inherit; color: var(--text); cursor: pointer; pointer-events: auto; transition: border-color 0.15s, background 0.15s, color 0.15s, box-shadow 0.2s; }
+.v09-glyph { flex: none; display: grid; place-items: center; font-size: 1.4rem; color: var(--gold); }
+.v09-bar .hud-lb { color: inherit; }
+.v09-pips { display: inline-flex; align-items: center; gap: 0.3rem; margin-left: 0.2rem; }
+.v09-pip { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: radial-gradient(circle at 50% 28%, var(--cl), var(--c) 62%); box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4); transition: opacity 0.4s, transform 0.4s; }
+.v09-pip.pe-pending { visibility: visible; opacity: 0; transform: scale(0); }
+.v09-pip.blink { animation: v09-blink 1.5s ease-out; }
+@keyframes v09-blink { 0%, 30%, 60% { transform: scale(1.9); box-shadow: 0 0 0 1px #fff, 0 0 0.8rem var(--cl); } 15%, 45%, 100% { transform: none; } }
+.v09-pip.out { opacity: 0.2; transform: scale(0.5); }
+.v09-bar .hud-num { margin-left: auto; font-size: 1.35rem; color: var(--gold); }
+.v09-bar .hud-num.tick { animation: v09-tick 0.7s cubic-bezier(0.3, 1.6, 0.5, 1); }
+@keyframes v09-tick { 0% { transform: scale(2.2); color: var(--bright); } }
+.v09-bar.empty { border-color: var(--line); background: rgba(240, 191, 74, 0.03); color: var(--muted); }
+.v09-bar.empty .hud-num, .v09-bar.empty .v09-glyph { color: var(--muted); }
+.v09-go { width: 0.5em; height: 0.5em; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); opacity: 0.7; transition: transform 0.15s; }
+.v09-bar:hover, .v09-bar:focus-visible { border-color: var(--gold); background: rgba(240, 191, 74, 0.16); color: var(--bright); outline: none; }
+.v09-bar:hover .v09-go { transform: translateX(0.18em) rotate(45deg); }
+.v09-bar.pe-new, .v09-bar.pe-fire { animation: v09-flash 1.5s ease-out; }
+@keyframes v09-flash { 0%, 45% { border-color: var(--gold); background: rgba(240, 191, 74, 0.34); box-shadow: 0 0 0 0.16rem var(--gold), 0 0 2rem rgba(240, 191, 74, 0.8); } }
+
+/* the list that comes up while the pointer is on the bar */
+.v09-peek { position: absolute; left: 0; bottom: calc(100% + 0.9rem); display: grid; gap: 0.15rem; min-width: 24rem; padding: 0.9rem 0.9rem 0.7rem; border-radius: 0.9rem; background: var(--panel); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.55), 0 0 0 0.4rem rgba(16, 12, 9, 0.6), 0 1.2rem 3rem rgba(0, 0, 0, 0.55); pointer-events: auto; animation: v09-peek 0.16s ease-out; }
+@keyframes v09-peek { 0% { opacity: 0; transform: translateY(0.5rem); } }
+.v09-line { display: flex; align-items: center; gap: 0.8rem; height: 2.9rem; padding: 0 0.8rem 0 0.6rem; border-radius: 0.5rem; white-space: nowrap; }
+.v09-line .pe-chip { font-size: 1.15rem; }
+.v09-line b { font: 900 1.4rem/1 var(--han); letter-spacing: 0.05em; color: var(--bright); }
+.v09-line span { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; padding-left: 1.6rem; font-size: 1.15rem; color: var(--muted); }
+.v09-mark { display: inline-grid; place-items: center; font-size: 1.3rem; color: var(--gold); }
+.v09-mark .pe-n { font-size: 1.45rem; color: var(--bright); }
+.v09-line.on { background: rgba(240, 191, 74, 0.14); box-shadow: inset 0 0 0 1px rgba(240, 191, 74, 0.5); }
+.v09-hint { margin: 0.5rem 0.6rem 0.1rem; padding-top: 0.7rem; border-top: 1px solid var(--line); font-size: 1.05rem; letter-spacing: 0.1em; color: var(--muted); }
+.v09-hint kbd { margin-left: 0.6em; padding: 0.1em 0.45em; border-radius: 0.3em; background: rgba(236, 223, 195, 0.12); font: 700 0.9em/1.3 ui-monospace, Menlo, monospace; }
+.v09-peek > .v09-hint:only-child { border: 0; padding-top: 0; }
+
+/* the sheet: the cards themselves, as when a pile is looked through */
+.v09-over { position: fixed; inset: 0; z-index: 50; font: 400 1.25rem/1.25 var(--han); color: var(--text); display: grid; place-items: center; background: rgba(8, 7, 6, 0.8); pointer-events: auto; }
+.v09-over[hidden] { display: none; }
+.v09-sheet { display: flex; flex-direction: column; width: min(122rem, 94vw); max-height: 88%; border-radius: 1.2rem; background: var(--panel); box-shadow: 0 0 0 1px rgba(240, 191, 74, 0.5), 0 2rem 6rem rgba(0, 0, 0, 0.7); }
+.v09-sheet header { display: flex; align-items: baseline; gap: 1.4rem; padding: 1.8rem 2.2rem 1.4rem; border-bottom: 1px solid var(--line); }
+.v09-sheet h2 { margin: 0; font: 900 2.2rem/1 var(--han); letter-spacing: 0.14em; color: var(--bright); }
+.v09-sheet header span { font: 400 1.3rem/1 var(--han); color: var(--muted); }
+.v09-x { margin-left: auto; width: 3.2rem; height: 3.2rem; border: 1px solid var(--line); border-radius: 50%; background: none; font: 400 2rem/1 -apple-system, 'Helvetica Neue', sans-serif; color: inherit; cursor: pointer; }
+.v09-x:hover { border-color: var(--gold); color: var(--gold); }
+.v09-grid { --card-w: 17.6rem; display: grid; grid-template-columns: repeat(auto-fill, var(--card-w)); justify-content: center; gap: 2.4rem 2.2rem; padding: 2.4rem 2.2rem 2.6rem; overflow: auto; }
+.v09-grid article { display: grid; align-content: start; gap: 0.9rem; }
+.v09-card { position: relative; width: var(--card-w); aspect-ratio: 5 / 7; }
+.v09-card .slot { position: absolute; inset: 0; cursor: default; }
+.v09-card .tilt { border-radius: 4.6cqw; box-shadow: 0 0.8cqw 3cqw rgba(0, 0, 0, 0.6); }
+.v09-grid p { margin: 0; min-height: 3.6rem; font: 400 1.25rem/1.45 var(--han); text-wrap: pretty; }
+.v09-grid dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.5rem 0.9rem; margin: 0; padding-top: 0.8rem; border-top: 1px solid var(--line); font-size: 1.15rem; }
+.v09-grid dt { letter-spacing: 0.14em; color: var(--muted); line-height: 1.5; }
+.v09-grid dd { display: flex; align-items: center; gap: 0.45rem; margin: 0; color: var(--bright); line-height: 1.35; }
+.v09-none { grid-column: 1 / -1; margin: 3rem 0; text-align: center; font-size: 1.4rem; color: var(--muted); }

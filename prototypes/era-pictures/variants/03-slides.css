@@ -1,0 +1,43 @@
+/* 03 Slides: a mounted transparency on the lit cell of a light table */
+.ep-host[data-ep='03'] { padding: 1.1rem 1.6rem 1.1rem 1.1rem; }
+.ep-03 { display: flex; align-items: stretch; gap: 1.6rem; --mw: 9.2rem; }
+
+/* dark glass, with one cell switched on under the current slide */
+.s3-table { position: relative; flex: none; display: flex; align-items: center; gap: 0.5rem; height: 11.4rem; padding: 0 0.9rem; border-radius: 0.5rem; background: linear-gradient(160deg, #1a1612, #0b0908 55%, #15110d); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(236, 223, 195, 0.14); }
+
+/* a cardboard mount: the window, the year in pencil, the frame number, the red corner dot */
+.s3-m { position: relative; flex: none; width: var(--mw); height: var(--mw); padding: calc(var(--mw) * 0.19) calc(var(--mw) * 0.09); border-radius: calc(var(--mw) * 0.045); background: linear-gradient(165deg, #f4eedd, #d8cfb7); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), inset 0 -0.2rem 0.4rem rgba(120, 100, 60, 0.25), 0 0.3rem 0.8rem rgba(0, 0, 0, 0.6); }
+.s3-m .ep-pic { width: 100%; height: 100%; border-radius: 0.12rem; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(90, 70, 40, 0.45); }
+.s3-m b { position: absolute; left: 10%; top: 5%; font: 400 calc(var(--mw) * 0.115)/1 'Kaiti SC', 'STKaiti', 'KaiTi', serif; letter-spacing: 0.04em; color: #4a3a2a; }
+.s3-m i { position: absolute; right: 9%; top: 5.5%; font: 600 calc(var(--mw) * 0.1)/1 'Share Tech Mono', ui-monospace, monospace; color: #7a6a54; }
+.s3-m u { position: absolute; left: 9%; bottom: 6%; width: calc(var(--mw) * 0.075); height: calc(var(--mw) * 0.075); border-radius: 50%; background: #c8382b; box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.3); }
+
+/* the lit cell: the film glows, the mount is rim-lit from below */
+.s3-lit { position: relative; z-index: 2; display: grid; place-items: center; width: calc(var(--mw) + 1.5rem); height: calc(var(--mw) + 1.5rem); border-radius: 0.3rem; background: radial-gradient(closest-side, #fff8e6, #f1e3bf 70%, #c9b88e); box-shadow: 0 0 2.6rem rgba(255, 236, 190, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.s3-m.now { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 0 0 1px rgba(60, 45, 20, 0.5), 0 0.2rem 0.5rem rgba(60, 40, 10, 0.5); }
+.s3-m.now .ep-pic { --state: brightness(1.12) saturate(1.18); }
+
+/* the ones already looked at: a loose pile on the dark glass, no light behind them */
+.s3-past { position: relative; flex: none; width: 6.4rem; height: 8rem; --mw: 5.6rem; }
+.s3-past .s3-m { position: absolute; left: 0.4rem; top: 1.2rem; }
+.s3-past .s3-m .ep-pic { --state: brightness(0.42) saturate(0.7); }
+.s3-past .p3 { transform: translate(-0.3rem, -0.9rem) rotate(-11deg); filter: brightness(0.6); }
+.s3-past .p2 { transform: translate(0.5rem, -0.3rem) rotate(6deg); filter: brightness(0.74); }
+.s3-past .p1 { transform: translate(0, 0.5rem) rotate(-3deg); filter: brightness(0.9); }
+
+/* the ones to come: mounts on edge in their box, seen from above */
+.s3-box { position: relative; flex: none; width: 5.2rem; height: 8.4rem; padding: 0.55rem 0.5rem 1.7rem; border-radius: 0.3rem; background: linear-gradient(180deg, #2a2118, #17120d); box-shadow: inset 0 0 0 1px rgba(236, 223, 195, 0.2), inset 0 0.5rem 0.8rem rgba(0, 0, 0, 0.6), 0 0.3rem 0.8rem rgba(0, 0, 0, 0.5); }
+.s3-box span { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+.s3-box span i { height: 0.3rem; border-radius: 0.06rem; background: linear-gradient(90deg, #cfc5aa, #f4eedd 30%, #d8cfb7); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6); transition: opacity 0.5s, transform 0.5s; }
+.s3-box span i.gone { opacity: 0.08; transform: scaleX(0.94); }
+.s3-box em { position: absolute; left: 0; right: 0; bottom: 0.42rem; text-align: center; font: 700 0.95rem/1 var(--han); letter-spacing: 0.1em; color: var(--muted); }
+
+.s3-side { display: flex; flex-direction: column; justify-content: center; gap: 0.95rem; min-width: 12.4rem; }
+.s3-ph { display: grid; gap: 0.55rem; margin-bottom: 0.4rem; }
+.s3-row { display: flex; align-items: center; gap: 0.8rem; height: 1.3rem; }
+
+/* a turn goes by: the new slide comes down onto the light */
+.s3-go .s3-m.now { animation: s3-lay 0.6s cubic-bezier(0.2, 0.7, 0.3, 1); }
+.s3-go .s3-past .p1 { animation: s3-toss 0.6s cubic-bezier(0.2, 0.7, 0.3, 1); }
+@keyframes s3-lay { from { transform: translate(5rem, -0.6rem) rotate(9deg) scale(0.7); opacity: 0; } }
+@keyframes s3-toss { from { transform: translate(7rem, 0) rotate(8deg) scale(1.5); opacity: 0.4; } }
