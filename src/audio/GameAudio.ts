@@ -100,7 +100,7 @@ export class GameAudio extends EventTarget implements AudioPort {
     if (!this.context || this.disposed) return;
     return this.loading ??= Promise.all([...new Set(Object.values(CUES).flatMap(c => [...c.files]))].map(async file => {
       try {
-        const r = await fetch(`/audio/sfx/${file}.mp3?v=1`, { signal: this.abort.signal });
+        const r = await fetch(`${import.meta.env.BASE_URL}audio/sfx/${file}.mp3?v=1`, { signal: this.abort.signal });
         if (!r.ok) throw new Error('missing sound');
         const buffer = await this.context!.decodeAudioData(await r.arrayBuffer());
         if (!this.disposed) this.buffers.set(file, buffer);
@@ -180,7 +180,7 @@ export class GameAudio extends EventTarget implements AudioPort {
       return;
     }
     const generation = ++this.generation;
-    const media = new Audio(`/audio/music/${SCORE[side].file}`);
+    const media = new Audio(`${import.meta.env.BASE_URL}audio/music/${SCORE[side].file}`);
     media.preload = 'auto'; media.setAttribute('playsinline', '');
     const gain = ctx.createGain(), node = ctx.createMediaElementSource(media);
     gain.gain.value = 0; node.connect(gain); gain.connect(this.musicBus!);

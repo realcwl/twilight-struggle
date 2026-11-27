@@ -9,6 +9,12 @@ npm run deploy     # IaC 核对、构建、迁移并发布
 
 详见 [多人对战、测试与部署说明](docs/multiplayer.md)。单机入口与既有地图交互保留。
 
+### GitHub Pages 本地构建
+
+运行 `npm run build:pages` 生成 `dist-pages/`。将该目录的内容同步到个人网站仓库的 `static/twilight/` 和 `docs/twilight/`。前者是 Hugo 的静态文件来源，后者是 GitHub Pages 的发布目录。游戏大厅和房间邀请共用 `/twilight/` 入口。
+
+联机仍使用现有的 Cloudflare Worker。首次上线时先发布带有 `PAGES_ORIGIN` 配置的 Worker，再发布个人网站。跨域本地测试可在构建时通过 `VITE_ROOM_API_ORIGIN` 指向本机 Worker，并将本机 Worker 的 `PAGES_ORIGIN` 设为前端预览的来源。
+
 A 3D world map with a state-editing sandbox and a play screen containing the HUD and localized cards.
 The map draws supplied state; the play screen runs a complete local match against an interchangeable AI. See [single-player and AI integration](docs/single-player.md). Spec: [`plans/maps.md`](plans/maps.md).
 

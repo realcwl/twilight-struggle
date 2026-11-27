@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "coldwar-duel",
   "account_id": "0df82ca444cc58459dbd9223b9310931",
+  "vars": { "PAGES_ORIGIN": "https://realcwl.github.io" },
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-14",
   "workers_dev": true,

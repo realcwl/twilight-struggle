@@ -71,7 +71,7 @@ npm run test:online:live -- https://coldwar-duel.coldwar-table-0931.workers.dev 
 
 `src/net/replay.ts` 在完整行动检查点上重放已验证的决策，遇到待选择项立即返回。服务器不保留等待用户的 JS Promise，因此 Durable Object 休眠／重启后可以恢复任意待选步骤。每个决定用检查点代次和序号定位，提交还带独立 requestId；已应用的请求可以安全重试。
 
-`worker/index.ts` 每个房间用一个 Durable Object 串行处理操作，校验凭证、合法牌、目标和点数，先持久化，再分别发送两方可见的画面和选项。玩家只收到自己的手牌与选择；头条双方提交前不会公开。WebSocket 使用休眠 API、自动心跳回复；同源校验、创建／加入限流和房间连接上限在 Worker 中实现。
+`worker/index.ts` 每个房间用一个 Durable Object 串行处理操作，校验凭证、合法牌、目标和点数，先持久化，再分别发送两方可见的画面和选项。玩家只收到自己的手牌与选择；头条双方提交前不会公开。WebSocket 使用休眠 API、自动心跳回复；同源或指定 Pages 来源校验、创建／加入限流和房间连接上限在 Worker 中实现。
 
 `src/net/client.ts` 将协议接入现有 WorldMap、Hud、Spotlight、卡牌库和 tooltip。`src/net/placement.ts` 仅负责本地放置预览；服务器重做并验证每一步。AI 不部署到浏览器的多人入口，不接管任何断线玩家。
 

@@ -47,6 +47,8 @@ mountLanguageSwitcher();
 export const audio = new GameAudio();
 const $ = <T extends HTMLElement>(id: string) =>
   document.getElementById(id) as T;
+const roomApiOrigin = import.meta.env.VITE_ROOM_API_ORIGIN || location.origin;
+const lobbyPath = import.meta.env.MODE === "pages" ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}online.html`;
 const storageKey = (code: string) => `coldwar.online.v1.${code}`;
 const saved = (code: string): Credential | null => {
   try {
@@ -63,7 +65,7 @@ function notice(text: string) {
   setTimeout(() => ($("room-notice").hidden = true), 6000);
 }
 async function api(path: string, body: unknown = {}) {
-  const res = await fetch(path, {
+  const res = await fetch(new URL(path, roomApiOrigin), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -78,7 +80,7 @@ async function enter(c: Credential) {
   audio.setFaction(c.side);
   localStorage.setItem(storageKey(c.code), JSON.stringify(c));
   localStorage.setItem("coldwar.online.last", c.code);
-  history.replaceState(null, "", `/online.html?room=${c.code}&lang=${getLanguage()}`);
+  history.replaceState(null, "", `${lobbyPath}?room=${c.code}&lang=${getLanguage()}`);
   $("lobby").hidden = true;
   $("game").hidden = false;
   $("loading").hidden = false;
@@ -132,7 +134,7 @@ if (requested) {
 }
 async function start(credential: Credential) {
   const [map] = await Promise.all([
-    WorldMap.create($("map"), "/maps/coldwar", {
+    WorldMap.create($("map"), `${import.meta.env.BASE_URL}maps/coldwar`, {
       lang: getLanguage(),
       onProgress: (n, t) => {
         $("loading").querySelector<HTMLElement>("i")!.style.width =
@@ -254,7 +256,7 @@ async function start(credential: Credential) {
         ),
       }),
       cards,
-      () => location.assign("/online.html"),
+      () => location.assign(lobbyPath),
       audio,
       player,
     );
@@ -424,9 +426,9 @@ async function start(credential: Credential) {
       });
   }
   function connect() {
-    ws = new WebSocket(
-      `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/api/room/${credential.code}/socket`,
-    );
+    const socketUrl = new URL(`/api/room/${credential.code}/socket`, roomApiOrigin);
+    socketUrl.protocol = socketUrl.protocol === "https:" ? "wss:" : "ws:";
+    ws = new WebSocket(socketUrl);
     ws.onopen = () => {
       retry = 0;
       reset();
@@ -471,7 +473,7 @@ async function start(credential: Credential) {
       }
       if (!stopped) {
         try {
-          const status = await fetch(`/api/room/${credential.code}/status`);
+          const status = await fetch(new URL(`/api/room/${credential.code}/status`, roomApiOrigin));
           if(status.status === 404) {
             stopped = true;
             $("room-status").textContent = i18n("房间已过期");
@@ -504,7 +506,7 @@ async function start(credential: Credential) {
     const list = d.querySelector(".sheet-list")!;
     for (const [label, run] of [
       [i18n("继续对局"), () => d.close()],
-      [i18n("返回大厅"), () => location.assign("/online.html")],
+      [i18n("返回大厅"), () => location.assign(lobbyPath)],
       [
         i18n("认输"),
         () => {

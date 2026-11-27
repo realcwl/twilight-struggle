@@ -8,7 +8,7 @@ let countrySource;
 export function setCountryHelp(source){countrySource=source;return()=>{if(countrySource===source){source.highlight(null);countrySource=undefined;}};}
 let installed;
 /** One delegated, top-layer popover for every card, including cards mounted inside dialogs. */
-export function installTermHelp({mediaBase='/cards/help/'}={}) {
+export function installTermHelp({mediaBase=(import.meta.env?.BASE_URL ?? '/')+'cards/help/'}={}) {
  if(installed)return installed;
  const pane=document.createElement('aside');pane.id='card-term-help';pane.className='term-help sheet is-small';pane.hidden=true;pane.setAttribute('popover','manual');pane.setAttribute('role','dialog');pane.setAttribute('aria-labelledby','th-title');
  pane.innerHTML=i18n("<header><div class=\"sheet-head\"><small id=\"th-group\" class=\"sheet-kicker\"></small><h2 id=\"th-title\" class=\"sheet-title\"></h2></div><button class=\"th-close\" aria-label=\"关闭说明\">×</button></header><div class=\"th-media\"><video muted playsinline loop preload=\"none\"></video><button class=\"th-play\" type=\"button\">暂停</button></div><div class=\"th-body\"><p class=\"th-summary\"></p><p class=\"th-example\"></p><footer><a target=\"_blank\" rel=\"noreferrer\">规则依据 ↗</a><span>游戏画面演示 · Esc 关闭</span></footer></div>");

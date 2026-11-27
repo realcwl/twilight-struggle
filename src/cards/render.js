@@ -7,7 +7,7 @@ export const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 
 function titleSize(title){return title.length<=7?8.3:title.length<=10?6.8:title.length<=15?5.6:4.7;}
 function rulesSize(c){const n=c.effectsZh.join('').length+c.prerequisiteZh.length;return n>180?3.55:n>130?3.85:n>95?4.1:n>60?4.5:4.9;}
-export function cardHTML(c,{back=false,lazy=true,artReady=true,assetBase='/cards/',interactive=true,locale=getLanguage()}={}){
+export function cardHTML(c,{back=false,lazy=true,artReady=true,assetBase=(import.meta.env?.BASE_URL ?? '/')+'cards/',interactive=true,locale=getLanguage()}={}){
  if(back)return `<div class="game-card back-card" aria-label="${t("统一中立背面",[],locale)}"><img src="${assetBase}back.png" alt="${t("黑色珐琅与金色罗盘背面",[],locale)}" loading="${lazy?'lazy':'eager'}"></div>`;
  const {title,effects,prerequisite,note}=cardCopy(c,locale);
  const history=interactive?`<span class="card-history-trigger" data-card-history="${Number(c.id)}" tabindex="0" role="button" aria-haspopup="dialog" aria-expanded="false" aria-label="${esc(title)} · ${t("历史故事",[],locale)}">${esc(title)}${c.once?'<sup>*</sup>':''}</span>`:`${esc(title)}${c.once?'<sup>*</sup>':''}`;

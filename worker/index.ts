@@ -27,6 +27,7 @@ import { byteRange } from "./range";
 import { acceptChat, type ChatState } from "../src/net/chat-state";
 const scenario = rawScenario as unknown as Scenario;
 interface Env {
+  PAGES_ORIGIN: string;
   ROOMS: DurableObjectNamespace;
   ASSETS: Fetcher;
   ROOM_LIMIT: RateLimit;
@@ -337,51 +338,70 @@ async function asset(request: Request, env: Env) {
   }
   return response;
 }
+async function roomRequest(request: Request, env: Env, url: URL): Promise<Response> {
+  if (+(request.headers.get("Content-Length") ?? 0) > 16384)
+    return json({ error: "请求过大" }, 413);
+  if (url.pathname === "/api/create" || url.pathname.endsWith("/join")) {
+    if (
+      !(
+        await env.ROOM_LIMIT.limit({
+          key: request.headers.get("CF-Connecting-IP") ?? "local",
+        })
+      ).success
+    )
+      return json({ error: "请求过于频繁，请稍后再试" }, 429);
+  }
+  if (url.pathname === "/api/create" && request.method === "POST") {
+    const body = (await request.json()) as { side?: number };
+    const side = body.side === 1 ? 1 : 0;
+    const alphabet = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+    for (let i = 0; i < 3; i++) {
+      const code = Array.from(
+        crypto.getRandomValues(new Uint8Array(8)),
+        (n) => alphabet[n % alphabet.length],
+      ).join("");
+      const result = await env.ROOMS.getByName(code).fetch(
+        new Request(`${url.origin}/create`, {
+          method: "POST",
+          body: JSON.stringify({ code, side }),
+        }),
+      );
+      if (result.status !== 409) return result;
+    }
+    return json({ error: "创建失败，请重试" }, 503);
+  }
+  const match = /^\/api\/room\/([A-Z2-9]{8})\/(join|socket|status)$/.exec(
+    url.pathname,
+  );
+  if (match) return env.ROOMS.getByName(match[1]).fetch(request);
+  return json({ error: "Not found" }, 404);
+}
+
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: Env) {
     const url = new URL(request.url);
     if (!url.pathname.startsWith("/api/")) return asset(request, env);
-    if (url.pathname === "/api/health") return json({ ok: true, protocol: 1 });
-    if (
-      request.headers.get("Origin") &&
-      request.headers.get("Origin") !== url.origin
-    )
+    const origin = request.headers.get("Origin");
+    const fromPages = !!origin && origin === env.PAGES_ORIGIN;
+    if (origin && origin !== url.origin && !fromPages)
       return json({ error: "来源不允许" }, 403);
-    if (+(request.headers.get("Content-Length") ?? 0) > 16384)
-      return json({ error: "请求过大" }, 413);
-    if (url.pathname === "/api/create" || url.pathname.endsWith("/join")) {
-      if (
-        !(
-          await env.ROOM_LIMIT.limit({
-            key: request.headers.get("CF-Connecting-IP") ?? "local",
-          })
-        ).success
-      )
-        return json({ error: "请求过于频繁，请稍后再试" }, 429);
-    }
-    if (url.pathname === "/api/create" && request.method === "POST") {
-      const body = (await request.json()) as { side?: number };
-      const side = body.side === 1 ? 1 : 0;
-      const alphabet = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
-      for (let i = 0; i < 3; i++) {
-        const code = Array.from(
-          crypto.getRandomValues(new Uint8Array(8)),
-          (n) => alphabet[n % alphabet.length],
-        ).join("");
-        const result = await env.ROOMS.getByName(code).fetch(
-          new Request(`${url.origin}/create`, {
-            method: "POST",
-            body: JSON.stringify({ code, side }),
-          }),
-        );
-        if (result.status !== 409) return result;
-      }
-      return json({ error: "创建失败，请重试" }, 503);
-    }
-    const match = /^\/api\/room\/([A-Z2-9]{8})\/(join|socket|status)$/.exec(
-      url.pathname,
-    );
-    if (match) return env.ROOMS.getByName(match[1]).fetch(request);
-    return json({ error: "Not found" }, 404);
+
+    if (fromPages && request.method === "OPTIONS")
+      return new Response(null, { status: 204, headers: {
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Methods": "GET, POST",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Vary": "Origin",
+      } });
+
+    const response = url.pathname === "/api/health"
+      ? json({ ok: true, protocol: 1 })
+      : await roomRequest(request, env, url);
+    // The upgrade response owns the live socket and must be returned intact.
+    if (!fromPages || response.status === 101) return response;
+    const corsResponse = new Response(response.body, response);
+    corsResponse.headers.set("Access-Control-Allow-Origin", origin);
+    corsResponse.headers.append("Vary", "Origin");
+    return corsResponse;
   },
 } satisfies ExportedHandler<Env>;

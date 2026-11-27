@@ -14,4 +14,4 @@ export const ERA_TIMELINE: NonNullable<HudRules['timeline']> = [
   { years: [1979, 1982], name: { zh: '航天飞机', en: 'Space shuttle' , es: translateDictionary('航天飞机', 'es') }, position: '54% 44%', rounds: 7 },
   { years: [1983, 1986], name: { zh: '欧洲导弹', en: 'Missiles in Europe' , es: translateDictionary('欧洲导弹', 'es') }, position: '34% 52%', rounds: 7 },
   { years: [1987, 1991], name: { zh: '柏林墙倒', en: 'Fall of the Berlin Wall' , es: translateDictionary('柏林墙倒', 'es') }, position: '50% 46%', rounds: 7 },
-].map((p, i) => ({ ...p, years: p.years as [number, number], image: `/hud/eras/t${String(i + 1).padStart(2, '0')}.webp`, quotes: ERA_QUOTES[i] }));
+].map((p, i) => ({ ...p, years: p.years as [number, number], image: `./hud/eras/t${String(i + 1).padStart(2, '0')}.webp`, quotes: ERA_QUOTES[i] }));
